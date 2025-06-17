@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:mkworld-checklist": "node dist/mkworld-checklist/server/server.mjs",
-    "format": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\""
+    "format": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\"",
+    "lint": "eslint \"src/**/*.ts\" --fix"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@angular-eslint/eslint-plugin": "^20.1.0",
     "@angular/build": "^20.0.2",
     "@angular/cli": "^20.0.2",
     "@angular/compiler-cli": "^20.0.0",
