@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:mkworld-checklist": "node dist/mkworld-checklist/server/server.mjs"
+    "serve:ssr:mkworld-checklist": "node dist/mkworld-checklist/server/server.mjs",
+    "format": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\""
   },
   "private": true,
   "dependencies": {
@@ -19,8 +20,11 @@
     "@angular/platform-server": "^20.0.0",
     "@angular/router": "^20.0.0",
     "@angular/ssr": "^20.0.2",
+    "@tailwindcss/postcss": "^4.1.10",
     "express": "^5.1.0",
+    "postcss": "^8.5.6",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.1.10",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -41,6 +45,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.5.3",
     "typescript": "~5.8.2",
     "typescript-eslint": "^8.34.1"
   }
