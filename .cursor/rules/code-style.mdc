@@ -1,0 +1,33 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Code Style Guidelines
+
+## TypeScript/Angular Conventions
+- Use standalone components
+- Follow Angular's style guide
+- Use TypeScript strict mode
+- Implement proper error handling
+- Use Angular's built-in features (pipes, directives)
+
+## File Organization
+- Keep components focused and single-responsibility
+- Group related files together
+- Use consistent file naming
+- Keep files maintainable and focused
+
+## Testing
+- Write unit tests for components
+- Use Angular's testing utilities
+- Follow testing best practices
+- Maintain good test coverage
+
+## Performance
+- Use lazy loading for routes
+- Implement proper change detection
+- Optimize bundle size
+- Follow Angular performance best practices
+
+

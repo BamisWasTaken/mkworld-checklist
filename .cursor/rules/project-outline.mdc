@@ -1,0 +1,140 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Mario Kart World Checklist Application
+
+## Project Overview
+A single-page application to help players track their progress in Mario Kart World by managing sticker collection and related tasks. Initial development will focus on desktop experience with placeholder assets.
+
+## Core Features
+
+### 1. Header Section
+- Game-style title
+- Brief instructions for using the sticker album
+- Progress display:
+  - Progress bar
+  - Counter (X/1056 stickers)
+- Hide collected stickers toggle
+
+### 2. Sticker Album
+- Grid layout: 4 rows × 8 columns per page (32 stickers per page)
+- All stickers are shown (collected and uncollected)
+- Collected stickers: colored or grayscale (as in-game)
+- Uncollected stickers: slightly faded, become full color and slightly larger on hover
+- Every sticker has a clickable checkbox/circle in the top-right corner (always visible) to mark as collected/uncollected
+- No exclamation icons
+- Task bar always visible below the album, shows the description of the currently hovered sticker (or a default message if none is hovered)
+- Pagination:
+  - Number of pages is dynamic: `Math.ceil(totalStickers / 32)`
+  - Dots below the task bar indicate the current page
+  - Yellow arrow buttons on left/right for navigation (no "R" letter)
+  - No left arrow on the first page, no right arrow on the last page
+  - Drag-to-scroll navigation (left/right only)
+- No sort or X button
+- Subtle Mario-themed background pattern if possible, otherwise a plain color for the prototype
+
+### 3. World Map
+- Single large interactive map
+- Zoom and pan functionality
+- Collectable markers:
+  - Peach Coins
+  - P-Switches
+  - ? Mark Panels
+- Marker interaction:
+  - Click to show details
+  - Completion checkbox
+  - Description
+  - Task information
+  - Future: Location images
+- Placeholder map initially
+
+### 4. To-Do List
+- List of non-freeroam tasks
+- Each item shows:
+  - Sticker preview (placeholder initially)
+  - Task description
+  - Completion checkbox
+- Auto-hide completed items
+- Syncs with sticker album
+
+### 5. Footer
+- Simple footer with basic information
+- Links to resources
+- Version information
+
+## Technical Requirements
+
+### UI/UX
+- Mario Kart World styling:
+  - Game fonts
+  - Button designs
+  - Color scheme
+  - Animations
+- Desktop-first design
+- Smooth transitions
+- Interactive elements
+
+### Data Management
+- Local storage for progress
+- Sticker collection tracking (1056 total)
+- Task completion status
+- Map marker positions
+- User progress persistence
+
+### Performance
+- Optimized image loading
+- Smooth map interactions
+- Efficient state management
+- Responsive animations
+- Smooth pagination transitions
+
+## Implementation Phases
+
+### Phase 1: Core Structure
+1. Set up basic layout
+2. Implement placeholder sticker grid
+3. Create pagination system
+4. Add basic map interaction
+5. Implement local storage
+
+### Phase 2: Functionality
+1. Add sticker interaction
+2. Implement map markers
+3. Create to-do list
+4. Add progress tracking
+5. Implement hide collected feature
+
+### Phase 3: Polish
+1. Add animations
+2. Implement smooth transitions
+3. Add hover effects
+4. Polish interactions
+5. Add progress bar
+
+### Phase 4: Asset Integration
+1. Replace placeholders with actual assets
+2. Optimize image loading
+3. Fine-tune animations
+4. Final testing
+
+## Questions to Address
+1. What specific game fonts should we use?
+2. How many stickers per page in the album? (now set to 32)
+3. What's the exact layout of the sticker grid? (now set to 4x8)
+4. Should we add a search/filter function for stickers?
+5. Should we add a reset progress option?
+6. Do we need a help/tutorial section?
+7. What's the exact size of the map image?
+8. How many markers should be on the map initially?
+
+## Next Steps
+1. Set up project structure
+2. Create placeholder components
+3. Implement basic layout
+4. Add pagination system
+5. Create map interaction
+6. Add progress tracking
+7. Implement local storage
+8. Add animations and polish

@@ -1,0 +1,26 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Angular Project Structure
+
+## Core Application Files
+- [src/app/app.ts](mdc:src/app/app.ts) - Main application component
+- [src/app/app.html](mdc:src/app/app.html) - Main application template
+- [src/app/app.css](mdc:src/app/app.css) - Main application styles
+
+## Configuration and Routing
+- [src/app/app.config.ts](mdc:src/app/app.config.ts) - Application configuration
+- [src/app/app.routes.ts](mdc:src/app/app.routes.ts) - Client-side routing
+- [src/app/app.config.server.ts](mdc:src/app/app.config.server.ts) - Server configuration
+- [src/app/app.routes.server.ts](mdc:src/app/app.routes.server.ts) - Server-side routing
+
+## Entry Points
+- [src/main.ts](mdc:src/main.ts) - Client-side entry point
+- [src/main.server.ts](mdc:src/main.server.ts) - Server-side entry point
+- [src/index.html](mdc:src/index.html) - Main HTML template
+
+## Testing
+- [src/app/app.spec.ts](mdc:src/app/app.spec.ts) - Component tests
+

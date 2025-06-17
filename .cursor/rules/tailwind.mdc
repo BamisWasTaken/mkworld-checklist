@@ -1,0 +1,38 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Tailwind CSS Guidelines
+
+## Configuration
+- [tailwind.config.js](mdc:tailwind.config.js) - Tailwind configuration for content paths and theme customization
+- [.postcssrc.json](mdc:.postcssrc.json) - PostCSS configuration for Tailwind
+- [src/styles.css](mdc:src/styles.css) - Global styles and Tailwind imports
+
+## Best Practices
+- Use Tailwind utility classes directly in templates
+- Follow mobile-first responsive design
+- Use @apply for repeated utility combinations
+- Keep custom styles minimal and use Tailwind's built-in utilities
+
+## Component Styling
+- Use Tailwind classes in [app.html](mdc:src/app/app.html) and component templates
+- Avoid writing custom CSS when possible
+- Use Tailwind's responsive prefixes (sm:, md:, lg:, xl:)
+- Leverage Tailwind's dark mode support
+
+## Performance
+- Tailwind automatically purges unused styles in production
+- Keep utility class combinations minimal
+- Use @layer to organize custom styles
+- Follow Tailwind's performance optimization guidelines
+
+## Common Patterns
+- Use flex and grid utilities for layouts
+- Utilize Tailwind's spacing scale
+- Use color palette consistently
+- Implement responsive designs using breakpoint prefixes
+
+
+
