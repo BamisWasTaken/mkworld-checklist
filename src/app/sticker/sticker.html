@@ -1,0 +1,10 @@
+<div class="relative flex flex-col items-center group cursor-pointer transition-transform duration-200"
+    [class.opacity-60]="!checked()" (mouseenter)="hovered.set(true)" (mouseleave)="hovered.set(false)">
+    <div class="w-16 h-16 rounded-full bg-gray-300 group-hover:bg-yellow-200 group-hover:scale-105 transition-all flex items-center justify-center shadow"
+        [class.scale-110]="hovered()">
+        <span class="text-2xl font-bold text-gray-500">{{ index() + 1 }}</span>
+    </div>
+    <input type="checkbox"
+        class="absolute top-1 right-1 w-5 h-5 accent-yellow-400 border-2 border-gray-400 rounded-full bg-white shadow"
+        [checked]="checked()" (change)="toggleCheck()" aria-label="Toggle sticker collected" />
+</div>
