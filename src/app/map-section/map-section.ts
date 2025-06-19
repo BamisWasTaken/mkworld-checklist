@@ -1,21 +1,33 @@
 import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, inject, OnDestroy, PLATFORM_ID, viewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, inject, input, OnDestroy, PLATFORM_ID, viewChild } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
+import { StickerModel } from '../core/models/sticker-model';
+import { Collectible } from './collectible/collectible';
 
 @Component({
   selector: 'mkworld-map-section',
   templateUrl: './map-section.html',
   styleUrls: ['./map-section.css'],
-  imports: [TranslateModule]
+  imports: [TranslateModule, Collectible]
 })
 export class MapSection implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
-  
+
+  readonly stickers = input.required<StickerModel[]>();
+  readonly disappearingStickers = input.required<Set<StickerModel>>();
+
   readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
-  
+
   private pzInstance: PanZoom | null = null;
   protected isPanning = false;
+
+  readonly collectibles = computed(() =>
+    this.stickers().filter(sticker =>
+      sticker.mapPosition &&
+      (!sticker.checked || this.disappearingStickers().has(sticker))
+    )
+  );
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -23,7 +35,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
         bounds: true,
         boundsPadding: 1,
         minZoom: 1,
-        maxZoom: 5,
+        maxZoom: 10,
       });
 
       this.pzInstance.on('panstart', () => this.isPanning = true);

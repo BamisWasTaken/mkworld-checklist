@@ -1,6 +1,8 @@
 <section class="w-full h-[767px] rounded-lg shadow overflow-hidden">
   <div id="map-panzoom" #mapPanzoom class="relative w-full h-full">
-    <p style="position: absolute; top: 500px; left: 500px; z-index: 1000;">test</p>
     <img src="/imgs/map.jpeg" alt="Mario Kart World Map" class="w-full h-full cursor-grab" [class.cursor-grabbing]="isPanning" />
+    @for (sticker of collectibles(); track sticker.index) {
+      <mkworld-collectible [sticker]="sticker"></mkworld-collectible>
+    }
   </div>
 </section>

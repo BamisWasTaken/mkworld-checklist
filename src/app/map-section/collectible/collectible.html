@@ -1,0 +1,22 @@
+<div
+  class="collectible"
+  [class.appearing]="appearing() && !disappearing()"
+  [class.hovered]="hovered()"
+  [class.disappearing]="disappearing()"
+  [ngStyle]="{
+    left: sticker().mapPosition!.xPercentage + '%',
+    top: sticker().mapPosition!.yPercentage + '%'
+  }"
+  (mouseenter)="hovered.set(true)"
+  (mouseleave)="hovered.set(false)"
+  tabindex="0"
+  role="button"
+  aria-label="Collectible marker"
+>
+  <img
+    [src]="`/imgs/${sticker().mapPosition!.collectibleType}.png`"
+    [alt]="sticker().mapPosition!.collectibleType + ' marker'"
+    class="collectible-img"
+    draggable="false"
+  />
+</div>

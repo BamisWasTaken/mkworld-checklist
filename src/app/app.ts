@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { stickerData } from './core/data/sticker-data';
 import { StickerModel } from './core/models';
@@ -26,7 +26,10 @@ import { TodoSection } from './todo-section/todo-section';
 export class App {
   private readonly translateService = inject(TranslateService);
 
-  progress = signal(0);
+  stickers = signal<StickerModel[]>(stickerData);
+  readonly disappearingStickers = signal<Set<StickerModel>>(new Set());
+
+  progress = computed(() => this.stickers().filter((sticker: StickerModel) => sticker.checked).length);
   readonly total = stickerData.length;
 
   constructor() {
@@ -35,7 +38,17 @@ export class App {
     this.translateService.use('en');
   }
 
-  onStickersUpdated(stickers: StickerModel[]): void {
-    this.progress.update(() => stickers.filter((sticker: StickerModel) => sticker.checked).length);
+  onStickerChecked(sticker: StickerModel): void {
+    this.stickers.update(stickers => stickers.map(s => s.index === sticker.index ? sticker : s));
+    if (sticker.checked && !this.disappearingStickers().has(sticker)) {
+      const newSet = new Set(this.disappearingStickers());
+      newSet.add(sticker);
+      this.disappearingStickers.set(newSet);
+      setTimeout(() => {
+        const afterSet = new Set(this.disappearingStickers());
+        afterSet.delete(sticker);
+        this.disappearingStickers.set(afterSet);
+      }, 200);
+    }
   }
 }

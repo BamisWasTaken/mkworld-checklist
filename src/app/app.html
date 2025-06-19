@@ -4,9 +4,9 @@
 
 <!-- Main Content -->
 <main class="flex flex-col items-center gap-8 px-4">
-  <mkworld-sticker-album class="w-full max-w-5xl" (onStickersUpdated)="onStickersUpdated($event)"></mkworld-sticker-album>
+  <mkworld-sticker-album class="w-full max-w-5xl" [stickers]="stickers()" (onStickerChecked)="onStickerChecked($event)"></mkworld-sticker-album>
 
-  <mkworld-map-section class="w-full max-w-5xl"></mkworld-map-section>
+  <mkworld-map-section class="w-full max-w-5xl" [stickers]="stickers()" [disappearingStickers]="disappearingStickers()"></mkworld-map-section>
 
   <mkworld-todo-section class="w-full max-w-3xl"></mkworld-todo-section>
 </main>
