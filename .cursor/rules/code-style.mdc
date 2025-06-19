@@ -13,7 +13,7 @@ alwaysApply: false
 - Use Angular's built-in features (pipes, directives)
 - **All user-facing strings must use ngx-translate for internationalization. Do not use hardcoded strings in templates or components.**
 - **Use the inject() function for dependency injection instead of constructor injection (as recommended by Angular).**
-- **Prefer using Angular signals for state management and reactivity.**
+- **Prefer using Angular signals for state management and reactivity. This includes input() and output()**
 - **Use the new Angular control flow syntax (e.g., @for, @if) instead of legacy structural directives like *ngFor and *ngIf.**
 
 ## File Organization
