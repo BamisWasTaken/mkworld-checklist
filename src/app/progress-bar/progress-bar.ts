@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -8,8 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
     imports: [TranslateModule]
 })
 export class ProgressBar {
-    progress = signal(0);
-    total = signal(1056);
+    readonly progress = input.required<number>();
+    readonly total = input.required<number>();
 
     progressPercent = computed(() => this.total() > 0 ? (this.progress() / this.total()) * 100 : 0);
 } 

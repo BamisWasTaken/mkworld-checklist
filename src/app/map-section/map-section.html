@@ -1,3 +1,6 @@
-<section class="w-full h-96 bg-blue-100 rounded-lg shadow flex items-center justify-center">
-  <span class="text-lg text-blue-600">{{ 'MAP_PLACEHOLDER' | translate }}</span>
+<section class="w-full h-[767px] rounded-lg shadow overflow-hidden">
+  <div id="map-panzoom" #mapPanzoom class="relative w-full h-full">
+    <p style="position: absolute; top: 500px; left: 500px; z-index: 1000;">test</p>
+    <img src="/imgs/map.jpeg" alt="Mario Kart World Map" class="w-full h-full cursor-grab" [class.cursor-grabbing]="isPanning" />
+  </div>
 </section>

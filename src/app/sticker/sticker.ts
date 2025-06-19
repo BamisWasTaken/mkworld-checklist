@@ -1,4 +1,4 @@
-import { Component, input, model, signal } from '@angular/core';
+import { Component, effect, input, model, output, signal } from '@angular/core';
 
 @Component({
     selector: 'mkworld-sticker',
@@ -7,10 +7,28 @@ import { Component, input, model, signal } from '@angular/core';
 })
 export class Sticker {
     readonly index = input.required<number>();
+    readonly description = input.required<string>();
     readonly checked = model(false);
+    
+    readonly onHover = output<boolean>();
+
     hovered = signal(false);
 
+    constructor() {
+        effect(() => {
+            this.onHover.emit(this.hovered());
+        });
+    }
+
     toggleCheck() {
-        this.checked.update(v => !v);
+        this.checked.update((checked: boolean) => !checked);
+    }
+
+    onMouseEnter() {
+        this.hovered.set(true);
+    }
+
+    onMouseLeave() {
+        this.hovered.set(false);
     }
 } 

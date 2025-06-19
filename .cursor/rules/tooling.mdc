@@ -30,3 +30,8 @@ alwaysApply: false
 - Implement proper error handling
 - Use environment-specific configurations
 
+## Assets
+- **Use the public folder for all assets (images, translations, etc.). The assets folder is obsolete and should not be used.**
+
+
+

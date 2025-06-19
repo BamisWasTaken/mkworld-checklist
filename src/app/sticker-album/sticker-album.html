@@ -1,20 +1,39 @@
-<section class="w-full bg-white rounded-lg shadow p-6 relative flex flex-col items-center">
-    <button
-        class="absolute left-0 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition disabled:opacity-30"
-        aria-label="Previous Page" [disabled]="page() === 0" (click)="prevPage()">
-        <span class="block w-6 h-6 border-l-4 border-b-4 border-yellow-700 rotate-45"></span>
-    </button>
-    <button
-        class="absolute right-0 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition"
-        aria-label="Next Page" [disabled]="page() === pageCount() - 1" (click)="nextPage()">
-        <span class="block w-6 h-6 border-r-4 border-b-4 border-yellow-700 -rotate-45"></span>
-    </button>
-    <div class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full drag-scroll-x select-none">
-        @for (sticker of pageStickers(); track $index) {
-            <mkworld-sticker [index]="sticker.index" [checked]="sticker.checked" (checkedChange)="onCheck(sticker, $event)">
-            </mkworld-sticker>
-        }
+<section class="w-full bg-white rounded-lg shadow relative flex flex-col items-center overflow-hidden">
+    <!-- Padding container for non-scrolling elements -->
+    <div class="w-full p-6 flex flex-col items-center">
+        <button
+            class="absolute left-1 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition-all duration-300 z-10 arrow-button"
+            [class.scale-0]="page() === 0"
+            [class.opacity-0]="page() === 0"
+            [class.pointer-events-none]="page() === 0"
+            aria-label="Previous Page" (click)="prevPage()">
+            <span class="block w-6 h-6 border-l-4 border-b-4 border-yellow-700 rotate-45"></span>
+        </button>
+        <button
+            class="absolute right-1 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition-all duration-300 z-10 arrow-button"
+            [class.scale-0]="page() === pageCount() - 1"
+            [class.opacity-0]="page() === pageCount() - 1"
+            [class.pointer-events-none]="page() === pageCount() - 1"
+            aria-label="Next Page" (click)="nextPage()">
+            <span class="block w-6 h-6 border-r-4 border-b-4 border-yellow-700 -rotate-45"></span>
+        </button>
     </div>
+    
+    <!-- Sticker grid container - no padding, full width -->
+    <div class="relative w-full overflow-hidden">
+        <div class="flex transition-transform duration-500 ease-in-out sticker-scroll-container" [style.transform]="'translateX(' + (-page() * 100) + '%)'">
+            @for (page of pages(); track $index) {
+                <div class="w-full flex-shrink-0 page-container">
+                    <div class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full select-none px-6">
+                        @for (sticker of page; track sticker.index) {
+                            <mkworld-sticker [index]="sticker.index" [checked]="sticker.checked" [description]="sticker.description" (checkedChange)="onCheck(sticker, $event)" (onHover)="onStickerHover($event, sticker.description)"></mkworld-sticker>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    
     <div class="flex justify-center gap-2 mb-2">
         @for (dot of [].constructor(pageCount()); track $index) {
             <span class="w-3 h-3 rounded-full" [class.bg-yellow-400]="$index === page()"
@@ -22,7 +41,7 @@
                 [class.opacity-50]="$index !== page()"></span>
         }
     </div>
-    <div class="w-full bg-gray-100 rounded px-4 py-2 text-center text-gray-700 font-medium shadow-inner">
-        {{ 'STICKER_HOVER' | translate }}
+    <div class="w-full bg-gray-100 rounded px-4 py-2 text-center text-gray-700 font-medium shadow-inner task-bar-text" [class.fade]="!hoveredDescription()">
+        {{ hoveredDescription() || ('STICKER_HOVER' | translate) }}
     </div>
 </section>
