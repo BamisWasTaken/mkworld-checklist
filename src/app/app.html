@@ -17,7 +17,11 @@
     (showTooltip)="onShowTooltip($event)"
   ></mkworld-map-section>
 
-  <mkworld-todo-section class="w-full max-w-3xl"></mkworld-todo-section>
+  <mkworld-todo-section
+    class="w-full max-w-3xl overflow-hidden"
+    [checklistItems]="checklistItems()"
+    [disappearingChecklistItems]="disappearingChecklistItems()"
+  ></mkworld-todo-section>
 </main>
 
 @if (tooltipData()) {

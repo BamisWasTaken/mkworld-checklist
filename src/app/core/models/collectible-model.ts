@@ -4,5 +4,4 @@ export interface CollectibleModel {
   collectibleType: CollectibleType;
   xPercentage: number;
   yPercentage: number;
-  instructions?: string;
 }

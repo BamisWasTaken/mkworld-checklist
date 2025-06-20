@@ -17,7 +17,7 @@
     <div class="placeholder-text">Screenshot coming soon!</div>
   </div>
 
-  <p class="instruction">{{ checklistItem().collectibleModel!.instructions }}</p>
+  <p class="instruction">{{ checklistItem().instructions }}</p>
 
   <button class="collect-button" [class.checked]="checklistItem().checked" (click)="onChecked()">
     <div class="checkbox">
