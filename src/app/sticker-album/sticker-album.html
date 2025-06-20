@@ -34,13 +34,13 @@
       @for (page of pages(); track $index) {
         <div class="w-full flex-shrink-0 page-container">
           <div class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full select-none px-6">
-            @for (sticker of page; track sticker.index) {
+            @for (checklistItem of page; track checklistItem.index) {
               <mkworld-sticker
-                [index]="sticker.index"
-                [checked]="sticker.checked"
-                [description]="sticker.description"
-                (checkedChange)="onCheck(sticker, $event)"
-                (onHover)="onStickerHover($event, sticker.description)"
+                [index]="checklistItem.index"
+                [checked]="checklistItem.checked"
+                [description]="checklistItem.description!"
+                (checkedChange)="onCheck(checklistItem, $event)"
+                (onHover)="onChecklistItemHover($event, checklistItem.description!)"
               ></mkworld-sticker>
             }
           </div>

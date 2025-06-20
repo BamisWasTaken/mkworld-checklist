@@ -1,7 +1,8 @@
 import { CollectibleType } from './collectible-type';
 
-export interface MapPosition {
+export interface CollectibleModel {
+  collectibleType: CollectibleType;
   xPercentage: number;
   yPercentage: number;
-  collectibleType: CollectibleType;
+  instructions?: string;
 }

@@ -6,14 +6,14 @@
 <main class="flex flex-col items-center gap-8 px-4">
   <mkworld-sticker-album
     class="w-full max-w-5xl"
-    [stickers]="stickers()"
-    (onStickerChecked)="onStickerChecked($event)"
+    [checklistItems]="checklistItemsWithSticker()"
+    (onChecklistItemChecked)="onChecklistItemChecked($event)"
   ></mkworld-sticker-album>
 
   <mkworld-map-section
     class="w-full max-w-5xl"
-    [stickers]="stickers()"
-    [disappearingStickers]="disappearingStickers()"
+    [checklistItems]="checklistItems()"
+    [disappearingChecklistItems]="disappearingChecklistItems()"
     (showTooltip)="onShowTooltip($event)"
   ></mkworld-map-section>
 
@@ -24,9 +24,9 @@
   <mkworld-tooltip
     class="tooltip"
     [tooltipData]="tooltipData()!"
-    [stickers]="stickers()"
+    [checklistItems]="checklistItems()"
     (close)="onTooltipClose()"
-    (checked)="onStickerChecked($event)"
+    (checked)="onChecklistItemChecked($event)"
   />
 }
 

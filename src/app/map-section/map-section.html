@@ -6,11 +6,14 @@
       class="w-full h-full cursor-grab"
       [class.cursor-grabbing]="isPanning"
     />
-    @for (sticker of collectibles(); track sticker.index) {
+    @for (
+      collectibleChecklistItem of collectibleChecklistItems();
+      track collectibleChecklistItem.index
+    ) {
       <mkworld-collectible
-        [sticker]="sticker"
-        [(checked)]="sticker.checked"
-        (checkedChange)="onStickerChecked.emit(sticker)"
+        [checklistItem]="collectibleChecklistItem"
+        [(checked)]="collectibleChecklistItem.checked"
+        (checkedChange)="onChecklistItemChecked.emit(collectibleChecklistItem)"
         (showTooltip)="onShowTooltip($event)"
       />
     }

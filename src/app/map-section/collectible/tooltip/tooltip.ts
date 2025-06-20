@@ -1,6 +1,6 @@
-import { Component, computed, input, output } from '@angular/core';
+import { Component, computed, input, output, Signal } from '@angular/core';
+import { ChecklistModel } from '../../../core/models/checklist-model';
 import { TooltipData } from '../../../core/models/tooltip-data';
-import { StickerModel } from '../../../core/models/sticker-model';
 
 @Component({
   selector: 'mkworld-tooltip',
@@ -9,18 +9,20 @@ import { StickerModel } from '../../../core/models/sticker-model';
 })
 export class Tooltip {
   readonly tooltipData = input.required<TooltipData>();
-  readonly stickers = input.required<StickerModel[]>();
+  readonly checklistItems = input.required<ChecklistModel[]>();
 
-  readonly checked = output<StickerModel>();
+  readonly checked = output<ChecklistModel>();
   readonly close = output<void>();
 
-  readonly sticker = computed(() => this.stickers()[this.tooltipData().stickerIndex]);
+  readonly checklistItem: Signal<ChecklistModel> = computed(
+    () =>
+      this.checklistItems().find(
+        (checklistItem: ChecklistModel) => checklistItem.index === this.tooltipData().checklistIndex
+      )!
+  );
 
   onChecked() {
-    this.checked.emit({
-      ...this.sticker(),
-      checked: !this.sticker().checked,
-    });
+    this.checked.emit({ ...this.checklistItem(), checked: !this.checklistItem().checked });
   }
 
   onClose() {

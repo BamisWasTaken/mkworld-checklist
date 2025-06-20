@@ -4,8 +4,8 @@
   [class.hovered]="hovered()"
   [class.disappearing]="disappearing()"
   [ngStyle]="{
-    left: sticker().mapPosition!.xPercentage + '%',
-    top: sticker().mapPosition!.yPercentage + '%',
+    left: checklistItem().collectibleModel!.xPercentage + '%',
+    top: checklistItem().collectibleModel!.yPercentage + '%',
   }"
   (mouseenter)="hovered.set(true)"
   (mouseleave)="hovered.set(false)"
@@ -15,8 +15,8 @@
   aria-label="Collectible marker"
 >
   <img
-    [src]="`/imgs/${sticker().mapPosition!.collectibleType}.png`"
-    [alt]="sticker().mapPosition!.collectibleType + ' marker'"
+    [src]="`/imgs/${checklistItem().collectibleModel!.collectibleType}.png`"
+    [alt]="checklistItem().collectibleModel!.collectibleType + ' marker'"
     class="collectible-img"
     draggable="false"
   />

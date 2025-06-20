@@ -1,14 +1,14 @@
 import { Component, computed, HostListener, inject, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { stickerData } from './core/data/sticker-data';
-import { StickerModel, TooltipData } from './core/models';
+import { checklistData } from './core/data/checklist-data';
+import { ChecklistModel, TooltipData } from './core/models';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
+import { Tooltip } from './map-section/collectible/tooltip/tooltip';
 import { MapSection } from './map-section/map-section';
 import { ProgressBar } from './progress-bar/progress-bar';
 import { StickerAlbum } from './sticker-album/sticker-album';
 import { TodoSection } from './todo-section/todo-section';
-import { Tooltip } from './map-section/collectible/tooltip/tooltip';
 
 @Component({
   selector: 'mkworld-root',
@@ -28,14 +28,16 @@ import { Tooltip } from './map-section/collectible/tooltip/tooltip';
 export class App {
   private readonly translateService = inject(TranslateService);
 
-  stickers = signal<StickerModel[]>(stickerData);
-  readonly disappearingStickers = signal<Set<StickerModel>>(new Set());
+  checklistItems = signal<ChecklistModel[]>(checklistData);
+  checklistItemsWithSticker = computed(() => this.checklistItems().filter(item => item.hasSticker));
   tooltipData = signal<TooltipData | null>(null);
 
+  readonly disappearingChecklistItems = signal<Set<ChecklistModel>>(new Set());
+
   progress = computed(
-    () => this.stickers().filter((sticker: StickerModel) => sticker.checked).length
+    () => this.checklistItemsWithSticker().filter((item: ChecklistModel) => item.checked).length
   );
-  readonly total = stickerData.length;
+  readonly total = this.checklistItemsWithSticker().length;
 
   constructor() {
     this.translateService.addLangs(['en']);
@@ -43,16 +45,19 @@ export class App {
     this.translateService.use('en');
   }
 
-  onStickerChecked(sticker: StickerModel): void {
-    this.stickers.update(stickers => stickers.map(s => (s.index === sticker.index ? sticker : s)));
-    if (sticker.checked && !this.disappearingStickers().has(sticker)) {
-      const newSet = new Set(this.disappearingStickers());
-      newSet.add(sticker);
-      this.disappearingStickers.set(newSet);
+  onChecklistItemChecked(checklistItem: ChecklistModel): void {
+    this.checklistItems.update(items =>
+      items.map(i => (i.index === checklistItem.index ? checklistItem : i))
+    );
+
+    if (checklistItem.checked && !this.disappearingChecklistItems().has(checklistItem)) {
+      const newSet = new Set(this.disappearingChecklistItems());
+      newSet.add(checklistItem);
+      this.disappearingChecklistItems.set(newSet);
       setTimeout(() => {
-        const afterSet = new Set(this.disappearingStickers());
-        afterSet.delete(sticker);
-        this.disappearingStickers.set(afterSet);
+        const afterSet = new Set(this.disappearingChecklistItems());
+        afterSet.delete(checklistItem);
+        this.disappearingChecklistItems.set(afterSet);
       }, 200);
     }
   }

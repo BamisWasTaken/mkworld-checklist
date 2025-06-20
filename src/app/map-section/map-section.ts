@@ -13,9 +13,8 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
-import { StickerModel } from '../core/models/sticker-model';
+import { ChecklistModel, TooltipData } from '../core/models';
 import { Collectible } from './collectible/collectible';
-import { TooltipData } from '../core/models';
 
 @Component({
   selector: 'mkworld-map-section',
@@ -26,10 +25,10 @@ import { TooltipData } from '../core/models';
 export class MapSection implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
 
-  readonly stickers = input.required<StickerModel[]>();
-  readonly disappearingStickers = input.required<Set<StickerModel>>();
+  readonly checklistItems = input.required<ChecklistModel[]>();
+  readonly disappearingChecklistItems = input.required<Set<ChecklistModel>>();
 
-  readonly onStickerChecked = output<StickerModel>();
+  readonly onChecklistItemChecked = output<ChecklistModel>();
   readonly showTooltip = output<TooltipData>();
 
   readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
@@ -37,16 +36,13 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private pzInstance: PanZoom | null = null;
   protected isPanning = false;
 
-  readonly collectibles = computed(() =>
-    this.stickers().filter(
-      sticker =>
-        sticker.mapPosition && (!sticker.checked || this.disappearingStickers().has(sticker))
+  readonly collectibleChecklistItems = computed(() =>
+    this.checklistItems().filter(
+      checklistItem =>
+        checklistItem.collectibleModel &&
+        (!checklistItem.checked || this.disappearingChecklistItems().has(checklistItem))
     )
   );
-
-  onShowTooltip(tooltipData: TooltipData) {
-    this.showTooltip.emit(tooltipData);
-  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -66,5 +62,9 @@ export class MapSection implements AfterViewInit, OnDestroy {
     if (this.pzInstance) {
       this.pzInstance.dispose();
     }
+  }
+
+  onShowTooltip(tooltipData: TooltipData) {
+    this.showTooltip.emit(tooltipData);
   }
 }

@@ -1,7 +1,6 @@
 import { NgStyle } from '@angular/common';
-import { Component, input, signal, effect, model, output, ElementRef, inject } from '@angular/core';
-import { StickerModel } from '../../core/models/sticker-model';
-import { TooltipData } from '../../core/models/tooltip-data';
+import { Component, effect, input, model, output, signal } from '@angular/core';
+import { ChecklistModel, TooltipData } from '../../core/models';
 
 @Component({
   selector: 'mkworld-collectible',
@@ -10,9 +9,7 @@ import { TooltipData } from '../../core/models/tooltip-data';
   styleUrl: './collectible.css',
 })
 export class Collectible {
-  private readonly elementRef = inject(ElementRef);
-
-  readonly sticker = input.required<StickerModel>();
+  readonly checklistItem = input.required<ChecklistModel>();
   readonly checked = model(false);
 
   readonly showTooltip = output<TooltipData>();
@@ -37,7 +34,7 @@ export class Collectible {
 
   onClick(event: MouseEvent) {
     this.showTooltip.emit({
-      stickerIndex: this.sticker().index,
+      checklistIndex: this.checklistItem().index,
       x: event.pageX,
       y: event.pageY - 10,
     });

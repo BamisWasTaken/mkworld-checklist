@@ -1,5 +1,5 @@
 export interface TooltipData {
-  stickerIndex: number;
+  checklistIndex: number;
   x: number;
   y: number;
 }
