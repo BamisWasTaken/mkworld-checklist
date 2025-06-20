@@ -1,14 +1,14 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
-    font-family: 'RacersDelight';
-    src: url('/fonts/RacersDelight.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'RacersDelight';
+  src: url('/fonts/RacersDelight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
-    font-family: 'RacersDelight', system-ui, sans-serif;
+  font-family: 'RacersDelight', system-ui, sans-serif;
 }
 
 body {
@@ -18,22 +18,27 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-header, footer {
+header,
+footer {
   background: linear-gradient(90deg, #ff9900 0%, #ffdb4d 40%, #3ecf4c 70%, #1ccad8 100%);
   color: #23272e;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.15);
 }
 
 main {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
   padding: 2rem 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #ff9900;
-  text-shadow: 0 2px 8px #1ccad8, 0 1px 0 #fff;
+  text-shadow:
+    0 2px 8px #1ccad8,
+    0 1px 0 #fff;
 }
 
 a {

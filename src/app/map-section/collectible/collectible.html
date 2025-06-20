@@ -5,10 +5,11 @@
   [class.disappearing]="disappearing()"
   [ngStyle]="{
     left: sticker().mapPosition!.xPercentage + '%',
-    top: sticker().mapPosition!.yPercentage + '%'
+    top: sticker().mapPosition!.yPercentage + '%',
   }"
   (mouseenter)="hovered.set(true)"
   (mouseleave)="hovered.set(false)"
+  (click)="onClick($event)"
   tabindex="0"
   role="button"
   aria-label="Collectible marker"

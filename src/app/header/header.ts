@@ -5,6 +5,6 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'mkworld-header',
   templateUrl: './header.html',
   styleUrls: ['./header.css'],
-  imports: [TranslateModule]
+  imports: [TranslateModule],
 })
-export class Header {} 
+export class Header {}

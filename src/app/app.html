@@ -4,11 +4,30 @@
 
 <!-- Main Content -->
 <main class="flex flex-col items-center gap-8 px-4">
-  <mkworld-sticker-album class="w-full max-w-5xl" [stickers]="stickers()" (onStickerChecked)="onStickerChecked($event)"></mkworld-sticker-album>
+  <mkworld-sticker-album
+    class="w-full max-w-5xl"
+    [stickers]="stickers()"
+    (onStickerChecked)="onStickerChecked($event)"
+  ></mkworld-sticker-album>
 
-  <mkworld-map-section class="w-full max-w-5xl" [stickers]="stickers()" [disappearingStickers]="disappearingStickers()"></mkworld-map-section>
+  <mkworld-map-section
+    class="w-full max-w-5xl"
+    [stickers]="stickers()"
+    [disappearingStickers]="disappearingStickers()"
+    (showTooltip)="onShowTooltip($event)"
+  ></mkworld-map-section>
 
   <mkworld-todo-section class="w-full max-w-3xl"></mkworld-todo-section>
 </main>
+
+@if (tooltipData()) {
+  <mkworld-tooltip
+    class="tooltip"
+    [tooltipData]="tooltipData()!"
+    [stickers]="stickers()"
+    (close)="onTooltipClose()"
+    (checked)="onStickerChecked($event)"
+  />
+}
 
 <mkworld-footer></mkworld-footer>

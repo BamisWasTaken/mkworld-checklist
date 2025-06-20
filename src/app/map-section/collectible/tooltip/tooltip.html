@@ -1,0 +1,28 @@
+<div class="tooltip" [style.left]="tooltipData().x + 'px'" [style.top]="tooltipData().y + 'px'">
+  <button class="close-button" (click)="close.emit()" aria-label="Close tooltip">
+    <span class="close-icon">×</span>
+  </button>
+
+  <div class="description-container">
+    <img
+      [src]="`/imgs/${sticker().mapPosition!.collectibleType}.png`"
+      [alt]="sticker().description"
+      class="sticker-thumbnail"
+    />
+    <p class="description">{{ sticker().description }}</p>
+  </div>
+
+  <!-- Placeholder for 16:9 image - we'll add actual images later -->
+  <div class="image-placeholder">
+    <div class="placeholder-text">Screenshot coming soon!</div>
+  </div>
+
+  <p class="instruction">{{ sticker().instructions }}</p>
+
+  <button class="collect-button" [class.checked]="sticker().checked" (click)="onChecked()">
+    <div class="checkbox">
+      <div class="checkmark"></div>
+    </div>
+    <span>Collected</span>
+  </button>
+</div>

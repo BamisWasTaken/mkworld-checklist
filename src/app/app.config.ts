@@ -1,4 +1,8 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -24,7 +28,7 @@ export const appConfig: ApplicationConfig = {
         useFactory: httpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: 'en'
-     })
-  ]
+      defaultLanguage: 'en',
+    }),
+  ],
 };

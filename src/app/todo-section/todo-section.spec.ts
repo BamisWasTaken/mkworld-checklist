@@ -8,9 +8,8 @@ describe('TodoSection', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodoSection]
-    })
-    .compileComponents();
+      imports: [TodoSection],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TodoSection);
     component = fixture.componentInstance;

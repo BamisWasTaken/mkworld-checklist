@@ -1,15 +1,15 @@
 .progress-bar-bg {
-    background: #e0e0e0;
-    border-radius: 9999px;
-    height: 1rem;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .progress-bar-fill {
-    height: 100%;
-    border-radius: 9999px;
-    background: linear-gradient(90deg, #ff9900 0%, #3ecf4c 50%, #1ccad8 100%);
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.15);
-    transition: width 0.3s cubic-bezier(.4,0,.2,1);
-  } 
+  background: #e0e0e0;
+  border-radius: 9999px;
+  height: 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #ff9900 0%, #3ecf4c 50%, #1ccad8 100%);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

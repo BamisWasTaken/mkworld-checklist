@@ -1,34 +1,34 @@
 import { Component, effect, input, model, output, signal } from '@angular/core';
 
 @Component({
-    selector: 'mkworld-sticker',
-    templateUrl: './sticker.html',
-    styleUrls: ['./sticker.css']
+  selector: 'mkworld-sticker',
+  templateUrl: './sticker.html',
+  styleUrls: ['./sticker.css'],
 })
 export class Sticker {
-    readonly index = input.required<number>();
-    readonly description = input.required<string>();
-    readonly checked = model(false);
-    
-    readonly onHover = output<boolean>();
+  readonly index = input.required<number>();
+  readonly description = input.required<string>();
+  readonly checked = model(false);
 
-    hovered = signal(false);
+  readonly onHover = output<boolean>();
 
-    constructor() {
-        effect(() => {
-            this.onHover.emit(this.hovered());
-        });
-    }
+  hovered = signal(false);
 
-    toggleCheck() {
-        this.checked.update((checked: boolean) => !checked);
-    }
+  constructor() {
+    effect(() => {
+      this.onHover.emit(this.hovered());
+    });
+  }
 
-    onMouseEnter() {
-        this.hovered.set(true);
-    }
+  toggleCheck() {
+    this.checked.update((checked: boolean) => !checked);
+  }
 
-    onMouseLeave() {
-        this.hovered.set(false);
-    }
-} 
+  onMouseEnter() {
+    this.hovered.set(true);
+  }
+
+  onMouseLeave() {
+    this.hovered.set(false);
+  }
+}

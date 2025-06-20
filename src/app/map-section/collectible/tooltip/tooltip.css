@@ -1,0 +1,157 @@
+.tooltip {
+  position: absolute;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -12px;
+  animation: tooltip-appear 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.close-icon {
+  font-size: 18px;
+  color: #666;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.description-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sticker-thumbnail {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+  flex: 1;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+
+.image-placeholder {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.placeholder-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+  font-size: 14px;
+}
+
+.instruction {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.collect-button {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #fbbf24;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #fbbf24;
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+}
+
+.collect-button:hover {
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.collect-button.checked {
+  background: #fbbf24;
+  color: white;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  position: relative;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.checked .checkmark {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes tooltip-appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%) translateY(0);
+  }
+}

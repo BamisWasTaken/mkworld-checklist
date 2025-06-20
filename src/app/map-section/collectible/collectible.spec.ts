@@ -8,9 +8,8 @@ describe('Collectible', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Collectible]
-    })
-    .compileComponents();
+      imports: [Collectible],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Collectible);
     component = fixture.componentInstance;

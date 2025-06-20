@@ -1,6 +1,6 @@
 import { ProgressBar } from './progress-bar';
 describe('ProgressBar', () => {
-    it('should create', () => {
-        expect(new ProgressBar()).toBeTruthy();
-    });
-}); 
+  it('should create', () => {
+    expect(new ProgressBar()).toBeTruthy();
+  });
+});

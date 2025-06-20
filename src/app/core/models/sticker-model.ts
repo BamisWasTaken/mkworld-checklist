@@ -1,8 +1,9 @@
-import { MapPosition } from "./map-position";
+import { MapPosition } from './map-position';
 
 export interface StickerModel {
-    index: number;
-    checked: boolean;
-    description: string;
-    mapPosition?: MapPosition;
+  index: number;
+  checked: boolean;
+  description: string;
+  instructions?: string;
+  mapPosition?: MapPosition;
 }

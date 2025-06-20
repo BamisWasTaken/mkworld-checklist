@@ -5,6 +5,6 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'mkworld-footer',
   templateUrl: './footer.html',
   styleUrls: ['./footer.css'],
-  imports: [TranslateModule]
+  imports: [TranslateModule],
 })
-export class Footer {} 
+export class Footer {}

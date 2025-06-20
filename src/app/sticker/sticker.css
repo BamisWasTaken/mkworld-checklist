@@ -1,50 +1,50 @@
 .sticker-checkbox {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border-radius: 50%;
-    border: 2px solid #9ca3af; /* gray-400 */
-    background-color: white;
-    width: 1.25rem; /* w-5 */
-    height: 1.25rem; /* h-5 */
-    position: absolute;
-    top: 0.25rem; /* top-1 */
-    right: 0.25rem; /* right-1 */
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    z-index: 2;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 50%;
+  border: 2px solid #9ca3af; /* gray-400 */
+  background-color: white;
+  width: 1.25rem; /* w-5 */
+  height: 1.25rem; /* h-5 */
+  position: absolute;
+  top: 0.25rem; /* top-1 */
+  right: 0.25rem; /* right-1 */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 2;
 }
 
 .sticker-checkbox:checked {
-    background-color: #fbbf24; /* yellow-400 */
-    border-color: #fbbf24;
+  background-color: #fbbf24; /* yellow-400 */
+  border-color: #fbbf24;
 }
 
 .sticker-checkbox:checked::after {
-    content: '';
-    display: block;
-    width: 0.8rem;
-    height: 0.4rem;
-    border-left: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -60%) rotate(-45deg);
-    border-radius: 0.08rem;
+  content: '';
+  display: block;
+  width: 0.8rem;
+  height: 0.4rem;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%) rotate(-45deg);
+  border-radius: 0.08rem;
 }
 
 .sticker-checkbox:hover {
-    border-color: #f59e0b; /* yellow-500 */
-    transform: scale(1.05);
+  border-color: #f59e0b; /* yellow-500 */
+  transform: scale(1.05);
 }
 
 .sticker-checkbox:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3); /* yellow-400 with opacity */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3); /* yellow-400 with opacity */
 }
