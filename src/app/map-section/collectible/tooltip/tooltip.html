@@ -5,11 +5,13 @@
 
   <div class="description-container">
     <img
-      [src]="`/imgs/${checklistItem().collectibleModel!.collectibleType}.png`"
-      [alt]="checklistItem().collectibleModel!.collectibleType"
+      [src]="`/imgs/${tooltipData().checklistModel.collectibleModel!.collectibleType}.png`"
+      [alt]="tooltipData().checklistModel.collectibleModel!.collectibleType"
       class="sticker-thumbnail"
     />
-    <p class="description">{{ checklistItem().description ?? 'you got a peach coin' }}</p>
+    <p class="description">
+      {{ tooltipData().checklistModel.description ?? 'you got a peach coin' }}
+    </p>
   </div>
 
   <!-- Placeholder for 16:9 image - we'll add actual images later -->
@@ -17,9 +19,13 @@
     <div class="placeholder-text">Screenshot coming soon!</div>
   </div>
 
-  <p class="instruction">{{ checklistItem().instructions }}</p>
+  <p class="instruction">{{ tooltipData().checklistModel.instructions }}</p>
 
-  <button class="collect-button" [class.checked]="checklistItem().checked" (click)="onChecked()">
+  <button
+    class="collect-button"
+    [class.checked]="tooltipData().checklistModel.checked"
+    (click)="onChecked()"
+  >
     <div class="checkbox">
       <div class="checkmark"></div>
     </div>

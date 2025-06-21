@@ -7,13 +7,11 @@
       [class.cursor-grabbing]="isPanning"
     />
     @for (
-      collectibleChecklistItem of collectibleChecklistItems();
-      track collectibleChecklistItem.index
+      collectibleChecklistModel of collectibleChecklistModels();
+      track collectibleChecklistModel.index
     ) {
       <mkworld-collectible
-        [checklistItem]="collectibleChecklistItem"
-        [(checked)]="collectibleChecklistItem.checked"
-        (checkedChange)="onChecklistItemChecked.emit(collectibleChecklistItem)"
+        [checklistModel]="collectibleChecklistModel"
         (showTooltip)="onShowTooltip($event)"
       />
     }

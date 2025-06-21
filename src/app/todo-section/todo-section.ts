@@ -1,6 +1,7 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../core/models';
+import { DataService } from '../core/services';
 
 @Component({
   selector: 'mkworld-todo-section',
@@ -9,33 +10,40 @@ import { ChecklistModel, CollectibleType } from '../core/models';
   imports: [TranslateModule],
 })
 export class TodoSection {
-  readonly checklistItems = input.required<ChecklistModel[]>();
-  readonly disappearingChecklistItems = input.required<Set<ChecklistModel>>();
+  private readonly dataService = inject(DataService);
+
+  readonly disappearingChecklistModels = this.dataService.getDisappearingChecklistModels();
 
   todoItems = computed<ChecklistModel[]>(() => {
-    const items = this.checklistItems().filter(
-      (item: ChecklistModel) =>
-        (!item.checked || this.disappearingChecklistItems().has(item)) && !item.collectibleModel
-    );
+    const checklistModels = this.dataService
+      .getChecklistModels()()
+      .filter(
+        (checklistModel: ChecklistModel) =>
+          (!checklistModel.checked || this.disappearingChecklistModels().has(checklistModel)) &&
+          !checklistModel.collectibleModel
+      );
     const seenInstructions = new Set<string>();
-    return items.filter((item: ChecklistModel) => {
-      if (seenInstructions.has(item.instructions)) {
+    return checklistModels.filter((checklistModel: ChecklistModel) => {
+      if (seenInstructions.has(checklistModel.instructions)) {
         return false;
       }
-      seenInstructions.add(item.instructions);
+      seenInstructions.add(checklistModel.instructions);
       return true;
     });
   });
 
   uncollectedPeachCoins = computed<number>(() =>
-    this.getUncollectedCount(this.checklistItems(), CollectibleType.PEACH_COIN)
+    this.getUncollectedCount(this.dataService.getChecklistModels()(), CollectibleType.PEACH_COIN)
   );
   lastPeachCoinBeingRemoved = computed<boolean>(() =>
     this.isRemovingLastCollectibleType(this.uncollectedPeachCoins(), CollectibleType.PEACH_COIN)
   );
 
   uncollectedQuestionMarkPanels = computed<number>(() =>
-    this.getUncollectedCount(this.checklistItems(), CollectibleType.QUESTIONMARK_PANEL)
+    this.getUncollectedCount(
+      this.dataService.getChecklistModels()(),
+      CollectibleType.QUESTIONMARK_PANEL
+    )
   );
   lastQuestionMarkPanelBeingRemoved = computed<boolean>(() =>
     this.isRemovingLastCollectibleType(
@@ -45,23 +53,24 @@ export class TodoSection {
   );
 
   uncollectedPSwitches = computed<number>(() =>
-    this.getUncollectedCount(this.checklistItems(), CollectibleType.P_SWITCH)
+    this.getUncollectedCount(this.dataService.getChecklistModels()(), CollectibleType.P_SWITCH)
   );
   lastPSwitchBeingRemoved = computed<boolean>(() =>
     this.isRemovingLastCollectibleType(this.uncollectedPSwitches(), CollectibleType.P_SWITCH)
   );
 
-  private getUncollectedCount(checklistItems: ChecklistModel[], type: CollectibleType): number {
-    return checklistItems.filter(
-      (item: ChecklistModel) => !item.checked && item.collectibleModel?.collectibleType === type
+  private getUncollectedCount(checklistModels: ChecklistModel[], type: CollectibleType): number {
+    return checklistModels.filter(
+      (checklistModel: ChecklistModel) =>
+        !checklistModel.checked && checklistModel.collectibleModel?.collectibleType === type
     ).length;
   }
 
   private isRemovingLastCollectibleType(uncollectedCount: number, type: CollectibleType): boolean {
     let isRemoving = false;
     if (uncollectedCount === 0) {
-      this.disappearingChecklistItems().forEach(item => {
-        if (item.collectibleModel?.collectibleType === type) {
+      this.disappearingChecklistModels().forEach((checklistModel: ChecklistModel) => {
+        if (checklistModel.collectibleModel?.collectibleType === type) {
           isRemoving = true;
         }
       });

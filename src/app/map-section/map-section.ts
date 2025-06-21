@@ -5,7 +5,6 @@ import {
   computed,
   ElementRef,
   inject,
-  input,
   OnDestroy,
   output,
   PLATFORM_ID,
@@ -15,6 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
 import { ChecklistModel, TooltipData } from '../core/models';
 import { Collectible } from './collectible/collectible';
+import { DataService } from '../core/services';
 
 @Component({
   selector: 'mkworld-map-section',
@@ -23,12 +23,9 @@ import { Collectible } from './collectible/collectible';
   imports: [TranslateModule, Collectible],
 })
 export class MapSection implements AfterViewInit, OnDestroy {
+  private readonly dataService = inject(DataService);
   private readonly platformId = inject(PLATFORM_ID);
 
-  readonly checklistItems = input.required<ChecklistModel[]>();
-  readonly disappearingChecklistItems = input.required<Set<ChecklistModel>>();
-
-  readonly onChecklistItemChecked = output<ChecklistModel>();
   readonly showTooltip = output<TooltipData>();
 
   readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
@@ -36,13 +33,16 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private pzInstance: PanZoom | null = null;
   protected isPanning = false;
 
-  readonly collectibleChecklistItems = computed(() =>
-    this.checklistItems().filter(
-      checklistItem =>
-        checklistItem.collectibleModel &&
-        (!checklistItem.checked || this.disappearingChecklistItems().has(checklistItem))
-    )
-  );
+  readonly collectibleChecklistModels = computed(() => {
+    const checklistModels = this.dataService.getChecklistModels()();
+    const disappearingChecklistModels = this.dataService.getDisappearingChecklistModels()();
+
+    return checklistModels.filter(
+      (checklistModel: ChecklistModel) =>
+        checklistModel.collectibleModel &&
+        (!checklistModel.checked || disappearingChecklistModels.has(checklistModel))
+    );
+  });
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

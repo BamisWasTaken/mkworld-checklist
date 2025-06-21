@@ -1,12 +1,12 @@
 <div
-  id="collectible-div-{{ checklistItem().index }}"
+  id="collectible-div-{{ checklistModel().index }}"
   class="collectible"
-  [class.appearing]="appearing() && !disappearing()"
+  [class.appearing]="appearing() && !checklistModel().checked"
   [class.hovered]="hovered()"
-  [class.disappearing]="disappearing()"
+  [class.disappearing]="checklistModel().checked"
   [ngStyle]="{
-    left: checklistItem().collectibleModel!.xPercentage + '%',
-    top: checklistItem().collectibleModel!.yPercentage + '%',
+    left: checklistModel().collectibleModel!.xPercentage + '%',
+    top: checklistModel().collectibleModel!.yPercentage + '%',
   }"
   (mouseenter)="hovered.set(true)"
   (mouseleave)="hovered.set(false)"
@@ -16,8 +16,8 @@
   aria-label="Collectible marker"
 >
   <img
-    [src]="`/imgs/${checklistItem().collectibleModel!.collectibleType}.png`"
-    [alt]="checklistItem().collectibleModel!.collectibleType + ' marker'"
+    [src]="`/imgs/${checklistModel().collectibleModel!.collectibleType}.png`"
+    [alt]="checklistModel().collectibleModel!.collectibleType + ' marker'"
     class="collectible-img"
     draggable="false"
   />

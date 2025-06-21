@@ -1,7 +1,7 @@
 import { Component, computed, HostListener, inject, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { checklistData } from './core/data/checklist-data';
 import { ChecklistModel, TooltipData } from './core/models';
+import { DataService } from './core/services';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { Tooltip } from './map-section/collectible/tooltip/tooltip';
@@ -27,17 +27,19 @@ import { TodoSection } from './todo-section/todo-section';
 })
 export class App {
   private readonly translateService = inject(TranslateService);
+  private readonly dataService = inject(DataService);
 
-  checklistItems = signal<ChecklistModel[]>(checklistData);
-  checklistItemsWithSticker = computed(() => this.checklistItems().filter(item => item.hasSticker));
+  checklistModelsWithSticker = computed(() =>
+    this.dataService
+      .getChecklistModels()()
+      .filter((checklistModel: ChecklistModel) => checklistModel.hasSticker)
+  );
   tooltipData = signal<TooltipData | null>(null);
 
-  readonly disappearingChecklistItems = signal<Set<ChecklistModel>>(new Set());
-
   progress = computed(
-    () => this.checklistItemsWithSticker().filter((item: ChecklistModel) => item.checked).length
+    () => this.checklistModelsWithSticker().filter((item: ChecklistModel) => item.checked).length
   );
-  readonly total = this.checklistItemsWithSticker().length;
+  readonly total = this.checklistModelsWithSticker().length;
 
   constructor() {
     this.translateService.addLangs(['en']);
@@ -45,28 +47,11 @@ export class App {
     this.translateService.use('en');
   }
 
-  onScrollToMap(checklistItem: ChecklistModel): void {
+  onScrollToMap(checklistModel: ChecklistModel): void {
     const mapElement = document.getElementById('map-section');
-    const collectibleElement = document.getElementById(`collectible-div-${checklistItem.index}`);
+    const collectibleElement = document.getElementById(`collectible-div-${checklistModel.index}`);
     if (mapElement && collectibleElement) {
       mapElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  onChecklistItemChecked(checklistItem: ChecklistModel): void {
-    this.checklistItems.update(items =>
-      items.map(i => (i.index === checklistItem.index ? checklistItem : i))
-    );
-
-    if (checklistItem.checked && !this.disappearingChecklistItems().has(checklistItem)) {
-      const newSet = new Set(this.disappearingChecklistItems());
-      newSet.add(checklistItem);
-      this.disappearingChecklistItems.set(newSet);
-      setTimeout(() => {
-        const afterSet = new Set(this.disappearingChecklistItems());
-        afterSet.delete(checklistItem);
-        this.disappearingChecklistItems.set(afterSet);
-      }, 200);
     }
   }
 

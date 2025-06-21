@@ -1,5 +1,6 @@
-import { Component, effect, input, model, output, signal } from '@angular/core';
+import { Component, effect, inject, input, output, signal } from '@angular/core';
 import { ChecklistModel } from '../core/models';
+import { DataService } from '../core/services';
 
 @Component({
   selector: 'mkworld-sticker',
@@ -7,8 +8,9 @@ import { ChecklistModel } from '../core/models';
   styleUrls: ['./sticker.css'],
 })
 export class Sticker {
-  readonly checklistItem = input.required<ChecklistModel>();
-  readonly checked = model(false);
+  private readonly dataService = inject(DataService);
+
+  readonly checklistModel = input.required<ChecklistModel>();
 
   readonly onHover = output<boolean>();
   readonly onShowTooltip = output<{ instructions: string; event: MouseEvent }>();
@@ -23,7 +25,7 @@ export class Sticker {
   }
 
   toggleCheck() {
-    this.checked.update((checked: boolean) => !checked);
+    this.dataService.updateChecklistModelChecked(this.checklistModel());
   }
 
   onMouseEnter() {
@@ -35,11 +37,11 @@ export class Sticker {
   }
 
   onStickerClick(event: MouseEvent) {
-    if (this.checklistItem().collectibleModel) {
-      this.onGoToMap.emit(this.checklistItem());
+    if (this.checklistModel().collectibleModel) {
+      this.onGoToMap.emit(this.checklistModel());
     } else {
       this.onShowTooltip.emit({
-        instructions: this.checklistItem().instructions,
+        instructions: this.checklistModel().instructions,
         event: event,
       });
     }

@@ -1,6 +1,7 @@
-import { Component, computed, input, output, signal, HostListener } from '@angular/core';
+import { Component, computed, HostListener, inject, output, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel } from '../core/models';
+import { DataService } from '../core/services';
 import { Sticker } from '../sticker/sticker';
 
 const STICKERS_PER_PAGE = 32;
@@ -12,12 +13,11 @@ const STICKERS_PER_PAGE = 32;
   styleUrls: ['./sticker-album.css'],
 })
 export class StickerAlbum {
-  checklistItems = input.required<ChecklistModel[]>();
+  private readonly dataService = inject(DataService);
 
-  onChecklistItemChecked = output<ChecklistModel>();
   scrollToMap = output<ChecklistModel>();
 
-  pages = computed(() => this.createPages(this.checklistItems()));
+  pages = computed(() => this.createPages(this.dataService.getChecklistModels()()));
   hoveredDescription = signal<string | null>(null);
   private hoverTimeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -34,26 +34,22 @@ export class StickerAlbum {
     if (this.page() < this.pageCount() - 1) this.page.update(p => p + 1);
   }
 
-  private createPages(checklistItems: ChecklistModel[]): ChecklistModel[][] {
+  private createPages(checklistModels: ChecklistModel[]): ChecklistModel[][] {
     const pages: ChecklistModel[][] = [];
-    const totalPages = Math.ceil(checklistItems.length / STICKERS_PER_PAGE);
+    const totalPages = Math.ceil(checklistModels.length / STICKERS_PER_PAGE);
 
     for (let i = 0; i < totalPages; i++) {
       const startIndex = i * STICKERS_PER_PAGE;
       const endIndex = startIndex + STICKERS_PER_PAGE;
-      const pageChecklistItems = checklistItems.slice(startIndex, endIndex);
-      pages.push(pageChecklistItems);
+      const pageChecklistModels = checklistModels.slice(startIndex, endIndex);
+      pages.push(pageChecklistModels);
     }
 
     return pages;
   }
 
-  onCheck(checklistItem: ChecklistModel, checked: boolean): void {
-    this.onChecklistItemChecked.emit({ ...checklistItem, checked });
-  }
-
-  onGoToMap(checklistItem: ChecklistModel): void {
-    this.scrollToMap.emit(checklistItem);
+  onGoToMap(checklistModel: ChecklistModel): void {
+    this.scrollToMap.emit(checklistModel);
   }
 
   onChecklistItemHover(hovered: boolean, description: string): void {

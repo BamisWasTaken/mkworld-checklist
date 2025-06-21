@@ -1,5 +1,7 @@
+import { ChecklistModel } from './checklist-model';
+
 export interface TooltipData {
-  checklistIndex: number;
+  checklistModel: ChecklistModel;
   x: number;
   y: number;
 }

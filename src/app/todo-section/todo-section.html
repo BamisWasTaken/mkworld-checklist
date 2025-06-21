@@ -31,7 +31,7 @@
     @for (item of todoItems(); track item.index) {
       <li
         class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
-        [class.removing]="disappearingChecklistItems().has(item)"
+        [class.removing]="disappearingChecklistModels().has(item)"
       >
         <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">🎯</div>
         <span class="flex-1">{{ item.instructions }}</span>

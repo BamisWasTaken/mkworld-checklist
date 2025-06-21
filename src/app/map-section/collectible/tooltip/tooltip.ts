@@ -1,6 +1,6 @@
-import { Component, computed, input, output, Signal } from '@angular/core';
-import { ChecklistModel } from '../../../core/models/checklist-model';
+import { Component, inject, input, output } from '@angular/core';
 import { TooltipData } from '../../../core/models/tooltip-data';
+import { DataService } from '../../../core/services';
 
 @Component({
   selector: 'mkworld-tooltip',
@@ -8,21 +8,14 @@ import { TooltipData } from '../../../core/models/tooltip-data';
   styleUrl: './tooltip.css',
 })
 export class Tooltip {
-  readonly tooltipData = input.required<TooltipData>();
-  readonly checklistItems = input.required<ChecklistModel[]>();
+  private readonly dataService = inject(DataService);
 
-  readonly checked = output<ChecklistModel>();
+  readonly tooltipData = input.required<TooltipData>();
+
   readonly close = output<void>();
 
-  readonly checklistItem: Signal<ChecklistModel> = computed(
-    () =>
-      this.checklistItems().find(
-        (checklistItem: ChecklistModel) => checklistItem.index === this.tooltipData().checklistIndex
-      )!
-  );
-
   onChecked() {
-    this.checked.emit({ ...this.checklistItem(), checked: !this.checklistItem().checked });
+    this.dataService.updateChecklistModelChecked(this.tooltipData().checklistModel);
   }
 
   onClose() {
