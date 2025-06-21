@@ -1,5 +1,10 @@
 <section class="w-full h-auto max-h-[767px] rounded-lg shadow overflow-hidden">
-  <div id="map-panzoom" #mapPanzoom class="relative w-full h-full">
+  <div
+    id="map-panzoom"
+    #mapPanzoom
+    class="w-full h-full relative"
+    (contextmenu)="$event.preventDefault()"
+  >
     <img
       src="/imgs/map.jpeg"
       alt="Mario Kart World Map"
@@ -12,8 +17,26 @@
     ) {
       <mkworld-collectible
         [checklistModel]="collectibleChecklistModel"
+        [isPanning]="isPanning"
+        [isFocused]="focusedCollectibleIndex() === collectibleChecklistModel.index"
         (showTooltip)="onShowTooltip($event)"
       />
+    }
+
+    @if (activeTooltipData(); as tooltipData) {
+      <div
+        class="map-tooltip-container absolute z-20"
+        [style.left.%]="tooltipData.x"
+        [style.top.%]="tooltipData.y"
+      >
+        <div [style.transform]="tooltipTransform()">
+          <mkworld-tooltip
+            [tooltipData]="tooltipData"
+            [position]="tooltipPosition()?.position ?? 'above'"
+            (close)="closeTooltip()"
+          />
+        </div>
+      </div>
     }
   </div>
 </section>

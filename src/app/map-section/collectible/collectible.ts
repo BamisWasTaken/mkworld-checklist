@@ -10,21 +10,30 @@ import { ChecklistModel, TooltipData } from '../../core/models';
 })
 export class Collectible {
   readonly checklistModel = input.required<ChecklistModel>();
+  readonly isPanning = input(false);
+  readonly isFocused = input(false);
 
   readonly showTooltip = output<TooltipData>();
 
   hovered = signal(false);
-  appearing = signal(false);
+  readonly appearing = signal(false);
 
   constructor() {
     setTimeout(() => this.appearing.set(true), 0);
   }
 
-  onClick(event: MouseEvent) {
-    this.showTooltip.emit({
-      checklistModel: this.checklistModel(),
-      x: event.pageX,
-      y: event.pageY - 10,
-    });
+  onClick(): void {
+    if (this.isPanning()) {
+      return;
+    }
+
+    const { collectibleModel } = this.checklistModel();
+    if (collectibleModel) {
+      this.showTooltip.emit({
+        checklistModel: this.checklistModel(),
+        x: collectibleModel.xPercentage,
+        y: collectibleModel.yPercentage,
+      });
+    }
   }
 }

@@ -1,10 +1,9 @@
-import { Component, computed, HostListener, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ChecklistModel, TooltipData } from './core/models';
 import { DataService } from './core/services';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
-import { Tooltip } from './map-section/collectible/tooltip/tooltip';
 import { MapSection } from './map-section/map-section';
 import { ProgressBar } from './progress-bar/progress-bar';
 import { StickerAlbum } from './sticker-album/sticker-album';
@@ -12,16 +11,7 @@ import { TodoSection } from './todo-section/todo-section';
 
 @Component({
   selector: 'mkworld-root',
-  imports: [
-    TranslateModule,
-    ProgressBar,
-    StickerAlbum,
-    Header,
-    Footer,
-    MapSection,
-    TodoSection,
-    Tooltip,
-  ],
+  imports: [TranslateModule, ProgressBar, StickerAlbum, Header, Footer, MapSection, TodoSection],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -52,24 +42,6 @@ export class App {
     const collectibleElement = document.getElementById(`collectible-div-${checklistModel.index}`);
     if (mapElement && collectibleElement) {
       mapElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  onShowTooltip(tooltipData: TooltipData): void {
-    this.tooltipData.set(tooltipData);
-  }
-
-  onTooltipClose(): void {
-    this.tooltipData.set(null);
-  }
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent) {
-    if (this.tooltipData()) {
-      const tooltipElement = document.querySelector('.tooltip') as HTMLElement;
-      if (tooltipElement && !tooltipElement.contains(event.target as Node)) {
-        this.onTooltipClose();
-      }
     }
   }
 }

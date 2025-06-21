@@ -1,4 +1,4 @@
-<div class="tooltip" [style.left]="tooltipData().x + 'px'" [style.top]="tooltipData().y + 'px'">
+<div class="tooltip" [class]="'tooltip-' + position()">
   <button class="close-button" (click)="close.emit()" aria-label="Close tooltip">
     <span class="close-icon">×</span>
   </button>

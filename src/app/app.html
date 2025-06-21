@@ -9,17 +9,9 @@
     (scrollToMap)="onScrollToMap($event)"
   ></mkworld-sticker-album>
 
-  <mkworld-map-section
-    id="map-section"
-    class="w-full max-w-5xl"
-    (showTooltip)="onShowTooltip($event)"
-  ></mkworld-map-section>
+  <mkworld-map-section id="map-section" class="w-full max-w-5xl"></mkworld-map-section>
 
   <mkworld-todo-section class="w-full max-w-3xl overflow-hidden"></mkworld-todo-section>
 </main>
-
-@if (tooltipData()) {
-  <mkworld-tooltip class="tooltip" [tooltipData]="tooltipData()!" (close)="onTooltipClose()" />
-}
 
 <mkworld-footer></mkworld-footer>

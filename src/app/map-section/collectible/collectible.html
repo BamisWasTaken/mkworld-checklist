@@ -1,16 +1,18 @@
 <div
   id="collectible-div-{{ checklistModel().index }}"
-  class="collectible"
+  class="collectible absolute"
   [class.appearing]="appearing() && !checklistModel().checked"
   [class.hovered]="hovered()"
+  [class.focused]="isFocused()"
   [class.disappearing]="checklistModel().checked"
   [ngStyle]="{
     left: checklistModel().collectibleModel!.xPercentage + '%',
     top: checklistModel().collectibleModel!.yPercentage + '%',
   }"
+  [attr.data-collectible-index]="checklistModel().index"
   (mouseenter)="hovered.set(true)"
   (mouseleave)="hovered.set(false)"
-  (click)="onClick($event)"
+  (click)="onClick()"
   tabindex="0"
   role="button"
   aria-label="Collectible marker"

@@ -27,7 +27,7 @@ export const checklistData: ChecklistModel[] = [
     hasSticker: true,
     instructions: 'This sticker can be found on the main road leading to the race track.',
     collectibleModel: {
-      xPercentage: 78,
+      xPercentage: 5,
       yPercentage: 60,
       collectibleType: CollectibleType.QUESTIONMARK_PANEL,
     },
@@ -79,7 +79,7 @@ export const checklistData: ChecklistModel[] = [
     hasSticker: true,
     instructions: 'This sticker marks the finish line of the main race track.',
     collectibleModel: {
-      xPercentage: 30,
+      xPercentage: 90,
       yPercentage: 50,
       collectibleType: CollectibleType.QUESTIONMARK_PANEL,
     },
