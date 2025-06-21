@@ -45,6 +45,14 @@ export class App {
     this.translateService.use('en');
   }
 
+  onScrollToMap(checklistItem: ChecklistModel): void {
+    const mapElement = document.getElementById('map-section');
+    const collectibleElement = document.getElementById(`collectible-div-${checklistItem.index}`);
+    if (mapElement && collectibleElement) {
+      mapElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   onChecklistItemChecked(checklistItem: ChecklistModel): void {
     this.checklistItems.update(items =>
       items.map(i => (i.index === checklistItem.index ? checklistItem : i))

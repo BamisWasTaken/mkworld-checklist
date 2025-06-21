@@ -36,11 +36,12 @@
           <div class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full select-none px-6">
             @for (checklistItem of page; track checklistItem.index) {
               <mkworld-sticker
-                [index]="checklistItem.index"
+                [checklistItem]="checklistItem"
                 [checked]="checklistItem.checked"
-                [description]="checklistItem.description!"
                 (checkedChange)="onCheck(checklistItem, $event)"
                 (onHover)="onChecklistItemHover($event, checklistItem.description!)"
+                (onShowTooltip)="onStickerTooltip($event.instructions, $event.event)"
+                (onGoToMap)="onGoToMap($event)"
               ></mkworld-sticker>
             }
           </div>
@@ -67,3 +68,30 @@
     {{ hoveredDescription() || ('STICKER_HOVER' | translate) }}
   </div>
 </section>
+
+@if (tooltipText() && tooltipPosition()) {
+  <div
+    class="sticker-tooltip fixed z-50 flex flex-col items-center"
+    [style.left.px]="tooltipPosition()!.x"
+    [style.top.px]="tooltipPosition()!.y"
+    style="transform: translate(-50%, -100%); margin-top: -8px"
+  >
+    <!-- Tooltip content box -->
+    <div class="relative w-auto bg-gray-800 text-white rounded-md shadow-lg">
+      <div class="flex items-center px-4 py-2">
+        <p class="pr-2 text-center">{{ tooltipText() }}</p>
+        <button
+          class="flex-shrink-0 flex justify-center items-center w-5 h-5 rounded-full text-white hover:bg-gray-700 transition-colors"
+          (click)="closeTooltip()"
+          aria-label="Close tooltip"
+        >
+          <span class="text-xl leading-none -mt-[3px]">&times;</span>
+        </button>
+      </div>
+    </div>
+    <!-- Triangle -->
+    <div
+      class="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-gray-800"
+    ></div>
+  </div>
+}

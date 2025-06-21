@@ -1,4 +1,4 @@
-import { Component, computed, input, output, signal } from '@angular/core';
+import { Component, computed, input, output, signal, HostListener } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel } from '../core/models';
 import { Sticker } from '../sticker/sticker';
@@ -15,6 +15,7 @@ export class StickerAlbum {
   checklistItems = input.required<ChecklistModel[]>();
 
   onChecklistItemChecked = output<ChecklistModel>();
+  scrollToMap = output<ChecklistModel>();
 
   pages = computed(() => this.createPages(this.checklistItems()));
   hoveredDescription = signal<string | null>(null);
@@ -22,6 +23,9 @@ export class StickerAlbum {
 
   page = signal(0);
   pageCount = computed(() => this.pages().length);
+
+  tooltipText = signal<string | null>(null);
+  tooltipPosition = signal<{ x: number; y: number } | null>(null);
 
   prevPage() {
     if (this.page() > 0) this.page.update(p => p - 1);
@@ -48,6 +52,10 @@ export class StickerAlbum {
     this.onChecklistItemChecked.emit({ ...checklistItem, checked });
   }
 
+  onGoToMap(checklistItem: ChecklistModel): void {
+    this.scrollToMap.emit(checklistItem);
+  }
+
   onChecklistItemHover(hovered: boolean, description: string): void {
     if (this.hoverTimeout) {
       clearTimeout(this.hoverTimeout);
@@ -61,6 +69,37 @@ export class StickerAlbum {
         this.hoveredDescription.set(null);
         this.hoverTimeout = null;
       }, 300);
+    }
+  }
+
+  onStickerTooltip(instructions: string, event: MouseEvent): void {
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    this.tooltipText.set(instructions);
+    this.tooltipPosition.set({
+      x: rect.left + rect.width / 2,
+      y: rect.top,
+    });
+  }
+
+  closeTooltip(): void {
+    this.tooltipText.set(null);
+    this.tooltipPosition.set(null);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (this.tooltipText()) {
+      const tooltipElement = document.querySelector('.sticker-tooltip') as HTMLElement;
+      if (tooltipElement && !tooltipElement.contains(event.target as Node)) {
+        this.closeTooltip();
+      }
+    }
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    if (this.tooltipText()) {
+      this.closeTooltip();
     }
   }
 }

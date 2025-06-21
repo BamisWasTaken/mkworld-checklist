@@ -8,9 +8,11 @@
     class="w-full max-w-5xl"
     [checklistItems]="checklistItemsWithSticker()"
     (onChecklistItemChecked)="onChecklistItemChecked($event)"
+    (scrollToMap)="onScrollToMap($event)"
   ></mkworld-sticker-album>
 
   <mkworld-map-section
+    id="map-section"
     class="w-full max-w-5xl"
     [checklistItems]="checklistItems()"
     [disappearingChecklistItems]="disappearingChecklistItems()"
