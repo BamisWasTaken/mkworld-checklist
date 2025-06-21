@@ -40,6 +40,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
   private pzInstance: PanZoom | null = null;
   protected isPanning = false;
+  private mouseDownPosition: { x: number; y: number } | null = null;
+  private readonly DRAG_THRESHOLD = 5; // pixels
 
   readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
   readonly tooltipScale = signal(1);
@@ -71,7 +73,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
         mapRect.height *
         panTransform.scale;
 
-    return this.calculateOptimalPosition(collectibleX, collectibleY, mapRect, panTransform.scale);
+    return this.calculateOptimalPosition(collectibleX, collectibleY, mapRect);
   });
 
   readonly collectibleChecklistModels = computed(() => {
@@ -92,12 +94,11 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private calculateOptimalPosition(
     collectibleX: number,
     collectibleY: number,
-    mapRect: DOMRect,
-    scale: number
+    mapRect: DOMRect
   ): TooltipPosition {
-    const scaledWidth = this.TOOLTIP_WIDTH / scale;
-    const scaledHeight = this.TOOLTIP_HEIGHT / scale;
-    const margin = this.TOOLTIP_MARGIN / scale;
+    const scaledWidth = this.TOOLTIP_WIDTH;
+    const scaledHeight = this.TOOLTIP_HEIGHT;
+    const margin = this.TOOLTIP_MARGIN;
 
     // Calculate available space in each direction
     const spaceAbove = collectibleY - mapRect.top - margin;
@@ -261,6 +262,23 @@ export class MapSection implements AfterViewInit, OnDestroy {
       return;
     }
 
+    // Don't close tooltip if we're currently panning
+    if (this.isPanning) {
+      return;
+    }
+
+    // Don't close tooltip if this was a drag (mouse moved significantly)
+    if (this.mouseDownPosition) {
+      const distance = Math.sqrt(
+        Math.pow(event.clientX - this.mouseDownPosition.x, 2) +
+          Math.pow(event.clientY - this.mouseDownPosition.y, 2)
+      );
+      if (distance > this.DRAG_THRESHOLD) {
+        this.mouseDownPosition = null;
+        return;
+      }
+    }
+
     const collectibleIndex = this.activeTooltipData()!.index;
     const clickedCollectible = (event.target as HTMLElement).closest(
       `[data-collectible-index='${collectibleIndex}']`
@@ -275,5 +293,22 @@ export class MapSection implements AfterViewInit, OnDestroy {
     if (!clickedTooltip) {
       this.tooltipService.setActiveTooltipData(null);
     }
+
+    // Clear mouse down position after processing
+    this.mouseDownPosition = null;
+  }
+
+  @HostListener('document:mousedown', ['$event'])
+  onDocumentMouseDown(event: MouseEvent) {
+    // Track mouse down position to detect drags
+    this.mouseDownPosition = { x: event.clientX, y: event.clientY };
+  }
+
+  @HostListener('document:mouseup')
+  onDocumentMouseUp() {
+    // Clear mouse down position after a short delay to allow click event to process
+    setTimeout(() => {
+      this.mouseDownPosition = null;
+    }, 100);
   }
 }
