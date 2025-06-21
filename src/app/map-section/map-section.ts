@@ -13,8 +13,9 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
-import { ChecklistModel, TooltipData } from '../core/models';
+import { ChecklistModel } from '../core/models';
 import { DataService } from '../core/services';
+import { TooltipService } from '../core/services/tooltip.service';
 import { Collectible } from './collectible/collectible';
 import { Tooltip } from './collectible/tooltip/tooltip';
 
@@ -32,6 +33,7 @@ interface TooltipPosition {
 })
 export class MapSection implements AfterViewInit, OnDestroy {
   private readonly dataService = inject(DataService);
+  private readonly tooltipService = inject(TooltipService);
   private readonly platformId = inject(PLATFORM_ID);
 
   readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
@@ -39,7 +41,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private pzInstance: PanZoom | null = null;
   protected isPanning = false;
 
-  readonly activeTooltipData = signal<TooltipData | null>(null);
+  readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
   readonly tooltipScale = signal(1);
   readonly tooltipTransform = computed(() => `scale(${1 / this.tooltipScale()})`);
 
@@ -59,11 +61,15 @@ export class MapSection implements AfterViewInit, OnDestroy {
     const collectibleX =
       mapRect.left +
       panTransform.x +
-      (this.activeTooltipData()!.x / 100) * mapRect.width * panTransform.scale;
+      (this.activeTooltipData()!.collectibleModel!.xPercentage / 100) *
+        mapRect.width *
+        panTransform.scale;
     const collectibleY =
       mapRect.top +
       panTransform.y +
-      (this.activeTooltipData()!.y / 100) * mapRect.height * panTransform.scale;
+      (this.activeTooltipData()!.collectibleModel!.yPercentage / 100) *
+        mapRect.height *
+        panTransform.scale;
 
     return this.calculateOptimalPosition(collectibleX, collectibleY, mapRect, panTransform.scale);
   });
@@ -80,7 +86,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   });
 
   readonly focusedCollectibleIndex = computed(() => {
-    return this.activeTooltipData()?.checklistModel.index ?? null;
+    return this.activeTooltipData()?.index ?? null;
   });
 
   private calculateOptimalPosition(
@@ -244,25 +250,18 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }
   }
 
-  onShowTooltip(tooltipData: TooltipData) {
-    if (this.activeTooltipData()?.checklistModel.index === tooltipData.checklistModel.index) {
-      this.closeTooltip();
-      return;
-    }
-    this.activeTooltipData.set(tooltipData);
-  }
-
-  closeTooltip(): void {
-    this.activeTooltipData.set(null);
-  }
-
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     if (!this.activeTooltipData()) {
       return;
     }
 
-    const collectibleIndex = this.activeTooltipData()!.checklistModel.index;
+    // Don't close tooltip if we're currently scrolling to it
+    if (this.tooltipService.isScrollingToTooltipActive()()) {
+      return;
+    }
+
+    const collectibleIndex = this.activeTooltipData()!.index;
     const clickedCollectible = (event.target as HTMLElement).closest(
       `[data-collectible-index='${collectibleIndex}']`
     );
@@ -274,7 +273,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
     const clickedTooltip = (event.target as HTMLElement).closest('.map-tooltip-container');
 
     if (!clickedTooltip) {
-      this.closeTooltip();
+      this.tooltipService.setActiveTooltipData(null);
     }
   }
 }

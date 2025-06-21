@@ -1,6 +1,6 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ChecklistModel, TooltipData } from './core/models';
+import { ChecklistModel } from './core/models';
 import { DataService } from './core/services';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
@@ -8,6 +8,7 @@ import { MapSection } from './map-section/map-section';
 import { ProgressBar } from './progress-bar/progress-bar';
 import { StickerAlbum } from './sticker-album/sticker-album';
 import { TodoSection } from './todo-section/todo-section';
+import { TooltipService } from './core/services/tooltip.service';
 
 @Component({
   selector: 'mkworld-root',
@@ -18,13 +19,13 @@ import { TodoSection } from './todo-section/todo-section';
 export class App {
   private readonly translateService = inject(TranslateService);
   private readonly dataService = inject(DataService);
+  private readonly tooltipService = inject(TooltipService);
 
   checklistModelsWithSticker = computed(() =>
     this.dataService
       .getChecklistModels()()
       .filter((checklistModel: ChecklistModel) => checklistModel.hasSticker)
   );
-  tooltipData = signal<TooltipData | null>(null);
 
   progress = computed(
     () => this.checklistModelsWithSticker().filter((item: ChecklistModel) => item.checked).length
@@ -39,9 +40,9 @@ export class App {
 
   onScrollToMap(checklistModel: ChecklistModel): void {
     const mapElement = document.getElementById('map-section');
-    const collectibleElement = document.getElementById(`collectible-div-${checklistModel.index}`);
-    if (mapElement && collectibleElement) {
-      mapElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (mapElement) {
+      mapElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      this.tooltipService.setActiveTooltipDataWithScrollProtection(checklistModel);
     }
   }
 }

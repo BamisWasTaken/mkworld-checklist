@@ -1,16 +1,16 @@
 <div class="tooltip" [class]="'tooltip-' + position()">
-  <button class="close-button" (click)="close.emit()" aria-label="Close tooltip">
+  <button class="close-button" (click)="onClose()" aria-label="Close tooltip">
     <span class="close-icon">×</span>
   </button>
 
   <div class="description-container">
     <img
-      [src]="`/imgs/${tooltipData().checklistModel.collectibleModel!.collectibleType}.png`"
-      [alt]="tooltipData().checklistModel.collectibleModel!.collectibleType"
+      [src]="`/imgs/${checklistModel().collectibleModel!.collectibleType}.png`"
+      [alt]="checklistModel().collectibleModel!.collectibleType"
       class="sticker-thumbnail"
     />
     <p class="description">
-      {{ tooltipData().checklistModel.description ?? 'you got a peach coin' }}
+      {{ checklistModel().description ?? 'you got a peach coin' }}
     </p>
   </div>
 
@@ -19,13 +19,9 @@
     <div class="placeholder-text">Screenshot coming soon!</div>
   </div>
 
-  <p class="instruction">{{ tooltipData().checklistModel.instructions }}</p>
+  <p class="instruction">{{ checklistModel().instructions }}</p>
 
-  <button
-    class="collect-button"
-    [class.checked]="tooltipData().checklistModel.checked"
-    (click)="onChecked()"
-  >
+  <button class="collect-button" [class.checked]="checklistModel().checked" (click)="onChecked()">
     <div class="checkbox">
       <div class="checkmark"></div>
     </div>

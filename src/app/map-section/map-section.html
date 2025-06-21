@@ -19,21 +19,19 @@
         [checklistModel]="collectibleChecklistModel"
         [isPanning]="isPanning"
         [isFocused]="focusedCollectibleIndex() === collectibleChecklistModel.index"
-        (showTooltip)="onShowTooltip($event)"
       />
     }
 
     @if (activeTooltipData(); as tooltipData) {
       <div
         class="map-tooltip-container absolute z-20"
-        [style.left.%]="tooltipData.x"
-        [style.top.%]="tooltipData.y"
+        [style.left.%]="activeTooltipData()!.collectibleModel!.xPercentage"
+        [style.top.%]="activeTooltipData()!.collectibleModel!.yPercentage"
       >
         <div [style.transform]="tooltipTransform()">
           <mkworld-tooltip
-            [tooltipData]="tooltipData"
+            [checklistModel]="tooltipData"
             [position]="tooltipPosition()?.position ?? 'above'"
-            (close)="closeTooltip()"
           />
         </div>
       </div>

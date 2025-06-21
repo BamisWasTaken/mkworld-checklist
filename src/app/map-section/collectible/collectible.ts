@@ -1,6 +1,7 @@
 import { NgStyle } from '@angular/common';
-import { Component, input, output, signal } from '@angular/core';
-import { ChecklistModel, TooltipData } from '../../core/models';
+import { Component, inject, input, signal } from '@angular/core';
+import { ChecklistModel } from '../../core/models';
+import { TooltipService } from '../../core/services/tooltip.service';
 
 @Component({
   selector: 'mkworld-collectible',
@@ -9,11 +10,11 @@ import { ChecklistModel, TooltipData } from '../../core/models';
   styleUrl: './collectible.css',
 })
 export class Collectible {
+  private readonly tooltipService = inject(TooltipService);
+
   readonly checklistModel = input.required<ChecklistModel>();
   readonly isPanning = input(false);
   readonly isFocused = input(false);
-
-  readonly showTooltip = output<TooltipData>();
 
   hovered = signal(false);
   readonly appearing = signal(false);
@@ -27,13 +28,6 @@ export class Collectible {
       return;
     }
 
-    const { collectibleModel } = this.checklistModel();
-    if (collectibleModel) {
-      this.showTooltip.emit({
-        checklistModel: this.checklistModel(),
-        x: collectibleModel.xPercentage,
-        y: collectibleModel.yPercentage,
-      });
-    }
+    this.tooltipService.setActiveTooltipData(this.checklistModel());
   }
 }

@@ -1,7 +1,8 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { TooltipData } from '../../../core/models';
+import { ChecklistModel } from '../../../core/models';
 import { DataService } from '../../../core/services';
+import { TooltipService } from '../../../core/services/tooltip.service';
 
 @Component({
   selector: 'mkworld-tooltip',
@@ -11,17 +12,16 @@ import { DataService } from '../../../core/services';
 })
 export class Tooltip {
   private readonly dataService = inject(DataService);
+  private readonly tooltipService = inject(TooltipService);
 
-  readonly tooltipData = input.required<TooltipData>();
+  readonly checklistModel = input.required<ChecklistModel>();
   readonly position = input<'above' | 'below' | 'left' | 'right'>('above');
 
-  readonly close = output<void>();
-
   onChecked() {
-    this.dataService.updateChecklistModelChecked(this.tooltipData().checklistModel);
+    this.dataService.updateChecklistModelChecked(this.checklistModel());
   }
 
   onClose() {
-    this.close.emit();
+    this.tooltipService.setActiveTooltipData(null);
   }
 }
