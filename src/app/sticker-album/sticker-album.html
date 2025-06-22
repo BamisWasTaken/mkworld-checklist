@@ -3,6 +3,34 @@
 >
   <!-- Padding container for non-scrolling elements -->
   <div class="w-full p-6 flex flex-col items-center">
+    <!-- Toggle for collected stickers -->
+    <div class="absolute top-6 right-6 flex items-center gap-2">
+      <label class="flex items-center gap-2 cursor-pointer group filter-toggle">
+        <div
+          class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+          [class.bg-yellow-400]="showCollectedStickers()"
+          [class.border-yellow-400]="showCollectedStickers()"
+        >
+          <div
+            class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
+            [class.scale-100]="showCollectedStickers()"
+            [class.scale-0]="!showCollectedStickers()"
+          ></div>
+        </div>
+        <span
+          class="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200"
+        >
+          Show collected stickers
+        </span>
+        <input
+          type="checkbox"
+          class="sr-only"
+          [checked]="showCollectedStickers()"
+          (change)="toggleShowCollectedStickers()"
+        />
+      </label>
+    </div>
+
     <button
       class="absolute left-1 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition-all duration-300 z-10 arrow-button"
       [class.scale-0]="page() === 0"
@@ -33,14 +61,19 @@
     >
       @for (page of pages(); track $index) {
         <div class="w-full flex-shrink-0 page-container">
-          <div class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full select-none px-6">
+          <div
+            class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full select-none px-6 sticker-grid"
+          >
             @for (checklistModel of page; track checklistModel.index) {
-              <mkworld-sticker
-                [checklistModel]="checklistModel"
-                (onHover)="onChecklistItemHover($event, checklistModel.description!)"
-                (onShowTooltip)="onStickerTooltip($event.instructions, $event.event)"
-                (onGoToMap)="onGoToMap($event)"
-              ></mkworld-sticker>
+              <div #stickerItem [attr.data-sticker-index]="checklistModel.index">
+                <mkworld-sticker
+                  [checklistModel]="checklistModel"
+                  (onHover)="onChecklistItemHover($event, checklistModel.description!)"
+                  (onShowTooltip)="onStickerTooltip($event.instructions, $event.event)"
+                  (onGoToMap)="onGoToMap($event)"
+                  (onChecked)="onStickerChecked()"
+                ></mkworld-sticker>
+              </div>
             }
           </div>
         </div>

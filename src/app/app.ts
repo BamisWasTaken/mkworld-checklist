@@ -40,7 +40,7 @@ export class App {
 
   onScrollToMap(checklistModel: ChecklistModel): void {
     const mapElement = document.getElementById('map-section');
-    if (mapElement) {
+    if (mapElement && !checklistModel.checked) {
       mapElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
       this.tooltipService.setActiveTooltipDataWithScrollProtection(checklistModel);
     }

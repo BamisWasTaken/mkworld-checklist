@@ -1,5 +1,5 @@
 .task-bar-text {
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .task-bar-text.fade {
@@ -7,7 +7,7 @@
 }
 
 .arrow-button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
 .arrow-button:hover {
@@ -15,9 +15,45 @@
 }
 
 .sticker-scroll-container {
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s ease-in-out;
 }
 
 .page-container {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Sticker grid container for FLIP animations */
+.sticker-grid {
+  position: relative;
   will-change: transform;
+}
+
+/* Individual sticker container for FLIP animations */
+.sticker-grid > div {
+  position: relative;
+  will-change: transform, opacity;
+}
+
+/* Smooth transitions for sticker interactions */
+.sticker-container {
+  transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+  will-change: transform;
+}
+
+/* Toggle checkbox animations */
+.toggle-checkbox {
+  transition: all 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.toggle-checkbox:hover {
+  transform: scale(1.05);
+}
+
+/* Filter toggle button styling */
+.filter-toggle {
+  transition: all 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.filter-toggle:hover {
+  transform: scale(1.02);
 }

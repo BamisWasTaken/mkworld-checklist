@@ -15,6 +15,7 @@ export class Sticker {
   readonly onHover = output<boolean>();
   readonly onShowTooltip = output<{ instructions: string; event: MouseEvent }>();
   readonly onGoToMap = output<ChecklistModel>();
+  readonly onChecked = output<void>();
 
   hovered = signal(false);
 
@@ -26,6 +27,7 @@ export class Sticker {
 
   toggleCheck() {
     this.dataService.updateChecklistModelChecked(this.checklistModel());
+    this.onChecked.emit();
   }
 
   onMouseEnter() {
