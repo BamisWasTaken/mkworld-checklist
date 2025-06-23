@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input, OnInit, signal } from '@angular/core';
 import { ChecklistModel } from '../../core/models';
 import { TooltipService } from '../../core/services/tooltip.service';
 
@@ -9,18 +9,27 @@ import { TooltipService } from '../../core/services/tooltip.service';
   imports: [NgStyle],
   styleUrl: './collectible.css',
 })
-export class Collectible {
+export class Collectible implements OnInit {
   private readonly tooltipService = inject(TooltipService);
 
   readonly checklistModel = input.required<ChecklistModel>();
+  readonly checked = input.required<boolean>();
   readonly isPanning = input(false);
   readonly isFocused = input(false);
+  readonly showCollected = input.required<boolean>();
+
+  readonly imageUrl = computed(() => {
+    const type = this.checklistModel().collectibleModel!.collectibleType;
+    const suffix = this.checked() ? '-collected' : '';
+    return `/imgs/${type}${suffix}.png`;
+  });
 
   hovered = signal(false);
-  readonly appearing = signal(false);
+  readonly ready = signal(false);
+  readonly disappearing = computed(() => this.checked() && !this.showCollected());
 
-  constructor() {
-    setTimeout(() => this.appearing.set(true), 0);
+  ngOnInit(): void {
+    setTimeout(() => this.ready.set(true), 0);
   }
 
   onClick(): void {

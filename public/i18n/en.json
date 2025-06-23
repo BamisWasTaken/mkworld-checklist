@@ -1,11 +1,14 @@
 {
-    "TITLE": "Mario Kart World Checklist",
-    "SUBTITLE": "Track your sticker collection and tasks as you complete Mario Kart World!",
-    "PROGRESS": "{{collected}} / {{total}} Stickers Collected",
-    "STICKER_HOVER": "Hover a sticker to see its description here.",
-    "MAP_PLACEHOLDER": "[Map Placeholder]",
-    "TODO_LIST": "To-Do List",
-    "TODO_TASK_PLACEHOLDER": "[Task description placeholder]",
-    "FOOTER": "Mario Kart World Checklist © 2025",
-    "FONT_MADE_BY": "Font made by"
+  "TITLE": "Mario Kart World Checklist",
+  "SUBTITLE": "Track your sticker collection and tasks as you complete Mario Kart World!",
+  "PROGRESS": "{{collected}} / {{total}} Stickers Collected",
+  "STICKER_HOVER": "Hover a sticker to see its description here.",
+  "MAP_PLACEHOLDER": "[Map Placeholder]",
+  "TODO_LIST": "To-Do List",
+  "TODO_TASK_PLACEHOLDER": "[Task description placeholder]",
+  "FOOTER": "Mario Kart World Checklist © 2025",
+  "FONT_MADE_BY": "Font made by",
+  "Map": {
+    "ShowCollected": "Show collected"
+  }
 }

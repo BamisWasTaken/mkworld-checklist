@@ -36,14 +36,33 @@ export class DataService {
       checklistModelToUpdate.checked &&
       !this.disappearingChecklistModels().has(checklistModelToUpdate)
     ) {
-      const newSet = new Set(this.disappearingChecklistModels());
-      newSet.add(checklistModelToUpdate);
-      this.disappearingChecklistModels.set(newSet);
-      setTimeout(() => {
-        const afterSet = new Set(this.disappearingChecklistModels());
-        afterSet.delete(checklistModelToUpdate);
-        this.disappearingChecklistModels.set(afterSet);
-      }, 200);
+      this.addDisappearingChecklistModel(checklistModelToUpdate);
     }
+  }
+
+  addDisappearingChecklistModel(checklistModel: ChecklistModel): void {
+    const newSet = new Set(this.disappearingChecklistModels());
+    newSet.add(checklistModel);
+    this.disappearingChecklistModels.set(newSet);
+    setTimeout(() => {
+      const afterSet = new Set(this.disappearingChecklistModels());
+      afterSet.delete(checklistModel);
+      this.disappearingChecklistModels.set(afterSet);
+    }, 200);
+  }
+
+  addDisappearingChecklistModels(checklistModels: ChecklistModel[]): void {
+    const newSet = new Set(this.disappearingChecklistModels());
+    checklistModels.forEach((checklistModel: ChecklistModel) => {
+      newSet.add(checklistModel);
+    });
+    this.disappearingChecklistModels.set(newSet);
+    setTimeout(() => {
+      const afterSet = new Set(this.disappearingChecklistModels());
+      checklistModels.forEach((checklistModel: ChecklistModel) => {
+        afterSet.delete(checklistModel);
+      });
+      this.disappearingChecklistModels.set(afterSet);
+    }, 200);
   }
 }

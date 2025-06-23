@@ -43,6 +43,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private mouseDownPosition: { x: number; y: number } | null = null;
   private readonly DRAG_THRESHOLD = 5; // pixels
 
+  readonly showCollected = signal(false);
+
   readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
   readonly tooltipScale = signal(1);
   readonly tooltipTransform = computed(() => `scale(${1 / this.tooltipScale()})`);
@@ -78,6 +80,13 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
   readonly collectibleChecklistModels = computed(() => {
     const checklistModels = this.dataService.getChecklistModels()();
+
+    if (this.showCollected()) {
+      return checklistModels.filter(
+        (checklistModel: ChecklistModel) => checklistModel.collectibleModel
+      );
+    }
+
     const disappearingChecklistModels = this.dataService.getDisappearingChecklistModels()();
 
     return checklistModels.filter(
@@ -228,6 +237,19 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }
   }
 
+  toggleShowCollected(): void {
+    const showCollected = !this.showCollected();
+    if (!showCollected) {
+      this.dataService.addDisappearingChecklistModels(
+        this.collectibleChecklistModels().filter(
+          (checklistModel: ChecklistModel) =>
+            checklistModel.checked && checklistModel.collectibleModel
+        )
+      );
+    }
+    this.showCollected.set(showCollected);
+  }
+
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.pzInstance = panzoom(this.mapPanzoomRef()!.nativeElement, {
@@ -235,6 +257,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
         boundsPadding: 1,
         minZoom: 1,
         maxZoom: 10,
+        zoomDoubleClickSpeed: 1,
       });
 
       this.pzInstance.on('panstart', () => (this.isPanning = true));

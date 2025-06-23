@@ -1,4 +1,36 @@
-<section class="w-full h-auto max-h-[767px] rounded-lg shadow overflow-hidden">
+<section class="relative w-full h-auto max-h-[767px] rounded-lg shadow overflow-hidden">
+  <div
+    class="absolute top-2 right-2 z-10 flex items-center gap-2 p-2 rounded-md bg-white/70 backdrop-blur-sm"
+  >
+    <label
+      for="show-collected-map"
+      class="flex items-center gap-2 cursor-pointer group filter-toggle"
+    >
+      <div
+        class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+        [class.bg-yellow-400]="showCollected()"
+        [class.border-yellow-400]="showCollected()"
+      >
+        <div
+          class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
+          [class.scale-100]="showCollected()"
+          [class.scale-0]="!showCollected()"
+        ></div>
+      </div>
+      <span
+        class="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200 select-none"
+      >
+        {{ 'Map.ShowCollected' | translate }}
+      </span>
+      <input
+        id="show-collected-map"
+        type="checkbox"
+        class="sr-only"
+        [checked]="showCollected()"
+        (change)="toggleShowCollected()"
+      />
+    </label>
+  </div>
   <div
     id="map-panzoom"
     #mapPanzoom
@@ -17,8 +49,10 @@
     ) {
       <mkworld-collectible
         [checklistModel]="collectibleChecklistModel"
+        [checked]="collectibleChecklistModel.checked"
         [isPanning]="isPanning"
         [isFocused]="focusedCollectibleIndex() === collectibleChecklistModel.index"
+        [showCollected]="showCollected()"
       />
     }
 
