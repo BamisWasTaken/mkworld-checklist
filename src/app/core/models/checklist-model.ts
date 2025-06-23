@@ -6,5 +6,6 @@ export interface ChecklistModel {
   description?: string;
   instructions: string;
   hasSticker: boolean;
+  stickerAltText?: string;
   collectibleModel?: CollectibleModel;
 }
