@@ -10,7 +10,17 @@
       class="sticker-thumbnail"
     />
     <p class="description">
-      {{ checklistModel().description ?? 'you got a peach coin' }}
+      @switch (checklistModel().collectibleModel!.collectibleType) {
+        @case (CollectibleType.PEACH_COIN) {
+          {{ 'STICKERS.SHARED.PEACH_COIN_TOOLTIP' | translate }}
+        }
+        @case (CollectibleType.P_SWITCH) {
+          {{ 'STICKERS.' + checklistModel().collectibleModel!.missionName | translate }}
+        }
+        @case (CollectibleType.QUESTIONMARK_PANEL) {
+          {{ 'STICKERS.SHARED.QUESTIONMARK_PANEL_TOOLTIP' | translate }}
+        }
+      }
     </p>
   </div>
 
@@ -19,7 +29,7 @@
     <div class="placeholder-text">Screenshot coming soon!</div>
   </div>
 
-  <p class="instruction">{{ checklistModel().instructions }}</p>
+  <p class="instruction">{{ 'STICKERS.' + checklistModel().instructions | translate }}</p>
 
   <button class="collect-button" [class.checked]="checklistModel().checked" (click)="onChecked()">
     <div class="checkbox">

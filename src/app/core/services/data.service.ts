@@ -1,6 +1,6 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { ChecklistModel } from '../models';
-import { checklistData } from '../data/checklist-data';
+import data from '../../../../public/data/checklist-data.json';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class DataService {
   private disappearingChecklistModels = signal<Set<ChecklistModel>>(new Set());
 
   constructor() {
-    this.checklistModels.set(checklistData);
+    this.checklistModels.set(data);
   }
 
   getChecklistModels(): WritableSignal<ChecklistModel[]> {

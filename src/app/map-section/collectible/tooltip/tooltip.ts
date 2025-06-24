@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChecklistModel } from '../../../core/models';
+import { ChecklistModel, CollectibleType } from '../../../core/models';
 import { DataService } from '../../../core/services';
 import { TooltipService } from '../../../core/services/tooltip.service';
 
@@ -16,6 +16,8 @@ export class Tooltip {
 
   readonly checklistModel = input.required<ChecklistModel>();
   readonly position = input<'above' | 'below' | 'left' | 'right'>('above');
+
+  readonly CollectibleType = CollectibleType;
 
   onChecked() {
     this.dataService.updateChecklistModelChecked(this.checklistModel());
