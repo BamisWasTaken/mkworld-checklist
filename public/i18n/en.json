@@ -1,15 +1,38 @@
 {
-  "TITLE": "Mario Kart World Checklist",
-  "SUBTITLE": "Track your sticker collection and tasks as you complete Mario Kart World!",
-  "PROGRESS": "{{collected}} / {{total}} Stickers Collected",
-  "STICKER_HOVER": "Hover a sticker to see its description here.",
-  "MAP_PLACEHOLDER": "[Map Placeholder]",
-  "TODO_LIST": "To-Do List",
-  "TODO_TASK_PLACEHOLDER": "[Task description placeholder]",
-  "FOOTER": "Mario Kart World Checklist © 2025",
-  "FONT_MADE_BY": "Font made by",
-  "Map": {
-    "ShowCollected": "Show collected"
+  "HEADER": {
+    "TITLE": "Mario Kart World Checklist",
+    "SUBTITLE": "Track your sticker collection and tasks as you complete Mario Kart World!"
+  },
+  "PROGRESS_BAR": {
+    "PROGRESS": "{{collected}} / {{total}} Stickers Collected"
+  },
+  "STICKER_ALBUM": {
+    "PREVIOUS_PAGE_ALT_TEXT": "Previous Page",
+    "NEXT_PAGE_ALT_TEXT": "Next Page",
+    "STICKER_HOVER": "Hover a sticker to see its description here.",
+    "CLOSE_TOOLTIP_ALT_TEXT": "Close tooltip",
+    "SHOW_COLLECTED_STICKERS": "Show collected stickers",
+    "STICKER": {
+      "TOGGLE_STICKER_COLLECTED_ALT_TEXT": "Toggle sticker collected"
+    }
+  },
+  "TODO_SECTION": {
+    "TITLE": "To-Do List",
+    "PEACH_MEDALLION_TODO": "Collect {{uncollected}} Peach Medallions",
+    "QUESTIONMARK_PANEL_TODO": "Collect {{uncollected}} ? Panels",
+    "PSWITCH_TODO": "Collect {{uncollected}} P-Switches"
+  },
+  "MAP_SECTION": {
+    "SHOW_COLLECTED": "Show collected"
+  },
+  "FOOTER": {
+    "TITLE": "Mario Kart World Checklist © 2025",
+    "FONT_MADE_BY": "Font made by"
+  },
+  "SHARED": {
+    "PEACH_MEDALLION_ALT_TEXT": "Peach Medallion",
+    "QUESTIONMARK_PANEL_ALT_TEXT": "Questionmark Panel",
+    "P_SWITCH_ALT_TEXT": "P-Switch"
   },
   "STICKERS": {
     "SHARED": {

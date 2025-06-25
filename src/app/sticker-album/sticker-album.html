@@ -20,7 +20,7 @@
         <span
           class="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200"
         >
-          Show collected stickers
+          {{ 'STICKER_ALBUM.SHOW_COLLECTED_STICKERS' | translate }}
         </span>
         <input
           type="checkbox"
@@ -33,20 +33,14 @@
 
     <button
       class="absolute left-1 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition-all duration-300 z-10 arrow-button"
-      [class.scale-0]="page() === 0"
-      [class.opacity-0]="page() === 0"
-      [class.pointer-events-none]="page() === 0"
-      aria-label="Previous Page"
+      aria-label="STICKER_ALBUM.PREVIOUS_PAGE_ALT_TEXT"
       (click)="prevPage()"
     >
       <span class="block w-6 h-6 border-l-4 border-b-4 border-yellow-700 rotate-45"></span>
     </button>
     <button
       class="absolute right-1 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition-all duration-300 z-10 arrow-button"
-      [class.scale-0]="page() === pageCount() - 1"
-      [class.opacity-0]="page() === pageCount() - 1"
-      [class.pointer-events-none]="page() === pageCount() - 1"
-      aria-label="Next Page"
+      aria-label="STICKER_ALBUM.NEXT_PAGE_ALT_TEXT"
       (click)="nextPage()"
     >
       <span class="block w-6 h-6 border-r-4 border-b-4 border-yellow-700 -rotate-45"></span>
@@ -84,11 +78,12 @@
   <div class="flex justify-center gap-2 mb-2">
     @for (dot of [].constructor(pageCount()); track $index) {
       <span
-        class="w-3 h-3 rounded-full"
+        class="w-3 h-3 rounded-full cursor-pointer"
         [class.bg-yellow-400]="$index === page()"
         [class.bg-gray-300]="$index !== page()"
         [class.opacity-80]="$index === page()"
         [class.opacity-50]="$index !== page()"
+        (click)="goToPage($index)"
       ></span>
     }
   </div>
@@ -96,7 +91,10 @@
     class="w-full bg-gray-100 rounded px-4 py-2 text-center text-gray-700 font-medium shadow-inner task-bar-text"
     [class.fade]="!hoveredDescription()"
   >
-    {{ (hoveredDescription() ? 'STICKERS.' + hoveredDescription() : 'STICKER_HOVER') | translate }}
+    {{
+      (hoveredDescription() ? 'STICKERS.' + hoveredDescription() : 'STICKER_ALBUM.STICKER_HOVER')
+        | translate
+    }}
   </div>
 </section>
 
@@ -114,7 +112,7 @@
         <button
           class="flex-shrink-0 flex justify-center items-center w-5 h-5 rounded-full text-white hover:bg-gray-700 transition-colors"
           (click)="closeTooltip()"
-          aria-label="Close tooltip"
+          aria-label="STICKER_ALBUM.CLOSE_TOOLTIP_ALT_TEXT"
         >
           <span class="text-xl leading-none -mt-[3px]">&times;</span>
         </button>

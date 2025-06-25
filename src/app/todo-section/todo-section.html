@@ -1,13 +1,19 @@
 <section class="w-full bg-white rounded-lg shadow p-4 flex flex-col items-center">
-  <h2 class="text-xl font-bold mb-2">{{ 'TODO_LIST' | translate }}</h2>
+  <h2 class="text-xl font-bold mb-2">{{ 'TODO_SECTION.TITLE' | translate }}</h2>
   <ul class="w-full flex flex-col text-gray-700 todo-list">
     @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
       <li
         class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
         [class.removing]="lastPeachCoinBeingRemoved()"
       >
-        <img src="imgs/peach-coin.png" alt="Peach Coin" class="w-8 h-8" />
-        <span class="flex-1">Collect {{ uncollectedPeachCoins() }} Peach Coins</span>
+        <img
+          src="imgs/peach-coin.png"
+          [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
+          class="w-8 h-8"
+        />
+        <span class="flex-1">{{
+          'TODO_SECTION.PEACH_MEDALLION_TODO' | translate: { uncollected: uncollectedPeachCoins() }
+        }}</span>
       </li>
     }
     @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
@@ -15,8 +21,15 @@
         class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
         [class.removing]="lastQuestionMarkPanelBeingRemoved()"
       >
-        <img src="imgs/questionmark-panel.png" alt="Questionmark Panel" class="w-8 h-8" />
-        <span class="flex-1">Collect {{ uncollectedQuestionMarkPanels() }} ? Panels</span>
+        <img
+          src="imgs/questionmark-panel.png"
+          [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
+          class="w-8 h-8"
+        />
+        <span class="flex-1">{{
+          'TODO_SECTION.QUESTIONMARK_PANEL_TODO'
+            | translate: { uncollected: uncollectedQuestionMarkPanels() }
+        }}</span>
       </li>
     }
     @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
@@ -24,8 +37,14 @@
         class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
         [class.removing]="lastPSwitchBeingRemoved()"
       >
-        <img src="imgs/p-switch.png" alt="P-Switch" class="w-8 h-8" />
-        <span class="flex-1">Collect {{ uncollectedPSwitches() }} P-Switches</span>
+        <img
+          src="imgs/p-switch.png"
+          [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
+          class="w-8 h-8"
+        />
+        <span class="flex-1">{{
+          'TODO_SECTION.PSWITCH_TODO' | translate: { uncollected: uncollectedPSwitches() }
+        }}</span>
       </li>
     }
     @for (item of todoItems(); track item.index) {

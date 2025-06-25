@@ -62,11 +62,23 @@ export class StickerAlbum implements AfterViewInit {
   }
 
   prevPage() {
-    if (this.page() > 0) this.page.update(p => p - 1);
+    if (this.page() > 0) {
+      this.page.update(p => p - 1);
+    } else {
+      this.page.set(this.pageCount() - 1);
+    }
   }
 
   nextPage() {
-    if (this.page() < this.pageCount() - 1) this.page.update(p => p + 1);
+    if (this.page() < this.pageCount() - 1) {
+      this.page.update(p => p + 1);
+    } else {
+      this.page.set(0);
+    }
+  }
+
+  goToPage(page: number) {
+    this.page.set(page);
   }
 
   toggleShowCollectedStickers() {
