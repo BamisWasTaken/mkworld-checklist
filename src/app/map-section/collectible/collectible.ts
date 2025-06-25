@@ -1,5 +1,13 @@
 import { NgStyle } from '@angular/common';
-import { Component, computed, inject, input, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { ChecklistModel } from '../../core/models';
 import { TooltipService } from '../../core/services/tooltip.service';
 
@@ -8,6 +16,7 @@ import { TooltipService } from '../../core/services/tooltip.service';
   templateUrl: './collectible.html',
   imports: [NgStyle],
   styleUrl: './collectible.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Collectible implements OnInit {
   private readonly tooltipService = inject(TooltipService);

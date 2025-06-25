@@ -61,6 +61,7 @@
             @for (checklistModel of page; track checklistModel.index) {
               <div #stickerItem [attr.data-sticker-index]="checklistModel.index">
                 <mkworld-sticker
+                  class="w-full h-full"
                   [checklistModel]="checklistModel"
                   (onHover)="onChecklistItemHover($event, checklistModel.description!)"
                   (onShowTooltip)="onStickerTooltip($event.instructions, $event.event)"

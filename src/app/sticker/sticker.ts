@@ -1,4 +1,12 @@
-import { Component, effect, inject, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import { ChecklistModel } from '../core/models';
 import { DataService } from '../core/services';
 import { TranslateModule } from '@ngx-translate/core';
@@ -8,6 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './sticker.html',
   styleUrls: ['./sticker.css'],
   imports: [TranslateModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sticker {
   private readonly dataService = inject(DataService);

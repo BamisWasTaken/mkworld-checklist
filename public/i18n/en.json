@@ -40,7 +40,7 @@
       "ACTIVATED_QUESTION_PANEL_DESCRIPTION": "You activated a ? Panel!",
       "RACED_SPECIAL_CUP_DESCRIPTION": "You raced in the Special Cup!",
       "RACED_SPECIAL_CUP_INSTRUCTIONS": "Complete the Special Cup in Grand Prix mode.",
-      "MILESTONE_REACHED_DESCRIPTION": "You [drove/glided/collected 🪙/performed/raced] XXX [km/tricks/times] total! or You got a Peach Medallion!",
+      "MILESTONE_REACHED_DESCRIPTION": "You drove / glided km, tricked / raced times, collected X coins, or got a Peach Medallion!",
       "MILESTONE_REACHED_INSTRUCTIONS": "Randomly given upon hitting a drive distance, glide distance, coin collection, or trick count milestone; or collecting a Peach Medallion.",
       "STARTED_MARIO_KART_WORLD_DESCRIPTION": "You started Mario Kart World!",
       "STARTED_MARIO_KART_WORLD_INSTRUCTIONS": "Unlocked automatically upon starting the game.",
