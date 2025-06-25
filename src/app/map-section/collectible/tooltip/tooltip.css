@@ -129,6 +129,7 @@
   height: 32px;
   object-fit: contain;
   flex-shrink: 0;
+  filter: drop-shadow(0 0 2px black);
 }
 
 .description {
@@ -137,24 +138,6 @@
   margin: 0;
   font-weight: 500;
   flex: 1;
-}
-
-.image-placeholder {
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-  background: #f0f0f0;
-  border-radius: 4px;
-  position: relative;
-  margin-bottom: 12px;
-}
-
-.placeholder-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #999;
-  font-size: 14px;
 }
 
 .instruction {

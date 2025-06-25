@@ -256,9 +256,9 @@
     "instructions": "31_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.74725274725274,
-      "yPercentage": 86.04395604395604,
-      "youtubeLink": "r_K8502IHno"
+      "xPercentage": 65.94505494505495,
+      "yPercentage": 86.38461538461539,
+      "youtubeLink": "3mNrWWIG2ag"
     }
   },
   {
@@ -529,7 +529,7 @@
   },
   {
     "index": 54,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "54_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -553,7 +553,7 @@
   },
   {
     "index": 57,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "57_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -637,9 +637,9 @@
     "instructions": "64_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 10.483516483516484,
-      "yPercentage": 68.26373626373626,
-      "youtubeLink": "LSy_jcpPpdc"
+      "xPercentage": 11.296703296703297,
+      "yPercentage": 69.96703296703296,
+      "youtubeLink": "gLeRXhtCux4"
     }
   },
   {
@@ -711,9 +711,9 @@
     "instructions": "69_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 77.01098901098901,
-      "yPercentage": 44.417582417582416,
-      "youtubeLink": "pun3_NapiTs"
+      "xPercentage": 76.32967032967034,
+      "yPercentage": 45.18681318681319,
+      "youtubeLink": "K7Pd5240bt0"
     }
   },
   {
@@ -995,7 +995,7 @@
   },
   {
     "index": 98,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "98_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -1075,7 +1075,7 @@
   },
   {
     "index": 108,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "108_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -1131,7 +1131,7 @@
   },
   {
     "index": 115,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "115_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -1409,7 +1409,7 @@
   },
   {
     "index": 148,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "148_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -1534,9 +1534,9 @@
     "instructions": "161_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 10.615384615384615,
-      "yPercentage": 51.967032967032964,
-      "youtubeLink": "FI71YpQ-anQ"
+      "xPercentage": 9.758241758241759,
+      "yPercentage": 50.043956043956044,
+      "youtubeLink": "cAEpDIUqvEg"
     }
   },
   {
@@ -1653,7 +1653,7 @@
   },
   {
     "index": 176,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "176_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -1730,7 +1730,7 @@
   },
   {
     "index": 183,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "183_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -2041,7 +2041,7 @@
   },
   {
     "index": 216,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "216_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -2189,7 +2189,7 @@
   },
   {
     "index": 231,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "231_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -2251,9 +2251,9 @@
     "instructions": "237_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 50.527472527472526,
-      "yPercentage": 16.395604395604394,
-      "youtubeLink": "72OycExQT5g"
+      "xPercentage": 48.65934065934066,
+      "yPercentage": 16.142857142857142,
+      "youtubeLink": "JdmJDVPLVpU"
     }
   },
   {
@@ -2280,9 +2280,9 @@
     "instructions": "239_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 51.59340659340659,
-      "yPercentage": 15.395604395604396,
-      "youtubeLink": "i7kRkOP_-OM"
+      "xPercentage": 50.94505494505494,
+      "yPercentage": 15.945054945054945,
+      "youtubeLink": "FHtUsSc7Hvk"
     }
   },
   {
@@ -2436,7 +2436,7 @@
   },
   {
     "index": 256,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "256_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -2754,9 +2754,9 @@
     "instructions": "290_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 91.38461538461539,
-      "yPercentage": 54.08791208791209,
-      "youtubeLink": "DOJZNzDe6lE"
+      "xPercentage": 89.45054945054945,
+      "yPercentage": 55.142857142857146,
+      "youtubeLink": "fXh2SGDjKFE"
     }
   },
   {
@@ -3196,9 +3196,9 @@
     "instructions": "336_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 49.65934065934066,
-      "yPercentage": 59.64835164835165,
-      "youtubeLink": "rlXGJUVtkWc"
+      "xPercentage": 51.57142857142857,
+      "yPercentage": 57.38461538461539,
+      "youtubeLink": "AnRdZ56Klbk"
     }
   },
   {
@@ -3210,9 +3210,9 @@
     "instructions": "337_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 77.83516483516483,
-      "yPercentage": 63.8021978021978,
-      "youtubeLink": "m7_TJ2WgtIs"
+      "xPercentage": 77.7032967032967,
+      "yPercentage": 62.27472527472528,
+      "youtubeLink": "GpZrpQGdpWE"
     }
   },
   {
@@ -3224,9 +3224,9 @@
     "instructions": "338_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 90.81318681318682,
-      "yPercentage": 72.12087912087912,
-      "youtubeLink": "E17A0L-EkAk"
+      "xPercentage": 88.04395604395604,
+      "yPercentage": 71.12087912087912,
+      "youtubeLink": "EUkp9ExqiE0"
     }
   },
   {
@@ -3238,9 +3238,9 @@
     "instructions": "339_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 50.62637362637363,
-      "yPercentage": 45.879120879120876,
-      "youtubeLink": "nDznB-OzaSI"
+      "xPercentage": 52.53846153846154,
+      "yPercentage": 44.23076923076923,
+      "youtubeLink": "mC-RAbCaGPo"
     }
   },
   {
@@ -3295,9 +3295,9 @@
     "instructions": "343_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 67.98901098901099,
-      "yPercentage": 68.49450549450549,
-      "youtubeLink": "0AIeAWpgaCo"
+      "xPercentage": 63.8923076923077,
+      "yPercentage": 68.14285714285714,
+      "youtubeLink": "hTHOp-sHwr4"
     }
   },
   {
@@ -3309,9 +3309,9 @@
     "instructions": "344_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.1978021978022,
-      "yPercentage": 87.06593406593407,
-      "youtubeLink": "7i_lUrCsDqQ"
+      "xPercentage": 66.17582417582418,
+      "yPercentage": 86.72527472527473,
+      "youtubeLink": "fqwuTPp-YE8"
     }
   },
   {
@@ -3323,9 +3323,9 @@
     "instructions": "345_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 90.31868131868131,
-      "yPercentage": 54.8021978021978,
-      "youtubeLink": "_zOdwBfVDAA"
+      "xPercentage": 88.75824175824175,
+      "yPercentage": 54.857142857142854,
+      "youtubeLink": "XR75_1OfpxU"
     }
   },
   {
@@ -3396,9 +3396,9 @@
     "instructions": "350_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.4065934065934,
-      "yPercentage": 54.51648351648352,
-      "youtubeLink": "iHnBULQrNBY"
+      "xPercentage": 64.94505494505495,
+      "yPercentage": 52.43956043956044,
+      "youtubeLink": "6VuVxuu_I64"
     }
   },
   {
@@ -3410,9 +3410,9 @@
     "instructions": "351_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.28571428571429,
-      "yPercentage": 39.26373626373626,
-      "youtubeLink": "v61CvlldAcg"
+      "xPercentage": 65.9010989010989,
+      "yPercentage": 39.53846153846154,
+      "youtubeLink": "b631GgbMgZg"
     }
   },
   {
@@ -3424,9 +3424,9 @@
     "instructions": "352_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 24.153846153846153,
-      "yPercentage": 77.67032967032966,
-      "youtubeLink": "RvpfXRzEgXY"
+      "xPercentage": 23.186813186813186,
+      "yPercentage": 78.52747252747253,
+      "youtubeLink": "Qm5VwPE6oV8"
     }
   },
   {
@@ -3438,9 +3438,9 @@
     "instructions": "353_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 38.7032967032967,
-      "yPercentage": 53.857142857142854,
-      "youtubeLink": "TO0kXSdQLJs"
+      "xPercentage": 39.967032967032964,
+      "yPercentage": 52.30769230769231,
+      "youtubeLink": "2krTUapu2ok"
     }
   },
   {
@@ -3530,7 +3530,7 @@
   },
   {
     "index": 363,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "363_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -3615,9 +3615,9 @@
     "instructions": "371_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 88.75824175824175,
-      "yPercentage": 54.857142857142854,
-      "youtubeLink": "XR75_1OfpxU"
+      "xPercentage": 90.31868131868131,
+      "yPercentage": 54.8021978021978,
+      "youtubeLink": "_zOdwBfVDAA"
     }
   },
   {
@@ -4190,9 +4190,9 @@
     "instructions": "426_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 79.45054945054945,
-      "yPercentage": 80.58241758241758,
-      "youtubeLink": "NJWFFMOLbkM"
+      "xPercentage": 79.65934065934066,
+      "yPercentage": 81.56043956043956,
+      "youtubeLink": "nMJJhH7XDAM"
     }
   },
   {
@@ -4281,9 +4281,9 @@
     "instructions": "435_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.57142857142857,
-      "yPercentage": 21.9010989010989,
-      "youtubeLink": "Wb55X7n_7wY"
+      "xPercentage": 65.76923076923077,
+      "yPercentage": 21.175824175824175,
+      "youtubeLink": "PChboEAlCVs"
     }
   },
   {
@@ -4311,9 +4311,9 @@
     "instructions": "438_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 11.076923076923077,
-      "yPercentage": 70.32967032967034,
-      "youtubeLink": "s43_gLWwsnQ"
+      "xPercentage": 10.483516483516484,
+      "yPercentage": 68.26373626373626,
+      "youtubeLink": "LSy_jcpPpdc"
     }
   },
   {
@@ -4399,9 +4399,9 @@
     "instructions": "445_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 23.373626373626372,
-      "yPercentage": 62.362637362637365,
-      "youtubeLink": "QpxS7W-Y5Eg"
+      "xPercentage": 24.10989010989011,
+      "yPercentage": 60.53846153846154,
+      "youtubeLink": "Cf6ftCoOHWQ"
     }
   },
   {
@@ -4413,9 +4413,9 @@
     "instructions": "446_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 22.593406593406595,
-      "yPercentage": 59.89010989010989,
-      "youtubeLink": "_XlI60NeMIM"
+      "xPercentage": 23.373626373626372,
+      "yPercentage": 62.362637362637365,
+      "youtubeLink": "QpxS7W-Y5Eg"
     }
   },
   {
@@ -4532,9 +4532,9 @@
     "instructions": "455_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 24.10989010989011,
-      "yPercentage": 60.53846153846154,
-      "youtubeLink": "Cf6ftCoOHWQ"
+      "xPercentage": 22.593406593406595,
+      "yPercentage": 59.89010989010989,
+      "youtubeLink": "_XlI60NeMIM"
     }
   },
   {
@@ -4652,7 +4652,7 @@
   },
   {
     "index": 464,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "464_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -4660,7 +4660,7 @@
   },
   {
     "index": 465,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "465_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -4849,9 +4849,9 @@
     "instructions": "479_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 43.120879120879124,
-      "yPercentage": 69.56043956043956,
-      "youtubeLink": "NJ18EoBahKI"
+      "xPercentage": 38.30769230769231,
+      "yPercentage": 70.84615384615384,
+      "youtubeLink": "cTrtT-hLKuQ"
     }
   },
   {
@@ -4878,9 +4878,9 @@
     "instructions": "481_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.010989010989015,
-      "yPercentage": 73.81318681318682,
-      "youtubeLink": "R3fnpHT8rAY"
+      "xPercentage": 37.34065934065934,
+      "yPercentage": 74.02197802197803,
+      "youtubeLink": "L6RXLn8WZiA"
     }
   },
   {
@@ -4953,9 +4953,9 @@
     "instructions": "487_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 37.34065934065934,
-      "yPercentage": 74.02197802197803,
-      "youtubeLink": "L6RXLn8WZiA"
+      "xPercentage": 37.79120879120879,
+      "yPercentage": 71.10989010989012,
+      "youtubeLink": "uRK3e7S2RNk"
     }
   },
   {
@@ -4991,9 +4991,9 @@
     "instructions": "491_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 37.79120879120879,
-      "yPercentage": 71.10989010989012,
-      "youtubeLink": "uRK3e7S2RNk"
+      "xPercentage": 39.54945054945055,
+      "yPercentage": 70.3956043956044,
+      "youtubeLink": "7t2TCj4TcZE"
     }
   },
   {
@@ -5037,9 +5037,9 @@
     "instructions": "496_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.54945054945055,
-      "yPercentage": 70.3956043956044,
-      "youtubeLink": "7t2TCj4TcZE"
+      "xPercentage": 40.934065934065934,
+      "yPercentage": 67.9010989010989,
+      "youtubeLink": "pXPR8K3lYCA"
     }
   },
   {
@@ -5087,9 +5087,9 @@
     "instructions": "500_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.21978021978022,
-      "yPercentage": 74.06593406593407,
-      "youtubeLink": "NduuPyM8zrc"
+      "xPercentage": 43.120879120879124,
+      "yPercentage": 69.56043956043956,
+      "youtubeLink": "NJ18EoBahKI"
     }
   },
   {
@@ -5246,9 +5246,9 @@
     "instructions": "513_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.6923076923077,
-      "yPercentage": 68.14285714285714,
-      "youtubeLink": "hTHOp-sHwr4"
+      "xPercentage": 64.22197802197803,
+      "yPercentage": 70.6923076923077,
+      "youtubeLink": "ChpAEBRpQoE"
     }
   },
   {
@@ -5260,9 +5260,9 @@
     "instructions": "514_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.02197802197803,
-      "yPercentage": 70.6923076923077,
-      "youtubeLink": "ChpAEBRpQoE"
+      "xPercentage": 65.01318681318682,
+      "yPercentage": 69.4065934065934,
+      "youtubeLink": "JaUuxI-IanM"
     }
   },
   {
@@ -5274,9 +5274,9 @@
     "instructions": "515_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.3956043956044,
-      "yPercentage": 72.10989010989012,
-      "youtubeLink": "rNA1yzLK96o"
+      "xPercentage": 66.18901098901099,
+      "yPercentage": 68.49450549450549,
+      "youtubeLink": "0AIeAWpgaCo"
     }
   },
   {
@@ -5342,9 +5342,9 @@
     "instructions": "521_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 38.30769230769231,
-      "yPercentage": 70.84615384615384,
-      "youtubeLink": "cTrtT-hLKuQ"
+      "xPercentage": 39.21978021978022,
+      "yPercentage": 74.06593406593407,
+      "youtubeLink": "NduuPyM8zrc"
     }
   },
   {
@@ -5617,9 +5617,9 @@
     "instructions": "546_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 40.934065934065934,
-      "yPercentage": 67.9010989010989,
-      "youtubeLink": "pXPR8K3lYCA"
+      "xPercentage": 39.010989010989015,
+      "yPercentage": 73.81318681318682,
+      "youtubeLink": "R3fnpHT8rAY"
     }
   },
   {
@@ -5738,9 +5738,9 @@
     "instructions": "557_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 23.186813186813186,
-      "yPercentage": 78.52747252747253,
-      "youtubeLink": "Qm5VwPE6oV8"
+      "xPercentage": 22.63736263736264,
+      "yPercentage": 80.36263736263736,
+      "youtubeLink": "shEoX0TVyRA"
     }
   },
   {
@@ -5752,9 +5752,9 @@
     "instructions": "558_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 22.63736263736264,
-      "yPercentage": 80.36263736263736,
-      "youtubeLink": "shEoX0TVyRA"
+      "xPercentage": 24.153846153846153,
+      "yPercentage": 77.67032967032966,
+      "youtubeLink": "RvpfXRzEgXY"
     }
   },
   {
@@ -5870,9 +5870,9 @@
     "instructions": "566_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 35.37362637362637,
-      "yPercentage": 86.95604395604396,
-      "youtubeLink": "87WQJtaRAyY"
+      "xPercentage": 38.967032967032964,
+      "yPercentage": 85.61538461538461,
+      "youtubeLink": "EFvNUYx1GK8"
     }
   },
   {
@@ -5960,9 +5960,9 @@
     "instructions": "573_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 38.989010989010985,
-      "yPercentage": 83.35164835164835,
-      "youtubeLink": "imyMQA3fobs"
+      "xPercentage": 40.07692307692308,
+      "yPercentage": 83.37362637362638,
+      "youtubeLink": "SvVFXSHS7Ys"
     }
   },
   {
@@ -5988,9 +5988,9 @@
     "instructions": "575_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 40.07692307692308,
-      "yPercentage": 83.37362637362638,
-      "youtubeLink": "SvVFXSHS7Ys"
+      "xPercentage": 35.37362637362637,
+      "yPercentage": 86.95604395604396,
+      "youtubeLink": "87WQJtaRAyY"
     }
   },
   {
@@ -6002,9 +6002,9 @@
     "instructions": "576_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 38.967032967032964,
-      "yPercentage": 85.61538461538461,
-      "youtubeLink": "EFvNUYx1GK8"
+      "xPercentage": 38.989010989010985,
+      "yPercentage": 83.35164835164835,
+      "youtubeLink": "imyMQA3fobs"
     }
   },
   {
@@ -6139,9 +6139,9 @@
     "instructions": "589_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 11.296703296703297,
-      "yPercentage": 69.96703296703296,
-      "youtubeLink": "gLeRXhtCux4"
+      "xPercentage": 11.076923076923077,
+      "yPercentage": 70.32967032967034,
+      "youtubeLink": "s43_gLWwsnQ"
     }
   },
   {
@@ -6317,9 +6317,9 @@
     "instructions": "601_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 9.758241758241759,
-      "yPercentage": 50.043956043956044,
-      "youtubeLink": "cAEpDIUqvEg"
+      "xPercentage": 10.615384615384615,
+      "yPercentage": 51.967032967032964,
+      "youtubeLink": "FI71YpQ-anQ"
     }
   },
   {
@@ -6496,9 +6496,9 @@
     "instructions": "613_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 9.835164835164836,
-      "yPercentage": 51.79120879120879,
-      "youtubeLink": "P_k-hUErQK8"
+      "xPercentage": 9.813186813186814,
+      "yPercentage": 50.967032967032964,
+      "youtubeLink": "GGrBDVPhySo"
     }
   },
   {
@@ -6585,9 +6585,9 @@
     "instructions": "619_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 28.153846153846153,
-      "yPercentage": 44.05494505494506,
-      "youtubeLink": "VVYnZbUaeBQ"
+      "xPercentage": 26.615384615384617,
+      "yPercentage": 42.91208791208791,
+      "youtubeLink": "1rm9TLjfQpI"
     }
   },
   {
@@ -6614,9 +6614,9 @@
     "instructions": "621_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 24.78021978021978,
-      "yPercentage": 46.84615384615385,
-      "youtubeLink": "oi2oOkY7w6o"
+      "xPercentage": 26.89010989010989,
+      "yPercentage": 43.69230769230769,
+      "youtubeLink": "_PtX8pvPYeg"
     }
   },
   {
@@ -6741,9 +6741,9 @@
     "instructions": "631_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 26.615384615384617,
-      "yPercentage": 42.91208791208791,
-      "youtubeLink": "1rm9TLjfQpI"
+      "xPercentage": 28.153846153846153,
+      "yPercentage": 44.05494505494506,
+      "youtubeLink": "VVYnZbUaeBQ"
     }
   },
   {
@@ -6770,9 +6770,9 @@
     "instructions": "633_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 26.89010989010989,
-      "yPercentage": 43.69230769230769,
-      "youtubeLink": "_PtX8pvPYeg"
+      "xPercentage": 24.78021978021978,
+      "yPercentage": 46.84615384615385,
+      "youtubeLink": "oi2oOkY7w6o"
     }
   },
   {
@@ -6902,9 +6902,9 @@
     "instructions": "644_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 15.626373626373626,
-      "yPercentage": 33.362637362637365,
-      "youtubeLink": "rfuGIXy-5No"
+      "xPercentage": 15.285714285714286,
+      "yPercentage": 33.7032967032967,
+      "youtubeLink": "x8wB4gpLBws"
     }
   },
   {
@@ -7029,9 +7029,9 @@
     "instructions": "653_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 15.285714285714286,
-      "yPercentage": 33.7032967032967,
-      "youtubeLink": "x8wB4gpLBws"
+      "xPercentage": 15.626373626373626,
+      "yPercentage": 33.362637362637365,
+      "youtubeLink": "rfuGIXy-5No"
     }
   },
   {
@@ -7043,9 +7043,9 @@
     "instructions": "654_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 25.65934065934066,
-      "yPercentage": 22.373626373626372,
-      "youtubeLink": "HHdS1Yc1_W0"
+      "xPercentage": 25.34065934065934,
+      "yPercentage": 23.21978021978022,
+      "youtubeLink": "a2VBLMGXJPo"
     }
   },
   {
@@ -7148,9 +7148,9 @@
     "instructions": "664_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 76.1978021978022,
-      "yPercentage": 44.54945054945055,
-      "youtubeLink": "Kkw_w0wmObA"
+      "xPercentage": 75.84615384615384,
+      "yPercentage": 45.142857142857146,
+      "youtubeLink": "XYp85y22JGY"
     }
   },
   {
@@ -7162,9 +7162,9 @@
     "instructions": "665_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 75.84615384615384,
-      "yPercentage": 45.142857142857146,
-      "youtubeLink": "XYp85y22JGY"
+      "xPercentage": 77.01098901098901,
+      "yPercentage": 44.417582417582416,
+      "youtubeLink": "pun3_NapiTs"
     }
   },
   {
@@ -7176,9 +7176,9 @@
     "instructions": "666_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 76.32967032967034,
-      "yPercentage": 45.18681318681319,
-      "youtubeLink": "K7Pd5240bt0"
+      "xPercentage": 76.1978021978022,
+      "yPercentage": 44.54945054945055,
+      "youtubeLink": "Kkw_w0wmObA"
     }
   },
   {
@@ -7348,9 +7348,9 @@
     "instructions": "678_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 75.94505494505495,
-      "yPercentage": 30.76923076923077,
-      "youtubeLink": "RLWwLXsjE3E"
+      "xPercentage": 76.67032967032966,
+      "yPercentage": 29.516483516483518,
+      "youtubeLink": "546g7oSQ4LE"
     }
   },
   {
@@ -7362,9 +7362,9 @@
     "instructions": "679_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 77.21978021978022,
-      "yPercentage": 29.747252747252748,
-      "youtubeLink": "CE7H05l7HtU"
+      "xPercentage": 76.6923076923077,
+      "yPercentage": 29,
+      "youtubeLink": "zU8-SbyYbrA"
     }
   },
   {
@@ -7376,9 +7376,9 @@
     "instructions": "680_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 76.6923076923077,
-      "yPercentage": 29,
-      "youtubeLink": "zU8-SbyYbrA"
+      "xPercentage": 75.94505494505495,
+      "yPercentage": 30.76923076923077,
+      "youtubeLink": "RLWwLXsjE3E"
     }
   },
   {
@@ -7390,9 +7390,9 @@
     "instructions": "681_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 77.01098901098901,
-      "yPercentage": 28.0989010989011,
-      "youtubeLink": "vvK7S8A7u44"
+      "xPercentage": 77.21978021978022,
+      "yPercentage": 29.747252747252748,
+      "youtubeLink": "CE7H05l7HtU"
     }
   },
   {
@@ -7404,9 +7404,9 @@
     "instructions": "682_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 76.67032967032966,
-      "yPercentage": 29.516483516483518,
-      "youtubeLink": "546g7oSQ4LE"
+      "xPercentage": 77.01098901098901,
+      "yPercentage": 28.0989010989011,
+      "youtubeLink": "vvK7S8A7u44"
     }
   },
   {
@@ -7497,9 +7497,9 @@
     "instructions": "689_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 90.89010989010988,
-      "yPercentage": 39.285714285714285,
-      "youtubeLink": "pT5nNECHwFc"
+      "xPercentage": 89.86813186813187,
+      "yPercentage": 39.065934065934066,
+      "youtubeLink": "5go8qZYoRYY"
     }
   },
   {
@@ -7511,9 +7511,9 @@
     "instructions": "690_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 88.85714285714286,
-      "yPercentage": 38.59340659340659,
-      "youtubeLink": "47PyMhDyt5M"
+      "xPercentage": 89.96703296703296,
+      "yPercentage": 37.934065934065934,
+      "youtubeLink": "i7mrGHuc3ic"
     }
   },
   {
@@ -7625,9 +7625,9 @@
     "instructions": "698_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 88.07692307692308,
-      "yPercentage": 37.934065934065934,
-      "youtubeLink": "H-egNg8gWog"
+      "xPercentage": 90.89010989010988,
+      "yPercentage": 39.285714285714285,
+      "youtubeLink": "pT5nNECHwFc"
     }
   },
   {
@@ -7639,9 +7639,9 @@
     "instructions": "699_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 89.86813186813187,
-      "yPercentage": 39.065934065934066,
-      "youtubeLink": "5go8qZYoRYY"
+      "xPercentage": 88.85714285714286,
+      "yPercentage": 38.59340659340659,
+      "youtubeLink": "47PyMhDyt5M"
     }
   },
   {
@@ -7667,9 +7667,9 @@
     "instructions": "701_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 89.96703296703296,
+      "xPercentage": 88.07692307692308,
       "yPercentage": 37.934065934065934,
-      "youtubeLink": "i7mrGHuc3ic"
+      "youtubeLink": "H-egNg8gWog"
     }
   },
   {
@@ -7843,9 +7843,9 @@
     "instructions": "715_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 51.32967032967033,
-      "yPercentage": 80.89010989010988,
-      "youtubeLink": "wMnOfU9mRH8"
+      "xPercentage": 51.46153846153846,
+      "yPercentage": 81.37362637362638,
+      "youtubeLink": "INC3Hczgzfg"
     }
   },
   {
@@ -7888,9 +7888,9 @@
     "instructions": "719_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 51.46153846153846,
-      "yPercentage": 81.37362637362638,
-      "youtubeLink": "INC3Hczgzfg"
+      "xPercentage": 50.35164835164835,
+      "yPercentage": 80.4065934065934,
+      "youtubeLink": "F-MmaXuD--Y"
     }
   },
   {
@@ -7902,9 +7902,9 @@
     "instructions": "720_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 50.56043956043956,
-      "yPercentage": 81.50549450549451,
-      "youtubeLink": "y2NPPjOnhKM"
+      "xPercentage": 46.64835164835165,
+      "yPercentage": 80,
+      "youtubeLink": "XaUKvqmqG64"
     }
   },
   {
@@ -7931,9 +7931,9 @@
     "instructions": "722_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 50.35164835164835,
-      "yPercentage": 80.4065934065934,
-      "youtubeLink": "F-MmaXuD--Y"
+      "xPercentage": 51.32967032967033,
+      "yPercentage": 80.89010989010988,
+      "youtubeLink": "wMnOfU9mRH8"
     }
   },
   {
@@ -7960,9 +7960,9 @@
     "instructions": "724_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 46.64835164835165,
-      "yPercentage": 80,
-      "youtubeLink": "XaUKvqmqG64"
+      "xPercentage": 50.56043956043956,
+      "yPercentage": 81.50549450549451,
+      "youtubeLink": "y2NPPjOnhKM"
     }
   },
   {
@@ -7989,9 +7989,9 @@
     "instructions": "726_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.81318681318682,
-      "yPercentage": 69.4065934065934,
-      "youtubeLink": "JaUuxI-IanM"
+      "xPercentage": 64.5956043956044,
+      "yPercentage": 72.10989010989012,
+      "youtubeLink": "rNA1yzLK96o"
     }
   },
   {
@@ -8432,9 +8432,9 @@
     "instructions": "756_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 51.57142857142857,
-      "yPercentage": 57.38461538461539,
-      "youtubeLink": "AnRdZ56Klbk"
+      "xPercentage": 49.65934065934066,
+      "yPercentage": 59.64835164835165,
+      "youtubeLink": "rlXGJUVtkWc"
     }
   },
   {
@@ -8515,9 +8515,9 @@
     "instructions": "763_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 88.53846153846153,
-      "yPercentage": 70.74725274725274,
-      "youtubeLink": "nkjWpijDfdI"
+      "xPercentage": 87.49450549450549,
+      "yPercentage": 72.67032967032966,
+      "youtubeLink": "cJ1t4x_in7A"
     }
   },
   {
@@ -8544,9 +8544,9 @@
     "instructions": "765_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 88.04395604395604,
-      "yPercentage": 71.12087912087912,
-      "youtubeLink": "EUkp9ExqiE0"
+      "xPercentage": 88.02197802197803,
+      "yPercentage": 71.87912087912088,
+      "youtubeLink": "VHEYXcLtPaM"
     }
   },
   {
@@ -8573,9 +8573,9 @@
     "instructions": "767_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 88.02197802197803,
-      "yPercentage": 71.87912087912088,
-      "youtubeLink": "VHEYXcLtPaM"
+      "xPercentage": 90.81318681318682,
+      "yPercentage": 72.12087912087912,
+      "youtubeLink": "E17A0L-EkAk"
     }
   },
   {
@@ -8587,9 +8587,9 @@
     "instructions": "768_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 87.49450549450549,
-      "yPercentage": 72.67032967032966,
-      "youtubeLink": "cJ1t4x_in7A"
+      "xPercentage": 88.53846153846153,
+      "yPercentage": 70.74725274725274,
+      "youtubeLink": "nkjWpijDfdI"
     }
   },
   {
@@ -8726,9 +8726,9 @@
     "instructions": "779_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 77.7032967032967,
-      "yPercentage": 62.27472527472528,
-      "youtubeLink": "GpZrpQGdpWE"
+      "xPercentage": 77.83516483516483,
+      "yPercentage": 63.8021978021978,
+      "youtubeLink": "m7_TJ2WgtIs"
     }
   },
   {
@@ -8874,9 +8874,9 @@
     "instructions": "790_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.94505494505495,
-      "yPercentage": 86.38461538461539,
-      "youtubeLink": "3mNrWWIG2ag"
+      "xPercentage": 65.1978021978022,
+      "yPercentage": 87.06593406593407,
+      "youtubeLink": "7i_lUrCsDqQ"
     }
   },
   {
@@ -8918,9 +8918,9 @@
     "instructions": "793_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.17582417582418,
-      "yPercentage": 86.72527472527473,
-      "youtubeLink": "fqwuTPp-YE8"
+      "xPercentage": 66.24175824175825,
+      "yPercentage": 86.07692307692308,
+      "youtubeLink": "1CXjWSu-l5I"
     }
   },
   {
@@ -9006,9 +9006,9 @@
     "instructions": "799_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.24175824175825,
-      "yPercentage": 86.07692307692308,
-      "youtubeLink": "1CXjWSu-l5I"
+      "xPercentage": 65.74725274725274,
+      "yPercentage": 86.04395604395604,
+      "youtubeLink": "r_K8502IHno"
     }
   },
   {
@@ -9093,9 +9093,9 @@
     "instructions": "805_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 83.10989010989012,
-      "yPercentage": 81.56043956043956,
-      "youtubeLink": "4Hk37xUYNpU"
+      "xPercentage": 81.76923076923077,
+      "yPercentage": 81.92307692307692,
+      "youtubeLink": "S-mq8KMZGQc"
     }
   },
   {
@@ -9122,9 +9122,9 @@
     "instructions": "807_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 79.65934065934066,
+      "xPercentage": 83.10989010989012,
       "yPercentage": 81.56043956043956,
-      "youtubeLink": "nMJJhH7XDAM"
+      "youtubeLink": "4Hk37xUYNpU"
     }
   },
   {
@@ -9239,9 +9239,9 @@
     "instructions": "815_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 81.76923076923077,
-      "yPercentage": 81.92307692307692,
-      "youtubeLink": "S-mq8KMZGQc"
+      "xPercentage": 79.45054945054945,
+      "yPercentage": 80.58241758241758,
+      "youtubeLink": "NJWFFMOLbkM"
     }
   },
   {
@@ -9335,9 +9335,9 @@
     "instructions": "824_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.74725274725274,
-      "yPercentage": 52.89010989010989,
-      "youtubeLink": "aq9qb_iy1L8"
+      "xPercentage": 64.5934065934066,
+      "yPercentage": 52.23076923076923,
+      "youtubeLink": "Z8nlxnRmvX4"
     }
   },
   {
@@ -9377,9 +9377,9 @@
     "instructions": "827_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.9010989010989,
-      "yPercentage": 51.79120879120879,
-      "youtubeLink": "4h4B7_OF3pI"
+      "xPercentage": 66.4065934065934,
+      "yPercentage": 54.51648351648352,
+      "youtubeLink": "iHnBULQrNBY"
     }
   },
   {
@@ -9405,9 +9405,9 @@
     "instructions": "829_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 64.94505494505495,
-      "yPercentage": 52.43956043956044,
-      "youtubeLink": "6VuVxuu_I64"
+      "xPercentage": 65.74725274725274,
+      "yPercentage": 52.89010989010989,
+      "youtubeLink": "aq9qb_iy1L8"
     }
   },
   {
@@ -9520,9 +9520,9 @@
     "instructions": "837_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 64.5934065934066,
-      "yPercentage": 52.23076923076923,
-      "youtubeLink": "Z8nlxnRmvX4"
+      "xPercentage": 65.9010989010989,
+      "yPercentage": 51.79120879120879,
+      "youtubeLink": "4h4B7_OF3pI"
     }
   },
   {
@@ -9617,9 +9617,9 @@
     "instructions": "846_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 63.40659340659341,
-      "yPercentage": 39.20879120879121,
-      "youtubeLink": "VnTAcZAR8do"
+      "xPercentage": 65.28571428571429,
+      "yPercentage": 39.26373626373626,
+      "youtubeLink": "v61CvlldAcg"
     }
   },
   {
@@ -9631,9 +9631,9 @@
     "instructions": "847_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 64.15384615384616,
-      "yPercentage": 39.934065934065934,
-      "youtubeLink": "TfcBCxvq1Es"
+      "xPercentage": 66.48351648351648,
+      "yPercentage": 38.68131868131868,
+      "youtubeLink": "ZrodMmcXkME"
     }
   },
   {
@@ -9645,9 +9645,9 @@
     "instructions": "848_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.9010989010989,
-      "yPercentage": 39.53846153846154,
-      "youtubeLink": "b631GgbMgZg"
+      "xPercentage": 64.15384615384616,
+      "yPercentage": 39.934065934065934,
+      "youtubeLink": "TfcBCxvq1Es"
     }
   },
   {
@@ -9720,9 +9720,9 @@
     "instructions": "855_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 66.48351648351648,
-      "yPercentage": 38.68131868131868,
-      "youtubeLink": "ZrodMmcXkME"
+      "xPercentage": 63.40659340659341,
+      "yPercentage": 39.20879120879121,
+      "youtubeLink": "VnTAcZAR8do"
     }
   },
   {
@@ -9794,9 +9794,9 @@
     "instructions": "860_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 67.72527472527473,
-      "yPercentage": 21.406593406593405,
-      "youtubeLink": "i9PfJUGj8eE"
+      "xPercentage": 65.65934065934066,
+      "yPercentage": 20.164835164835164,
+      "youtubeLink": "k2LH-G9QftQ"
     }
   },
   {
@@ -9808,9 +9808,9 @@
     "instructions": "861_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.76923076923077,
-      "yPercentage": 21.175824175824175,
-      "youtubeLink": "PChboEAlCVs"
+      "xPercentage": 67.72527472527473,
+      "yPercentage": 21.406593406593405,
+      "youtubeLink": "i9PfJUGj8eE"
     }
   },
   {
@@ -9822,9 +9822,9 @@
     "instructions": "862_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.53846153846153,
-      "yPercentage": 21.692307692307693,
-      "youtubeLink": "FdvPi4zdwhw"
+      "xPercentage": 66.57142857142857,
+      "yPercentage": 21.9010989010989,
+      "youtubeLink": "Wb55X7n_7wY"
     }
   },
   {
@@ -9836,9 +9836,9 @@
     "instructions": "863_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 91.12087912087912,
-      "yPercentage": 56.120879120879124,
-      "youtubeLink": "qeC1PcU23b4"
+      "xPercentage": 91.38461538461539,
+      "yPercentage": 54.08791208791209,
+      "youtubeLink": "DOJZNzDe6lE"
     }
   },
   {
@@ -9864,9 +9864,9 @@
     "instructions": "865_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 65.65934065934066,
-      "yPercentage": 20.164835164835164,
-      "youtubeLink": "k2LH-G9QftQ"
+      "xPercentage": 65.53846153846153,
+      "yPercentage": 21.692307692307693,
+      "youtubeLink": "FdvPi4zdwhw"
     }
   },
   {
@@ -9923,9 +9923,9 @@
     "instructions": "869_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 89.45054945054945,
-      "yPercentage": 55.142857142857146,
-      "youtubeLink": "fXh2SGDjKFE"
+      "xPercentage": 91.12087912087912,
+      "yPercentage": 56.120879120879124,
+      "youtubeLink": "qeC1PcU23b4"
     }
   },
   {
@@ -9937,9 +9937,9 @@
     "instructions": "870_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 9.813186813186814,
-      "yPercentage": 50.967032967032964,
-      "youtubeLink": "GGrBDVPhySo"
+      "xPercentage": 9.835164835164836,
+      "yPercentage": 51.79120879120879,
+      "youtubeLink": "P_k-hUErQK8"
     }
   },
   {
@@ -9980,9 +9980,9 @@
     "instructions": "873_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 40.30769230769231,
-      "yPercentage": 19.89010989010989,
-      "youtubeLink": "8esk1cWZ6qg"
+      "xPercentage": 39.714285714285715,
+      "yPercentage": 21.593406593406595,
+      "youtubeLink": "GbvAkTqyHSQ"
     }
   },
   {
@@ -10009,9 +10009,9 @@
     "instructions": "875_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 37.84615384615385,
-      "yPercentage": 19.395604395604394,
-      "youtubeLink": "x4iAVcTbjS8"
+      "xPercentage": 40.30769230769231,
+      "yPercentage": 19.89010989010989,
+      "youtubeLink": "8esk1cWZ6qg"
     }
   },
   {
@@ -10053,9 +10053,9 @@
     "instructions": "878_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.714285714285715,
-      "yPercentage": 21.593406593406595,
-      "youtubeLink": "GbvAkTqyHSQ"
+      "xPercentage": 37.84615384615385,
+      "yPercentage": 19.395604395604394,
+      "youtubeLink": "x4iAVcTbjS8"
     }
   },
   {
@@ -10141,9 +10141,9 @@
     "instructions": "884_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 52.53846153846154,
-      "yPercentage": 44.23076923076923,
-      "youtubeLink": "mC-RAbCaGPo"
+      "xPercentage": 52.78021978021978,
+      "yPercentage": 45.86813186813187,
+      "youtubeLink": "s5RHcYn25iQ"
     }
   },
   {
@@ -10275,9 +10275,9 @@
     "instructions": "895_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 52.78021978021978,
-      "yPercentage": 45.86813186813187,
-      "youtubeLink": "s5RHcYn25iQ"
+      "xPercentage": 50.62637362637363,
+      "yPercentage": 45.879120879120876,
+      "youtubeLink": "nDznB-OzaSI"
     }
   },
   {
@@ -10319,9 +10319,9 @@
     "instructions": "898_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.967032967032964,
-      "yPercentage": 52.30769230769231,
-      "youtubeLink": "2krTUapu2ok"
+      "xPercentage": 39.72527472527472,
+      "yPercentage": 51.747252747252745,
+      "youtubeLink": "041IntFOtl8"
     }
   },
   {
@@ -10401,9 +10401,9 @@
     "instructions": "904_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 38.67032967032967,
-      "yPercentage": 52.142857142857146,
-      "youtubeLink": "_x6moypYZRg"
+      "xPercentage": 38.7032967032967,
+      "yPercentage": 53.857142857142854,
+      "youtubeLink": "TO0kXSdQLJs"
     }
   },
   {
@@ -10415,9 +10415,9 @@
     "instructions": "905_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.31868131868132,
-      "yPercentage": 51.56043956043956,
-      "youtubeLink": "G1-cnztMAok"
+      "xPercentage": 38.67032967032967,
+      "yPercentage": 52.142857142857146,
+      "youtubeLink": "_x6moypYZRg"
     }
   },
   {
@@ -10506,9 +10506,9 @@
     "instructions": "913_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.72527472527472,
-      "yPercentage": 51.747252747252745,
-      "youtubeLink": "041IntFOtl8"
+      "xPercentage": 39.31868131868132,
+      "yPercentage": 51.56043956043956,
+      "youtubeLink": "G1-cnztMAok"
     }
   },
   {
@@ -10714,9 +10714,9 @@
     "instructions": "933_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.46153846153846,
-      "yPercentage": 39.31868131868132,
-      "youtubeLink": "ArZ3_ZZVSA4"
+      "xPercentage": 39.956043956043956,
+      "yPercentage": 37.73626373626374,
+      "youtubeLink": "TZ2rZcdlNuM"
     }
   },
   {
@@ -10756,9 +10756,9 @@
     "instructions": "936_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 39.956043956043956,
-      "yPercentage": 37.73626373626374,
-      "youtubeLink": "TZ2rZcdlNuM"
+      "xPercentage": 39.46153846153846,
+      "yPercentage": 39.31868131868132,
+      "youtubeLink": "ArZ3_ZZVSA4"
     }
   },
   {
@@ -10800,9 +10800,9 @@
     "instructions": "940_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 25.34065934065934,
-      "yPercentage": 23.21978021978022,
-      "youtubeLink": "a2VBLMGXJPo"
+      "xPercentage": 26.76923076923077,
+      "yPercentage": 23.76923076923077,
+      "youtubeLink": "oGabtbrQV3M"
     }
   },
   {
@@ -10860,9 +10860,9 @@
     "instructions": "945_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 26.76923076923077,
-      "yPercentage": 23.76923076923077,
-      "youtubeLink": "oGabtbrQV3M"
+      "xPercentage": 26.923076923076923,
+      "yPercentage": 22.23076923076923,
+      "youtubeLink": "oGucrHTxTps"
     }
   },
   {
@@ -10904,9 +10904,9 @@
     "instructions": "948_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 26.923076923076923,
-      "yPercentage": 22.23076923076923,
-      "youtubeLink": "oGucrHTxTps"
+      "xPercentage": 25.65934065934066,
+      "yPercentage": 22.373626373626372,
+      "youtubeLink": "HHdS1Yc1_W0"
     }
   },
   {
@@ -11127,9 +11127,9 @@
     "instructions": "963_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 50.94505494505494,
-      "yPercentage": 15.945054945054945,
-      "youtubeLink": "FHtUsSc7Hvk"
+      "xPercentage": 50.527472527472526,
+      "yPercentage": 16.395604395604394,
+      "youtubeLink": "72OycExQT5g"
     }
   },
   {
@@ -11201,9 +11201,9 @@
     "instructions": "968_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 48.65934065934066,
-      "yPercentage": 16.142857142857142,
-      "youtubeLink": "JdmJDVPLVpU"
+      "xPercentage": 51.59340659340659,
+      "yPercentage": 15.395604395604396,
+      "youtubeLink": "i7kRkOP_-OM"
     }
   },
   {
@@ -11245,9 +11245,9 @@
     "instructions": "971_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 51.9010989010989,
-      "yPercentage": 29.89010989010989,
-      "youtubeLink": "s6g1iPgHPuE"
+      "xPercentage": 51.494505494505496,
+      "yPercentage": 29.65934065934066,
+      "youtubeLink": "7FzpQdeVhBU"
     }
   },
   {
@@ -11259,9 +11259,9 @@
     "instructions": "972_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 51.34065934065934,
-      "yPercentage": 30.703296703296704,
-      "youtubeLink": "1Z370k-VVT0"
+      "xPercentage": 54.2967032967033,
+      "yPercentage": 30.35164835164835,
+      "youtubeLink": "f28PUZ_isCs"
     }
   },
   {
@@ -11539,9 +11539,9 @@
     "instructions": "1002_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 51.494505494505496,
-      "yPercentage": 29.65934065934066,
-      "youtubeLink": "7FzpQdeVhBU"
+      "xPercentage": 51.9010989010989,
+      "yPercentage": 29.89010989010989,
+      "youtubeLink": "s6g1iPgHPuE"
     }
   },
   {
@@ -11642,9 +11642,9 @@
     "instructions": "1009_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "questionmark-panel",
-      "xPercentage": 54.2967032967033,
-      "yPercentage": 30.35164835164835,
-      "youtubeLink": "f28PUZ_isCs"
+      "xPercentage": 51.34065934065934,
+      "yPercentage": 30.703296703296704,
+      "youtubeLink": "1Z370k-VVT0"
     }
   },
   {
@@ -11838,7 +11838,7 @@
   },
   {
     "index": 1031,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1031_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11846,7 +11846,7 @@
   },
   {
     "index": 1032,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1032_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11854,7 +11854,7 @@
   },
   {
     "index": 1033,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1033_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11862,7 +11862,7 @@
   },
   {
     "index": 1034,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1034_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11870,7 +11870,7 @@
   },
   {
     "index": 1035,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1035_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11878,7 +11878,7 @@
   },
   {
     "index": 1036,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1036_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11886,7 +11886,7 @@
   },
   {
     "index": 1037,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1037_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11894,7 +11894,7 @@
   },
   {
     "index": 1038,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1038_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11902,7 +11902,7 @@
   },
   {
     "index": 1039,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1039_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11910,7 +11910,7 @@
   },
   {
     "index": 1040,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1040_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11918,7 +11918,7 @@
   },
   {
     "index": 1041,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1041_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11926,7 +11926,7 @@
   },
   {
     "index": 1042,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1042_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11934,7 +11934,7 @@
   },
   {
     "index": 1043,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1043_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11942,7 +11942,7 @@
   },
   {
     "index": 1044,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1044_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11950,7 +11950,7 @@
   },
   {
     "index": 1045,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1045_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11958,7 +11958,7 @@
   },
   {
     "index": 1046,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1046_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11966,7 +11966,7 @@
   },
   {
     "index": 1047,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1047_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11974,7 +11974,7 @@
   },
   {
     "index": 1048,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1048_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11982,7 +11982,7 @@
   },
   {
     "index": 1049,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1049_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11990,7 +11990,7 @@
   },
   {
     "index": 1050,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1050_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -11998,7 +11998,7 @@
   },
   {
     "index": 1051,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1051_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -12006,7 +12006,7 @@
   },
   {
     "index": 1052,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1052_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -12014,7 +12014,7 @@
   },
   {
     "index": 1053,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1053_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -12022,7 +12022,7 @@
   },
   {
     "index": 1054,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1054_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",
@@ -12030,7 +12030,7 @@
   },
   {
     "index": 1055,
-    "checked": false,
+    "checked": true,
     "hasSticker": true,
     "stickerAltText": "1055_ALT_TEXT",
     "description": "SHARED.STARTED_MARIO_KART_WORLD_DESCRIPTION",

@@ -6,10 +6,15 @@
   (click)="onStickerClick($event)"
 >
   <div
-    class="w-16 h-16 rounded-full bg-gray-300 group-hover:bg-yellow-200 group-hover:scale-105 transition-all flex items-center justify-center shadow"
+    class="w-16 h-16 rounded-full bg-gray-300 group-hover:bg-yellow-200 group-hover:scale-105 transition-all flex items-center justify-center shadow overflow-hidden"
     [class.scale-110]="hovered()"
   >
-    <span class="text-2xl font-bold text-gray-500">{{ checklistModel().index + 1 }}</span>
+    <img
+      src="/imgs/stickers/sticker-{{ checklistModel().index }}.png"
+      [alt]="'STICKERS.' + checklistModel().stickerAltText | translate"
+      class="w-full h-full object-contain p-1"
+      draggable="false"
+    />
   </div>
   <input
     type="checkbox"

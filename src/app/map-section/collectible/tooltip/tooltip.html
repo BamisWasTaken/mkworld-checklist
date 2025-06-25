@@ -5,8 +5,12 @@
 
   <div class="description-container">
     <img
-      [src]="`/imgs/${checklistModel().collectibleModel!.collectibleType}.png`"
-      [alt]="checklistModel().collectibleModel!.collectibleType"
+      [src]="checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN ? '/imgs/stickers/random-sticker.png' : `/imgs/stickers/sticker-${checklistModel().index}.png`"
+      [alt]="
+        checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN
+          ? 'STICKERS.SHARED.RANDOM_STICKER_ALT_TEXT'
+          : ('STICKERS.' + checklistModel().stickerAltText | translate)
+      "
       class="sticker-thumbnail"
     />
     <p class="description">
@@ -24,10 +28,15 @@
     </p>
   </div>
 
-  <!-- Placeholder for 16:9 image - we'll add actual images later -->
-  <div class="image-placeholder">
-    <div class="placeholder-text">Screenshot coming soon!</div>
-  </div>
+  <iframe
+    width="100%"
+    [src]="youtubeLink()"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 
   <p class="instruction">{{ 'STICKERS.' + checklistModel().instructions | translate }}</p>
 
