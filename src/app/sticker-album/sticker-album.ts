@@ -1,25 +1,24 @@
 import {
+  AfterViewInit,
   Component,
   computed,
+  ElementRef,
   HostListener,
   inject,
   output,
+  QueryList,
   signal,
   ViewChildren,
-  QueryList,
-  ElementRef,
-  AfterViewInit,
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel } from '../core/models';
 import { ChecklistDataService } from '../core/services';
-import { Sticker } from '../sticker/sticker';
 
 const STICKERS_PER_PAGE = 32;
 
 @Component({
   selector: 'mkworld-sticker-album',
-  imports: [Sticker, TranslateModule],
+  imports: [TranslateModule],
   templateUrl: './sticker-album.html',
   styleUrls: ['./sticker-album.css'],
 })
@@ -44,7 +43,7 @@ export class StickerAlbum implements AfterViewInit {
     return this.createPages(filteredModels);
   });
 
-  hoveredDescription = signal<string | null>(null);
+  hoveredChecklistModel = signal<ChecklistModel | null>(null);
   private hoverTimeout: ReturnType<typeof setTimeout> | null = null;
 
   page = signal(0);
@@ -131,17 +130,17 @@ export class StickerAlbum implements AfterViewInit {
     this.scrollToMap.emit(checklistModel);
   }
 
-  onChecklistItemHover(isHovered: boolean, description: string): void {
+  onChecklistItemHover(isHovered: boolean, checklistModel: ChecklistModel): void {
     if (this.hoverTimeout) {
       clearTimeout(this.hoverTimeout);
       this.hoverTimeout = null;
     }
 
     if (isHovered) {
-      this.hoveredDescription.set(description);
+      this.hoveredChecklistModel.set(checklistModel);
     } else {
       this.hoverTimeout = setTimeout(() => {
-        this.hoveredDescription.set(null);
+        this.hoveredChecklistModel.set(null);
       }, 150);
     }
   }
@@ -305,12 +304,21 @@ export class StickerAlbum implements AfterViewInit {
     }
   }
 
-  onStickerChecked(): void {
+  onStickerChecked(checklistModel: ChecklistModel): void {
+    this.checklistDataService.updateChecklistModelChecked(checklistModel);
     // When a sticker is checked/unchecked, we need to animate the layout changes
     // but only if we're not showing collected stickers
     if (!this.showCollectedStickers()) {
       this.recordCurrentPositionsForFilter(this.showCollectedStickers());
       // The animation will be triggered by the stickerItems.changes subscription
+    }
+  }
+
+  onStickerClick(event: MouseEvent, checklistModel: ChecklistModel) {
+    if (checklistModel.collectibleModel) {
+      this.onGoToMap(checklistModel);
+    } else {
+      this.onStickerTooltip(checklistModel.instructions, event);
     }
   }
 }

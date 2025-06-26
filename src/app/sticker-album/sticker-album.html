@@ -60,14 +60,31 @@
           >
             @for (checklistModel of page; track checklistModel.index) {
               <div #stickerItem [attr.data-sticker-index]="checklistModel.index">
-                <mkworld-sticker
-                  class="w-full h-full"
-                  [checklistModel]="checklistModel"
-                  (onHover)="onChecklistItemHover($event, checklistModel.description!)"
-                  (onShowTooltip)="onStickerTooltip($event.instructions, $event.event)"
-                  (onGoToMap)="onGoToMap($event)"
-                  (onChecked)="onStickerChecked()"
-                ></mkworld-sticker>
+                <div
+                  class="flex flex-col items-center cursor-pointer transition-scale duration-200"
+                  [class.opacity-60]="checklistModel.checked"
+                  [class.scale-110]="hoveredChecklistModel() === checklistModel"
+                  (mouseenter)="onChecklistItemHover(true, checklistModel)"
+                  (mouseleave)="onChecklistItemHover(false, checklistModel)"
+                  (click)="onStickerClick($event, checklistModel)"
+                >
+                  <div class="w-24 h-24 flex items-center justify-center">
+                    <img
+                      src="/imgs/stickers/sticker-{{ checklistModel.index }}.png"
+                      [alt]="'STICKERS.' + checklistModel.stickerAltText | translate"
+                      class="max-w-full max-h-full object-contain"
+                      draggable="false"
+                    />
+                  </div>
+                  <input
+                    type="checkbox"
+                    class="absolute top-1 right-1 sticker-checkbox"
+                    [checked]="checklistModel.checked"
+                    (change)="onStickerChecked(checklistModel)"
+                    (click)="$event.stopPropagation()"
+                    aria-label="STICKER_ALBUM.STICKER.TOGGLE_STICKER_COLLECTED_ALT_TEXT"
+                  />
+                </div>
               </div>
             }
           </div>
@@ -90,11 +107,13 @@
   </div>
   <div
     class="w-full bg-gray-100 rounded px-4 py-2 text-center text-gray-700 font-medium shadow-inner task-bar-text"
-    [class.fade]="!hoveredDescription()"
+    [class.fade]="!hoveredChecklistModel()"
   >
     {{
-      (hoveredDescription() ? 'STICKERS.' + hoveredDescription() : 'STICKER_ALBUM.STICKER_HOVER')
-        | translate
+      (hoveredChecklistModel()
+        ? 'STICKERS.' + hoveredChecklistModel()?.description
+        : 'STICKER_ALBUM.STICKER_HOVER'
+      ) | translate
     }}
   </div>
 </section>
