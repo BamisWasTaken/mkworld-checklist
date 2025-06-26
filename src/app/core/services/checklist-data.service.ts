@@ -17,10 +17,6 @@ export class ChecklistDataService {
     return this.checklistModels;
   }
 
-  getDisappearingChecklistModels(): WritableSignal<Set<ChecklistModel>> {
-    return this.disappearingChecklistModels;
-  }
-
   updateChecklistModelChecked(checklistModelToUpdate: ChecklistModel): void {
     checklistModelToUpdate.checked = !checklistModelToUpdate.checked;
 
@@ -38,6 +34,10 @@ export class ChecklistDataService {
     ) {
       this.addDisappearingChecklistModel(checklistModelToUpdate);
     }
+  }
+
+  getDisappearingChecklistModels(): WritableSignal<Set<ChecklistModel>> {
+    return this.disappearingChecklistModels;
   }
 
   addDisappearingChecklistModel(checklistModel: ChecklistModel): void {

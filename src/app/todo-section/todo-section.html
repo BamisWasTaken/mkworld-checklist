@@ -63,7 +63,7 @@
       {{ 'TODO_SECTION.ACHIEVEMENTS_TITLE' | translate }}
     </h3>
     <ul class="w-full flex flex-col text-gray-700 todo-list">
-      @for (achievement of achievementsWithVisibleMilestones(); track achievement.index) {
+      @for (achievement of achievements(); track achievement.index) {
         <li class="achievement-item rounded shadow-sm">
           <!-- Achievement Header -->
           <div
@@ -78,10 +78,13 @@
                 'TODO_SECTION.ACHIEVEMENTS.' + achievement.title
                   | translate
                     : {
-                        current: achievement.milestoneReached
-                          ? achievement.milestones[achievement.milestoneReached - 1]
-                          : (0 | number),
-                        total: achievement.milestones[achievement.milestones.length - 1] | number,
+                        current:
+                          (achievement.milestoneReached > 0
+                            ? achievement.milestones[achievement.milestoneReached - 1].amount
+                            : 0
+                          ) | number,
+                        total:
+                          achievement.milestones[achievement.milestones.length - 1].amount | number,
                       }
               }}
             </span>
@@ -100,24 +103,28 @@
             class="milestones-container"
             [class.expanded]="expandedAchievements().has(achievement.index)"
           >
-            @for (milestone of achievement.visibleMilestones; track milestone) {
-              <div
-                class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item ml-4 mt-1"
-                [class.opacity-60]="isCurrentMilestone(achievement, milestone)"
-                [class.line-through]="isCurrentMilestone(achievement, milestone)"
-                [class.removing]="disappearingMilestones().has(`${achievement.index}-${milestone}`)"
-              >
-                <input
-                  type="checkbox"
-                  class="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
-                  [checked]="isMilestoneChecked(achievement, milestone)"
-                  (change)="onMilestoneCheck(achievement, milestone)"
-                  (click)="$event.stopPropagation()"
-                />
-                <span class="flex-1 text-sm">
-                  {{ getMilestoneText(achievement, milestone) | number }}
-                </span>
-              </div>
+            @for (milestone of achievement.milestones; track $index) {
+              @if (
+                milestone.milestoneNumber >= achievement.milestoneReached || milestone.disappearing
+              ) {
+                <div
+                  class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item ml-4 mt-1"
+                  [class.opacity-60]="achievement.milestoneReached === milestone.milestoneNumber"
+                  [class.line-through]="achievement.milestoneReached === milestone.milestoneNumber"
+                  [class.removing]="milestone.disappearing"
+                >
+                  <input
+                    type="checkbox"
+                    class="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
+                    [checked]="milestone.milestoneNumber <= achievement.milestoneReached"
+                    (change)="onMilestoneCheck(achievement, milestone)"
+                    (click)="$event.stopPropagation()"
+                  />
+                  <span class="flex-1 text-sm">
+                    {{ milestone.amount | number }}
+                  </span>
+                </div>
+              }
             }
           </div>
         </li>

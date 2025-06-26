@@ -1,6 +1,6 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import achievementsData from '../../../../public/data/achievements-data.json';
-import { Achievement } from '../models';
+import { Achievement, Milestone } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -18,14 +18,38 @@ export class AchievementDataService {
 
   updateAchievementMilestoneReached(
     achievementToUpdate: Achievement,
-    milestoneReached: number | null
+    milestoneClicked: Milestone
   ): void {
-    achievementToUpdate.milestoneReached = milestoneReached;
-
+    if (achievementToUpdate.milestoneReached === milestoneClicked.milestoneNumber) {
+      achievementToUpdate.milestoneReached = milestoneClicked.milestoneNumber - 1;
+    } else {
+      this.setDisappearingMilestones(achievementToUpdate, milestoneClicked);
+      achievementToUpdate.milestoneReached = milestoneClicked.milestoneNumber;
+    }
     this.achievements.update((achievements: Achievement[]) =>
       achievements.map((achievement: Achievement) =>
         achievement.index === achievementToUpdate.index ? achievementToUpdate : achievement
       )
     );
+  }
+
+  setDisappearingMilestones(achievementToUpdate: Achievement, milestoneChecked: Milestone): void {
+    if (achievementToUpdate.milestoneReached > 0) {
+      achievementToUpdate.milestones.forEach((milestone: Milestone) => {
+        if (
+          milestone.milestoneNumber >= achievementToUpdate.milestoneReached &&
+          milestone.milestoneNumber < milestoneChecked.milestoneNumber
+        ) {
+          milestone.disappearing = true;
+        }
+      });
+
+      // Remove from disappearing set after animation
+      setTimeout(() => {
+        achievementToUpdate.milestones.forEach(
+          (milestone: Milestone) => (milestone.disappearing = false)
+        );
+      }, 200);
+    }
   }
 }
