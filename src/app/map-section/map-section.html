@@ -47,13 +47,42 @@
       collectibleChecklistModel of collectibleChecklistModels();
       track collectibleChecklistModel.index
     ) {
-      <mkworld-collectible
-        [checklistModel]="collectibleChecklistModel"
-        [checked]="collectibleChecklistModel.checked"
-        [isPanning]="isPanning"
-        [isFocused]="focusedCollectibleIndex() === collectibleChecklistModel.index"
-        [showCollected]="showCollected()"
-      />
+      @if (
+        !collectibleChecklistModel.checked ||
+        collectibleChecklistModel.disappearing ||
+        showCollected()
+      ) {
+        <div
+          id="collectible-div-{{ collectibleChecklistModel.index }}"
+          class="collectible absolute ready"
+          [class.hovered]="hovered() === collectibleChecklistModel"
+          [class.disappearing]="collectibleChecklistModel.disappearing && !showCollected()"
+          [style.--target-scale]="
+            focusedCollectibleIndex() === collectibleChecklistModel.index ||
+            hovered() === collectibleChecklistModel
+              ? 1.2
+              : 1
+          "
+          [ngStyle]="{
+            left: collectibleChecklistModel.collectibleModel!.xPercentage + '%',
+            top: collectibleChecklistModel.collectibleModel!.yPercentage + '%',
+          }"
+          [attr.data-collectible-index]="collectibleChecklistModel.index"
+          (mouseenter)="hovered.set(collectibleChecklistModel)"
+          (mouseleave)="hovered.set(null)"
+          (click)="onClick(collectibleChecklistModel)"
+          tabindex="0"
+          role="button"
+          aria-label="Collectible marker"
+        >
+          <img
+            [src]="`/imgs/${collectibleChecklistModel.collectibleModel?.collectibleType}${collectibleChecklistModel.checked ? '-collected' : ''}.png`"
+            [alt]="collectibleChecklistModel.collectibleModel!.collectibleType + ' marker'"
+            class="collectible-img"
+            draggable="false"
+          />
+        </div>
+      }
     }
 
     @if (activeTooltipData(); as tooltipData) {

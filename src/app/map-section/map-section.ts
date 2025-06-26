@@ -1,4 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, NgStyle } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -16,8 +16,7 @@ import panzoom, { PanZoom } from 'panzoom';
 import { ChecklistModel } from '../core/models';
 import { ChecklistDataService } from '../core/services';
 import { TooltipService } from '../core/services/tooltip.service';
-import { Collectible } from './collectible/collectible';
-import { Tooltip } from './collectible/tooltip/tooltip';
+import { Tooltip } from './tooltip/tooltip';
 
 interface TooltipPosition {
   x: number;
@@ -29,7 +28,7 @@ interface TooltipPosition {
   selector: 'mkworld-map-section',
   templateUrl: './map-section.html',
   styleUrls: ['./map-section.css'],
-  imports: [TranslateModule, Collectible, Tooltip],
+  imports: [TranslateModule, Tooltip, NgStyle],
 })
 export class MapSection implements AfterViewInit, OnDestroy {
   private readonly checklistDataService = inject(ChecklistDataService);
@@ -44,6 +43,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly DRAG_THRESHOLD = 5; // pixels
 
   readonly showCollected = signal(false);
+
+  readonly hovered = signal<ChecklistModel | null>(null);
 
   readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
   readonly tooltipScale = signal(1);
@@ -96,6 +97,14 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly focusedCollectibleIndex = computed(() => {
     return this.activeTooltipData()?.index ?? null;
   });
+
+  onClick(checklistModel: ChecklistModel): void {
+    if (this.isPanning) {
+      return;
+    }
+
+    this.tooltipService.setActiveTooltipData(checklistModel);
+  }
 
   private calculateOptimalPosition(
     collectibleX: number,

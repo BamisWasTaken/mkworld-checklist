@@ -1,8 +1,8 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChecklistModel, CollectibleType } from '../../../core/models';
-import { ChecklistDataService, TooltipService } from '../../../core/services';
+import { ChecklistModel, CollectibleType } from '../../core/models';
+import { ChecklistDataService, TooltipService } from '../../core/services';
 
 @Component({
   selector: 'mkworld-tooltip',

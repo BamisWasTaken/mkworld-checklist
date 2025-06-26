@@ -1,1 +1,33 @@
-/* MapSection styles */
+.collectible {
+  transition:
+    transform 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+  position: absolute;
+  z-index: 10;
+  opacity: 1;
+  cursor: pointer;
+  animation: scaleIn 0.2s ease-out;
+  transform: translate(-50%, -50%) scale(var(--target-scale));
+  will-change: transform;
+}
+
+.collectible.disappearing {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.collectible-img {
+  width: 12px;
+  height: 12px;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(var(--target-scale));
+  }
+}
