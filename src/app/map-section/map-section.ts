@@ -87,13 +87,9 @@ export class MapSection implements AfterViewInit, OnDestroy {
       );
     }
 
-    const disappearingChecklistModels =
-      this.checklistDataService.getDisappearingChecklistModels()();
-
     return checklistModels.filter(
       (checklistModel: ChecklistModel) =>
-        checklistModel.collectibleModel &&
-        (!checklistModel.checked || disappearingChecklistModels.has(checklistModel))
+        checklistModel.collectibleModel && (!checklistModel.checked || checklistModel.disappearing)
     );
   });
 

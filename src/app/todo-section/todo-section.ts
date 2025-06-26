@@ -15,8 +15,6 @@ export class TodoSection {
   private readonly checklistDataService = inject(ChecklistDataService);
   private readonly achievementDataService = inject(AchievementDataService);
 
-  readonly disappearingChecklistModels = this.checklistDataService.getDisappearingChecklistModels();
-
   readonly uncollectedPeachCoins = this.checklistDataService.getUncollectedPeachCoins();
   readonly uncollectedQuestionMarkPanels =
     this.checklistDataService.getUncollectedQuestionMarkPanels();
@@ -32,7 +30,7 @@ export class TodoSection {
       .getChecklistModels()()
       .filter(
         (checklistModel: ChecklistModel) =>
-          (!checklistModel.checked || this.disappearingChecklistModels().has(checklistModel)) &&
+          (!checklistModel.checked || checklistModel.disappearing) &&
           !checklistModel.collectibleModel
       );
     const seenInstructions = new Set<string>();

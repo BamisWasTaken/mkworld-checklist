@@ -38,7 +38,7 @@ export class AchievementDataService {
     achievementToUpdate: Achievement,
     milestoneChecked: Milestone
   ): void {
-    if (achievementToUpdate.milestoneReached > 0) {
+    if (achievementToUpdate.milestoneReached > 0 || milestoneChecked.milestoneNumber > 1) {
       achievementToUpdate.milestones.forEach((milestone: Milestone) => {
         if (
           milestone.milestoneNumber >= achievementToUpdate.milestoneReached &&

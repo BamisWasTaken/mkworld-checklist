@@ -7,7 +7,6 @@ import checklistData from '../../../../public/data/checklist-data.json';
 })
 export class ChecklistDataService {
   private checklistModels = signal<ChecklistModel[]>([]);
-  private disappearingChecklistModels = signal<Set<ChecklistModel>>(new Set());
 
   private uncollectedPeachCoins = computed(() =>
     this.getUncollectedCollectibles(CollectibleType.PEACH_COIN)
@@ -38,42 +37,22 @@ export class ChecklistDataService {
       )
     );
 
-    if (
-      checklistModelToUpdate.checked &&
-      !this.disappearingChecklistModels().has(checklistModelToUpdate)
-    ) {
+    if (checklistModelToUpdate.checked && !checklistModelToUpdate.disappearing) {
       this.addDisappearingChecklistModel(checklistModelToUpdate);
     }
   }
 
-  getDisappearingChecklistModels(): WritableSignal<Set<ChecklistModel>> {
-    return this.disappearingChecklistModels;
-  }
-
   addDisappearingChecklistModel(checklistModel: ChecklistModel): void {
-    const newSet = new Set(this.disappearingChecklistModels());
-    newSet.add(checklistModel);
-    this.disappearingChecklistModels.set(newSet);
+    checklistModel.disappearing = true;
     setTimeout(() => {
-      const afterSet = new Set(this.disappearingChecklistModels());
-      afterSet.delete(checklistModel);
-      this.disappearingChecklistModels.set(afterSet);
+      checklistModel.disappearing = false;
     }, 200);
   }
 
   addDisappearingChecklistModels(checklistModels: ChecklistModel[]): void {
-    const newSet = new Set(this.disappearingChecklistModels());
     checklistModels.forEach((checklistModel: ChecklistModel) => {
-      newSet.add(checklistModel);
+      this.addDisappearingChecklistModel(checklistModel);
     });
-    this.disappearingChecklistModels.set(newSet);
-    setTimeout(() => {
-      const afterSet = new Set(this.disappearingChecklistModels());
-      checklistModels.forEach((checklistModel: ChecklistModel) => {
-        afterSet.delete(checklistModel);
-      });
-      this.disappearingChecklistModels.set(afterSet);
-    }, 200);
   }
 
   getUncollectedPeachCoins(): Signal<number> {
