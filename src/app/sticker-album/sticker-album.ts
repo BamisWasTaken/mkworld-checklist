@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel } from '../core/models';
-import { DataService } from '../core/services';
+import { ChecklistDataService } from '../core/services';
 import { Sticker } from '../sticker/sticker';
 
 const STICKERS_PER_PAGE = 32;
@@ -24,7 +24,7 @@ const STICKERS_PER_PAGE = 32;
   styleUrls: ['./sticker-album.css'],
 })
 export class StickerAlbum implements AfterViewInit {
-  private readonly dataService = inject(DataService);
+  private readonly checklistDataService = inject(ChecklistDataService);
 
   @ViewChildren('stickerItem') stickerItems!: QueryList<ElementRef>;
 
@@ -35,7 +35,7 @@ export class StickerAlbum implements AfterViewInit {
   private previousStickerOrder: number[] = [];
 
   pages = computed(() => {
-    const allChecklistModels = this.dataService
+    const allChecklistModels = this.checklistDataService
       .getChecklistModels()()
       .filter(model => model.hasSticker);
     const filteredModels = this.showCollectedStickers()
@@ -107,7 +107,7 @@ export class StickerAlbum implements AfterViewInit {
     this.previousStickerOrder = [];
 
     // Get the checklist models based on the current filter state
-    const allChecklistModels = this.dataService
+    const allChecklistModels = this.checklistDataService
       .getChecklistModels()()
       .filter(model => model.hasSticker);
     const filteredModels = showCollected

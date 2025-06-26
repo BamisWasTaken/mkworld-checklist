@@ -40,15 +40,126 @@
 
 @keyframes slideIn {
   from {
-    transform: translateX(-100%);
     opacity: 0;
-    max-height: 0;
-    margin-bottom: 0;
+    transform: translateX(-20px);
   }
   to {
-    transform: translateX(0);
     opacity: 1;
-    max-height: 100px;
-    margin-bottom: 0.5rem;
+    transform: translateX(0);
+  }
+}
+
+/* New achievement styles */
+.achievement-section {
+  transition: all 0.2s ease-in-out;
+}
+
+.achievement-section:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section headers */
+.todo-section h3 {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.todo-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  border-radius: 1px;
+}
+
+/* Achievement styles */
+.achievement-item {
+  margin-bottom: 0.5rem;
+}
+
+.milestones-container {
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-out,
+    opacity 0.3s ease-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.milestones-container.expanded {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.milestone-item {
+  transition: all 0.2s ease-in-out;
+  transform-origin: top;
+}
+
+.milestone-item.removing {
+  transform: translateX(-100%);
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+}
+
+/* Checkbox styling */
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.25rem;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type='checkbox']:checked {
+  background-color: #fbbf24;
+  border-color: #fbbf24;
+}
+
+input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.25rem;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: translate(-50%, -60%) rotate(-45deg);
+}
+
+input[type='checkbox']:hover {
+  border-color: #f59e0b;
+}
+
+input[type='checkbox']:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+}
+
+/* Animations */
+@keyframes expandMilestones {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
   }
 }

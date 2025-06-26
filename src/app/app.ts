@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ChecklistModel } from './core/models';
-import { DataService } from './core/services';
+import { ChecklistDataService } from './core/services';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { MapSection } from './map-section/map-section';
@@ -18,11 +18,11 @@ import { TooltipService } from './core/services/tooltip.service';
 })
 export class App {
   private readonly translateService = inject(TranslateService);
-  private readonly dataService = inject(DataService);
+  private readonly checklistDataService = inject(ChecklistDataService);
   private readonly tooltipService = inject(TooltipService);
 
   checklistModelsWithSticker = computed(() =>
-    this.dataService
+    this.checklistDataService
       .getChecklistModels()()
       .filter((checklistModel: ChecklistModel) => checklistModel.hasSticker)
   );

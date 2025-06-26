@@ -1,9 +1,8 @@
 import { Component, computed, inject, input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../../core/models';
-import { DataService } from '../../../core/services';
-import { TooltipService } from '../../../core/services/tooltip.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { ChecklistDataService, TooltipService } from '../../../core/services';
 
 @Component({
   selector: 'mkworld-tooltip',
@@ -12,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   imports: [TranslateModule],
 })
 export class Tooltip {
-  private readonly dataService = inject(DataService);
+  private readonly checklistDataService = inject(ChecklistDataService);
   private readonly tooltipService = inject(TooltipService);
   private readonly domSanitizer = inject(DomSanitizer);
 
@@ -28,7 +27,7 @@ export class Tooltip {
   });
 
   onChecked() {
-    this.dataService.updateChecklistModelChecked(this.checklistModel());
+    this.checklistDataService.updateChecklistModelChecked(this.checklistModel());
   }
 
   onClose() {

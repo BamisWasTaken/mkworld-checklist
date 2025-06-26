@@ -1,16 +1,16 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { ChecklistModel } from '../models';
-import data from '../../../../public/data/checklist-data.json';
+import checklistData from '../../../../public/data/checklist-data.json';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DataService {
+export class ChecklistDataService {
   private checklistModels = signal<ChecklistModel[]>([]);
   private disappearingChecklistModels = signal<Set<ChecklistModel>>(new Set());
 
   constructor() {
-    this.checklistModels.set(data);
+    this.checklistModels.set(checklistData);
   }
 
   getChecklistModels(): WritableSignal<ChecklistModel[]> {

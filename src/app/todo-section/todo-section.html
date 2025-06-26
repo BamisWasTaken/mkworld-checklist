@@ -1,60 +1,147 @@
-<section class="w-full bg-white rounded-lg shadow p-4 flex flex-col items-center">
-  <h2 class="text-xl font-bold mb-2">{{ 'TODO_SECTION.TITLE' | translate }}</h2>
-  <ul class="w-full flex flex-col text-gray-700 todo-list">
-    @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
-      <li
-        class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
-        [class.removing]="lastPeachCoinBeingRemoved()"
-      >
-        <img
-          src="imgs/peach-coin.png"
-          [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
-          class="w-8 h-8"
-        />
-        <span class="flex-1">{{
-          'TODO_SECTION.PEACH_MEDALLION_TODO' | translate: { uncollected: uncollectedPeachCoins() }
-        }}</span>
-      </li>
-    }
-    @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
-      <li
-        class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
-        [class.removing]="lastQuestionMarkPanelBeingRemoved()"
-      >
-        <img
-          src="imgs/questionmark-panel.png"
-          [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
-          class="w-8 h-8"
-        />
-        <span class="flex-1">{{
-          'TODO_SECTION.QUESTIONMARK_PANEL_TODO'
-            | translate: { uncollected: uncollectedQuestionMarkPanels() }
-        }}</span>
-      </li>
-    }
-    @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
-      <li
-        class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
-        [class.removing]="lastPSwitchBeingRemoved()"
-      >
-        <img
-          src="imgs/p-switch.png"
-          [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
-          class="w-8 h-8"
-        />
-        <span class="flex-1">{{
-          'TODO_SECTION.PSWITCH_TODO' | translate: { uncollected: uncollectedPSwitches() }
-        }}</span>
-      </li>
-    }
-    @for (item of todoItems(); track item.index) {
-      <li
-        class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
-        [class.removing]="disappearingChecklistModels().has(item)"
-      >
-        <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">🎯</div>
-        <span class="flex-1">{{ 'STICKERS.' + item.instructions | translate }}</span>
-      </li>
-    }
-  </ul>
+<section class="w-full bg-white rounded-lg shadow p-4 flex flex-col items-center todo-section">
+  <h2 class="text-xl font-bold mb-4">{{ 'TODO_SECTION.TITLE' | translate }}</h2>
+
+  <!-- Collectibles Section -->
+  <div class="w-full mb-6">
+    <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200 pb-2">
+      {{ 'TODO_SECTION.COLLECTIBLES_TITLE' | translate }}
+    </h3>
+    <ul class="w-full flex flex-col text-gray-700 todo-list">
+      @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
+        <li
+          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+          [class.removing]="lastPeachCoinBeingRemoved()"
+        >
+          <img
+            src="imgs/peach-coin.png"
+            [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
+            class="w-8 h-8"
+          />
+          <span class="flex-1">{{
+            'TODO_SECTION.PEACH_MEDALLION_TODO'
+              | translate: { uncollected: uncollectedPeachCoins() }
+          }}</span>
+        </li>
+      }
+      @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
+        <li
+          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+          [class.removing]="lastQuestionMarkPanelBeingRemoved()"
+        >
+          <img
+            src="imgs/questionmark-panel.png"
+            [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
+            class="w-8 h-8"
+          />
+          <span class="flex-1">{{
+            'TODO_SECTION.QUESTIONMARK_PANEL_TODO'
+              | translate: { uncollected: uncollectedQuestionMarkPanels() }
+          }}</span>
+        </li>
+      }
+      @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
+        <li
+          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+          [class.removing]="lastPSwitchBeingRemoved()"
+        >
+          <img
+            src="imgs/p-switch.png"
+            [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
+            class="w-8 h-8"
+          />
+          <span class="flex-1">{{
+            'TODO_SECTION.PSWITCH_TODO' | translate: { uncollected: uncollectedPSwitches() }
+          }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <!-- Achievements Section -->
+  <div class="w-full mb-6">
+    <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200 pb-2">
+      {{ 'TODO_SECTION.ACHIEVEMENTS_TITLE' | translate }}
+    </h3>
+    <ul class="w-full flex flex-col text-gray-700 todo-list">
+      @for (achievement of achievementsWithVisibleMilestones(); track achievement.index) {
+        <li class="achievement-item rounded shadow-sm">
+          <!-- Achievement Header -->
+          <div
+            class="flex items-center gap-2 bg-gray-50 p-2 todo-item cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+            (click)="toggleAchievementExpanded(achievement.index)"
+          >
+            <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+              <span class="text-sm font-bold">🏆</span>
+            </div>
+            <span class="flex-1 font-medium">
+              {{
+                'TODO_SECTION.ACHIEVEMENTS.' + achievement.title
+                  | translate
+                    : {
+                        current: achievement.milestoneReached
+                          ? achievement.milestones[achievement.milestoneReached - 1]
+                          : (0 | number),
+                        total: achievement.milestones[achievement.milestones.length - 1] | number,
+                      }
+              }}
+            </span>
+            <div class="w-6 h-6 flex items-center justify-center">
+              <span
+                class="text-sm transition-transform duration-200"
+                [class.rotate-90]="expandedAchievements().has(achievement.index)"
+              >
+                ▶
+              </span>
+            </div>
+          </div>
+
+          <!-- Milestones Content -->
+          <div
+            class="milestones-container"
+            [class.expanded]="expandedAchievements().has(achievement.index)"
+          >
+            @for (milestone of achievement.visibleMilestones; track milestone) {
+              <div
+                class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item ml-4 mt-1"
+                [class.opacity-60]="isCurrentMilestone(achievement, milestone)"
+                [class.line-through]="isCurrentMilestone(achievement, milestone)"
+                [class.removing]="disappearingMilestones().has(`${achievement.index}-${milestone}`)"
+              >
+                <input
+                  type="checkbox"
+                  class="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
+                  [checked]="isMilestoneChecked(achievement, milestone)"
+                  (change)="onMilestoneCheck(achievement, milestone)"
+                  (click)="$event.stopPropagation()"
+                />
+                <span class="flex-1 text-sm">
+                  {{ getMilestoneText(achievement, milestone) | number }}
+                </span>
+              </div>
+            }
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <!-- Other Items Section -->
+  @if (todoItems().length > 0) {
+    <div class="w-full">
+      <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200 pb-2">
+        {{ 'TODO_SECTION.OTHER_TITLE' | translate }}
+      </h3>
+      <ul class="w-full flex flex-col text-gray-700 todo-list">
+        @for (item of todoItems(); track item.index) {
+          <li
+            class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+            [class.removing]="disappearingChecklistModels().has(item)"
+          >
+            <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">🎯</div>
+            <span class="flex-1">{{ 'STICKERS.' + item.instructions | translate }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  }
 </section>

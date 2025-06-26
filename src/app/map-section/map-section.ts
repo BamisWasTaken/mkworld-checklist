@@ -14,7 +14,7 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
 import { ChecklistModel } from '../core/models';
-import { DataService } from '../core/services';
+import { ChecklistDataService } from '../core/services';
 import { TooltipService } from '../core/services/tooltip.service';
 import { Collectible } from './collectible/collectible';
 import { Tooltip } from './collectible/tooltip/tooltip';
@@ -32,7 +32,7 @@ interface TooltipPosition {
   imports: [TranslateModule, Collectible, Tooltip],
 })
 export class MapSection implements AfterViewInit, OnDestroy {
-  private readonly dataService = inject(DataService);
+  private readonly checklistDataService = inject(ChecklistDataService);
   private readonly tooltipService = inject(TooltipService);
   private readonly platformId = inject(PLATFORM_ID);
 
@@ -79,7 +79,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   });
 
   readonly collectibleChecklistModels = computed(() => {
-    const checklistModels = this.dataService.getChecklistModels()();
+    const checklistModels = this.checklistDataService.getChecklistModels()();
 
     if (this.showCollected()) {
       return checklistModels.filter(
@@ -87,7 +87,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
       );
     }
 
-    const disappearingChecklistModels = this.dataService.getDisappearingChecklistModels()();
+    const disappearingChecklistModels =
+      this.checklistDataService.getDisappearingChecklistModels()();
 
     return checklistModels.filter(
       (checklistModel: ChecklistModel) =>
@@ -240,7 +241,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   toggleShowCollected(): void {
     const showCollected = !this.showCollected();
     if (!showCollected) {
-      this.dataService.addDisappearingChecklistModels(
+      this.checklistDataService.addDisappearingChecklistModels(
         this.collectibleChecklistModels().filter(
           (checklistModel: ChecklistModel) =>
             checklistModel.checked && checklistModel.collectibleModel

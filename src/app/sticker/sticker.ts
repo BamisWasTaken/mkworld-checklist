@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { ChecklistModel } from '../core/models';
-import { DataService } from '../core/services';
+import { ChecklistDataService } from '../core/services';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -19,7 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sticker {
-  private readonly dataService = inject(DataService);
+  private readonly checklistDataService = inject(ChecklistDataService);
 
   readonly checklistModel = input.required<ChecklistModel>();
 
@@ -37,7 +37,7 @@ export class Sticker {
   }
 
   toggleCheck() {
-    this.dataService.updateChecklistModelChecked(this.checklistModel());
+    this.checklistDataService.updateChecklistModelChecked(this.checklistModel());
     this.onChecked.emit();
   }
 

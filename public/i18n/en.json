@@ -18,9 +18,19 @@
   },
   "TODO_SECTION": {
     "TITLE": "To-Do List",
+    "ACHIEVEMENTS_TITLE": "Achievements",
+    "COLLECTIBLES_TITLE": "Collectibles",
+    "OTHER_TITLE": "Other",
     "PEACH_MEDALLION_TODO": "Collect {{uncollected}} Peach Medallions",
     "QUESTIONMARK_PANEL_TODO": "Collect {{uncollected}} ? Panels",
-    "PSWITCH_TODO": "Collect {{uncollected}} P-Switches"
+    "PSWITCH_TODO": "Collect {{uncollected}} P-Switches",
+    "ACHIEVEMENTS": {
+      "TITLE_COINS": "Collect Coins ({{current}} / {{total}})",
+      "TITLE_KM_DRIVEN": "Drive kilometers ({{current}} / {{total}})",
+      "TITLE_KM_GLIDED": "Glide kilometers ({{current}} / {{total}})",
+      "TITLE_TRICKS_PERFORMED": "Perform Tricks ({{current}} / {{total}})",
+      "TITLE_TIMES_RACED": "Drive Races ({{current}} / {{total}})"
+    }
   },
   "MAP_SECTION": {
     "SHOW_COLLECTED": "Show collected"
@@ -802,7 +812,7 @@
     "477_INSTRUCTIONS": "From the Crown City starting point, immediately turn right in between the two buildings. Keep heading straight until you reach the gray ramp, which leads to train tracks. Once you reach the bridge section of the train tracks, jump off to the right and you will see the P Switch.",
     "477_MISSION_NAME": "Vined a way to the trophy of trophies!",
     "478_ALT_TEXT": "Crown City Map",
-    "478_INSTRUCTIONS": "This P Switch is found in an alley near the overlooking rock that says “Home of the Rainbow Fragment”.",
+    "478_INSTRUCTIONS": "This P Switch is found in an alley near the overlooking rock that says \"Home of the Rainbow Fragment\".",
     "478_MISSION_NAME": "Dodge Bowser's minions on the way to the goal!",
     "479_ALT_TEXT": "\"Home of the Rainbow Fragment\" Sign",
     "479_INSTRUCTIONS": "Turn around from the starting point then turn right at the end of the main street. Afterward, keep heading straight until you reach the wooden harbor. At the end of the wooden harbor will be a sign that shows a small map of Crown City. The Question Panel should be in front of the sign.",
@@ -1291,7 +1301,7 @@
     "699_ALT_TEXT": "Spiny Gelato",
     "699_INSTRUCTIONS": "This panel is found in a hidden area that is accessible via the warp pipe beneath the starting area. The warp pipe for this is the same warp pipe near the first panel.",
     "700_ALT_TEXT": "Spiny Gelato",
-    "700_INSTRUCTIONS": "By completing “Note the wind on the way to the goal!”, you will end up in front of this P Switch. Found by Amph_pm.",
+    "700_INSTRUCTIONS": "By completing \"Note the wind on the way to the goal!\", you will end up in front of this P Switch. Found by Amph_pm.",
     "700_MISSION_NAME": "Hurry to the frozen peak!",
     "701_ALT_TEXT": "Cherry Flavor Popsicle",
     "701_INSTRUCTIONS": "This panel is found on an elevated area after using the warp pipe on the green candy cane. Fall off the platform and immediately head towards the left side until you reach the green candy cane. After warping to the hidden area, head left and slide on the left rail of the ramp until you reach the panel.",
@@ -2118,7 +2128,7 @@
     "1123_INSTRUCTIONS": "Found inside a tunnel near the Mario Circuit.",
     "1124_INSTRUCTIONS": "On top of a tree between two music note blocks by the road.",
     "1125_INSTRUCTIONS": "Drive uphill to find the starting point, the Medallion can be found at the end of a power line.",
-    "1126_INSTRUCTIONS": "Ride the third power line from the left near the P-Switch “Hop from line to line to collect blue coins!”",
+    "1126_INSTRUCTIONS": "Ride the third power line from the left near the P-Switch \"Hop from line to line to collect blue coins!\"",
     "1127_INSTRUCTIONS": "On top of the bridge. Ride the power line from the P Switch \"Show off serious tightrope-riding skills!\" then drop down to the left.",
     "1128_INSTRUCTIONS": "On top of a crane.",
     "1129_INSTRUCTIONS": "On top of the tunnel leading up to Bowser's Castle. Drive around to the right side to find a path leading up to the top of the tunnel.",
@@ -2133,7 +2143,7 @@
     "1138_INSTRUCTIONS": "Under the bridge leading up to Bowser's Castle.",
     "1139_INSTRUCTIONS": "In the middle of a field of trees.",
     "1140_INSTRUCTIONS": "In front of 3 bales of hay.",
-    "1141_INSTRUCTIONS": "Inside the course, found near P Switch “Follow the rope for the ruin's blue coins!”.",
+    "1141_INSTRUCTIONS": "Inside the course, found near P Switch \"Follow the rope for the ruin's blue coins!\".",
     "1142_INSTRUCTIONS": "Found at the end of a ramp in Dry Bones Burnout.",
     "1143_INSTRUCTIONS": "Found inside a tent northeast of Choco Mountain!",
     "1144_INSTRUCTIONS": "Found west of Peach Stadium. Use the Warp Pipe to launch towards the music blocks and grab it.",
