@@ -68,7 +68,7 @@
           <!-- Achievement Header -->
           <div
             class="flex items-center gap-2 bg-gray-50 p-2 todo-item cursor-pointer hover:bg-gray-100 transition-colors duration-200"
-            (click)="toggleAchievementExpanded(achievement.index)"
+            (click)="achievement.expanded = !achievement.expanded"
           >
             <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
               <span class="text-sm font-bold">🏆</span>
@@ -91,7 +91,7 @@
             <div class="w-6 h-6 flex items-center justify-center">
               <span
                 class="text-sm transition-transform duration-200"
-                [class.rotate-90]="expandedAchievements().has(achievement.index)"
+                [class.rotate-90]="achievement.expanded"
               >
                 ▶
               </span>
@@ -99,10 +99,7 @@
           </div>
 
           <!-- Milestones Content -->
-          <div
-            class="milestones-container"
-            [class.expanded]="expandedAchievements().has(achievement.index)"
-          >
+          <div class="milestones-container" [class.expanded]="achievement.expanded">
             @for (milestone of achievement.milestones; track $index) {
               @if (
                 milestone.milestoneNumber >= achievement.milestoneReached || milestone.disappearing

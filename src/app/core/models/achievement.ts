@@ -8,4 +8,5 @@ export interface Achievement {
   milestoneText: string;
   milestones: Milestone[];
   milestoneReached: number;
+  expanded: boolean;
 }

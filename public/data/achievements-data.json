@@ -4,6 +4,8 @@
     "type": "coins",
     "title": "TITLE_COINS",
     "milestoneText": "MILESTONE_TEXT_COINS",
+    "milestoneReached": 0,
+    "expanded": false,
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -210,14 +212,15 @@
         "amount": 30000,
         "disappearing": false
       }
-    ],
-    "milestoneReached": 0
+    ]
   },
   {
     "index": 1,
     "type": "km-driven",
     "title": "TITLE_KM_DRIVEN",
     "milestoneText": "MILESTONE_TEXT_KM_DRIVEN",
+    "milestoneReached": 0,
+    "expanded": false,
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -549,14 +552,15 @@
         "amount": 5000,
         "disappearing": false
       }
-    ],
-    "milestoneReached": 0
+    ]
   },
   {
     "index": 2,
     "type": "km-glided",
     "title": "TITLE_KM_GLIDED",
     "milestoneText": "MILESTONE_TEXT_KM_GLIDED",
+    "milestoneReached": 0,
+    "expanded": false,
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -723,14 +727,15 @@
         "amount": 200,
         "disappearing": false
       }
-    ],
-    "milestoneReached": 0
+    ]
   },
   {
     "index": 3,
     "type": "tricks-performed",
     "title": "TITLE_TRICKS_PERFORMED",
     "milestoneText": "MILESTONE_TEXT_TRICKS_PERFORMED",
+    "milestoneReached": 0,
+    "expanded": false,
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -952,14 +957,15 @@
         "amount": 30000,
         "disappearing": false
       }
-    ],
-    "milestoneReached": 0
+    ]
   },
   {
     "index": 4,
     "type": "times-raced",
     "title": "TITLE_TIMES_RACED",
     "milestoneText": "MILESTONE_TEXT_TIMES_RACED",
+    "milestoneReached": 0,
+    "expanded": false,
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -1161,7 +1167,6 @@
         "amount": 500,
         "disappearing": false
       }
-    ],
-    "milestoneReached": 0
+    ]
   }
 ]

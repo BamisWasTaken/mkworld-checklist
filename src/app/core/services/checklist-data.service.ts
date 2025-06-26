@@ -1,5 +1,5 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
-import { ChecklistModel } from '../models';
+import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
+import { ChecklistModel, CollectibleType } from '../models';
 import checklistData from '../../../../public/data/checklist-data.json';
 
 @Injectable({
@@ -8,6 +8,16 @@ import checklistData from '../../../../public/data/checklist-data.json';
 export class ChecklistDataService {
   private checklistModels = signal<ChecklistModel[]>([]);
   private disappearingChecklistModels = signal<Set<ChecklistModel>>(new Set());
+
+  private uncollectedPeachCoins = computed(() =>
+    this.getUncollectedCollectibles(CollectibleType.PEACH_COIN)
+  );
+  private uncollectedQuestionMarkPanels = computed(() =>
+    this.getUncollectedCollectibles(CollectibleType.QUESTIONMARK_PANEL)
+  );
+  private uncollectedPSwitches = computed(() =>
+    this.getUncollectedCollectibles(CollectibleType.P_SWITCH)
+  );
 
   constructor() {
     this.checklistModels.set(checklistData);
@@ -64,5 +74,25 @@ export class ChecklistDataService {
       });
       this.disappearingChecklistModels.set(afterSet);
     }, 200);
+  }
+
+  getUncollectedPeachCoins(): Signal<number> {
+    return this.uncollectedPeachCoins;
+  }
+
+  getUncollectedQuestionMarkPanels(): Signal<number> {
+    return this.uncollectedQuestionMarkPanels;
+  }
+
+  getUncollectedPSwitches(): Signal<number> {
+    return this.uncollectedPSwitches;
+  }
+
+  private getUncollectedCollectibles(collectibleType: CollectibleType): number {
+    return this.checklistModels().filter(
+      (checklistModel: ChecklistModel) =>
+        !checklistModel.checked &&
+        checklistModel.collectibleModel?.collectibleType === collectibleType
+    ).length;
   }
 }

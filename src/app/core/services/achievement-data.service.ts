@@ -26,6 +26,7 @@ export class AchievementDataService {
       this.setDisappearingMilestones(achievementToUpdate, milestoneClicked);
       achievementToUpdate.milestoneReached = milestoneClicked.milestoneNumber;
     }
+
     this.achievements.update((achievements: Achievement[]) =>
       achievements.map((achievement: Achievement) =>
         achievement.index === achievementToUpdate.index ? achievementToUpdate : achievement
@@ -33,7 +34,10 @@ export class AchievementDataService {
     );
   }
 
-  setDisappearingMilestones(achievementToUpdate: Achievement, milestoneChecked: Milestone): void {
+  private setDisappearingMilestones(
+    achievementToUpdate: Achievement,
+    milestoneChecked: Milestone
+  ): void {
     if (achievementToUpdate.milestoneReached > 0) {
       achievementToUpdate.milestones.forEach((milestone: Milestone) => {
         if (
@@ -44,7 +48,6 @@ export class AchievementDataService {
         }
       });
 
-      // Remove from disappearing set after animation
       setTimeout(() => {
         achievementToUpdate.milestones.forEach(
           (milestone: Milestone) => (milestone.disappearing = false)

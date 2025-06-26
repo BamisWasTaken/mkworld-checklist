@@ -1,8 +1,9 @@
-import { Component, computed, inject, signal } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { ChecklistModel, CollectibleType, Achievement, Milestone } from '../core/models';
-import { AchievementDataService, ChecklistDataService } from '../core/services';
 import { DecimalPipe } from '@angular/common';
+import { Component, computed, inject, signal } from '@angular/core';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { TranslateModule } from '@ngx-translate/core';
+import { Achievement, ChecklistModel, Milestone } from '../core/models';
+import { AchievementDataService, ChecklistDataService } from '../core/services';
 
 @Component({
   selector: 'mkworld-todo-section',
@@ -15,54 +16,16 @@ export class TodoSection {
   private readonly achievementDataService = inject(AchievementDataService);
 
   readonly disappearingChecklistModels = this.checklistDataService.getDisappearingChecklistModels();
+
+  readonly uncollectedPeachCoins = this.checklistDataService.getUncollectedPeachCoins();
+  readonly uncollectedQuestionMarkPanels =
+    this.checklistDataService.getUncollectedQuestionMarkPanels();
+  readonly uncollectedPSwitches = this.checklistDataService.getUncollectedPSwitches();
+  readonly lastPeachCoinBeingRemoved = signal<boolean>(false);
+  readonly lastQuestionMarkPanelBeingRemoved = signal<boolean>(false);
+  readonly lastPSwitchBeingRemoved = signal<boolean>(false);
+
   readonly achievements = this.achievementDataService.getAchievements();
-
-  // Track expanded achievements
-  readonly expandedAchievements = signal<Set<number>>(new Set());
-
-  readonly uncollectedPeachCoins = computed(() => {
-    return this.checklistDataService
-      .getChecklistModels()()
-      .filter(
-        (checklistModel: ChecklistModel) =>
-          checklistModel.collectibleModel?.collectibleType === CollectibleType.PEACH_COIN
-      )
-      .filter((checklistModel: ChecklistModel) => !checklistModel.checked).length;
-  });
-
-  readonly uncollectedQuestionMarkPanels = computed(() => {
-    return this.checklistDataService
-      .getChecklistModels()()
-      .filter(
-        (checklistModel: ChecklistModel) =>
-          checklistModel.collectibleModel?.collectibleType === CollectibleType.QUESTIONMARK_PANEL
-      )
-      .filter((checklistModel: ChecklistModel) => !checklistModel.checked).length;
-  });
-
-  readonly uncollectedPSwitches = computed(() => {
-    return this.checklistDataService
-      .getChecklistModels()()
-      .filter(
-        (checklistModel: ChecklistModel) =>
-          checklistModel.collectibleModel?.collectibleType === CollectibleType.P_SWITCH
-      )
-      .filter((checklistModel: ChecklistModel) => !checklistModel.checked).length;
-  });
-
-  readonly lastPeachCoinBeingRemoved = computed(() => {
-    return this.uncollectedPeachCoins() === 0 && this.disappearingChecklistModels().size > 0;
-  });
-
-  readonly lastQuestionMarkPanelBeingRemoved = computed(() => {
-    return (
-      this.uncollectedQuestionMarkPanels() === 0 && this.disappearingChecklistModels().size > 0
-    );
-  });
-
-  readonly lastPSwitchBeingRemoved = computed(() => {
-    return this.uncollectedPSwitches() === 0 && this.disappearingChecklistModels().size > 0;
-  });
 
   readonly todoItems = computed(() => {
     const checklistModels = this.checklistDataService
@@ -85,17 +48,42 @@ export class TodoSection {
     });
   });
 
-  toggleAchievementExpanded(achievementIndex: number): void {
-    const current = this.expandedAchievements();
-    const newSet = new Set(current);
+  constructor() {
+    toObservable(this.uncollectedPeachCoins)
+      .pipe(takeUntilDestroyed())
+      .subscribe((uncollectedPeachCoins: number) => {
+        if (uncollectedPeachCoins === 0) {
+          this.lastPeachCoinBeingRemoved.set(true);
 
-    if (newSet.has(achievementIndex)) {
-      newSet.delete(achievementIndex);
-    } else {
-      newSet.add(achievementIndex);
-    }
+          setTimeout(() => {
+            this.lastPeachCoinBeingRemoved.set(false);
+          }, 200);
+        }
+      });
 
-    this.expandedAchievements.set(newSet);
+    toObservable(this.uncollectedQuestionMarkPanels)
+      .pipe(takeUntilDestroyed())
+      .subscribe((uncollectedQuestionMarkPanels: number) => {
+        if (uncollectedQuestionMarkPanels === 0) {
+          this.lastQuestionMarkPanelBeingRemoved.set(true);
+
+          setTimeout(() => {
+            this.lastQuestionMarkPanelBeingRemoved.set(false);
+          }, 200);
+        }
+      });
+
+    toObservable(this.uncollectedPSwitches)
+      .pipe(takeUntilDestroyed())
+      .subscribe((uncollectedPSwitches: number) => {
+        if (uncollectedPSwitches === 0) {
+          this.lastPSwitchBeingRemoved.set(true);
+
+          setTimeout(() => {
+            this.lastPSwitchBeingRemoved.set(false);
+          }, 200);
+        }
+      });
   }
 
   onMilestoneCheck(achievement: Achievement, milestone: Milestone): void {
