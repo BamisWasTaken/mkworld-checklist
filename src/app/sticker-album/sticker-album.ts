@@ -8,6 +8,7 @@ import {
   output,
   QueryList,
   signal,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
@@ -27,6 +28,7 @@ export class StickerAlbum implements AfterViewInit {
   private readonly settingsService = inject(SettingsService);
 
   @ViewChildren('stickerItem') stickerItems!: QueryList<ElementRef>;
+  @ViewChild('pageContainer', { static: false }) pageContainer!: ElementRef;
 
   scrollToMap = output<ChecklistModel>();
 
@@ -50,6 +52,10 @@ export class StickerAlbum implements AfterViewInit {
   page = signal(0);
   pageCount = computed(() => this.pages().length);
 
+  // Animation state signals
+  isAnimating = signal(false);
+  animationDirection = signal<'left' | 'right'>('right');
+
   tooltipText = signal<string | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
 
@@ -63,22 +69,98 @@ export class StickerAlbum implements AfterViewInit {
 
   prevPage() {
     if (this.page() > 0) {
-      this.page.update(p => p - 1);
+      this.goToPage(this.page() - 1);
     } else {
-      this.page.set(this.pageCount() - 1);
+      this.goToPage(this.pageCount() - 1);
     }
   }
 
   nextPage() {
     if (this.page() < this.pageCount() - 1) {
-      this.page.update(p => p + 1);
+      this.goToPage(this.page() + 1);
     } else {
-      this.page.set(0);
+      this.goToPage(0);
     }
   }
 
-  goToPage(page: number) {
-    this.page.set(page);
+  goToPage(newPage: number) {
+    if (this.isAnimating() || newPage === this.page()) {
+      return;
+    }
+
+    const currentPage = this.page();
+    const direction = newPage > currentPage ? 'left' : 'right';
+
+    this.animationDirection.set(direction);
+    this.isAnimating.set(true);
+
+    // Step 1: Animate current page out
+    this.animatePageOut(direction).then(() => {
+      // Step 2: Set new page and animate it in
+      this.page.set(newPage);
+
+      // Small delay to ensure DOM has updated
+      setTimeout(() => {
+        this.animatePageIn(direction).then(() => {
+          this.isAnimating.set(false);
+        });
+      }, 50);
+    });
+  }
+
+  private animatePageOut(direction: 'left' | 'right'): Promise<void> {
+    return new Promise(resolve => {
+      if (!this.pageContainer?.nativeElement) {
+        resolve();
+        return;
+      }
+
+      const currentPageElement = this.pageContainer.nativeElement as HTMLElement;
+      const slideDistance = 50;
+      const translateX = direction === 'right' ? slideDistance : -slideDistance;
+
+      currentPageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+      currentPageElement.style.transform = `translateX(${translateX}px)`;
+      currentPageElement.style.opacity = '0';
+
+      setTimeout(() => {
+        resolve();
+      }, 300);
+    });
+  }
+
+  private animatePageIn(direction: 'left' | 'right'): Promise<void> {
+    return new Promise(resolve => {
+      if (!this.pageContainer?.nativeElement) {
+        resolve();
+        return;
+      }
+
+      const newPageElement = this.pageContainer.nativeElement as HTMLElement;
+      const slideDistance = 50;
+      const translateX = direction === 'right' ? -slideDistance : slideDistance;
+
+      // Set initial position
+      newPageElement.style.transition = 'none';
+      newPageElement.style.transform = `translateX(${translateX}px)`;
+      newPageElement.style.opacity = '0';
+
+      // Force reflow
+      newPageElement.getBoundingClientRect();
+
+      // Animate to final position
+      newPageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+      newPageElement.style.transform = 'translateX(0)';
+      newPageElement.style.opacity = '1';
+
+      setTimeout(() => {
+        // Clean up styles
+        newPageElement.style.transition = '';
+        newPageElement.style.transform = '';
+        newPageElement.style.opacity = '';
+        resolve();
+      }, 300);
+    });
   }
 
   toggleShowCollectedStickers() {
