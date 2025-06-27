@@ -290,7 +290,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.94505494505495,
       "yPercentage": 86.38461538461539,
-      "youtubeLink": "3mNrWWIG2ag"
+      "youtubeId": "3mNrWWIG2ag"
     }
   },
   {
@@ -304,7 +304,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "32_MISSION_NAME",
-      "youtubeLink": "3DLkFJ_iidc",
+      "youtubeId": "3DLkFJ_iidc",
       "xPercentage": 50.61718750000001,
       "yPercentage": 39.13671875
     }
@@ -320,7 +320,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "33_MISSION_NAME",
-      "youtubeLink": "TEA0hABw8Rs",
+      "youtubeId": "TEA0hABw8Rs",
       "xPercentage": 24.953125,
       "yPercentage": 79.8046875
     }
@@ -345,7 +345,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "35_MISSION_NAME",
-      "youtubeLink": "sOtfOv1QDeg",
+      "youtubeId": "sOtfOv1QDeg",
       "xPercentage": 47.9765625,
       "yPercentage": 36.5234375
     }
@@ -379,7 +379,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "38_MISSION_NAME",
-      "youtubeLink": "AzvTnBwWYeU",
+      "youtubeId": "AzvTnBwWYeU",
       "xPercentage": 19.125,
       "yPercentage": 63.00390625
     }
@@ -395,7 +395,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "39_MISSION_NAME",
-      "youtubeLink": "UWPo8cyRHbg",
+      "youtubeId": "UWPo8cyRHbg",
       "xPercentage": 39.34765625,
       "yPercentage": 57.5390625
     }
@@ -411,7 +411,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "40_MISSION_NAME",
-      "youtubeLink": "aHXAp786IEg",
+      "youtubeId": "aHXAp786IEg",
       "xPercentage": 60.89453124999999,
       "yPercentage": 79
     }
@@ -427,7 +427,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "41_MISSION_NAME",
-      "youtubeLink": "7YQo9Gg9b8o",
+      "youtubeId": "7YQo9Gg9b8o",
       "xPercentage": 62.765625,
       "yPercentage": 62.69921875
     }
@@ -443,7 +443,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "42_MISSION_NAME",
-      "youtubeLink": "hgjsP9ntlDA",
+      "youtubeId": "hgjsP9ntlDA",
       "xPercentage": 64.1640625,
       "yPercentage": 72.875
     }
@@ -459,7 +459,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "43_MISSION_NAME",
-      "youtubeLink": "5xScaHmnXjg",
+      "youtubeId": "5xScaHmnXjg",
       "xPercentage": 53.32421875,
       "yPercentage": 24.9765625
     }
@@ -484,7 +484,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "45_MISSION_NAME",
-      "youtubeLink": "denY5DyMSfM",
+      "youtubeId": "denY5DyMSfM",
       "xPercentage": 15.085937499999998,
       "yPercentage": 69.80859375
     }
@@ -524,7 +524,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "48_MISSION_NAME",
-      "youtubeLink": "OlPm60rsrtc",
+      "youtubeId": "OlPm60rsrtc",
       "xPercentage": 58.28515625,
       "yPercentage": 62.11328125
     }
@@ -549,7 +549,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "50_MISSION_NAME",
-      "youtubeLink": "E2NJi3z3mM8",
+      "youtubeId": "E2NJi3z3mM8",
       "xPercentage": 81.80078125,
       "yPercentage": 74.640625
     }
@@ -655,7 +655,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "61_MISSION_NAME",
-      "youtubeLink": "5hp94K3T3A8",
+      "youtubeId": "5hp94K3T3A8",
       "xPercentage": 34.359375,
       "yPercentage": 62.8671875
     }
@@ -671,7 +671,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "62_MISSION_NAME",
-      "youtubeLink": "cANsLtc5R80",
+      "youtubeId": "cANsLtc5R80",
       "xPercentage": 25.84765625,
       "yPercentage": 55.625
     }
@@ -687,7 +687,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "63_MISSION_NAME",
-      "youtubeLink": "4uKIcux8W5s",
+      "youtubeId": "4uKIcux8W5s",
       "xPercentage": 26.79296875,
       "yPercentage": 77.58984375
     }
@@ -704,7 +704,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 11.296703296703297,
       "yPercentage": 69.96703296703296,
-      "youtubeLink": "gLeRXhtCux4"
+      "youtubeId": "gLeRXhtCux4"
     }
   },
   {
@@ -718,7 +718,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "65_MISSION_NAME",
-      "youtubeLink": "OATs6zjLVNE",
+      "youtubeId": "OATs6zjLVNE",
       "xPercentage": 13.18359375,
       "yPercentage": 53.37890625
     }
@@ -734,7 +734,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "66_MISSION_NAME",
-      "youtubeLink": "07dxKrdXxBA",
+      "youtubeId": "07dxKrdXxBA",
       "xPercentage": 37.16015625,
       "yPercentage": 39.70312499999999
     }
@@ -750,7 +750,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "67_MISSION_NAME",
-      "youtubeLink": "g47xArmOu5g",
+      "youtubeId": "g47xArmOu5g",
       "xPercentage": 41.58203125,
       "yPercentage": 48.50390624999999
     }
@@ -766,7 +766,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "68_MISSION_NAME",
-      "youtubeLink": "1QceKmy69M0",
+      "youtubeId": "1QceKmy69M0",
       "xPercentage": 74.46875,
       "yPercentage": 30.01171875
     }
@@ -783,7 +783,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 76.32967032967034,
       "yPercentage": 45.18681318681319,
-      "youtubeLink": "K7Pd5240bt0"
+      "youtubeId": "K7Pd5240bt0"
     }
   },
   {
@@ -797,7 +797,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "70_MISSION_NAME",
-      "youtubeLink": "vUjv1ZpNU_s",
+      "youtubeId": "vUjv1ZpNU_s",
       "xPercentage": 45.171875,
       "yPercentage": 58.5625
     }
@@ -843,7 +843,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "73_MISSION_NAME",
-      "youtubeLink": "LRGr8tNrcVU",
+      "youtubeId": "LRGr8tNrcVU",
       "xPercentage": 60.99609375,
       "yPercentage": 73.08984375
     }
@@ -868,7 +868,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "75_MISSION_NAME",
-      "youtubeLink": "1oAp7vTdxyQ",
+      "youtubeId": "1oAp7vTdxyQ",
       "xPercentage": 52.6640625,
       "yPercentage": 29.17578125
     }
@@ -884,7 +884,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "76_MISSION_NAME",
-      "youtubeLink": "LcqPKfEtXQE",
+      "youtubeId": "LcqPKfEtXQE",
       "xPercentage": 27.33203125,
       "yPercentage": 86.625
     }
@@ -972,7 +972,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "85_MISSION_NAME",
-      "youtubeLink": "3xHSJOA06EQ",
+      "youtubeId": "3xHSJOA06EQ",
       "xPercentage": 64.62109375,
       "yPercentage": 20.75
     }
@@ -1363,7 +1363,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "127_MISSION_NAME",
-      "youtubeLink": "wis8HpZ7Dtw",
+      "youtubeId": "wis8HpZ7Dtw",
       "xPercentage": 53.359375,
       "yPercentage": 40.31640625
     }
@@ -1379,7 +1379,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "128_MISSION_NAME",
-      "youtubeLink": "zojL2RmI6Kw",
+      "youtubeId": "zojL2RmI6Kw",
       "xPercentage": 30.98046875,
       "yPercentage": 45.33984375
     }
@@ -1656,7 +1656,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "158_MISSION_NAME",
-      "youtubeLink": "yEJ-Js0oDpQ",
+      "youtubeId": "yEJ-Js0oDpQ",
       "xPercentage": 33.796875,
       "yPercentage": 46.53515625
     }
@@ -1672,7 +1672,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "159_MISSION_NAME",
-      "youtubeLink": "baz684hSwMU",
+      "youtubeId": "baz684hSwMU",
       "xPercentage": 9.98828125,
       "yPercentage": 46.828125
     }
@@ -1698,7 +1698,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 9.758241758241759,
       "yPercentage": 50.043956043956044,
-      "youtubeLink": "cAEpDIUqvEg"
+      "youtubeId": "cAEpDIUqvEg"
     }
   },
   {
@@ -1874,7 +1874,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "180_MISSION_NAME",
-      "youtubeLink": "4ceGUkvonG4",
+      "youtubeId": "4ceGUkvonG4",
       "xPercentage": 19.83203125,
       "yPercentage": 71.25
     }
@@ -1890,7 +1890,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "181_MISSION_NAME",
-      "youtubeLink": "h8LqmQaU_Qw",
+      "youtubeId": "h8LqmQaU_Qw",
       "xPercentage": 88.09375,
       "yPercentage": 58.34375
     }
@@ -1906,7 +1906,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "182_MISSION_NAME",
-      "youtubeLink": "IMJyO-9nnts",
+      "youtubeId": "IMJyO-9nnts",
       "xPercentage": 64.8515625,
       "yPercentage": 26.2578125
     }
@@ -1931,7 +1931,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "184_MISSION_NAME",
-      "youtubeLink": "qsveRv96bzo",
+      "youtubeId": "qsveRv96bzo",
       "xPercentage": 29.226562499999996,
       "yPercentage": 33.26171875
     }
@@ -2043,7 +2043,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "195_MISSION_NAME",
-      "youtubeLink": "z-Mi_y1tpo0",
+      "youtubeId": "z-Mi_y1tpo0",
       "xPercentage": 24.95703125,
       "yPercentage": 41.17578125
     }
@@ -2083,7 +2083,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "198_MISSION_NAME",
-      "youtubeLink": "urWUMrkehIs",
+      "youtubeId": "urWUMrkehIs",
       "xPercentage": 58.98046875,
       "yPercentage": 26.02734375
     }
@@ -2099,7 +2099,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "199_MISSION_NAME",
-      "youtubeLink": "qLiK0QaQkQo",
+      "youtubeId": "qLiK0QaQkQo",
       "xPercentage": 44.37109375,
       "yPercentage": 34.875
     }
@@ -2160,7 +2160,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "205_MISSION_NAME",
-      "youtubeLink": "sX5UyciXFi0",
+      "youtubeId": "sX5UyciXFi0",
       "xPercentage": 11.95703125,
       "yPercentage": 54.33984375
     }
@@ -2275,7 +2275,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "217_MISSION_NAME",
-      "youtubeLink": "O-Px9lmsZY4",
+      "youtubeId": "O-Px9lmsZY4",
       "xPercentage": 11.58203125,
       "yPercentage": 49.72656250000001
     }
@@ -2318,7 +2318,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "221_MISSION_NAME",
-      "youtubeLink": "SV3sXNUIyDE",
+      "youtubeId": "SV3sXNUIyDE",
       "xPercentage": 47.9765625,
       "yPercentage": 65.42578125
     }
@@ -2352,7 +2352,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "224_MISSION_NAME",
-      "youtubeLink": "9-ZpgzQrO7Q",
+      "youtubeId": "9-ZpgzQrO7Q",
       "xPercentage": 55.41796875,
       "yPercentage": 45.44921875
     }
@@ -2368,7 +2368,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "225_MISSION_NAME",
-      "youtubeLink": "exQMBFYGWWo",
+      "youtubeId": "exQMBFYGWWo",
       "xPercentage": 41.8203125,
       "yPercentage": 47.41015625
     }
@@ -2474,7 +2474,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "236_MISSION_NAME",
-      "youtubeLink": "PhXkeq0I3EU",
+      "youtubeId": "PhXkeq0I3EU",
       "xPercentage": 47.9765625,
       "yPercentage": 15.9609375
     }
@@ -2491,7 +2491,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 48.65934065934066,
       "yPercentage": 16.142857142857142,
-      "youtubeLink": "JdmJDVPLVpU"
+      "youtubeId": "JdmJDVPLVpU"
     }
   },
   {
@@ -2505,7 +2505,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "238_MISSION_NAME",
-      "youtubeLink": "wm-6st8_2rw",
+      "youtubeId": "wm-6st8_2rw",
       "xPercentage": 50.3515625,
       "yPercentage": 18.71484375
     }
@@ -2522,7 +2522,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 50.94505494505494,
       "yPercentage": 15.945054945054945,
-      "youtubeLink": "FHtUsSc7Hvk"
+      "youtubeId": "FHtUsSc7Hvk"
     }
   },
   {
@@ -2536,7 +2536,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "240_MISSION_NAME",
-      "youtubeLink": "cKbJo7TA9bY",
+      "youtubeId": "cKbJo7TA9bY",
       "xPercentage": 52.828125,
       "yPercentage": 24.47265625
     }
@@ -2651,7 +2651,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "252_MISSION_NAME",
-      "youtubeLink": "JSH1ICdVFQQ",
+      "youtubeId": "JSH1ICdVFQQ",
       "xPercentage": 59.91796874999999,
       "yPercentage": 31.87890625
     }
@@ -2676,7 +2676,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "254_MISSION_NAME",
-      "youtubeLink": "87KrQqa2HOw",
+      "youtubeId": "87KrQqa2HOw",
       "xPercentage": 55.30859375,
       "yPercentage": 80.30078125
     }
@@ -2737,7 +2737,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "260_MISSION_NAME",
-      "youtubeLink": "XeVppwasu6A",
+      "youtubeId": "XeVppwasu6A",
       "xPercentage": 84.03515625,
       "yPercentage": 62.078125
     }
@@ -2831,7 +2831,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "269_MISSION_NAME",
-      "youtubeLink": "9bqdNH-0K2M",
+      "youtubeId": "9bqdNH-0K2M",
       "xPercentage": 76.07421875,
       "yPercentage": 29.2578125
     }
@@ -2928,7 +2928,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "279_MISSION_NAME",
-      "youtubeLink": "2vl2I74qpeA",
+      "youtubeId": "2vl2I74qpeA",
       "xPercentage": 87.24609375,
       "yPercentage": 61.3984375
     }
@@ -3047,7 +3047,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 89.45054945054945,
       "yPercentage": 55.142857142857146,
-      "youtubeLink": "fXh2SGDjKFE"
+      "youtubeId": "fXh2SGDjKFE"
     }
   },
   {
@@ -3061,7 +3061,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "291_MISSION_NAME",
-      "youtubeLink": "SeGsc1YN3ak",
+      "youtubeId": "SeGsc1YN3ak",
       "xPercentage": 84.87109375,
       "yPercentage": 54.24609375
     }
@@ -3176,7 +3176,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "303_MISSION_NAME",
-      "youtubeLink": "XXI_6rt9pc0",
+      "youtubeId": "XXI_6rt9pc0",
       "xPercentage": 32.8515625,
       "yPercentage": 77.09375
     }
@@ -3261,7 +3261,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "311_MISSION_NAME",
-      "youtubeLink": "sRNpPMjX9sU",
+      "youtubeId": "sRNpPMjX9sU",
       "xPercentage": 47.01171875,
       "yPercentage": 21.3203125
     }
@@ -3301,7 +3301,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "314_MISSION_NAME",
-      "youtubeLink": "yVoE8iigDR8",
+      "youtubeId": "yVoE8iigDR8",
       "xPercentage": 31.34765625,
       "yPercentage": 27.44921875
     }
@@ -3452,7 +3452,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "330_MISSION_NAME",
-      "youtubeLink": "6zKUzEHExTc",
+      "youtubeId": "6zKUzEHExTc",
       "xPercentage": 16.7109375,
       "yPercentage": 43.35546875
     }
@@ -3468,7 +3468,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "331_MISSION_NAME",
-      "youtubeLink": "MV4VoOYw8dA",
+      "youtubeId": "MV4VoOYw8dA",
       "xPercentage": 22.09765625,
       "yPercentage": 55.78515625
     }
@@ -3484,7 +3484,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "332_MISSION_NAME",
-      "youtubeLink": "7Qic3ZCZVqg",
+      "youtubeId": "7Qic3ZCZVqg",
       "xPercentage": 79.2578125,
       "yPercentage": 68.3984375
     }
@@ -3518,7 +3518,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "335_MISSION_NAME",
-      "youtubeLink": "InU7T4gIsdI",
+      "youtubeId": "InU7T4gIsdI",
       "xPercentage": 23.07421875,
       "yPercentage": 59.6484375
     }
@@ -3535,7 +3535,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.57142857142857,
       "yPercentage": 57.38461538461539,
-      "youtubeLink": "AnRdZ56Klbk"
+      "youtubeId": "AnRdZ56Klbk"
     }
   },
   {
@@ -3550,7 +3550,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 77.7032967032967,
       "yPercentage": 62.27472527472528,
-      "youtubeLink": "GpZrpQGdpWE"
+      "youtubeId": "GpZrpQGdpWE"
     }
   },
   {
@@ -3565,7 +3565,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 88.04395604395604,
       "yPercentage": 71.12087912087912,
-      "youtubeLink": "EUkp9ExqiE0"
+      "youtubeId": "EUkp9ExqiE0"
     }
   },
   {
@@ -3580,7 +3580,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 52.53846153846154,
       "yPercentage": 44.23076923076923,
-      "youtubeLink": "mC-RAbCaGPo"
+      "youtubeId": "mC-RAbCaGPo"
     }
   },
   {
@@ -3595,7 +3595,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 49.05494505494506,
       "yPercentage": 17.065934065934066,
-      "youtubeLink": "avrO77Axle0"
+      "youtubeId": "avrO77Axle0"
     }
   },
   {
@@ -3609,7 +3609,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "341_MISSION_NAME",
-      "youtubeLink": "_wILRneFIWA",
+      "youtubeId": "_wILRneFIWA",
       "xPercentage": 33.0078125,
       "yPercentage": 65.859375
     }
@@ -3641,7 +3641,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 63.8923076923077,
       "yPercentage": 68.14285714285714,
-      "youtubeLink": "hTHOp-sHwr4"
+      "youtubeId": "hTHOp-sHwr4"
     }
   },
   {
@@ -3656,7 +3656,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 66.17582417582418,
       "yPercentage": 86.72527472527473,
-      "youtubeLink": "fqwuTPp-YE8"
+      "youtubeId": "fqwuTPp-YE8"
     }
   },
   {
@@ -3671,7 +3671,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 88.75824175824175,
       "yPercentage": 54.857142857142854,
-      "youtubeLink": "XR75_1OfpxU"
+      "youtubeId": "XR75_1OfpxU"
     }
   },
   {
@@ -3685,7 +3685,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "346_MISSION_NAME",
-      "youtubeLink": "I4HQtSdkgPA",
+      "youtubeId": "I4HQtSdkgPA",
       "xPercentage": 26.1171875,
       "yPercentage": 22.515625
     }
@@ -3716,7 +3716,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "348_MISSION_NAME",
-      "youtubeLink": "84XEgHb6Dg0",
+      "youtubeId": "84XEgHb6Dg0",
       "xPercentage": 18.74609375,
       "yPercentage": 52.7421875
     }
@@ -3732,7 +3732,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "349_MISSION_NAME",
-      "youtubeLink": "FTKP0tngvHk",
+      "youtubeId": "FTKP0tngvHk",
       "xPercentage": 65.8984375,
       "yPercentage": 20.4140625
     }
@@ -3749,7 +3749,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 64.94505494505495,
       "yPercentage": 52.43956043956044,
-      "youtubeLink": "6VuVxuu_I64"
+      "youtubeId": "6VuVxuu_I64"
     }
   },
   {
@@ -3764,7 +3764,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.9010989010989,
       "yPercentage": 39.53846153846154,
-      "youtubeLink": "b631GgbMgZg"
+      "youtubeId": "b631GgbMgZg"
     }
   },
   {
@@ -3779,7 +3779,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 23.186813186813186,
       "yPercentage": 78.52747252747253,
-      "youtubeLink": "Qm5VwPE6oV8"
+      "youtubeId": "Qm5VwPE6oV8"
     }
   },
   {
@@ -3794,7 +3794,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.967032967032964,
       "yPercentage": 52.30769230769231,
-      "youtubeLink": "2krTUapu2ok"
+      "youtubeId": "2krTUapu2ok"
     }
   },
   {
@@ -3817,7 +3817,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "355_MISSION_NAME",
-      "youtubeLink": "m0Uj2VhFiNI",
+      "youtubeId": "m0Uj2VhFiNI",
       "xPercentage": 36.3984375,
       "yPercentage": 37.3671875
     }
@@ -3938,7 +3938,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "367_MISSION_NAME",
-      "youtubeLink": "1lEWTcNmb7c",
+      "youtubeId": "1lEWTcNmb7c",
       "xPercentage": 87.8046875,
       "yPercentage": 62.01171875
     }
@@ -3954,7 +3954,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "368_MISSION_NAME",
-      "youtubeLink": "QqRIoVbAY7M",
+      "youtubeId": "QqRIoVbAY7M",
       "xPercentage": 19.50390625,
       "yPercentage": 30.12890625
     }
@@ -3989,7 +3989,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 90.31868131868131,
       "yPercentage": 54.8021978021978,
-      "youtubeLink": "_zOdwBfVDAA"
+      "youtubeId": "_zOdwBfVDAA"
     }
   },
   {
@@ -4012,7 +4012,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "373_MISSION_NAME",
-      "youtubeLink": "jyC2wB6ZBK0",
+      "youtubeId": "jyC2wB6ZBK0",
       "xPercentage": 40.375,
       "yPercentage": 66.0078125
     }
@@ -4046,7 +4046,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "376_MISSION_NAME",
-      "youtubeLink": "3n50hQAO5hU",
+      "youtubeId": "3n50hQAO5hU",
       "xPercentage": 41.59375,
       "yPercentage": 62.4140625
     }
@@ -4062,7 +4062,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "377_MISSION_NAME",
-      "youtubeLink": "igJJUDvjcVM",
+      "youtubeId": "igJJUDvjcVM",
       "xPercentage": 63.78906250000001,
       "yPercentage": 39.4140625
     }
@@ -4078,7 +4078,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "378_MISSION_NAME",
-      "youtubeLink": "inIW0xUctI0",
+      "youtubeId": "inIW0xUctI0",
       "xPercentage": 64.10546875,
       "yPercentage": 41.39453125
     }
@@ -4094,7 +4094,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "379_MISSION_NAME",
-      "youtubeLink": "ZDSFIqv5cn4",
+      "youtubeId": "ZDSFIqv5cn4",
       "xPercentage": 64.265625,
       "yPercentage": 38.734375
     }
@@ -4119,7 +4119,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "381_MISSION_NAME",
-      "youtubeLink": "xzBEspxWRNQ",
+      "youtubeId": "xzBEspxWRNQ",
       "xPercentage": 57.140625,
       "yPercentage": 30.765625
     }
@@ -4213,7 +4213,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "390_MISSION_NAME",
-      "youtubeLink": "INTDPyNvXq4",
+      "youtubeId": "INTDPyNvXq4",
       "xPercentage": 32.89453125,
       "yPercentage": 74.84375
     }
@@ -4283,7 +4283,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "397_MISSION_NAME",
-      "youtubeLink": "oIryKRCnRFU",
+      "youtubeId": "oIryKRCnRFU",
       "xPercentage": 24.15625,
       "yPercentage": 75.9375
     }
@@ -4299,7 +4299,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "398_MISSION_NAME",
-      "youtubeLink": "5WKMXK4doJI",
+      "youtubeId": "5WKMXK4doJI",
       "xPercentage": 28.05078125,
       "yPercentage": 77.13671875
     }
@@ -4369,7 +4369,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "405_MISSION_NAME",
-      "youtubeLink": "4OX6ESFe-jc",
+      "youtubeId": "4OX6ESFe-jc",
       "xPercentage": 85.55078125,
       "yPercentage": 74.47265625
     }
@@ -4394,7 +4394,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "407_MISSION_NAME",
-      "youtubeLink": "4yjMrWwZTo4",
+      "youtubeId": "4yjMrWwZTo4",
       "xPercentage": 79.49609375,
       "yPercentage": 73.203125
     }
@@ -4419,7 +4419,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "409_MISSION_NAME",
-      "youtubeLink": "v5B-xSkm_BM",
+      "youtubeId": "v5B-xSkm_BM",
       "xPercentage": 64.69140625,
       "yPercentage": 75.09375
     }
@@ -4435,7 +4435,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "410_MISSION_NAME",
-      "youtubeLink": "60ECZTUY834",
+      "youtubeId": "60ECZTUY834",
       "xPercentage": 15.492187499999998,
       "yPercentage": 42.97656250000001
     }
@@ -4451,7 +4451,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "411_MISSION_NAME",
-      "youtubeLink": "9ZVL6858lPI",
+      "youtubeId": "9ZVL6858lPI",
       "xPercentage": 17.5546875,
       "yPercentage": 46.99218750000001
     }
@@ -4467,7 +4467,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "412_MISSION_NAME",
-      "youtubeLink": "7mC5eIkmFeI",
+      "youtubeId": "7mC5eIkmFeI",
       "xPercentage": 18.86328125,
       "yPercentage": 60.27734375
     }
@@ -4619,7 +4619,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 79.65934065934066,
       "yPercentage": 81.56043956043956,
-      "youtubeLink": "nMJJhH7XDAM"
+      "youtubeId": "nMJJhH7XDAM"
     }
   },
   {
@@ -4642,7 +4642,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "428_MISSION_NAME",
-      "youtubeLink": "QILDlt6Y_QI",
+      "youtubeId": "QILDlt6Y_QI",
       "xPercentage": 18.2109375,
       "yPercentage": 43.53125
     }
@@ -4719,7 +4719,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.76923076923077,
       "yPercentage": 21.175824175824175,
-      "youtubeLink": "PChboEAlCVs"
+      "youtubeId": "PChboEAlCVs"
     }
   },
   {
@@ -4752,7 +4752,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 10.483516483516484,
       "yPercentage": 68.26373626373626,
-      "youtubeLink": "LSy_jcpPpdc"
+      "youtubeId": "LSy_jcpPpdc"
     }
   },
   {
@@ -4785,7 +4785,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.7032967032967,
       "yPercentage": 19.417582417582416,
-      "youtubeLink": "B0A3BTwk9dM"
+      "youtubeId": "B0A3BTwk9dM"
     }
   },
   {
@@ -4799,7 +4799,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "442_MISSION_NAME",
-      "youtubeLink": "-_kOyfFXC6Q",
+      "youtubeId": "-_kOyfFXC6Q",
       "xPercentage": 20.96484375,
       "yPercentage": 61.96484375
     }
@@ -4815,7 +4815,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "443_MISSION_NAME",
-      "youtubeLink": "O6uyRNqpcO8",
+      "youtubeId": "O6uyRNqpcO8",
       "xPercentage": 22.61328125,
       "yPercentage": 62.078125
     }
@@ -4832,7 +4832,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 22.615384615384617,
       "yPercentage": 60.967032967032964,
-      "youtubeLink": "gQWYmrSIfbQ"
+      "youtubeId": "gQWYmrSIfbQ"
     }
   },
   {
@@ -4847,7 +4847,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 24.10989010989011,
       "yPercentage": 60.53846153846154,
-      "youtubeLink": "Cf6ftCoOHWQ"
+      "youtubeId": "Cf6ftCoOHWQ"
     }
   },
   {
@@ -4862,7 +4862,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 23.373626373626372,
       "yPercentage": 62.362637362637365,
-      "youtubeLink": "QpxS7W-Y5Eg"
+      "youtubeId": "QpxS7W-Y5Eg"
     }
   },
   {
@@ -4877,7 +4877,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 23.439560439560438,
       "yPercentage": 63.0989010989011,
-      "youtubeLink": "Vi5CDE1TdT0"
+      "youtubeId": "Vi5CDE1TdT0"
     }
   },
   {
@@ -4891,7 +4891,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "448_MISSION_NAME",
-      "youtubeLink": "-7kJgZ7WGZA",
+      "youtubeId": "-7kJgZ7WGZA",
       "xPercentage": 30.37109375,
       "yPercentage": 63.89453125
     }
@@ -4916,7 +4916,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "450_MISSION_NAME",
-      "youtubeLink": "8hNMwMu8U74",
+      "youtubeId": "8hNMwMu8U74",
       "xPercentage": 22.05078125,
       "yPercentage": 63.33984375
     }
@@ -4932,7 +4932,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "451_MISSION_NAME",
-      "youtubeLink": "lptyec2Razo",
+      "youtubeId": "lptyec2Razo",
       "xPercentage": 27.761718749999996,
       "yPercentage": 69.25
     }
@@ -4948,7 +4948,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "452_MISSION_NAME",
-      "youtubeLink": "U3td_rfTkVY",
+      "youtubeId": "U3td_rfTkVY",
       "xPercentage": 26.9296875,
       "yPercentage": 55.35546875
     }
@@ -4964,7 +4964,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "453_MISSION_NAME",
-      "youtubeLink": "nkG_5-5aNGw",
+      "youtubeId": "nkG_5-5aNGw",
       "xPercentage": 30.92578125,
       "yPercentage": 48.0703125
     }
@@ -4990,7 +4990,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 22.593406593406595,
       "yPercentage": 59.89010989010989,
-      "youtubeLink": "_XlI60NeMIM"
+      "youtubeId": "_XlI60NeMIM"
     }
   },
   {
@@ -5004,7 +5004,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "456_MISSION_NAME",
-      "youtubeLink": "Rc67Z47EkZs",
+      "youtubeId": "Rc67Z47EkZs",
       "xPercentage": 30.050781250000004,
       "yPercentage": 55.7421875
     }
@@ -5020,7 +5020,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "457_MISSION_NAME",
-      "youtubeLink": "A9P9W5YjJSE",
+      "youtubeId": "A9P9W5YjJSE",
       "xPercentage": 26.01953125,
       "yPercentage": 74.02734375
     }
@@ -5045,7 +5045,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "459_MISSION_NAME",
-      "youtubeLink": "at2jckpFL4E",
+      "youtubeId": "at2jckpFL4E",
       "xPercentage": 19.625,
       "yPercentage": 76.25390625
     }
@@ -5061,7 +5061,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "460_MISSION_NAME",
-      "youtubeLink": "ilPCG2cwCyg",
+      "youtubeId": "ilPCG2cwCyg",
       "xPercentage": 29.5234375,
       "yPercentage": 52.97265625
     }
@@ -5077,7 +5077,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "461_MISSION_NAME",
-      "youtubeLink": "CtAG6KR3e4E",
+      "youtubeId": "CtAG6KR3e4E",
       "xPercentage": 27.890625000000004,
       "yPercentage": 61.60546875
     }
@@ -5093,7 +5093,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "462_MISSION_NAME",
-      "youtubeLink": "7oPzQvT44gY",
+      "youtubeId": "7oPzQvT44gY",
       "xPercentage": 26.234375,
       "yPercentage": 70.21484375
     }
@@ -5109,7 +5109,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "463_MISSION_NAME",
-      "youtubeLink": "O7i4EVnbiaM",
+      "youtubeId": "O7i4EVnbiaM",
       "xPercentage": 18.0078125,
       "yPercentage": 67.8671875
     }
@@ -5143,7 +5143,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "466_MISSION_NAME",
-      "youtubeLink": "MoxuuOfVkjk",
+      "youtubeId": "MoxuuOfVkjk",
       "xPercentage": 34.1328125,
       "yPercentage": 51.38671875
     }
@@ -5186,7 +5186,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "470_MISSION_NAME",
-      "youtubeLink": "BrcqdUlTeYs",
+      "youtubeId": "BrcqdUlTeYs",
       "xPercentage": 28.47265625,
       "yPercentage": 46.4453125
     }
@@ -5202,7 +5202,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "471_MISSION_NAME",
-      "youtubeLink": "dMQGvPo9Xpo",
+      "youtubeId": "dMQGvPo9Xpo",
       "xPercentage": 20.19140625,
       "yPercentage": 72.58203125
     }
@@ -5218,7 +5218,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "472_MISSION_NAME",
-      "youtubeLink": "Rp2F3XK0cJY",
+      "youtubeId": "Rp2F3XK0cJY",
       "xPercentage": 29.257812500000004,
       "yPercentage": 61.8203125
     }
@@ -5234,7 +5234,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "473_MISSION_NAME",
-      "youtubeLink": "UTdZV6qUnFM",
+      "youtubeId": "UTdZV6qUnFM",
       "xPercentage": 33.796875,
       "yPercentage": 60.6953125
     }
@@ -5250,7 +5250,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "474_MISSION_NAME",
-      "youtubeLink": "IhNI2mNBP4o",
+      "youtubeId": "IhNI2mNBP4o",
       "xPercentage": 38.06640625,
       "yPercentage": 72.26953125
     }
@@ -5266,7 +5266,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "475_MISSION_NAME",
-      "youtubeLink": "H_BMbu_sC5Q",
+      "youtubeId": "H_BMbu_sC5Q",
       "xPercentage": 45.73046875,
       "yPercentage": 79.703125
     }
@@ -5282,7 +5282,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "476_MISSION_NAME",
-      "youtubeLink": "Y4b5jQIXTCY",
+      "youtubeId": "Y4b5jQIXTCY",
       "xPercentage": 39.21875,
       "yPercentage": 60.421875
     }
@@ -5298,7 +5298,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "477_MISSION_NAME",
-      "youtubeLink": "JiIkJd_ySXE",
+      "youtubeId": "JiIkJd_ySXE",
       "xPercentage": 33.7421875,
       "yPercentage": 72.171875
     }
@@ -5314,7 +5314,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "478_MISSION_NAME",
-      "youtubeLink": "OMrzdKtpU3Y",
+      "youtubeId": "OMrzdKtpU3Y",
       "xPercentage": 36.15234375,
       "yPercentage": 67.90625
     }
@@ -5331,7 +5331,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.30769230769231,
       "yPercentage": 70.84615384615384,
-      "youtubeLink": "cTrtT-hLKuQ"
+      "youtubeId": "cTrtT-hLKuQ"
     }
   },
   {
@@ -5345,7 +5345,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "480_MISSION_NAME",
-      "youtubeLink": "Tj8uslYMT6Y",
+      "youtubeId": "Tj8uslYMT6Y",
       "xPercentage": 34.8359375,
       "yPercentage": 61.98046875
     }
@@ -5362,7 +5362,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 37.34065934065934,
       "yPercentage": 74.02197802197803,
-      "youtubeLink": "L6RXLn8WZiA"
+      "youtubeId": "L6RXLn8WZiA"
     }
   },
   {
@@ -5376,7 +5376,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "482_MISSION_NAME",
-      "youtubeLink": "sKiEs7GrHPk",
+      "youtubeId": "sKiEs7GrHPk",
       "xPercentage": 41.29296875,
       "yPercentage": 72.48828125
     }
@@ -5410,7 +5410,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "485_MISSION_NAME",
-      "youtubeLink": "f4Gg6VsPvwo",
+      "youtubeId": "f4Gg6VsPvwo",
       "xPercentage": 35.50390625,
       "yPercentage": 71.7890625
     }
@@ -5426,7 +5426,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "486_MISSION_NAME",
-      "youtubeLink": "Cz3Dyb3PCtw",
+      "youtubeId": "Cz3Dyb3PCtw",
       "xPercentage": 38.64453125,
       "yPercentage": 40.58203124999999
     }
@@ -5443,7 +5443,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 37.79120879120879,
       "yPercentage": 71.10989010989012,
-      "youtubeLink": "uRK3e7S2RNk"
+      "youtubeId": "uRK3e7S2RNk"
     }
   },
   {
@@ -5485,7 +5485,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.54945054945055,
       "yPercentage": 70.3956043956044,
-      "youtubeLink": "7t2TCj4TcZE"
+      "youtubeId": "7t2TCj4TcZE"
     }
   },
   {
@@ -5536,7 +5536,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 40.934065934065934,
       "yPercentage": 67.9010989010989,
-      "youtubeLink": "pXPR8K3lYCA"
+      "youtubeId": "pXPR8K3lYCA"
     }
   },
   {
@@ -5551,7 +5551,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.30769230769231,
       "yPercentage": 71.32967032967034,
-      "youtubeLink": "GzQSE4ba6gY"
+      "youtubeId": "GzQSE4ba6gY"
     }
   },
   {
@@ -5566,7 +5566,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 40.51648351648352,
       "yPercentage": 72.84615384615384,
-      "youtubeLink": "stR3E9JpwOI"
+      "youtubeId": "stR3E9JpwOI"
     }
   },
   {
@@ -5590,7 +5590,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 43.120879120879124,
       "yPercentage": 69.56043956043956,
-      "youtubeLink": "NJ18EoBahKI"
+      "youtubeId": "NJ18EoBahKI"
     }
   },
   {
@@ -5604,7 +5604,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "501_MISSION_NAME",
-      "youtubeLink": "_Hke7ryiJdo",
+      "youtubeId": "_Hke7ryiJdo",
       "xPercentage": 40.23828125,
       "yPercentage": 61.84765625
     }
@@ -5629,7 +5629,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "503_MISSION_NAME",
-      "youtubeLink": "w-Zz-7ehvuk",
+      "youtubeId": "w-Zz-7ehvuk",
       "xPercentage": 38.4921875,
       "yPercentage": 69.7265625
     }
@@ -5645,7 +5645,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "504_MISSION_NAME",
-      "youtubeLink": "lN1WIhfEG_U",
+      "youtubeId": "lN1WIhfEG_U",
       "xPercentage": 56.74609375000001,
       "yPercentage": 80.140625
     }
@@ -5661,7 +5661,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "505_MISSION_NAME",
-      "youtubeLink": "PZyszz6tCrQ",
+      "youtubeId": "PZyszz6tCrQ",
       "xPercentage": 39.34765625,
       "yPercentage": 63.56640625
     }
@@ -5677,7 +5677,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "506_MISSION_NAME",
-      "youtubeLink": "Ztn-lFlDR4s",
+      "youtubeId": "Ztn-lFlDR4s",
       "xPercentage": 41.5546875,
       "yPercentage": 63.78515625
     }
@@ -5711,7 +5711,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "509_MISSION_NAME",
-      "youtubeLink": "2ig-kmDBUqQ",
+      "youtubeId": "2ig-kmDBUqQ",
       "xPercentage": 72.61328125,
       "yPercentage": 58.796875
     }
@@ -5727,7 +5727,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "510_MISSION_NAME",
-      "youtubeLink": "Yxcx6aFxqi4",
+      "youtubeId": "Yxcx6aFxqi4",
       "xPercentage": 29.843750000000004,
       "yPercentage": 79.80078125
     }
@@ -5762,7 +5762,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 64.22197802197803,
       "yPercentage": 70.6923076923077,
-      "youtubeLink": "ChpAEBRpQoE"
+      "youtubeId": "ChpAEBRpQoE"
     }
   },
   {
@@ -5777,7 +5777,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.01318681318682,
       "yPercentage": 69.4065934065934,
-      "youtubeLink": "JaUuxI-IanM"
+      "youtubeId": "JaUuxI-IanM"
     }
   },
   {
@@ -5792,7 +5792,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 66.18901098901099,
       "yPercentage": 68.49450549450549,
-      "youtubeLink": "0AIeAWpgaCo"
+      "youtubeId": "0AIeAWpgaCo"
     }
   },
   {
@@ -5815,7 +5815,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "517_MISSION_NAME",
-      "youtubeLink": "alkrCo8J3E4",
+      "youtubeId": "alkrCo8J3E4",
       "xPercentage": 57.3828125,
       "yPercentage": 66.90234375
     }
@@ -5840,7 +5840,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "519_MISSION_NAME",
-      "youtubeLink": "ER1AHDzkr-U",
+      "youtubeId": "ER1AHDzkr-U",
       "xPercentage": 58.48828124999999,
       "yPercentage": 31.24609375
     }
@@ -5866,7 +5866,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.21978021978022,
       "yPercentage": 74.06593406593407,
-      "youtubeLink": "NduuPyM8zrc"
+      "youtubeId": "NduuPyM8zrc"
     }
   },
   {
@@ -5889,7 +5889,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "523_MISSION_NAME",
-      "youtubeLink": "KoBrx_HomtQ",
+      "youtubeId": "KoBrx_HomtQ",
       "xPercentage": 46.125,
       "yPercentage": 52.9453125
     }
@@ -5905,7 +5905,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "524_MISSION_NAME",
-      "youtubeLink": "5XQP8S0_lo4",
+      "youtubeId": "5XQP8S0_lo4",
       "xPercentage": 54.13281250000001,
       "yPercentage": 72.89453125
     }
@@ -5930,7 +5930,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "526_MISSION_NAME",
-      "youtubeLink": "SfJpmioisqk",
+      "youtubeId": "SfJpmioisqk",
       "xPercentage": 22.29296875,
       "yPercentage": 75.171875
     }
@@ -5946,7 +5946,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "527_MISSION_NAME",
-      "youtubeLink": "wlNQXfb785k",
+      "youtubeId": "wlNQXfb785k",
       "xPercentage": 68.48828125,
       "yPercentage": 36.73828125000001
     }
@@ -5962,7 +5962,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "528_MISSION_NAME",
-      "youtubeLink": "17mSgNFagkI",
+      "youtubeId": "17mSgNFagkI",
       "xPercentage": 80.375,
       "yPercentage": 70.84375
     }
@@ -6011,7 +6011,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "532_MISSION_NAME",
-      "youtubeLink": "R5I2bTP3yp8",
+      "youtubeId": "R5I2bTP3yp8",
       "xPercentage": 12.3125,
       "yPercentage": 57.9921875
     }
@@ -6027,7 +6027,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "533_MISSION_NAME",
-      "youtubeLink": "A7k_xL_HOnk",
+      "youtubeId": "A7k_xL_HOnk",
       "xPercentage": 38.375,
       "yPercentage": 71.69140625
     }
@@ -6043,7 +6043,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "534_MISSION_NAME",
-      "youtubeLink": "V80QZKAc_nI",
+      "youtubeId": "V80QZKAc_nI",
       "xPercentage": 37.7578125,
       "yPercentage": 70.4375
     }
@@ -6095,7 +6095,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "539_MISSION_NAME",
-      "youtubeLink": "xX9LOR9yNj0",
+      "youtubeId": "xX9LOR9yNj0",
       "xPercentage": 39.046875,
       "yPercentage": 74.5078125
     }
@@ -6166,7 +6166,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.010989010989015,
       "yPercentage": 73.81318681318682,
-      "youtubeLink": "R3fnpHT8rAY"
+      "youtubeId": "R3fnpHT8rAY"
     }
   },
   {
@@ -6180,7 +6180,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "547_MISSION_NAME",
-      "youtubeLink": "auXTft4BpGg",
+      "youtubeId": "auXTft4BpGg",
       "xPercentage": 38.85546875,
       "yPercentage": 73.6015625
     }
@@ -6214,7 +6214,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "550_MISSION_NAME",
-      "youtubeLink": "oGWZf0a4_D4",
+      "youtubeId": "oGWZf0a4_D4",
       "xPercentage": 51.44531249999999,
       "yPercentage": 35.83203125
     }
@@ -6267,7 +6267,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 24.10989010989011,
       "yPercentage": 79.7032967032967,
-      "youtubeLink": "gOmiRJR3cQs"
+      "youtubeId": "gOmiRJR3cQs"
     }
   },
   {
@@ -6281,7 +6281,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "556_MISSION_NAME",
-      "youtubeLink": "1FBM5X3wa_w",
+      "youtubeId": "1FBM5X3wa_w",
       "xPercentage": 23.3359375,
       "yPercentage": 79.9375
     }
@@ -6298,7 +6298,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 22.63736263736264,
       "yPercentage": 80.36263736263736,
-      "youtubeLink": "shEoX0TVyRA"
+      "youtubeId": "shEoX0TVyRA"
     }
   },
   {
@@ -6313,7 +6313,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 24.153846153846153,
       "yPercentage": 77.67032967032966,
-      "youtubeLink": "RvpfXRzEgXY"
+      "youtubeId": "RvpfXRzEgXY"
     }
   },
   {
@@ -6328,7 +6328,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 22.285714285714285,
       "yPercentage": 78.79120879120879,
-      "youtubeLink": "3htdu3WoIYo"
+      "youtubeId": "3htdu3WoIYo"
     }
   },
   {
@@ -6342,7 +6342,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "560_MISSION_NAME",
-      "youtubeLink": "FWytcI1cSqU",
+      "youtubeId": "FWytcI1cSqU",
       "xPercentage": 29.453125000000004,
       "yPercentage": 72.7265625
     }
@@ -6358,7 +6358,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "561_MISSION_NAME",
-      "youtubeLink": "ThrA3ZbeDq0",
+      "youtubeId": "ThrA3ZbeDq0",
       "xPercentage": 24.6875,
       "yPercentage": 78.90234375
     }
@@ -6374,7 +6374,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "562_MISSION_NAME",
-      "youtubeLink": "pKLtEfENWHQ",
+      "youtubeId": "pKLtEfENWHQ",
       "xPercentage": 24.8515625,
       "yPercentage": 74.95703125
     }
@@ -6390,7 +6390,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "563_MISSION_NAME",
-      "youtubeLink": "WUS_fdcftbA",
+      "youtubeId": "WUS_fdcftbA",
       "xPercentage": 24.12109375,
       "yPercentage": 73.47265625
     }
@@ -6406,7 +6406,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "564_MISSION_NAME",
-      "youtubeLink": "gOyD6Iwy_n8",
+      "youtubeId": "gOyD6Iwy_n8",
       "xPercentage": 48.85546875,
       "yPercentage": 45.92578125
     }
@@ -6422,7 +6422,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "565_MISSION_NAME",
-      "youtubeLink": "pb1whpK3_68",
+      "youtubeId": "pb1whpK3_68",
       "xPercentage": 36.890625,
       "yPercentage": 79.78515625
     }
@@ -6439,7 +6439,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.967032967032964,
       "yPercentage": 85.61538461538461,
-      "youtubeLink": "EFvNUYx1GK8"
+      "youtubeId": "EFvNUYx1GK8"
     }
   },
   {
@@ -6453,7 +6453,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "567_MISSION_NAME",
-      "youtubeLink": "ru9jXL6stuA",
+      "youtubeId": "ru9jXL6stuA",
       "xPercentage": 39.3046875,
       "yPercentage": 82.6171875
     }
@@ -6469,7 +6469,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "568_MISSION_NAME",
-      "youtubeLink": "mA7bp6e2n6U",
+      "youtubeId": "mA7bp6e2n6U",
       "xPercentage": 38.66015625,
       "yPercentage": 81.73046875
     }
@@ -6503,7 +6503,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "571_MISSION_NAME",
-      "youtubeLink": "1WGajQEmADs",
+      "youtubeId": "1WGajQEmADs",
       "xPercentage": 41.0390625,
       "yPercentage": 84.1953125
     }
@@ -6519,7 +6519,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "572_MISSION_NAME",
-      "youtubeLink": "NtkiHxU6caQ",
+      "youtubeId": "NtkiHxU6caQ",
       "xPercentage": 32.13671875,
       "yPercentage": 86.67578125
     }
@@ -6536,7 +6536,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 40.07692307692308,
       "yPercentage": 83.37362637362638,
-      "youtubeLink": "SvVFXSHS7Ys"
+      "youtubeId": "SvVFXSHS7Ys"
     }
   },
   {
@@ -6551,7 +6551,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 40.27472527472528,
       "yPercentage": 83.79120879120879,
-      "youtubeLink": "BcVJDf7FA9M"
+      "youtubeId": "BcVJDf7FA9M"
     }
   },
   {
@@ -6566,7 +6566,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 35.37362637362637,
       "yPercentage": 86.95604395604396,
-      "youtubeLink": "87WQJtaRAyY"
+      "youtubeId": "87WQJtaRAyY"
     }
   },
   {
@@ -6581,7 +6581,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.989010989010985,
       "yPercentage": 83.35164835164835,
-      "youtubeLink": "imyMQA3fobs"
+      "youtubeId": "imyMQA3fobs"
     }
   },
   {
@@ -6604,7 +6604,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "578_MISSION_NAME",
-      "youtubeLink": "fzrK55vZX60",
+      "youtubeId": "fzrK55vZX60",
       "xPercentage": 32.1953125,
       "yPercentage": 80.33984375
     }
@@ -6620,7 +6620,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "579_MISSION_NAME",
-      "youtubeLink": "Igy_LdIT87Q",
+      "youtubeId": "Igy_LdIT87Q",
       "xPercentage": 35.14453125,
       "yPercentage": 83.05078125
     }
@@ -6700,7 +6700,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 12.021978021978022,
       "yPercentage": 68.81318681318682,
-      "youtubeLink": "LDYipacSP40"
+      "youtubeId": "LDYipacSP40"
     }
   },
   {
@@ -6714,7 +6714,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "588_MISSION_NAME",
-      "youtubeLink": "2R5_lHeXwo4",
+      "youtubeId": "2R5_lHeXwo4",
       "xPercentage": 11.3046875,
       "yPercentage": 68.1796875
     }
@@ -6731,7 +6731,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 11.076923076923077,
       "yPercentage": 70.32967032967034,
-      "youtubeLink": "s43_gLWwsnQ"
+      "youtubeId": "s43_gLWwsnQ"
     }
   },
   {
@@ -6746,7 +6746,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 11.428571428571429,
       "yPercentage": 71.82417582417582,
-      "youtubeLink": "kVwDNO83tRU"
+      "youtubeId": "kVwDNO83tRU"
     }
   },
   {
@@ -6760,7 +6760,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "591_MISSION_NAME",
-      "youtubeLink": "Ef_ks1cfX2g",
+      "youtubeId": "Ef_ks1cfX2g",
       "xPercentage": 11.0234375,
       "yPercentage": 70.7578125
     }
@@ -6776,7 +6776,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "592_MISSION_NAME",
-      "youtubeLink": "PFSNvkVPd8g",
+      "youtubeId": "PFSNvkVPd8g",
       "xPercentage": 14.1328125,
       "yPercentage": 72.82421875
     }
@@ -6792,7 +6792,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "593_MISSION_NAME",
-      "youtubeLink": "akUUxoBfAuM",
+      "youtubeId": "akUUxoBfAuM",
       "xPercentage": 13.046875,
       "yPercentage": 69.9921875
     }
@@ -6808,7 +6808,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "594_MISSION_NAME",
-      "youtubeLink": "pdqFcW6ExhQ",
+      "youtubeId": "pdqFcW6ExhQ",
       "xPercentage": 9.39453125,
       "yPercentage": 65.17578125
     }
@@ -6824,7 +6824,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "595_MISSION_NAME",
-      "youtubeLink": "4tbG4D8YgxA",
+      "youtubeId": "4tbG4D8YgxA",
       "xPercentage": 10.84765625,
       "yPercentage": 72.5546875
     }
@@ -6840,7 +6840,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "596_MISSION_NAME",
-      "youtubeLink": "-zqFb1-r6PE",
+      "youtubeId": "-zqFb1-r6PE",
       "xPercentage": 9.10546875,
       "yPercentage": 50.66796875
     }
@@ -6856,7 +6856,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "597_MISSION_NAME",
-      "youtubeLink": "-zqFb1-r6PE",
+      "youtubeId": "-zqFb1-r6PE",
       "xPercentage": 9.40625,
       "yPercentage": 50.625
     }
@@ -6872,7 +6872,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "598_MISSION_NAME",
-      "youtubeLink": "-zqFb1-r6PE",
+      "youtubeId": "-zqFb1-r6PE",
       "xPercentage": 8.85546875,
       "yPercentage": 50.734375
     }
@@ -6888,7 +6888,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "599_MISSION_NAME",
-      "youtubeLink": "orh1iCydxtM",
+      "youtubeId": "orh1iCydxtM",
       "xPercentage": 10.10546875,
       "yPercentage": 52.47265625
     }
@@ -6904,7 +6904,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "600_MISSION_NAME",
-      "youtubeLink": "lWzyyoZudUA",
+      "youtubeId": "lWzyyoZudUA",
       "xPercentage": 11.859375,
       "yPercentage": 52.7578125
     }
@@ -6921,7 +6921,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 10.615384615384615,
       "yPercentage": 51.967032967032964,
-      "youtubeLink": "FI71YpQ-anQ"
+      "youtubeId": "FI71YpQ-anQ"
     }
   },
   {
@@ -6935,7 +6935,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "602_MISSION_NAME",
-      "youtubeLink": "SS_ijZFcsJk",
+      "youtubeId": "SS_ijZFcsJk",
       "xPercentage": 13.01171875,
       "yPercentage": 62.83203125
     }
@@ -6951,7 +6951,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "603_MISSION_NAME",
-      "youtubeLink": "lnQPy-8pUtE",
+      "youtubeId": "lnQPy-8pUtE",
       "xPercentage": 15.6953125,
       "yPercentage": 54.40625
     }
@@ -6967,7 +6967,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "604_MISSION_NAME",
-      "youtubeLink": "3dLx_4wmpig",
+      "youtubeId": "3dLx_4wmpig",
       "xPercentage": 8.8203125,
       "yPercentage": 59.921875
     }
@@ -6983,7 +6983,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "605_MISSION_NAME",
-      "youtubeLink": "1NZn5d8B9aw",
+      "youtubeId": "1NZn5d8B9aw",
       "xPercentage": 8.375,
       "yPercentage": 70.72265625
     }
@@ -6999,7 +6999,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "606_MISSION_NAME",
-      "youtubeLink": "AelImkONrGU",
+      "youtubeId": "AelImkONrGU",
       "xPercentage": 16.796875,
       "yPercentage": 44.91015625
     }
@@ -7015,7 +7015,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "607_MISSION_NAME",
-      "youtubeLink": "LxPQRsU6fjU",
+      "youtubeId": "LxPQRsU6fjU",
       "xPercentage": 14.0234375,
       "yPercentage": 61.19140625
     }
@@ -7031,7 +7031,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "608_MISSION_NAME",
-      "youtubeLink": "dSnlx-3frJU",
+      "youtubeId": "dSnlx-3frJU",
       "xPercentage": 21.73046875,
       "yPercentage": 54.49609375
     }
@@ -7047,7 +7047,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "609_MISSION_NAME",
-      "youtubeLink": "gHz-6LNZWRQ",
+      "youtubeId": "gHz-6LNZWRQ",
       "xPercentage": 17.1484375,
       "yPercentage": 53.86328125
     }
@@ -7063,7 +7063,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "610_MISSION_NAME",
-      "youtubeLink": "37XWTLJYp1I",
+      "youtubeId": "37XWTLJYp1I",
       "xPercentage": 14.2421875,
       "yPercentage": 73.9375
     }
@@ -7079,7 +7079,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "611_MISSION_NAME",
-      "youtubeLink": "Df6lH-vBoJM",
+      "youtubeId": "Df6lH-vBoJM",
       "xPercentage": 16.6015625,
       "yPercentage": 61.48046875
     }
@@ -7095,7 +7095,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "612_MISSION_NAME",
-      "youtubeLink": "g1ZpYZi1e6c",
+      "youtubeId": "g1ZpYZi1e6c",
       "xPercentage": 16.765625,
       "yPercentage": 66.28515625
     }
@@ -7112,7 +7112,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 9.813186813186814,
       "yPercentage": 50.967032967032964,
-      "youtubeLink": "GGrBDVPhySo"
+      "youtubeId": "GGrBDVPhySo"
     }
   },
   {
@@ -7126,7 +7126,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "614_MISSION_NAME",
-      "youtubeLink": "Y2ORxSQJh6E",
+      "youtubeId": "Y2ORxSQJh6E",
       "xPercentage": 10.35546875,
       "yPercentage": 51.64453125
     }
@@ -7142,7 +7142,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "615_MISSION_NAME",
-      "youtubeLink": "IvQSbxU1ESg",
+      "youtubeId": "IvQSbxU1ESg",
       "xPercentage": 20.109375,
       "yPercentage": 55.9921875
     }
@@ -7158,7 +7158,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "616_MISSION_NAME",
-      "youtubeLink": "2T9yDIAyas8",
+      "youtubeId": "2T9yDIAyas8",
       "xPercentage": 16.22265625,
       "yPercentage": 49.69140625
     }
@@ -7174,7 +7174,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "617_MISSION_NAME",
-      "youtubeLink": "PoLY2_5D3_k",
+      "youtubeId": "PoLY2_5D3_k",
       "xPercentage": 12.4765625,
       "yPercentage": 67.1484375
     }
@@ -7190,7 +7190,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "618_MISSION_NAME",
-      "youtubeLink": "KO2vZjiA670",
+      "youtubeId": "KO2vZjiA670",
       "xPercentage": 15.5390625,
       "yPercentage": 56.53515625
     }
@@ -7207,7 +7207,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 26.615384615384617,
       "yPercentage": 42.91208791208791,
-      "youtubeLink": "1rm9TLjfQpI"
+      "youtubeId": "1rm9TLjfQpI"
     }
   },
   {
@@ -7221,7 +7221,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "620_MISSION_NAME",
-      "youtubeLink": "TJv0-18Mz2E",
+      "youtubeId": "TJv0-18Mz2E",
       "xPercentage": 28.8203125,
       "yPercentage": 49.79296875
     }
@@ -7238,7 +7238,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 26.89010989010989,
       "yPercentage": 43.69230769230769,
-      "youtubeLink": "_PtX8pvPYeg"
+      "youtubeId": "_PtX8pvPYeg"
     }
   },
   {
@@ -7253,7 +7253,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 26.21978021978022,
       "yPercentage": 46.395604395604394,
-      "youtubeLink": "hniarxHz2IU"
+      "youtubeId": "hniarxHz2IU"
     }
   },
   {
@@ -7267,7 +7267,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "623_MISSION_NAME",
-      "youtubeLink": "zoYcvEQMJTY",
+      "youtubeId": "zoYcvEQMJTY",
       "xPercentage": 26.70703125,
       "yPercentage": 44.4609375
     }
@@ -7283,7 +7283,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "624_MISSION_NAME",
-      "youtubeLink": "0fSeTwK6Fcc",
+      "youtubeId": "0fSeTwK6Fcc",
       "xPercentage": 27.402343750000004,
       "yPercentage": 42.6484375
     }
@@ -7299,7 +7299,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "625_MISSION_NAME",
-      "youtubeLink": "cIoreBfozO4",
+      "youtubeId": "cIoreBfozO4",
       "xPercentage": 28.9296875,
       "yPercentage": 51.78515625
     }
@@ -7333,7 +7333,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "628_MISSION_NAME",
-      "youtubeLink": "AjMNi-U4DoY",
+      "youtubeId": "AjMNi-U4DoY",
       "xPercentage": 25.5546875,
       "yPercentage": 46.87109375
     }
@@ -7349,7 +7349,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "629_MISSION_NAME",
-      "youtubeLink": "grKI9v1Ot9g",
+      "youtubeId": "grKI9v1Ot9g",
       "xPercentage": 29.65625,
       "yPercentage": 41.66015625
     }
@@ -7375,7 +7375,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 28.153846153846153,
       "yPercentage": 44.05494505494506,
-      "youtubeLink": "VVYnZbUaeBQ"
+      "youtubeId": "VVYnZbUaeBQ"
     }
   },
   {
@@ -7389,7 +7389,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "632_MISSION_NAME",
-      "youtubeLink": "rtjA2B9q-7w",
+      "youtubeId": "rtjA2B9q-7w",
       "xPercentage": 25.98828125,
       "yPercentage": 51.203125
     }
@@ -7406,7 +7406,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 24.78021978021978,
       "yPercentage": 46.84615384615385,
-      "youtubeLink": "oi2oOkY7w6o"
+      "youtubeId": "oi2oOkY7w6o"
     }
   },
   {
@@ -7462,7 +7462,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "638_MISSION_NAME",
-      "youtubeLink": "ovLnO2-Axa4",
+      "youtubeId": "ovLnO2-Axa4",
       "xPercentage": 31.921875,
       "yPercentage": 42.515625
     }
@@ -7478,7 +7478,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "639_MISSION_NAME",
-      "youtubeLink": "BS0gijRpwlU",
+      "youtubeId": "BS0gijRpwlU",
       "xPercentage": 26.2578125,
       "yPercentage": 39.57031250000001
     }
@@ -7504,7 +7504,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 14.219780219780219,
       "yPercentage": 35,
-      "youtubeLink": "F9gOPRgxJRM"
+      "youtubeId": "F9gOPRgxJRM"
     }
   },
   {
@@ -7519,7 +7519,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 11.76923076923077,
       "yPercentage": 34.20879120879121,
-      "youtubeLink": "A81QJ49v20g"
+      "youtubeId": "A81QJ49v20g"
     }
   },
   {
@@ -7534,7 +7534,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 13.692307692307692,
       "yPercentage": 34.62637362637363,
-      "youtubeLink": "IyDjWj3j700"
+      "youtubeId": "IyDjWj3j700"
     }
   },
   {
@@ -7549,7 +7549,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 15.285714285714286,
       "yPercentage": 33.7032967032967,
-      "youtubeLink": "x8wB4gpLBws"
+      "youtubeId": "x8wB4gpLBws"
     }
   },
   {
@@ -7563,7 +7563,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "645_MISSION_NAME",
-      "youtubeLink": "A_QQDBDor4k",
+      "youtubeId": "A_QQDBDor4k",
       "xPercentage": 17.19921875,
       "yPercentage": 38.89843750000001
     }
@@ -7579,7 +7579,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "646_MISSION_NAME",
-      "youtubeLink": "zcgpZXoXGfQ",
+      "youtubeId": "zcgpZXoXGfQ",
       "xPercentage": 13.191406250000002,
       "yPercentage": 35.25390625
     }
@@ -7595,7 +7595,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "647_MISSION_NAME",
-      "youtubeLink": "ANaGppk6Vzo",
+      "youtubeId": "ANaGppk6Vzo",
       "xPercentage": 20.765625,
       "yPercentage": 32.3203125
     }
@@ -7611,7 +7611,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "648_MISSION_NAME",
-      "youtubeLink": "vXOIBZcUaPI",
+      "youtubeId": "vXOIBZcUaPI",
       "xPercentage": 31.390625,
       "yPercentage": 31.953125
     }
@@ -7636,7 +7636,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "650_MISSION_NAME",
-      "youtubeLink": "Ko_zqPDACz4",
+      "youtubeId": "Ko_zqPDACz4",
       "xPercentage": 14.359375,
       "yPercentage": 31.765625
     }
@@ -7652,7 +7652,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "651_MISSION_NAME",
-      "youtubeLink": "ii8f1ETKg58",
+      "youtubeId": "ii8f1ETKg58",
       "xPercentage": 12.855468749999998,
       "yPercentage": 38.1015625
     }
@@ -7668,7 +7668,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "652_MISSION_NAME",
-      "youtubeLink": "P6pJx9qAuxc",
+      "youtubeId": "P6pJx9qAuxc",
       "xPercentage": 17.34375,
       "yPercentage": 33.82421875
     }
@@ -7685,7 +7685,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 15.626373626373626,
       "yPercentage": 33.362637362637365,
-      "youtubeLink": "rfuGIXy-5No"
+      "youtubeId": "rfuGIXy-5No"
     }
   },
   {
@@ -7700,7 +7700,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 25.34065934065934,
       "yPercentage": 23.21978021978022,
-      "youtubeLink": "a2VBLMGXJPo"
+      "youtubeId": "a2VBLMGXJPo"
     }
   },
   {
@@ -7723,7 +7723,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "656_MISSION_NAME",
-      "youtubeLink": "9oxpQxn2rEc",
+      "youtubeId": "9oxpQxn2rEc",
       "xPercentage": 13.625000000000002,
       "yPercentage": 35.9375
     }
@@ -7815,7 +7815,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 75.84615384615384,
       "yPercentage": 45.142857142857146,
-      "youtubeLink": "XYp85y22JGY"
+      "youtubeId": "XYp85y22JGY"
     }
   },
   {
@@ -7830,7 +7830,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 77.01098901098901,
       "yPercentage": 44.417582417582416,
-      "youtubeLink": "pun3_NapiTs"
+      "youtubeId": "pun3_NapiTs"
     }
   },
   {
@@ -7845,7 +7845,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 76.1978021978022,
       "yPercentage": 44.54945054945055,
-      "youtubeLink": "Kkw_w0wmObA"
+      "youtubeId": "Kkw_w0wmObA"
     }
   },
   {
@@ -7859,7 +7859,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "667_MISSION_NAME",
-      "youtubeLink": "XvA8bT13zCw",
+      "youtubeId": "XvA8bT13zCw",
       "xPercentage": 75.203125,
       "yPercentage": 45.58203125
     }
@@ -7875,7 +7875,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "668_MISSION_NAME",
-      "youtubeLink": "kox6d1wKM7U",
+      "youtubeId": "kox6d1wKM7U",
       "xPercentage": 77,
       "yPercentage": 45.9921875
     }
@@ -7891,7 +7891,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "669_MISSION_NAME",
-      "youtubeLink": "TIotQdKSdPM",
+      "youtubeId": "TIotQdKSdPM",
       "xPercentage": 74.921875,
       "yPercentage": 44.7734375
     }
@@ -7907,7 +7907,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "670_MISSION_NAME",
-      "youtubeLink": "xLW_oLfbUM8",
+      "youtubeId": "xLW_oLfbUM8",
       "xPercentage": 74.515625,
       "yPercentage": 45.44140625000001
     }
@@ -7999,7 +7999,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 76.03296703296704,
       "yPercentage": 45.285714285714285,
-      "youtubeLink": "bHf6FadMYkg"
+      "youtubeId": "bHf6FadMYkg"
     }
   },
   {
@@ -8029,7 +8029,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 76.67032967032966,
       "yPercentage": 29.516483516483518,
-      "youtubeLink": "546g7oSQ4LE"
+      "youtubeId": "546g7oSQ4LE"
     }
   },
   {
@@ -8044,7 +8044,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 76.6923076923077,
       "yPercentage": 29,
-      "youtubeLink": "zU8-SbyYbrA"
+      "youtubeId": "zU8-SbyYbrA"
     }
   },
   {
@@ -8059,7 +8059,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 75.94505494505495,
       "yPercentage": 30.76923076923077,
-      "youtubeLink": "RLWwLXsjE3E"
+      "youtubeId": "RLWwLXsjE3E"
     }
   },
   {
@@ -8074,7 +8074,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 77.21978021978022,
       "yPercentage": 29.747252747252748,
-      "youtubeLink": "CE7H05l7HtU"
+      "youtubeId": "CE7H05l7HtU"
     }
   },
   {
@@ -8089,7 +8089,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 77.01098901098901,
       "yPercentage": 28.0989010989011,
-      "youtubeLink": "vvK7S8A7u44"
+      "youtubeId": "vvK7S8A7u44"
     }
   },
   {
@@ -8148,7 +8148,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "686_MISSION_NAME",
-      "youtubeLink": "ZYKynGp9Nfw",
+      "youtubeId": "ZYKynGp9Nfw",
       "xPercentage": 71.66015625,
       "yPercentage": 35
     }
@@ -8189,7 +8189,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 89.86813186813187,
       "yPercentage": 39.065934065934066,
-      "youtubeLink": "5go8qZYoRYY"
+      "youtubeId": "5go8qZYoRYY"
     }
   },
   {
@@ -8204,7 +8204,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 89.96703296703296,
       "yPercentage": 37.934065934065934,
-      "youtubeLink": "i7mrGHuc3ic"
+      "youtubeId": "i7mrGHuc3ic"
     }
   },
   {
@@ -8218,7 +8218,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "691_MISSION_NAME",
-      "youtubeLink": "dAdgmTiT1h0",
+      "youtubeId": "dAdgmTiT1h0",
       "xPercentage": 88.578125,
       "yPercentage": 38.48828125
     }
@@ -8234,7 +8234,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "692_MISSION_NAME",
-      "youtubeLink": "LliuopQDs_I",
+      "youtubeId": "LliuopQDs_I",
       "xPercentage": 87.921875,
       "yPercentage": 37.85937499999999
     }
@@ -8326,7 +8326,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 90.89010989010988,
       "yPercentage": 39.285714285714285,
-      "youtubeLink": "pT5nNECHwFc"
+      "youtubeId": "pT5nNECHwFc"
     }
   },
   {
@@ -8341,7 +8341,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 88.85714285714286,
       "yPercentage": 38.59340659340659,
-      "youtubeLink": "47PyMhDyt5M"
+      "youtubeId": "47PyMhDyt5M"
     }
   },
   {
@@ -8371,7 +8371,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 88.07692307692308,
       "yPercentage": 37.934065934065934,
-      "youtubeLink": "H-egNg8gWog"
+      "youtubeId": "H-egNg8gWog"
     }
   },
   {
@@ -8427,7 +8427,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "706_MISSION_NAME",
-      "youtubeLink": "XTl3FUS4c4w",
+      "youtubeId": "XTl3FUS4c4w",
       "xPercentage": 75.69921875,
       "yPercentage": 30.6484375
     }
@@ -8512,7 +8512,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "712_MISSION_NAME",
-      "youtubeLink": "SWSe_dSnMKg",
+      "youtubeId": "SWSe_dSnMKg",
       "xPercentage": 88.1328125,
       "yPercentage": 57.00390625
     }
@@ -8528,7 +8528,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "713_MISSION_NAME",
-      "youtubeLink": "IvRAs1Qof9E",
+      "youtubeId": "IvRAs1Qof9E",
       "xPercentage": 88.140625,
       "yPercentage": 54.12109375
     }
@@ -8544,7 +8544,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "714_MISSION_NAME",
-      "youtubeLink": "Xqg9O9iQaUo",
+      "youtubeId": "Xqg9O9iQaUo",
       "xPercentage": 87.46875,
       "yPercentage": 55.48046875
     }
@@ -8561,7 +8561,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.46153846153846,
       "yPercentage": 81.37362637362638,
-      "youtubeLink": "INC3Hczgzfg"
+      "youtubeId": "INC3Hczgzfg"
     }
   },
   {
@@ -8575,7 +8575,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "716_MISSION_NAME",
-      "youtubeLink": "fJ0OhBTCD_A",
+      "youtubeId": "fJ0OhBTCD_A",
       "xPercentage": 50.80859375,
       "yPercentage": 79.00390625
     }
@@ -8610,7 +8610,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 50.35164835164835,
       "yPercentage": 80.4065934065934,
-      "youtubeLink": "F-MmaXuD--Y"
+      "youtubeId": "F-MmaXuD--Y"
     }
   },
   {
@@ -8625,7 +8625,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 46.64835164835165,
       "yPercentage": 80,
-      "youtubeLink": "XaUKvqmqG64"
+      "youtubeId": "XaUKvqmqG64"
     }
   },
   {
@@ -8639,7 +8639,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "721_MISSION_NAME",
-      "youtubeLink": "UxwaoXiM-pQ",
+      "youtubeId": "UxwaoXiM-pQ",
       "xPercentage": 45.90625,
       "yPercentage": 81.40625
     }
@@ -8656,7 +8656,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.32967032967033,
       "yPercentage": 80.89010989010988,
-      "youtubeLink": "wMnOfU9mRH8"
+      "youtubeId": "wMnOfU9mRH8"
     }
   },
   {
@@ -8670,7 +8670,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "723_MISSION_NAME",
-      "youtubeLink": "yuixgmXJ-x8",
+      "youtubeId": "yuixgmXJ-x8",
       "xPercentage": 49.19140625,
       "yPercentage": 81.94921875
     }
@@ -8687,7 +8687,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 50.56043956043956,
       "yPercentage": 81.50549450549451,
-      "youtubeLink": "y2NPPjOnhKM"
+      "youtubeId": "y2NPPjOnhKM"
     }
   },
   {
@@ -8701,7 +8701,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "725_MISSION_NAME",
-      "youtubeLink": "2MbcQdRKsBY",
+      "youtubeId": "2MbcQdRKsBY",
       "xPercentage": 49.5703125,
       "yPercentage": 73.5234375
     }
@@ -8718,7 +8718,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 64.5956043956044,
       "yPercentage": 72.10989010989012,
-      "youtubeLink": "rNA1yzLK96o"
+      "youtubeId": "rNA1yzLK96o"
     }
   },
   {
@@ -8732,7 +8732,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "727_MISSION_NAME",
-      "youtubeLink": "8gZAz2bXbhY",
+      "youtubeId": "8gZAz2bXbhY",
       "xPercentage": 62.60546875000001,
       "yPercentage": 70.0859375
     }
@@ -8748,7 +8748,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "728_MISSION_NAME",
-      "youtubeLink": "PnrJ6xfTmp8",
+      "youtubeId": "PnrJ6xfTmp8",
       "xPercentage": 70.15625,
       "yPercentage": 70.765625
     }
@@ -8764,7 +8764,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "729_MISSION_NAME",
-      "youtubeLink": "nC05odZaRRQ",
+      "youtubeId": "nC05odZaRRQ",
       "xPercentage": 62.50390625,
       "yPercentage": 67.24609375
     }
@@ -8780,7 +8780,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "730_MISSION_NAME",
-      "youtubeLink": "F2zKKSeaCz0",
+      "youtubeId": "F2zKKSeaCz0",
       "xPercentage": 60.2265625,
       "yPercentage": 66.625
     }
@@ -8796,7 +8796,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "731_MISSION_NAME",
-      "youtubeLink": "NqmNwP6DQf4",
+      "youtubeId": "NqmNwP6DQf4",
       "xPercentage": 61.62890625000001,
       "yPercentage": 80.0703125
     }
@@ -8812,7 +8812,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "732_MISSION_NAME",
-      "youtubeLink": "n2jWZYSNGIY",
+      "youtubeId": "n2jWZYSNGIY",
       "xPercentage": 72.671875,
       "yPercentage": 72.4140625
     }
@@ -8828,7 +8828,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "733_MISSION_NAME",
-      "youtubeLink": "ejBJwngWn2U",
+      "youtubeId": "ejBJwngWn2U",
       "xPercentage": 67.44921875,
       "yPercentage": 65.47265625
     }
@@ -8859,7 +8859,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "735_MISSION_NAME",
-      "youtubeLink": "eFMMikFA8B4",
+      "youtubeId": "eFMMikFA8B4",
       "xPercentage": 72.1953125,
       "yPercentage": 78.60546875
     }
@@ -8875,7 +8875,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "736_MISSION_NAME",
-      "youtubeLink": "VQD9X-zISJw",
+      "youtubeId": "VQD9X-zISJw",
       "xPercentage": 74.2421875,
       "yPercentage": 76.984375
     }
@@ -8906,7 +8906,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "738_MISSION_NAME",
-      "youtubeLink": "UaQwrQDdJwE",
+      "youtubeId": "UaQwrQDdJwE",
       "xPercentage": 67.08203125,
       "yPercentage": 76.98828125
     }
@@ -8922,7 +8922,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "739_MISSION_NAME",
-      "youtubeLink": "zB7FjUUcSCI",
+      "youtubeId": "zB7FjUUcSCI",
       "xPercentage": 61.5859375,
       "yPercentage": 77.46484375
     }
@@ -8953,7 +8953,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "741_MISSION_NAME",
-      "youtubeLink": "PKRmeJ2OjH8",
+      "youtubeId": "PKRmeJ2OjH8",
       "xPercentage": 64.74609375,
       "yPercentage": 69.484375
     }
@@ -8969,7 +8969,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "742_MISSION_NAME",
-      "youtubeLink": "mQCFVF9AIno",
+      "youtubeId": "mQCFVF9AIno",
       "xPercentage": 60.19921875000001,
       "yPercentage": 68.34375
     }
@@ -8985,7 +8985,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "743_MISSION_NAME",
-      "youtubeLink": "T52lxsDkq5A",
+      "youtubeId": "T52lxsDkq5A",
       "xPercentage": 65.32421875,
       "yPercentage": 72.49609375
     }
@@ -9001,7 +9001,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "744_MISSION_NAME",
-      "youtubeLink": "UYstxU5LqPY",
+      "youtubeId": "UYstxU5LqPY",
       "xPercentage": 50.0625,
       "yPercentage": 60.76953125
     }
@@ -9017,7 +9017,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "745_MISSION_NAME",
-      "youtubeLink": "ZQUJPBr8p6o",
+      "youtubeId": "ZQUJPBr8p6o",
       "xPercentage": 52.32421874999999,
       "yPercentage": 60.05078125
     }
@@ -9033,7 +9033,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "746_MISSION_NAME",
-      "youtubeLink": "htAd9tOZ-mc",
+      "youtubeId": "htAd9tOZ-mc",
       "xPercentage": 52.2578125,
       "yPercentage": 73.109375
     }
@@ -9049,7 +9049,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "747_MISSION_NAME",
-      "youtubeLink": "w1loXxxlzlU",
+      "youtubeId": "w1loXxxlzlU",
       "xPercentage": 50.546875,
       "yPercentage": 58.8828125
     }
@@ -9065,7 +9065,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "748_MISSION_NAME",
-      "youtubeLink": "5WT7A3Gu5QA",
+      "youtubeId": "5WT7A3Gu5QA",
       "xPercentage": 50.79296875,
       "yPercentage": 54.34765625
     }
@@ -9081,7 +9081,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "749_MISSION_NAME",
-      "youtubeLink": "vcujeOoxQN0",
+      "youtubeId": "vcujeOoxQN0",
       "xPercentage": 55.7578125,
       "yPercentage": 52.34765625
     }
@@ -9097,7 +9097,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "750_MISSION_NAME",
-      "youtubeLink": "w3TSdy-8cds",
+      "youtubeId": "w3TSdy-8cds",
       "xPercentage": 46,
       "yPercentage": 41.70703125000001
     }
@@ -9113,7 +9113,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "751_MISSION_NAME",
-      "youtubeLink": "oOGWLoM6r3w",
+      "youtubeId": "oOGWLoM6r3w",
       "xPercentage": 51.2421875,
       "yPercentage": 47.8046875
     }
@@ -9129,7 +9129,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "752_MISSION_NAME",
-      "youtubeLink": "YRaoUCtNS5M",
+      "youtubeId": "YRaoUCtNS5M",
       "xPercentage": 53.15625000000001,
       "yPercentage": 55.8515625
     }
@@ -9146,7 +9146,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 52.604395604395606,
       "yPercentage": 58.395604395604394,
-      "youtubeLink": "EgwMVp82AGQ"
+      "youtubeId": "EgwMVp82AGQ"
     }
   },
   {
@@ -9161,7 +9161,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 52.8021978021978,
       "yPercentage": 58.967032967032964,
-      "youtubeLink": "wFl0oKjcHqk"
+      "youtubeId": "wFl0oKjcHqk"
     }
   },
   {
@@ -9176,7 +9176,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 50.10989010989011,
       "yPercentage": 60.42857142857143,
-      "youtubeLink": "eGFGMQlQVXk"
+      "youtubeId": "eGFGMQlQVXk"
     }
   },
   {
@@ -9191,7 +9191,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 49.65934065934066,
       "yPercentage": 59.64835164835165,
-      "youtubeLink": "rlXGJUVtkWc"
+      "youtubeId": "rlXGJUVtkWc"
     }
   },
   {
@@ -9205,7 +9205,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "757_MISSION_NAME",
-      "youtubeLink": "XCU0O452Y7U",
+      "youtubeId": "XCU0O452Y7U",
       "xPercentage": 52.94140625,
       "yPercentage": 65.37890625
     }
@@ -9230,7 +9230,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "759_MISSION_NAME",
-      "youtubeLink": "DOVdFeGd8iE",
+      "youtubeId": "DOVdFeGd8iE",
       "xPercentage": 54.48828125,
       "yPercentage": 58.609375
     }
@@ -9255,7 +9255,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "761_MISSION_NAME",
-      "youtubeLink": "1fuhCPh32C8",
+      "youtubeId": "1fuhCPh32C8",
       "xPercentage": 47.52734375,
       "yPercentage": 54.4921875
     }
@@ -9281,7 +9281,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 87.49450549450549,
       "yPercentage": 72.67032967032966,
-      "youtubeLink": "cJ1t4x_in7A"
+      "youtubeId": "cJ1t4x_in7A"
     }
   },
   {
@@ -9295,7 +9295,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "764_MISSION_NAME",
-      "youtubeLink": "GmHmKcXSNSE",
+      "youtubeId": "GmHmKcXSNSE",
       "xPercentage": 89.90234375,
       "yPercentage": 69.109375
     }
@@ -9312,7 +9312,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 88.02197802197803,
       "yPercentage": 71.87912087912088,
-      "youtubeLink": "VHEYXcLtPaM"
+      "youtubeId": "VHEYXcLtPaM"
     }
   },
   {
@@ -9326,7 +9326,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "766_MISSION_NAME",
-      "youtubeLink": "X4DKLqexdcI",
+      "youtubeId": "X4DKLqexdcI",
       "xPercentage": 88.09375,
       "yPercentage": 68.66796875
     }
@@ -9343,7 +9343,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 90.81318681318682,
       "yPercentage": 72.12087912087912,
-      "youtubeLink": "E17A0L-EkAk"
+      "youtubeId": "E17A0L-EkAk"
     }
   },
   {
@@ -9358,7 +9358,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 88.53846153846153,
       "yPercentage": 70.74725274725274,
-      "youtubeLink": "nkjWpijDfdI"
+      "youtubeId": "nkjWpijDfdI"
     }
   },
   {
@@ -9405,7 +9405,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "772_MISSION_NAME",
-      "youtubeLink": "MYcNS_99lUI",
+      "youtubeId": "MYcNS_99lUI",
       "xPercentage": 89.5625,
       "yPercentage": 71.5078125
     }
@@ -9431,7 +9431,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 79.68131868131869,
       "yPercentage": 62.08791208791209,
-      "youtubeLink": "32aLCwyJ7r0"
+      "youtubeId": "32aLCwyJ7r0"
     }
   },
   {
@@ -9445,7 +9445,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "775_MISSION_NAME",
-      "youtubeLink": "SPUyM9AwQl",
+      "youtubeId": "SPUyM9AwQl",
       "xPercentage": 84.99609375,
       "yPercentage": 60.09375
     }
@@ -9461,7 +9461,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "776_MISSION_NAME",
-      "youtubeLink": "G7JWu8ma1zQ",
+      "youtubeId": "G7JWu8ma1zQ",
       "xPercentage": 77.6953125,
       "yPercentage": 62.73828125
     }
@@ -9508,7 +9508,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 77.83516483516483,
       "yPercentage": 63.8021978021978,
-      "youtubeLink": "m7_TJ2WgtIs"
+      "youtubeId": "m7_TJ2WgtIs"
     }
   },
   {
@@ -9523,7 +9523,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 75.31868131868131,
       "yPercentage": 63.97802197802198,
-      "youtubeLink": "RKFwNvvci7s"
+      "youtubeId": "RKFwNvvci7s"
     }
   },
   {
@@ -9537,7 +9537,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "781_MISSION_NAME",
-      "youtubeLink": "kgG0gEJlhec",
+      "youtubeId": "kgG0gEJlhec",
       "xPercentage": 75.015625,
       "yPercentage": 64.87109375
     }
@@ -9553,7 +9553,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "782_MISSION_NAME",
-      "youtubeLink": "KBYFJJ2cjH0",
+      "youtubeId": "KBYFJJ2cjH0",
       "xPercentage": 50.01953125000001,
       "yPercentage": 26.2734375
     }
@@ -9588,7 +9588,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 75.25274725274726,
       "yPercentage": 62.582417582417584,
-      "youtubeLink": "ufd7cXrGOBg"
+      "youtubeId": "ufd7cXrGOBg"
     }
   },
   {
@@ -9602,7 +9602,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "786_MISSION_NAME",
-      "youtubeLink": "Dd0ah66l5cw",
+      "youtubeId": "Dd0ah66l5cw",
       "xPercentage": 77.4375,
       "yPercentage": 63.59765625
     }
@@ -9618,7 +9618,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "787_MISSION_NAME",
-      "youtubeLink": "cxt0TWl4RXE",
+      "youtubeId": "cxt0TWl4RXE",
       "xPercentage": 75.86328125,
       "yPercentage": 60.83984375
     }
@@ -9634,7 +9634,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "788_MISSION_NAME",
-      "youtubeLink": "D5MOMW70wac",
+      "youtubeId": "D5MOMW70wac",
       "xPercentage": 78.60546875,
       "yPercentage": 67.1171875
     }
@@ -9650,7 +9650,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "789_MISSION_NAME",
-      "youtubeLink": "AuS9gThowbg",
+      "youtubeId": "AuS9gThowbg",
       "xPercentage": 77.265625,
       "yPercentage": 70.60546875
     }
@@ -9667,7 +9667,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.1978021978022,
       "yPercentage": 87.06593406593407,
-      "youtubeLink": "7i_lUrCsDqQ"
+      "youtubeId": "7i_lUrCsDqQ"
     }
   },
   {
@@ -9681,7 +9681,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "791_MISSION_NAME",
-      "youtubeLink": "rdletjt4auI",
+      "youtubeId": "rdletjt4auI",
       "xPercentage": 66.99609375,
       "yPercentage": 86.078125
     }
@@ -9697,7 +9697,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "792_MISSION_NAME",
-      "youtubeLink": "-az7ViAt_R4",
+      "youtubeId": "-az7ViAt_R4",
       "xPercentage": 70.8125,
       "yPercentage": 79.3203125
     }
@@ -9714,7 +9714,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 66.24175824175825,
       "yPercentage": 86.07692307692308,
-      "youtubeLink": "1CXjWSu-l5I"
+      "youtubeId": "1CXjWSu-l5I"
     }
   },
   {
@@ -9728,7 +9728,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "794_MISSION_NAME",
-      "youtubeLink": "DBioOYw82Sg",
+      "youtubeId": "DBioOYw82Sg",
       "xPercentage": 71.37890625,
       "yPercentage": 82.28515625
     }
@@ -9744,7 +9744,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "795_MISSION_NAME",
-      "youtubeLink": "E7I3HNLsUjs",
+      "youtubeId": "E7I3HNLsUjs",
       "xPercentage": 67.17578125,
       "yPercentage": 85.75
     }
@@ -9775,7 +9775,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "797_MISSION_NAME",
-      "youtubeLink": "VHquO5TL1ek",
+      "youtubeId": "VHquO5TL1ek",
       "xPercentage": 66.26953125,
       "yPercentage": 85.87890625
     }
@@ -9791,7 +9791,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "798_MISSION_NAME",
-      "youtubeLink": "LQ0Z4IitPqg",
+      "youtubeId": "LQ0Z4IitPqg",
       "xPercentage": 65.4921875,
       "yPercentage": 86.80859375
     }
@@ -9808,7 +9808,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.74725274725274,
       "yPercentage": 86.04395604395604,
-      "youtubeLink": "r_K8502IHno"
+      "youtubeId": "r_K8502IHno"
     }
   },
   {
@@ -9852,7 +9852,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "802_MISSION_NAME",
-      "youtubeLink": "j0VIhGYxYhI",
+      "youtubeId": "j0VIhGYxYhI",
       "xPercentage": 75.73828125,
       "yPercentage": 81.75
     }
@@ -9868,7 +9868,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "803_MISSION_NAME",
-      "youtubeLink": "1n6eC2AM2LY",
+      "youtubeId": "1n6eC2AM2LY",
       "xPercentage": 72.5,
       "yPercentage": 80.16796875
     }
@@ -9884,7 +9884,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "804_MISSION_NAME",
-      "youtubeLink": "h6Fy10tdoQ0",
+      "youtubeId": "h6Fy10tdoQ0",
       "xPercentage": 78.94140625,
       "yPercentage": 78.65625
     }
@@ -9901,7 +9901,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 81.76923076923077,
       "yPercentage": 81.92307692307692,
-      "youtubeLink": "S-mq8KMZGQc"
+      "youtubeId": "S-mq8KMZGQc"
     }
   },
   {
@@ -9915,7 +9915,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "806_MISSION_NAME",
-      "youtubeLink": "Y5K6GbU0vVs",
+      "youtubeId": "Y5K6GbU0vVs",
       "xPercentage": 82.125,
       "yPercentage": 80.109375
     }
@@ -9932,7 +9932,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 83.10989010989012,
       "yPercentage": 81.56043956043956,
-      "youtubeLink": "4Hk37xUYNpU"
+      "youtubeId": "4Hk37xUYNpU"
     }
   },
   {
@@ -9946,7 +9946,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "808_MISSION_NAME",
-      "youtubeLink": "_-HbxI4bUwM",
+      "youtubeId": "_-HbxI4bUwM",
       "xPercentage": 80.140625,
       "yPercentage": 79.6015625
     }
@@ -9962,7 +9962,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "809_MISSION_NAME",
-      "youtubeLink": "h6Fy10tdoQ0",
+      "youtubeId": "h6Fy10tdoQ0",
       "xPercentage": 74.89453125,
       "yPercentage": 78.26953125
     }
@@ -9978,7 +9978,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "810_MISSION_NAME",
-      "youtubeLink": "vj5EaB5q6y8",
+      "youtubeId": "vj5EaB5q6y8",
       "xPercentage": 77.30078125,
       "yPercentage": 75.1875
     }
@@ -9994,7 +9994,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "811_MISSION_NAME",
-      "youtubeLink": "DnLDqOrqGQo",
+      "youtubeId": "DnLDqOrqGQo",
       "xPercentage": 77.5078125,
       "yPercentage": 73.56640625
     }
@@ -10025,7 +10025,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "813_MISSION_NAME",
-      "youtubeLink": "kVy0cw6PAUw",
+      "youtubeId": "kVy0cw6PAUw",
       "xPercentage": 79.80078125,
       "yPercentage": 80.47265625
     }
@@ -10042,7 +10042,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 79.65934065934066,
       "yPercentage": 82.96703296703296,
-      "youtubeLink": "1b3SAYDGsJI"
+      "youtubeId": "1b3SAYDGsJI"
     }
   },
   {
@@ -10057,7 +10057,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 79.45054945054945,
       "yPercentage": 80.58241758241758,
-      "youtubeLink": "NJWFFMOLbkM"
+      "youtubeId": "NJWFFMOLbkM"
     }
   },
   {
@@ -10162,7 +10162,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 64.5934065934066,
       "yPercentage": 52.23076923076923,
-      "youtubeLink": "Z8nlxnRmvX4"
+      "youtubeId": "Z8nlxnRmvX4"
     }
   },
   {
@@ -10207,7 +10207,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 66.4065934065934,
       "yPercentage": 54.51648351648352,
-      "youtubeLink": "iHnBULQrNBY"
+      "youtubeId": "iHnBULQrNBY"
     }
   },
   {
@@ -10237,7 +10237,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.74725274725274,
       "yPercentage": 52.89010989010989,
-      "youtubeLink": "aq9qb_iy1L8"
+      "youtubeId": "aq9qb_iy1L8"
     }
   },
   {
@@ -10311,7 +10311,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "834_MISSION_NAME",
-      "youtubeLink": "bsS-glLR-FQ",
+      "youtubeId": "bsS-glLR-FQ",
       "xPercentage": 63.59765625,
       "yPercentage": 52.36328125
     }
@@ -10327,7 +10327,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "835_MISSION_NAME",
-      "youtubeLink": "Qm9Qe-ht9R4",
+      "youtubeId": "Qm9Qe-ht9R4",
       "xPercentage": 65.14453125,
       "yPercentage": 51.8046875
     }
@@ -10343,7 +10343,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "836_MISSION_NAME",
-      "youtubeLink": "PDYwfhuGPWw",
+      "youtubeId": "PDYwfhuGPWw",
       "xPercentage": 71.90625,
       "yPercentage": 61.92578125
     }
@@ -10360,7 +10360,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.9010989010989,
       "yPercentage": 51.79120879120879,
-      "youtubeLink": "4h4B7_OF3pI"
+      "youtubeId": "4h4B7_OF3pI"
     }
   },
   {
@@ -10407,7 +10407,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "841_MISSION_NAME",
-      "youtubeLink": "OWzV_V11K98",
+      "youtubeId": "OWzV_V11K98",
       "xPercentage": 64.765625,
       "yPercentage": 54.56640625
     }
@@ -10466,7 +10466,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.28571428571429,
       "yPercentage": 39.26373626373626,
-      "youtubeLink": "v61CvlldAcg"
+      "youtubeId": "v61CvlldAcg"
     }
   },
   {
@@ -10481,7 +10481,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 66.48351648351648,
       "yPercentage": 38.68131868131868,
-      "youtubeLink": "ZrodMmcXkME"
+      "youtubeId": "ZrodMmcXkME"
     }
   },
   {
@@ -10496,7 +10496,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 64.15384615384616,
       "yPercentage": 39.934065934065934,
-      "youtubeLink": "TfcBCxvq1Es"
+      "youtubeId": "TfcBCxvq1Es"
     }
   },
   {
@@ -10561,7 +10561,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "854_MISSION_NAME",
-      "youtubeLink": "g5GI49jLGd0",
+      "youtubeId": "g5GI49jLGd0",
       "xPercentage": 63.52734375,
       "yPercentage": 41.37109375
     }
@@ -10578,7 +10578,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 63.40659340659341,
       "yPercentage": 39.20879120879121,
-      "youtubeLink": "VnTAcZAR8do"
+      "youtubeId": "VnTAcZAR8do"
     }
   },
   {
@@ -10592,7 +10592,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "856_MISSION_NAME",
-      "youtubeLink": "JKBzclTFW9Y",
+      "youtubeId": "JKBzclTFW9Y",
       "xPercentage": 62.43359375000001,
       "yPercentage": 24.796875
     }
@@ -10608,7 +10608,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "857_MISSION_NAME",
-      "youtubeLink": "hu-PQl_TT5M",
+      "youtubeId": "hu-PQl_TT5M",
       "xPercentage": 62.69140625,
       "yPercentage": 29.171875
     }
@@ -10624,7 +10624,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "858_MISSION_NAME",
-      "youtubeLink": "w-rK_oAxGmw",
+      "youtubeId": "w-rK_oAxGmw",
       "xPercentage": 60.1328125,
       "yPercentage": 21.734375
     }
@@ -10640,7 +10640,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "859_MISSION_NAME",
-      "youtubeLink": "sRRehrt4_mg",
+      "youtubeId": "sRRehrt4_mg",
       "xPercentage": 64.8046875,
       "yPercentage": 21.546875
     }
@@ -10657,7 +10657,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.65934065934066,
       "yPercentage": 20.164835164835164,
-      "youtubeLink": "k2LH-G9QftQ"
+      "youtubeId": "k2LH-G9QftQ"
     }
   },
   {
@@ -10672,7 +10672,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 67.72527472527473,
       "yPercentage": 21.406593406593405,
-      "youtubeLink": "i9PfJUGj8eE"
+      "youtubeId": "i9PfJUGj8eE"
     }
   },
   {
@@ -10687,7 +10687,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 66.57142857142857,
       "yPercentage": 21.9010989010989,
-      "youtubeLink": "Wb55X7n_7wY"
+      "youtubeId": "Wb55X7n_7wY"
     }
   },
   {
@@ -10702,7 +10702,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 91.38461538461539,
       "yPercentage": 54.08791208791209,
-      "youtubeLink": "DOJZNzDe6lE"
+      "youtubeId": "DOJZNzDe6lE"
     }
   },
   {
@@ -10717,7 +10717,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 12.461538461538462,
       "yPercentage": 51.18681318681319,
-      "youtubeLink": "tlFWm2eraHo"
+      "youtubeId": "tlFWm2eraHo"
     }
   },
   {
@@ -10732,7 +10732,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 65.53846153846153,
       "yPercentage": 21.692307692307693,
-      "youtubeLink": "FdvPi4zdwhw"
+      "youtubeId": "FdvPi4zdwhw"
     }
   },
   {
@@ -10746,7 +10746,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "866_MISSION_NAME",
-      "youtubeLink": "JSy4CFHjBno",
+      "youtubeId": "JSy4CFHjBno",
       "xPercentage": 65.5234375,
       "yPercentage": 22.4375
     }
@@ -10762,7 +10762,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "867_MISSION_NAME",
-      "youtubeLink": "Wq8rJ30Ev7Q",
+      "youtubeId": "Wq8rJ30Ev7Q",
       "xPercentage": 63.89843750000001,
       "yPercentage": 23.015625
     }
@@ -10778,7 +10778,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "868_MISSION_NAME",
-      "youtubeLink": "RAUvHm_5o1g",
+      "youtubeId": "RAUvHm_5o1g",
       "xPercentage": 61.1484375,
       "yPercentage": 23.29296875
     }
@@ -10795,7 +10795,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 91.12087912087912,
       "yPercentage": 56.120879120879124,
-      "youtubeLink": "qeC1PcU23b4"
+      "youtubeId": "qeC1PcU23b4"
     }
   },
   {
@@ -10810,7 +10810,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 9.835164835164836,
       "yPercentage": 51.79120879120879,
-      "youtubeLink": "P_k-hUErQK8"
+      "youtubeId": "P_k-hUErQK8"
     }
   },
   {
@@ -10824,7 +10824,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "871_MISSION_NAME",
-      "youtubeLink": "_V6LGHvlVnw",
+      "youtubeId": "_V6LGHvlVnw",
       "xPercentage": 66.6171875,
       "yPercentage": 24.4609375
     }
@@ -10841,7 +10841,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.54945054945055,
       "yPercentage": 22.12087912087912,
-      "youtubeLink": "hFrZKjkHouU"
+      "youtubeId": "hFrZKjkHouU"
     }
   },
   {
@@ -10856,7 +10856,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.714285714285715,
       "yPercentage": 21.593406593406595,
-      "youtubeLink": "GbvAkTqyHSQ"
+      "youtubeId": "GbvAkTqyHSQ"
     }
   },
   {
@@ -10870,7 +10870,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "874_MISSION_NAME",
-      "youtubeLink": "-orxcokHZJ0",
+      "youtubeId": "-orxcokHZJ0",
       "xPercentage": 40.03515625,
       "yPercentage": 23.3203125
     }
@@ -10887,7 +10887,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 40.30769230769231,
       "yPercentage": 19.89010989010989,
-      "youtubeLink": "8esk1cWZ6qg"
+      "youtubeId": "8esk1cWZ6qg"
     }
   },
   {
@@ -10901,7 +10901,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "876_MISSION_NAME",
-      "youtubeLink": "ZIfejARjk_g",
+      "youtubeId": "ZIfejARjk_g",
       "xPercentage": 39.14453125,
       "yPercentage": 20.7265625
     }
@@ -10917,7 +10917,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "877_MISSION_NAME",
-      "youtubeLink": "0H3r3ByEdSM",
+      "youtubeId": "0H3r3ByEdSM",
       "xPercentage": 37.14453125,
       "yPercentage": 19.61328125
     }
@@ -10934,7 +10934,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 37.84615384615385,
       "yPercentage": 19.395604395604394,
-      "youtubeLink": "x4iAVcTbjS8"
+      "youtubeId": "x4iAVcTbjS8"
     }
   },
   {
@@ -10948,7 +10948,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "879_MISSION_NAME",
-      "youtubeLink": "VcnAbR3ML4s",
+      "youtubeId": "VcnAbR3ML4s",
       "xPercentage": 36.96875,
       "yPercentage": 28.71484375
     }
@@ -10964,7 +10964,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "880_MISSION_NAME",
-      "youtubeLink": "Bf1iF4xn1dA",
+      "youtubeId": "Bf1iF4xn1dA",
       "xPercentage": 38.15234375,
       "yPercentage": 27.890625
     }
@@ -10980,7 +10980,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "881_MISSION_NAME",
-      "youtubeLink": "n4cDNZl91pw",
+      "youtubeId": "n4cDNZl91pw",
       "xPercentage": 47.4765625,
       "yPercentage": 24.01953125
     }
@@ -10996,7 +10996,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "882_MISSION_NAME",
-      "youtubeLink": "Xs-ysq-GXd0",
+      "youtubeId": "Xs-ysq-GXd0",
       "xPercentage": 35.64453125,
       "yPercentage": 26.73828125
     }
@@ -11013,7 +11013,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.72527472527472,
       "yPercentage": 44.120879120879124,
-      "youtubeLink": "qaLnGUhXwL0"
+      "youtubeId": "qaLnGUhXwL0"
     }
   },
   {
@@ -11028,7 +11028,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 52.78021978021978,
       "yPercentage": 45.86813186813187,
-      "youtubeLink": "s5RHcYn25iQ"
+      "youtubeId": "s5RHcYn25iQ"
     }
   },
   {
@@ -11043,7 +11043,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.51648351648352,
       "yPercentage": 43.30769230769231,
-      "youtubeLink": "yx6TGrs2x34"
+      "youtubeId": "yx6TGrs2x34"
     }
   },
   {
@@ -11057,7 +11057,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "886_MISSION_NAME",
-      "youtubeLink": "VjIhYG5keTk",
+      "youtubeId": "VjIhYG5keTk",
       "xPercentage": 49.66796875,
       "yPercentage": 44.19921875
     }
@@ -11073,7 +11073,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "887_MISSION_NAME",
-      "youtubeLink": "8JOjfQdX9aw",
+      "youtubeId": "8JOjfQdX9aw",
       "xPercentage": 50.87890625,
       "yPercentage": 44.65625
     }
@@ -11107,7 +11107,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "890_MISSION_NAME",
-      "youtubeLink": "LIpE0oGWSyg",
+      "youtubeId": "LIpE0oGWSyg",
       "xPercentage": 52.95703125,
       "yPercentage": 41
     }
@@ -11156,7 +11156,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "894_MISSION_NAME",
-      "youtubeLink": "FHdjcVzJSIw",
+      "youtubeId": "FHdjcVzJSIw",
       "xPercentage": 47.0546875,
       "yPercentage": 49.953125
     }
@@ -11173,7 +11173,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 50.62637362637363,
       "yPercentage": 45.879120879120876,
-      "youtubeLink": "nDznB-OzaSI"
+      "youtubeId": "nDznB-OzaSI"
     }
   },
   {
@@ -11187,7 +11187,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "896_MISSION_NAME",
-      "youtubeLink": "v5-L7yzTcp8",
+      "youtubeId": "v5-L7yzTcp8",
       "xPercentage": 54.35546875,
       "yPercentage": 48.71484375
     }
@@ -11203,7 +11203,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "897_MISSION_NAME",
-      "youtubeLink": "ddyzODpobc",
+      "youtubeId": "ddyzODpobc",
       "xPercentage": 50.26953125,
       "yPercentage": 45.23437500000001
     }
@@ -11220,7 +11220,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.72527472527472,
       "yPercentage": 51.747252747252745,
-      "youtubeLink": "041IntFOtl8"
+      "youtubeId": "041IntFOtl8"
     }
   },
   {
@@ -11234,7 +11234,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "899_MISSION_NAME",
-      "youtubeLink": "reB3RZaSmEE",
+      "youtubeId": "reB3RZaSmEE",
       "xPercentage": 42.72265625,
       "yPercentage": 55.55859375
     }
@@ -11259,7 +11259,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "901_MISSION_NAME",
-      "youtubeLink": "34u0DQwBp10",
+      "youtubeId": "34u0DQwBp10",
       "xPercentage": 33.8203125,
       "yPercentage": 55.875
     }
@@ -11275,7 +11275,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "902_MISSION_NAME",
-      "youtubeLink": "YWDMMqQbJx0",
+      "youtubeId": "YWDMMqQbJx0",
       "xPercentage": 26.453125,
       "yPercentage": 66.171875
     }
@@ -11291,7 +11291,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "903_MISSION_NAME",
-      "youtubeLink": "St0qcDQls4g",
+      "youtubeId": "St0qcDQls4g",
       "xPercentage": 38.98046875,
       "yPercentage": 50.58984375
     }
@@ -11308,7 +11308,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.7032967032967,
       "yPercentage": 53.857142857142854,
-      "youtubeLink": "TO0kXSdQLJs"
+      "youtubeId": "TO0kXSdQLJs"
     }
   },
   {
@@ -11323,7 +11323,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.67032967032967,
       "yPercentage": 52.142857142857146,
-      "youtubeLink": "_x6moypYZRg"
+      "youtubeId": "_x6moypYZRg"
     }
   },
   {
@@ -11337,7 +11337,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "906_MISSION_NAME",
-      "youtubeLink": "EZjvtZ1eOR8",
+      "youtubeId": "EZjvtZ1eOR8",
       "xPercentage": 36.53125,
       "yPercentage": 51.96875
     }
@@ -11371,7 +11371,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "909_MISSION_NAME",
-      "youtubeLink": "Z7EGuArkVF8",
+      "youtubeId": "Z7EGuArkVF8",
       "xPercentage": 40.359375,
       "yPercentage": 48.44921875
     }
@@ -11387,7 +11387,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "910_MISSION_NAME",
-      "youtubeLink": "AiwcVFIu6O8",
+      "youtubeId": "AiwcVFIu6O8",
       "xPercentage": 39.16015625,
       "yPercentage": 52.02734375
     }
@@ -11422,7 +11422,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.31868131868132,
       "yPercentage": 51.56043956043956,
-      "youtubeLink": "G1-cnztMAok"
+      "youtubeId": "G1-cnztMAok"
     }
   },
   {
@@ -11436,7 +11436,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "914_MISSION_NAME",
-      "youtubeLink": "g09DXemtGGc",
+      "youtubeId": "g09DXemtGGc",
       "xPercentage": 40.64453125,
       "yPercentage": 39.69921875
     }
@@ -11452,7 +11452,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "915_MISSION_NAME",
-      "youtubeLink": "oZhLsz08VW4",
+      "youtubeId": "oZhLsz08VW4",
       "xPercentage": 38.6875,
       "yPercentage": 34.828125
     }
@@ -11468,7 +11468,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "916_MISSION_NAME",
-      "youtubeLink": "_Wou4HdLn3E",
+      "youtubeId": "_Wou4HdLn3E",
       "xPercentage": 36.78125,
       "yPercentage": 36.9765625
     }
@@ -11484,7 +11484,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "917_MISSION_NAME",
-      "youtubeLink": "BMFZ6Nnf9l4",
+      "youtubeId": "BMFZ6Nnf9l4",
       "xPercentage": 32.76171875,
       "yPercentage": 38.27734375
     }
@@ -11500,7 +11500,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "918_MISSION_NAME",
-      "youtubeLink": "DWrFvdpgjME",
+      "youtubeId": "DWrFvdpgjME",
       "xPercentage": 38.91015625,
       "yPercentage": 37.8515625
     }
@@ -11633,7 +11633,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "932_MISSION_NAME",
-      "youtubeLink": "YSetScgXH1M",
+      "youtubeId": "YSetScgXH1M",
       "xPercentage": 34.87890625,
       "yPercentage": 35.51171875
     }
@@ -11650,7 +11650,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.956043956043956,
       "yPercentage": 37.73626373626374,
-      "youtubeLink": "TZ2rZcdlNuM"
+      "youtubeId": "TZ2rZcdlNuM"
     }
   },
   {
@@ -11665,7 +11665,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 37.43956043956044,
       "yPercentage": 35.989010989010985,
-      "youtubeLink": "YNkq41RSH34"
+      "youtubeId": "YNkq41RSH34"
     }
   },
   {
@@ -11680,7 +11680,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.956043956043956,
       "yPercentage": 35.83516483516483,
-      "youtubeLink": "HHvCETBS-Mo"
+      "youtubeId": "HHvCETBS-Mo"
     }
   },
   {
@@ -11695,7 +11695,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 39.46153846153846,
       "yPercentage": 39.31868131868132,
-      "youtubeLink": "ArZ3_ZZVSA4"
+      "youtubeId": "ArZ3_ZZVSA4"
     }
   },
   {
@@ -11710,7 +11710,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 38.010989010989015,
       "yPercentage": 38.24175824175824,
-      "youtubeLink": "klnDF0OdYaA"
+      "youtubeId": "klnDF0OdYaA"
     }
   },
   {
@@ -11743,7 +11743,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 26.76923076923077,
       "yPercentage": 23.76923076923077,
-      "youtubeLink": "oGabtbrQV3M"
+      "youtubeId": "oGabtbrQV3M"
     }
   },
   {
@@ -11757,7 +11757,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "941_MISSION_NAME",
-      "youtubeLink": "viy_ec-wdKs",
+      "youtubeId": "viy_ec-wdKs",
       "xPercentage": 25.527343749999996,
       "yPercentage": 22.828125
     }
@@ -11782,7 +11782,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "943_MISSION_NAME",
-      "youtubeLink": "-V-_0vXyvog",
+      "youtubeId": "-V-_0vXyvog",
       "xPercentage": 31.710937500000004,
       "yPercentage": 31.703125
     }
@@ -11808,7 +11808,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 26.923076923076923,
       "yPercentage": 22.23076923076923,
-      "youtubeLink": "oGucrHTxTps"
+      "youtubeId": "oGucrHTxTps"
     }
   },
   {
@@ -11822,7 +11822,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "946_MISSION_NAME",
-      "youtubeLink": "geTOD706tqs",
+      "youtubeId": "geTOD706tqs",
       "xPercentage": 27.84375,
       "yPercentage": 29.3671875
     }
@@ -11838,7 +11838,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "947_MISSION_NAME",
-      "youtubeLink": "RIdqTMQurjA",
+      "youtubeId": "RIdqTMQurjA",
       "xPercentage": 25.74609375,
       "yPercentage": 33.27734375
     }
@@ -11855,7 +11855,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 25.65934065934066,
       "yPercentage": 22.373626373626372,
-      "youtubeLink": "HHdS1Yc1_W0"
+      "youtubeId": "HHdS1Yc1_W0"
     }
   },
   {
@@ -11869,7 +11869,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "949_MISSION_NAME",
-      "youtubeLink": "pzu4KR5e7V8",
+      "youtubeId": "pzu4KR5e7V8",
       "xPercentage": 23.23046875,
       "yPercentage": 33.92578125
     }
@@ -11885,7 +11885,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "950_MISSION_NAME",
-      "youtubeLink": "HFtzjeZda1g",
+      "youtubeId": "HFtzjeZda1g",
       "xPercentage": 28.476562500000004,
       "yPercentage": 29.3359375
     }
@@ -11901,7 +11901,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "951_MISSION_NAME",
-      "youtubeLink": "w2yroBJ32w0",
+      "youtubeId": "w2yroBJ32w0",
       "xPercentage": 29.21875,
       "yPercentage": 28.9609375
     }
@@ -11918,7 +11918,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 27.47252747252747,
       "yPercentage": 23.65934065934066,
-      "youtubeLink": "87hbQwDh9X4"
+      "youtubeId": "87hbQwDh9X4"
     }
   },
   {
@@ -11932,7 +11932,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "953_MISSION_NAME",
-      "youtubeLink": "5W_2ORAscCE",
+      "youtubeId": "5W_2ORAscCE",
       "xPercentage": 27.3359375,
       "yPercentage": 27.01171875
     }
@@ -11948,7 +11948,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "954_MISSION_NAME",
-      "youtubeLink": "ASOXZrgcSfk",
+      "youtubeId": "ASOXZrgcSfk",
       "xPercentage": 25.363281250000004,
       "yPercentage": 35.74609375
     }
@@ -11964,7 +11964,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "955_MISSION_NAME",
-      "youtubeLink": "EeRPgZuMP5k",
+      "youtubeId": "EeRPgZuMP5k",
       "xPercentage": 29.83984375,
       "yPercentage": 35.77734375
     }
@@ -11980,7 +11980,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "956_MISSION_NAME",
-      "youtubeLink": "vwUSYHE-gAQ",
+      "youtubeId": "vwUSYHE-gAQ",
       "xPercentage": 43.69921875,
       "yPercentage": 32.0078125
     }
@@ -11996,7 +11996,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "957_MISSION_NAME",
-      "youtubeLink": "M3g7eosT6FI",
+      "youtubeId": "M3g7eosT6FI",
       "xPercentage": 29.128906249999996,
       "yPercentage": 28.40234375
     }
@@ -12012,7 +12012,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "958_MISSION_NAME",
-      "youtubeLink": "-UKxhjhSGH4",
+      "youtubeId": "-UKxhjhSGH4",
       "xPercentage": 27.652343750000004,
       "yPercentage": 22.72265625
     }
@@ -12028,7 +12028,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "959_MISSION_NAME",
-      "youtubeLink": "BWP-zg2Fp68",
+      "youtubeId": "BWP-zg2Fp68",
       "xPercentage": 25.46484375,
       "yPercentage": 23.46484375
     }
@@ -12044,7 +12044,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "960_MISSION_NAME",
-      "youtubeLink": "gwikguNrPmA",
+      "youtubeId": "gwikguNrPmA",
       "xPercentage": 28.910156250000004,
       "yPercentage": 32.18359375
     }
@@ -12060,7 +12060,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "961_MISSION_NAME",
-      "youtubeLink": "ZatZmQoIbjQ",
+      "youtubeId": "ZatZmQoIbjQ",
       "xPercentage": 43.234375,
       "yPercentage": 28.2890625
     }
@@ -12076,7 +12076,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "962_MISSION_NAME",
-      "youtubeLink": "KM2lbrhJDNc",
+      "youtubeId": "KM2lbrhJDNc",
       "xPercentage": 40.57421875,
       "yPercentage": 28.92578125
     }
@@ -12093,7 +12093,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 50.527472527472526,
       "yPercentage": 16.395604395604394,
-      "youtubeLink": "72OycExQT5g"
+      "youtubeId": "72OycExQT5g"
     }
   },
   {
@@ -12107,7 +12107,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "964_MISSION_NAME",
-      "youtubeLink": "ELBbVJ7A6qA",
+      "youtubeId": "ELBbVJ7A6qA",
       "xPercentage": 46.15234375,
       "yPercentage": 30.45703125
     }
@@ -12123,7 +12123,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "965_MISSION_NAME",
-      "youtubeLink": "eVtlHMkHTMk",
+      "youtubeId": "eVtlHMkHTMk",
       "xPercentage": 48.13671875,
       "yPercentage": 16.83984375
     }
@@ -12139,7 +12139,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "966_MISSION_NAME",
-      "youtubeLink": "x3kKok3Kp9s",
+      "youtubeId": "x3kKok3Kp9s",
       "xPercentage": 49.7734375,
       "yPercentage": 17.58203125
     }
@@ -12155,7 +12155,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "967_MISSION_NAME",
-      "youtubeLink": "-uALNmgWKvc",
+      "youtubeId": "-uALNmgWKvc",
       "xPercentage": 54.44140625,
       "yPercentage": 18.796875
     }
@@ -12172,7 +12172,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.59340659340659,
       "yPercentage": 15.395604395604396,
-      "youtubeLink": "i7kRkOP_-OM"
+      "youtubeId": "i7kRkOP_-OM"
     }
   },
   {
@@ -12186,7 +12186,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "969_MISSION_NAME",
-      "youtubeLink": "CDlGbROny5o",
+      "youtubeId": "CDlGbROny5o",
       "xPercentage": 50.18359375,
       "yPercentage": 23.6015625
     }
@@ -12202,7 +12202,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "970_MISSION_NAME",
-      "youtubeLink": "DmLHsc_bpvw",
+      "youtubeId": "DmLHsc_bpvw",
       "xPercentage": 52.55078125,
       "yPercentage": 17.22265625
     }
@@ -12219,7 +12219,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.494505494505496,
       "yPercentage": 29.65934065934066,
-      "youtubeLink": "7FzpQdeVhBU"
+      "youtubeId": "7FzpQdeVhBU"
     }
   },
   {
@@ -12234,7 +12234,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 54.2967032967033,
       "yPercentage": 30.35164835164835,
-      "youtubeLink": "f28PUZ_isCs"
+      "youtubeId": "f28PUZ_isCs"
     }
   },
   {
@@ -12248,7 +12248,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "973_MISSION_NAME",
-      "youtubeLink": "H6EvMv-NrEc",
+      "youtubeId": "H6EvMv-NrEc",
       "xPercentage": 52.79296875,
       "yPercentage": 30.93359375
     }
@@ -12300,7 +12300,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "978_MISSION_NAME",
-      "youtubeLink": "W6uU7TY1odI",
+      "youtubeId": "W6uU7TY1odI",
       "xPercentage": 56.8984375,
       "yPercentage": 22.80078125
     }
@@ -12352,7 +12352,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "983_MISSION_NAME",
-      "youtubeLink": "8GEuX0q5cGI",
+      "youtubeId": "8GEuX0q5cGI",
       "xPercentage": 56.23828125,
       "yPercentage": 32.328125
     }
@@ -12431,7 +12431,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "991_MISSION_NAME",
-      "youtubeLink": "b2Dn3DHwAA8",
+      "youtubeId": "b2Dn3DHwAA8",
       "xPercentage": 46.79296875,
       "yPercentage": 33.10546875
     }
@@ -12544,7 +12544,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.9010989010989,
       "yPercentage": 29.89010989010989,
-      "youtubeLink": "s6g1iPgHPuE"
+      "youtubeId": "s6g1iPgHPuE"
     }
   },
   {
@@ -12559,7 +12559,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 52.21978021978022,
       "yPercentage": 28.86813186813187,
-      "youtubeLink": "RmyC5reC0Us"
+      "youtubeId": "RmyC5reC0Us"
     }
   },
   {
@@ -12573,7 +12573,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1004_MISSION_NAME",
-      "youtubeLink": "EjhZKGUZEtg",
+      "youtubeId": "EjhZKGUZEtg",
       "xPercentage": 52.13671875,
       "yPercentage": 30.3984375
     }
@@ -12589,7 +12589,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1005_MISSION_NAME",
-      "youtubeLink": "aIInBh7iMU8",
+      "youtubeId": "aIInBh7iMU8",
       "xPercentage": 48.99609375,
       "yPercentage": 30.01953125
     }
@@ -12605,7 +12605,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1006_MISSION_NAME",
-      "youtubeLink": "ti8hm5Xy4a8",
+      "youtubeId": "ti8hm5Xy4a8",
       "xPercentage": 57.39453125,
       "yPercentage": 34.37109375
     }
@@ -12621,7 +12621,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1007_MISSION_NAME",
-      "youtubeLink": "aRXdiI4sDMg",
+      "youtubeId": "aRXdiI4sDMg",
       "xPercentage": 54.3671875,
       "yPercentage": 31.5546875
     }
@@ -12637,7 +12637,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1008_MISSION_NAME",
-      "youtubeLink": "xVICY5vOr7s",
+      "youtubeId": "xVICY5vOr7s",
       "xPercentage": 48.546875,
       "yPercentage": 26.9609375
     }
@@ -12654,7 +12654,7 @@
       "collectibleType": "questionmark-panel",
       "xPercentage": 51.34065934065934,
       "yPercentage": 30.703296703296704,
-      "youtubeLink": "1Z370k-VVT0"
+      "youtubeId": "1Z370k-VVT0"
     }
   },
   {
@@ -12668,7 +12668,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1010_MISSION_NAME",
-      "youtubeLink": "Kar_tCAeo7I",
+      "youtubeId": "Kar_tCAeo7I",
       "xPercentage": 53.9296875,
       "yPercentage": 36.4140625
     }
@@ -12684,7 +12684,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1011_MISSION_NAME",
-      "youtubeLink": "2VTy4YmoX6k",
+      "youtubeId": "2VTy4YmoX6k",
       "xPercentage": 54.28125,
       "yPercentage": 29.1875
     }
@@ -12709,7 +12709,7 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "1013_MISSION_NAME",
-      "youtubeLink": "uroYNvnmdIw",
+      "youtubeId": "uroYNvnmdIw",
       "xPercentage": 42.89453125,
       "yPercentage": 34.44921875
     }
@@ -13100,7 +13100,7 @@
     "instructions": "1056_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "6UhOhB93--s",
+      "youtubeId": "6UhOhB93--s",
       "xPercentage": 68.96875,
       "yPercentage": 67.94921875
     }
@@ -13113,7 +13113,7 @@
     "instructions": "1057_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "BnTR9Eb8sX0",
+      "youtubeId": "BnTR9Eb8sX0",
       "xPercentage": 30.94921875,
       "yPercentage": 72.6953125
     }
@@ -13126,7 +13126,7 @@
     "instructions": "1058_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "TiQ8JMsUdss",
+      "youtubeId": "TiQ8JMsUdss",
       "xPercentage": 73.125,
       "yPercentage": 67.61328125
     }
@@ -13139,7 +13139,7 @@
     "instructions": "1059_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Mgw2hTY3Yu4",
+      "youtubeId": "Mgw2hTY3Yu4",
       "xPercentage": 64.82421875,
       "yPercentage": 40.98828125
     }
@@ -13152,7 +13152,7 @@
     "instructions": "1060_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "cxnzWORSio8",
+      "youtubeId": "cxnzWORSio8",
       "xPercentage": 13.511718750000002,
       "yPercentage": 70.8984375
     }
@@ -13165,7 +13165,7 @@
     "instructions": "1061_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "acIoLqzPf2o",
+      "youtubeId": "acIoLqzPf2o",
       "xPercentage": 67.7890625,
       "yPercentage": 48.8671875
     }
@@ -13178,7 +13178,7 @@
     "instructions": "1062_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "UY0ZmDvgUdc",
+      "youtubeId": "UY0ZmDvgUdc",
       "xPercentage": 55.3359375,
       "yPercentage": 55.66015625
     }
@@ -13191,7 +13191,7 @@
     "instructions": "1063_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "YIeoCPWzfJE",
+      "youtubeId": "YIeoCPWzfJE",
       "xPercentage": 17.30859375,
       "yPercentage": 47.51171875
     }
@@ -13204,7 +13204,7 @@
     "instructions": "1064_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ZyAN8AOFPMs",
+      "youtubeId": "ZyAN8AOFPMs",
       "xPercentage": 16.60546875,
       "yPercentage": 51.3984375
     }
@@ -13217,7 +13217,7 @@
     "instructions": "1065_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "LA9aK9kojDI",
+      "youtubeId": "LA9aK9kojDI",
       "xPercentage": 41.5234375,
       "yPercentage": 55.55859375
     }
@@ -13230,7 +13230,7 @@
     "instructions": "1066_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "qvRCOZazywg",
+      "youtubeId": "qvRCOZazywg",
       "xPercentage": 63.7109375,
       "yPercentage": 70.2265625
     }
@@ -13243,7 +13243,7 @@
     "instructions": "1067_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "b57-SO_riQY",
+      "youtubeId": "b57-SO_riQY",
       "xPercentage": 34.984375,
       "yPercentage": 84.36328125
     }
@@ -13256,7 +13256,7 @@
     "instructions": "1068_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "7tWtbR6OGao",
+      "youtubeId": "7tWtbR6OGao",
       "xPercentage": 52.578125,
       "yPercentage": 81.21875
     }
@@ -13269,7 +13269,7 @@
     "instructions": "1069_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "qd1YEi22XCE",
+      "youtubeId": "qd1YEi22XCE",
       "xPercentage": 86.6953125,
       "yPercentage": 53.03125
     }
@@ -13282,7 +13282,7 @@
     "instructions": "1070_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ejJRvgRBjQs",
+      "youtubeId": "ejJRvgRBjQs",
       "xPercentage": 90.328125,
       "yPercentage": 72.40234375
     }
@@ -13295,7 +13295,7 @@
     "instructions": "1071_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Us3T1MQAsdQ",
+      "youtubeId": "Us3T1MQAsdQ",
       "xPercentage": 49.9296875,
       "yPercentage": 28.8828125
     }
@@ -13308,7 +13308,7 @@
     "instructions": "1072_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ycFobIzEZzk",
+      "youtubeId": "ycFobIzEZzk",
       "xPercentage": 43.9609375,
       "yPercentage": 31.515625
     }
@@ -13321,7 +13321,7 @@
     "instructions": "1073_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "aRvBnaLvpa0",
+      "youtubeId": "aRvBnaLvpa0",
       "xPercentage": 25.87109375,
       "yPercentage": 46.57421874999999
     }
@@ -13334,7 +13334,7 @@
     "instructions": "1074_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "CFNyl2CyiPE",
+      "youtubeId": "CFNyl2CyiPE",
       "xPercentage": 10.53515625,
       "yPercentage": 51.64453125
     }
@@ -13347,7 +13347,7 @@
     "instructions": "1075_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "NWr8HVdf2XI",
+      "youtubeId": "NWr8HVdf2XI",
       "xPercentage": 48,
       "yPercentage": 25.921875
     }
@@ -13360,7 +13360,7 @@
     "instructions": "1076_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "5QLX8cRVRlc",
+      "youtubeId": "5QLX8cRVRlc",
       "xPercentage": 41.4453125,
       "yPercentage": 36.6484375
     }
@@ -13373,7 +13373,7 @@
     "instructions": "1077_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "3y7RcOxIznk",
+      "youtubeId": "3y7RcOxIznk",
       "xPercentage": 33.91796875,
       "yPercentage": 47.875
     }
@@ -13386,7 +13386,7 @@
     "instructions": "1078_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "rpYdnb9-dsI",
+      "youtubeId": "rpYdnb9-dsI",
       "xPercentage": 74.75,
       "yPercentage": 46.78125
     }
@@ -13399,7 +13399,7 @@
     "instructions": "1079_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "PSvgTcDQ27Y",
+      "youtubeId": "PSvgTcDQ27Y",
       "xPercentage": 76.92578125,
       "yPercentage": 29.3828125
     }
@@ -13412,7 +13412,7 @@
     "instructions": "1080_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "jFlxTRPDiTY",
+      "youtubeId": "jFlxTRPDiTY",
       "xPercentage": 34.39453125,
       "yPercentage": 74.27734375
     }
@@ -13425,7 +13425,7 @@
     "instructions": "1081_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "fGyWRyqfWrQ",
+      "youtubeId": "fGyWRyqfWrQ",
       "xPercentage": 22.5,
       "yPercentage": 74.53125
     }
@@ -13438,7 +13438,7 @@
     "instructions": "1082_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ccYgdHEJm3k",
+      "youtubeId": "ccYgdHEJm3k",
       "xPercentage": 66.10546875,
       "yPercentage": 85.41015625
     }
@@ -13451,7 +13451,7 @@
     "instructions": "1083_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mXWzKSBzA5k",
+      "youtubeId": "mXWzKSBzA5k",
       "xPercentage": 70.91015625,
       "yPercentage": 81.8359375
     }
@@ -13464,7 +13464,7 @@
     "instructions": "1084_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "5LSErpkQuAg",
+      "youtubeId": "5LSErpkQuAg",
       "xPercentage": 87.2265625,
       "yPercentage": 46.76953124999999
     }
@@ -13477,7 +13477,7 @@
     "instructions": "1085_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "bj3WO2qNnXo",
+      "youtubeId": "bj3WO2qNnXo",
       "xPercentage": 33.03125,
       "yPercentage": 78.4296875
     }
@@ -13490,7 +13490,7 @@
     "instructions": "1086_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "kqqgg4Mq_7w",
+      "youtubeId": "kqqgg4Mq_7w",
       "xPercentage": 39.5625,
       "yPercentage": 62.515625
     }
@@ -13503,7 +13503,7 @@
     "instructions": "1087_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "wq8H4OHN-Vg",
+      "youtubeId": "wq8H4OHN-Vg",
       "xPercentage": 54.296875,
       "yPercentage": 17.37109375
     }
@@ -13516,7 +13516,7 @@
     "instructions": "1088_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "r6_CKmEjnK0",
+      "youtubeId": "r6_CKmEjnK0",
       "xPercentage": 50.08203125,
       "yPercentage": 15.6171875
     }
@@ -13529,7 +13529,7 @@
     "instructions": "1089_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "iMqAsc0Cu-A",
+      "youtubeId": "iMqAsc0Cu-A",
       "xPercentage": 48.046875,
       "yPercentage": 27.71484375
     }
@@ -13542,7 +13542,7 @@
     "instructions": "1090_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "b3ABJNJS_Ic",
+      "youtubeId": "b3ABJNJS_Ic",
       "xPercentage": 26.871093750000004,
       "yPercentage": 24.50390625
     }
@@ -13555,7 +13555,7 @@
     "instructions": "1091_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "tKJp9WwgAaU",
+      "youtubeId": "tKJp9WwgAaU",
       "xPercentage": 37.76171875,
       "yPercentage": 46.75
     }
@@ -13568,7 +13568,7 @@
     "instructions": "1092_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "BbNkd2eHYEA",
+      "youtubeId": "BbNkd2eHYEA",
       "xPercentage": 26.05078125,
       "yPercentage": 48.984375
     }
@@ -13581,7 +13581,7 @@
     "instructions": "1093_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mhZAzYpHLK0",
+      "youtubeId": "mhZAzYpHLK0",
       "xPercentage": 13.08984375,
       "yPercentage": 49.78515624999999
     }
@@ -13594,7 +13594,7 @@
     "instructions": "1094_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "lCJeHepteZM",
+      "youtubeId": "lCJeHepteZM",
       "xPercentage": 24.33984375,
       "yPercentage": 79.171875
     }
@@ -13607,7 +13607,7 @@
     "instructions": "1095_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "1gPxXJHprzg",
+      "youtubeId": "1gPxXJHprzg",
       "xPercentage": 22.05078125,
       "yPercentage": 61.12890625
     }
@@ -13620,7 +13620,7 @@
     "instructions": "1096_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "zpcDTbINR0w",
+      "youtubeId": "zpcDTbINR0w",
       "xPercentage": 22.72265625,
       "yPercentage": 80.6484375
     }
@@ -13633,7 +13633,7 @@
     "instructions": "1097_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "9yL_ESINnS0",
+      "youtubeId": "9yL_ESINnS0",
       "xPercentage": 41.015625,
       "yPercentage": 69.03125
     }
@@ -13646,7 +13646,7 @@
     "instructions": "1098_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "xVmt5LnYlyA",
+      "youtubeId": "xVmt5LnYlyA",
       "xPercentage": 36.87109375,
       "yPercentage": 73.078125
     }
@@ -13659,7 +13659,7 @@
     "instructions": "1099_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "RTDnZrDTUZQ",
+      "youtubeId": "RTDnZrDTUZQ",
       "xPercentage": 40.3515625,
       "yPercentage": 28.2109375
     }
@@ -13672,7 +13672,7 @@
     "instructions": "1100_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mYt1Tpfb_I8",
+      "youtubeId": "mYt1Tpfb_I8",
       "xPercentage": 50.60546875000001,
       "yPercentage": 16.421875
     }
@@ -13685,7 +13685,7 @@
     "instructions": "1101_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "IlM4qCSr2X8",
+      "youtubeId": "IlM4qCSr2X8",
       "xPercentage": 53.63671875,
       "yPercentage": 37.18749999999999
     }
@@ -13698,7 +13698,7 @@
     "instructions": "1102_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "1eFQbvltI1M",
+      "youtubeId": "1eFQbvltI1M",
       "xPercentage": 52.52734375,
       "yPercentage": 39.94921875000001
     }
@@ -13711,7 +13711,7 @@
     "instructions": "1103_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "0qqrNCeCyj0",
+      "youtubeId": "0qqrNCeCyj0",
       "xPercentage": 7.98046875,
       "yPercentage": 53.64453125
     }
@@ -13724,7 +13724,7 @@
     "instructions": "1104_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Uw1PK9dyfZc",
+      "youtubeId": "Uw1PK9dyfZc",
       "xPercentage": 10.45703125,
       "yPercentage": 64.9921875
     }
@@ -13737,7 +13737,7 @@
     "instructions": "1105_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "xV-L0HLcMw8",
+      "youtubeId": "xV-L0HLcMw8",
       "xPercentage": 43.44921875,
       "yPercentage": 48.88281249999999
     }
@@ -13750,7 +13750,7 @@
     "instructions": "1106_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "oTFWJR3mhbI",
+      "youtubeId": "oTFWJR3mhbI",
       "xPercentage": 47.31640625,
       "yPercentage": 46.41796875000001
     }
@@ -13763,7 +13763,7 @@
     "instructions": "1107_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "_UGgi6JwKMA",
+      "youtubeId": "_UGgi6JwKMA",
       "xPercentage": 77.98828125,
       "yPercentage": 70.49609375
     }
@@ -13776,7 +13776,7 @@
     "instructions": "1108_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "VbdjL0wavEI",
+      "youtubeId": "VbdjL0wavEI",
       "xPercentage": 29.42578125,
       "yPercentage": 60.796875
     }
@@ -13789,7 +13789,7 @@
     "instructions": "1109_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Q0fPC3ZQWvk",
+      "youtubeId": "Q0fPC3ZQWvk",
       "xPercentage": 30.820312500000004,
       "yPercentage": 81.80078125
     }
@@ -13802,7 +13802,7 @@
     "instructions": "1110_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "NBblPkIXXgg",
+      "youtubeId": "NBblPkIXXgg",
       "xPercentage": 27.10546875,
       "yPercentage": 60.6171875
     }
@@ -13815,7 +13815,7 @@
     "instructions": "1111_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "yfUwhBEPF1U",
+      "youtubeId": "yfUwhBEPF1U",
       "xPercentage": 39.671875,
       "yPercentage": 88.53515625
     }
@@ -13828,7 +13828,7 @@
     "instructions": "1112_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "53O6F6jL9yI",
+      "youtubeId": "53O6F6jL9yI",
       "xPercentage": 51.390625,
       "yPercentage": 73.44921875
     }
@@ -13841,7 +13841,7 @@
     "instructions": "1113_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "iHpb090zjqo",
+      "youtubeId": "iHpb090zjqo",
       "xPercentage": 60.09375,
       "yPercentage": 72.375
     }
@@ -13854,7 +13854,7 @@
     "instructions": "1114_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "xLgL1dBxV-Q",
+      "youtubeId": "xLgL1dBxV-Q",
       "xPercentage": 56.8203125,
       "yPercentage": 80.76953125
     }
@@ -13867,7 +13867,7 @@
     "instructions": "1115_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Nhutvr_i78c",
+      "youtubeId": "Nhutvr_i78c",
       "xPercentage": 65.6953125,
       "yPercentage": 52.06640625
     }
@@ -13880,7 +13880,7 @@
     "instructions": "1116_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "gYfzRcjfTrY",
+      "youtubeId": "gYfzRcjfTrY",
       "xPercentage": 63.98046875,
       "yPercentage": 38.4296875
     }
@@ -13893,7 +13893,7 @@
     "instructions": "1117_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "TQLlBt4oL0c",
+      "youtubeId": "TQLlBt4oL0c",
       "xPercentage": 78.30859375,
       "yPercentage": 72.90234375
     }
@@ -13906,7 +13906,7 @@
     "instructions": "1118_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "DxZg7bdbR9s",
+      "youtubeId": "DxZg7bdbR9s",
       "xPercentage": 70.2109375,
       "yPercentage": 43.984375
     }
@@ -13919,7 +13919,7 @@
     "instructions": "1119_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "nMdQKweAgTk",
+      "youtubeId": "nMdQKweAgTk",
       "xPercentage": 72.2421875,
       "yPercentage": 40.98437499999999
     }
@@ -13932,7 +13932,7 @@
     "instructions": "1120_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "hpBIDdu-3h8",
+      "youtubeId": "hpBIDdu-3h8",
       "xPercentage": 67.3671875,
       "yPercentage": 28.640625
     }
@@ -13945,7 +13945,7 @@
     "instructions": "1121_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "uHGMIhVmPos",
+      "youtubeId": "uHGMIhVmPos",
       "xPercentage": 65.12890625,
       "yPercentage": 24.21484375
     }
@@ -13958,7 +13958,7 @@
     "instructions": "1122_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "kzv7pd1FzGs",
+      "youtubeId": "kzv7pd1FzGs",
       "xPercentage": 58.60546875,
       "yPercentage": 28.90234375
     }
@@ -13971,7 +13971,7 @@
     "instructions": "1123_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "GW98-kyBfIE",
+      "youtubeId": "GW98-kyBfIE",
       "xPercentage": 47.84765625,
       "yPercentage": 29.3125
     }
@@ -13984,7 +13984,7 @@
     "instructions": "1124_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "17plZzP9ehs",
+      "youtubeId": "17plZzP9ehs",
       "xPercentage": 53.859375,
       "yPercentage": 29.12890625
     }
@@ -13997,7 +13997,7 @@
     "instructions": "1125_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "KJdT5H0y52w",
+      "youtubeId": "KJdT5H0y52w",
       "xPercentage": 47.625,
       "yPercentage": 33.03125
     }
@@ -14010,7 +14010,7 @@
     "instructions": "1126_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ik9SUogTeTU",
+      "youtubeId": "ik9SUogTeTU",
       "xPercentage": 37.83984375,
       "yPercentage": 42.67578125
     }
@@ -14023,7 +14023,7 @@
     "instructions": "1127_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Fd4U8C150jU",
+      "youtubeId": "Fd4U8C150jU",
       "xPercentage": 28.238281250000004,
       "yPercentage": 40.125
     }
@@ -14036,7 +14036,7 @@
     "instructions": "1128_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "HZjR3xUV5lE",
+      "youtubeId": "HZjR3xUV5lE",
       "xPercentage": 38.13671875,
       "yPercentage": 38.94140625
     }
@@ -14049,7 +14049,7 @@
     "instructions": "1129_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Zdoh-HMjOgM",
+      "youtubeId": "Zdoh-HMjOgM",
       "xPercentage": 24.6875,
       "yPercentage": 35.12109375
     }
@@ -14062,7 +14062,7 @@
     "instructions": "1130_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "2qVt2l29r7g",
+      "youtubeId": "2qVt2l29r7g",
       "xPercentage": 27.87890625,
       "yPercentage": 43.52734375
     }
@@ -14075,7 +14075,7 @@
     "instructions": "1131_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "KFlNlQHEzEE",
+      "youtubeId": "KFlNlQHEzEE",
       "xPercentage": 74.67578125,
       "yPercentage": 30.25390625
     }
@@ -14088,7 +14088,7 @@
     "instructions": "1132_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Nj1pmMF0XBo",
+      "youtubeId": "Nj1pmMF0XBo",
       "xPercentage": 67.71484375,
       "yPercentage": 25.6875
     }
@@ -14101,7 +14101,7 @@
     "instructions": "1133_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "_oaXvoAnZSo",
+      "youtubeId": "_oaXvoAnZSo",
       "xPercentage": 70.48828125,
       "yPercentage": 60.26953125
     }
@@ -14114,7 +14114,7 @@
     "instructions": "1134_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "",
+      "youtubeId": "",
       "xPercentage": 50.6015625,
       "yPercentage": 20.8125
     }
@@ -14127,7 +14127,7 @@
     "instructions": "1135_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "FtxOb8EwF44",
+      "youtubeId": "FtxOb8EwF44",
       "xPercentage": 76.1796875,
       "yPercentage": 28.75390625
     }
@@ -14140,7 +14140,7 @@
     "instructions": "1136_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "iEBMx1j42rg",
+      "youtubeId": "iEBMx1j42rg",
       "xPercentage": 77.5234375,
       "yPercentage": 31.625
     }
@@ -14153,7 +14153,7 @@
     "instructions": "1137_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "70KMsuKUUXs",
+      "youtubeId": "70KMsuKUUXs",
       "xPercentage": 75.96484375,
       "yPercentage": 45.3984375
     }
@@ -14166,7 +14166,7 @@
     "instructions": "1138_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "wrd1aCopvoQ",
+      "youtubeId": "wrd1aCopvoQ",
       "xPercentage": 30.796875,
       "yPercentage": 37.96484375
     }
@@ -14179,7 +14179,7 @@
     "instructions": "1139_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "FFGQ8Xl9AKE",
+      "youtubeId": "FFGQ8Xl9AKE",
       "xPercentage": 47.51171875,
       "yPercentage": 38.0234375
     }
@@ -14192,7 +14192,7 @@
     "instructions": "1140_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "KsnaExhyVU0",
+      "youtubeId": "KsnaExhyVU0",
       "xPercentage": 47.52734375,
       "yPercentage": 44.69921875
     }
@@ -14205,7 +14205,7 @@
     "instructions": "1141_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "HEGOG_KAoyc",
+      "youtubeId": "HEGOG_KAoyc",
       "xPercentage": 11.2578125,
       "yPercentage": 70.48046875
     }
@@ -14218,7 +14218,7 @@
     "instructions": "1142_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "nNvsaUCWSYs",
+      "youtubeId": "nNvsaUCWSYs",
       "xPercentage": 40.375,
       "yPercentage": 23.0625
     }
@@ -14231,7 +14231,7 @@
     "instructions": "1143_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "FLmCVVO0oDI",
+      "youtubeId": "FLmCVVO0oDI",
       "xPercentage": 40.32421875,
       "yPercentage": 49.29687499999999
     }
@@ -14244,7 +14244,7 @@
     "instructions": "1144_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "No26r0ead08",
+      "youtubeId": "No26r0ead08",
       "xPercentage": 45.51171875,
       "yPercentage": 57.953125
     }
@@ -14257,7 +14257,7 @@
     "instructions": "1145_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "o2hoGkV27zo",
+      "youtubeId": "o2hoGkV27zo",
       "xPercentage": 40.0390625,
       "yPercentage": 51.8828125
     }
@@ -14270,7 +14270,7 @@
     "instructions": "1146_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Kbc1bHSvHAI",
+      "youtubeId": "Kbc1bHSvHAI",
       "xPercentage": 38.734375,
       "yPercentage": 52.28515625
     }
@@ -14283,7 +14283,7 @@
     "instructions": "1147_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "W3-yjA5Oz5c",
+      "youtubeId": "W3-yjA5Oz5c",
       "xPercentage": 60.4453125,
       "yPercentage": 67.46484375
     }
@@ -14296,7 +14296,7 @@
     "instructions": "1148_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "gwISzXwv3Tk",
+      "youtubeId": "gwISzXwv3Tk",
       "xPercentage": 64.94140625,
       "yPercentage": 86.796875
     }
@@ -14309,7 +14309,7 @@
     "instructions": "1149_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "1WO3PzPbXC4",
+      "youtubeId": "1WO3PzPbXC4",
       "xPercentage": 25.7578125,
       "yPercentage": 75.25
     }
@@ -14322,7 +14322,7 @@
     "instructions": "1150_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "1eJzGY_VCzQ",
+      "youtubeId": "1eJzGY_VCzQ",
       "xPercentage": 77.90625,
       "yPercentage": 47.55859375
     }
@@ -14335,7 +14335,7 @@
     "instructions": "1151_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "i7HWfXkt7e8",
+      "youtubeId": "i7HWfXkt7e8",
       "xPercentage": 18.94921875,
       "yPercentage": 49.91796875
     }
@@ -14348,7 +14348,7 @@
     "instructions": "1152_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "rcI85ezE9nE",
+      "youtubeId": "rcI85ezE9nE",
       "xPercentage": 15.65234375,
       "yPercentage": 45.875
     }
@@ -14361,7 +14361,7 @@
     "instructions": "1153_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "3r_LSVisslo",
+      "youtubeId": "3r_LSVisslo",
       "xPercentage": 11.6796875,
       "yPercentage": 53.37890625
     }
@@ -14374,7 +14374,7 @@
     "instructions": "1154_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "KbKPxCK3zp4",
+      "youtubeId": "KbKPxCK3zp4",
       "xPercentage": 14.66015625,
       "yPercentage": 65.078125
     }
@@ -14387,7 +14387,7 @@
     "instructions": "1155_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "55I4YRE-nqg",
+      "youtubeId": "55I4YRE-nqg",
       "xPercentage": 87.62890625,
       "yPercentage": 38.51953125000001
     }
@@ -14400,7 +14400,7 @@
     "instructions": "1156_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "3pr9t_mvS1w",
+      "youtubeId": "3pr9t_mvS1w",
       "xPercentage": 87.40625,
       "yPercentage": 69.765625
     }
@@ -14413,7 +14413,7 @@
     "instructions": "1157_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "qwW1njiJ1jQ",
+      "youtubeId": "qwW1njiJ1jQ",
       "xPercentage": 37.5859375,
       "yPercentage": 84.12890625
     }
@@ -14426,7 +14426,7 @@
     "instructions": "1158_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "EM46l91Hv2c",
+      "youtubeId": "EM46l91Hv2c",
       "xPercentage": 51.19921875,
       "yPercentage": 59.984375
     }
@@ -14439,7 +14439,7 @@
     "instructions": "1159_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "n4PqAx-1HYc",
+      "youtubeId": "n4PqAx-1HYc",
       "xPercentage": 62.55078125,
       "yPercentage": 69.71484375
     }
@@ -14452,7 +14452,7 @@
     "instructions": "1160_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mHm54tV69K0",
+      "youtubeId": "mHm54tV69K0",
       "xPercentage": 14.015625000000002,
       "yPercentage": 36.23828125000001
     }
@@ -14465,7 +14465,7 @@
     "instructions": "1161_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ysgoOrsZdhA",
+      "youtubeId": "ysgoOrsZdhA",
       "xPercentage": 65.5703125,
       "yPercentage": 53.890625
     }
@@ -14478,7 +14478,7 @@
     "instructions": "1162_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "tor4J4Zl3K8",
+      "youtubeId": "tor4J4Zl3K8",
       "xPercentage": 66.265625,
       "yPercentage": 20.23828125
     }
@@ -14491,7 +14491,7 @@
     "instructions": "1163_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "39vgIE-VdD8",
+      "youtubeId": "39vgIE-VdD8",
       "xPercentage": 40.3984375,
       "yPercentage": 21.9375
     }
@@ -14504,7 +14504,7 @@
     "instructions": "1164_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "-JAPicHxgvI",
+      "youtubeId": "-JAPicHxgvI",
       "xPercentage": 52.08984375,
       "yPercentage": 31.3125
     }
@@ -14517,7 +14517,7 @@
     "instructions": "1165_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "jnvwqEzkeOQ",
+      "youtubeId": "jnvwqEzkeOQ",
       "xPercentage": 88.9453125,
       "yPercentage": 54.25390625
     }
@@ -14530,7 +14530,7 @@
     "instructions": "1166_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "UIh0P5mAs-w",
+      "youtubeId": "UIh0P5mAs-w",
       "xPercentage": 50.41015625000001,
       "yPercentage": 30
     }
@@ -14543,7 +14543,7 @@
     "instructions": "1167_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "oUqRWg77bYs",
+      "youtubeId": "oUqRWg77bYs",
       "xPercentage": 39.7109375,
       "yPercentage": 38.51953125000001
     }
@@ -14556,7 +14556,7 @@
     "instructions": "1168_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mpFXjQBjENg",
+      "youtubeId": "mpFXjQBjENg",
       "xPercentage": 66.51953125,
       "yPercentage": 21.671875
     }
@@ -14569,7 +14569,7 @@
     "instructions": "1169_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "xOUQh5hjN8c",
+      "youtubeId": "xOUQh5hjN8c",
       "xPercentage": 51.24609375,
       "yPercentage": 61.734375
     }
@@ -14582,7 +14582,7 @@
     "instructions": "1170_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "4FtoQCnEPrQ",
+      "youtubeId": "4FtoQCnEPrQ",
       "xPercentage": 8.4609375,
       "yPercentage": 49.546875
     }
@@ -14595,7 +14595,7 @@
     "instructions": "1171_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "TswI8S6cuEA",
+      "youtubeId": "TswI8S6cuEA",
       "xPercentage": 78.5625,
       "yPercentage": 81.65625
     }
@@ -14608,7 +14608,7 @@
     "instructions": "1172_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ydaqOEu3No8",
+      "youtubeId": "ydaqOEu3No8",
       "xPercentage": 81.06640625,
       "yPercentage": 81.01953125
     }
@@ -14621,7 +14621,7 @@
     "instructions": "1173_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Qtd69kVUdu0",
+      "youtubeId": "Qtd69kVUdu0",
       "xPercentage": 24.046875,
       "yPercentage": 62.0234375
     }
@@ -14634,7 +14634,7 @@
     "instructions": "1174_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "0p5DYV0_Zzo",
+      "youtubeId": "0p5DYV0_Zzo",
       "xPercentage": 27.99609375,
       "yPercentage": 23.65625
     }
@@ -14647,7 +14647,7 @@
     "instructions": "1175_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ozKOrsWsj-U",
+      "youtubeId": "ozKOrsWsj-U",
       "xPercentage": 13.59765625,
       "yPercentage": 34.91796875
     }
@@ -14660,7 +14660,7 @@
     "instructions": "1176_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "pe845TILHEU",
+      "youtubeId": "pe845TILHEU",
       "xPercentage": 87.36328125,
       "yPercentage": 36.98828125
     }
@@ -14673,7 +14673,7 @@
     "instructions": "1177_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "vSN1kp_k1OY",
+      "youtubeId": "vSN1kp_k1OY",
       "xPercentage": 50.74609375,
       "yPercentage": 78.25390625
     }
@@ -14686,7 +14686,7 @@
     "instructions": "1178_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "h5D6YQtGU_I",
+      "youtubeId": "h5D6YQtGU_I",
       "xPercentage": 37.97265625,
       "yPercentage": 73.33984375
     }
@@ -14699,7 +14699,7 @@
     "instructions": "1179_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "YveBqAwM5q4",
+      "youtubeId": "YveBqAwM5q4",
       "xPercentage": 75.8125,
       "yPercentage": 61.8359375
     }
@@ -14712,7 +14712,7 @@
     "instructions": "1180_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ekWBOdK7xTo",
+      "youtubeId": "ekWBOdK7xTo",
       "xPercentage": 77.36328125,
       "yPercentage": 60.9296875
     }
@@ -14725,7 +14725,7 @@
     "instructions": "1181_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "V5ohdcgm7ME",
+      "youtubeId": "V5ohdcgm7ME",
       "xPercentage": 79.06640625,
       "yPercentage": 64.06640625
     }
@@ -14738,7 +14738,7 @@
     "instructions": "1182_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "_3C73VeNT2Q",
+      "youtubeId": "_3C73VeNT2Q",
       "xPercentage": 62.76171874999999,
       "yPercentage": 79.08984375
     }
@@ -14751,7 +14751,7 @@
     "instructions": "1183_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "15VVCIA2oCw",
+      "youtubeId": "15VVCIA2oCw",
       "xPercentage": 62,
       "yPercentage": 87.2890625
     }
@@ -14764,7 +14764,7 @@
     "instructions": "1184_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "2cNTyMxvWoY",
+      "youtubeId": "2cNTyMxvWoY",
       "xPercentage": 72.2109375,
       "yPercentage": 77.53125
     }
@@ -14777,7 +14777,7 @@
     "instructions": "1185_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mPjzqSsgSKk",
+      "youtubeId": "mPjzqSsgSKk",
       "xPercentage": 82.34375,
       "yPercentage": 53.47265625
     }
@@ -14790,7 +14790,7 @@
     "instructions": "1186_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "OP2ZJErE5bM",
+      "youtubeId": "OP2ZJErE5bM",
       "xPercentage": 83.73046875,
       "yPercentage": 54.1015625
     }
@@ -14803,7 +14803,7 @@
     "instructions": "1187_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "BYQQMLy0Ytk",
+      "youtubeId": "BYQQMLy0Ytk",
       "xPercentage": 28.796875,
       "yPercentage": 25.4375
     }
@@ -14816,7 +14816,7 @@
     "instructions": "1188_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "DgcmBhv-cJk",
+      "youtubeId": "DgcmBhv-cJk",
       "xPercentage": 73.78515625,
       "yPercentage": 57.14453125
     }
@@ -14829,7 +14829,7 @@
     "instructions": "1189_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "FuXSlTXU0x8",
+      "youtubeId": "FuXSlTXU0x8",
       "xPercentage": 72.328125,
       "yPercentage": 59.5078125
     }
@@ -14842,7 +14842,7 @@
     "instructions": "1190_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "RVvAjlyON3M",
+      "youtubeId": "RVvAjlyON3M",
       "xPercentage": 61.19921874999999,
       "yPercentage": 59.5078125
     }
@@ -14855,7 +14855,7 @@
     "instructions": "1191_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "5w892bJIkFc",
+      "youtubeId": "5w892bJIkFc",
       "xPercentage": 50.4921875,
       "yPercentage": 50.0546875
     }
@@ -14868,7 +14868,7 @@
     "instructions": "1192_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "eAymd1Yb5gs",
+      "youtubeId": "eAymd1Yb5gs",
       "xPercentage": 58.79687500000001,
       "yPercentage": 70.51953125
     }
@@ -14881,7 +14881,7 @@
     "instructions": "1193_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "7ELA7n1CeiU",
+      "youtubeId": "7ELA7n1CeiU",
       "xPercentage": 58.43359375,
       "yPercentage": 68.2890625
     }
@@ -14894,7 +14894,7 @@
     "instructions": "1194_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "iuNs_d3Et4o",
+      "youtubeId": "iuNs_d3Et4o",
       "xPercentage": 28.4609375,
       "yPercentage": 43.30468750000001
     }
@@ -14907,7 +14907,7 @@
     "instructions": "1195_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "r6zrtSW2UQc",
+      "youtubeId": "r6zrtSW2UQc",
       "xPercentage": 51.12890624999999,
       "yPercentage": 51.48828125
     }
@@ -14920,7 +14920,7 @@
     "instructions": "1196_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "yxkl0GDmXVA",
+      "youtubeId": "yxkl0GDmXVA",
       "xPercentage": 51.06640624999999,
       "yPercentage": 54.15625
     }
@@ -14933,7 +14933,7 @@
     "instructions": "1197_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "9nAD8ejuz1s",
+      "youtubeId": "9nAD8ejuz1s",
       "xPercentage": 64.6640625,
       "yPercentage": 58.76953125
     }
@@ -14946,7 +14946,7 @@
     "instructions": "1198_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "DLgtYUyMhcg",
+      "youtubeId": "DLgtYUyMhcg",
       "xPercentage": 75.18359375,
       "yPercentage": 39.52734375
     }
@@ -14959,7 +14959,7 @@
     "instructions": "1199_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "y2Eqyirr1co",
+      "youtubeId": "y2Eqyirr1co",
       "xPercentage": 59.19921875000001,
       "yPercentage": 64.4375
     }
@@ -14972,7 +14972,7 @@
     "instructions": "1200_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "tjqm2pV81OM",
+      "youtubeId": "tjqm2pV81OM",
       "xPercentage": 57.19921875,
       "yPercentage": 32.37109375
     }
@@ -14985,7 +14985,7 @@
     "instructions": "1201_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "nYffFypSuUI",
+      "youtubeId": "nYffFypSuUI",
       "xPercentage": 25.582031249999996,
       "yPercentage": 52.859375
     }
@@ -14998,7 +14998,7 @@
     "instructions": "1202_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "JE4KNcnY_DY",
+      "youtubeId": "JE4KNcnY_DY",
       "xPercentage": 50.796875,
       "yPercentage": 45.96875
     }
@@ -15011,7 +15011,7 @@
     "instructions": "1203_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "5MXbBe5vP0A",
+      "youtubeId": "5MXbBe5vP0A",
       "xPercentage": 38.6640625,
       "yPercentage": 20.171875
     }
@@ -15024,7 +15024,7 @@
     "instructions": "1204_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "2Z4h1TeYS_M",
+      "youtubeId": "2Z4h1TeYS_M",
       "xPercentage": 63.33203125,
       "yPercentage": 56.0390625
     }
@@ -15037,7 +15037,7 @@
     "instructions": "1205_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "emQfOeT_5kQ",
+      "youtubeId": "emQfOeT_5kQ",
       "xPercentage": 66.1171875,
       "yPercentage": 62.92578125
     }
@@ -15050,7 +15050,7 @@
     "instructions": "1206_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "sAJA0PVkZ2M",
+      "youtubeId": "sAJA0PVkZ2M",
       "xPercentage": 53.04687500000001,
       "yPercentage": 24.4609375
     }
@@ -15063,7 +15063,7 @@
     "instructions": "1207_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "0i98vXUvRnM",
+      "youtubeId": "0i98vXUvRnM",
       "xPercentage": 66.3984375,
       "yPercentage": 52.97265625
     }
@@ -15076,7 +15076,7 @@
     "instructions": "1208_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "AXldi3IxK2I",
+      "youtubeId": "AXldi3IxK2I",
       "xPercentage": 82.99609375,
       "yPercentage": 36.57421875
     }
@@ -15089,7 +15089,7 @@
     "instructions": "1209_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "tbqlwARQxAs",
+      "youtubeId": "tbqlwARQxAs",
       "xPercentage": 81.84765625,
       "yPercentage": 80.5546875
     }
@@ -15102,7 +15102,7 @@
     "instructions": "1210_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "VKo-jVKOd2M",
+      "youtubeId": "VKo-jVKOd2M",
       "xPercentage": 22.38671875,
       "yPercentage": 70.53125
     }
@@ -15115,7 +15115,7 @@
     "instructions": "1211_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "bqQCp1f5DCM",
+      "youtubeId": "bqQCp1f5DCM",
       "xPercentage": 41.78125,
       "yPercentage": 63.10546875
     }
@@ -15128,7 +15128,7 @@
     "instructions": "1212_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "NNxRyuGyhH0",
+      "youtubeId": "NNxRyuGyhH0",
       "xPercentage": 71.86328125,
       "yPercentage": 33.015625
     }
@@ -15141,7 +15141,7 @@
     "instructions": "1213_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "qvH_8zlM9og",
+      "youtubeId": "qvH_8zlM9og",
       "xPercentage": 61.84765625000001,
       "yPercentage": 43.4296875
     }
@@ -15154,7 +15154,7 @@
     "instructions": "1214_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "PQtbE3QsRZQ",
+      "youtubeId": "PQtbE3QsRZQ",
       "xPercentage": 30.179687500000004,
       "yPercentage": 86.01953125
     }
@@ -15167,7 +15167,7 @@
     "instructions": "1215_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "ZNq6uf0mHDY",
+      "youtubeId": "ZNq6uf0mHDY",
       "xPercentage": 15.3203125,
       "yPercentage": 58.8671875
     }
@@ -15180,7 +15180,7 @@
     "instructions": "1216_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "X2h0D_21xfQ",
+      "youtubeId": "X2h0D_21xfQ",
       "xPercentage": 38.77734375,
       "yPercentage": 72.13671875
     }
@@ -15193,7 +15193,7 @@
     "instructions": "1217_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "n3q5eaeSmbk",
+      "youtubeId": "n3q5eaeSmbk",
       "xPercentage": 59.62109375,
       "yPercentage": 22.46484375
     }
@@ -15206,7 +15206,7 @@
     "instructions": "1218_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Qa-FOPWPgTs",
+      "youtubeId": "Qa-FOPWPgTs",
       "xPercentage": 17.65234375,
       "yPercentage": 70.69921875
     }
@@ -15219,7 +15219,7 @@
     "instructions": "1219_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "W7t-qsXTFwQ",
+      "youtubeId": "W7t-qsXTFwQ",
       "xPercentage": 40.41796875,
       "yPercentage": 67.56640625
     }
@@ -15232,7 +15232,7 @@
     "instructions": "1220_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "FJpb2R87DV0",
+      "youtubeId": "FJpb2R87DV0",
       "xPercentage": 15.058593749999998,
       "yPercentage": 69.3828125
     }
@@ -15245,7 +15245,7 @@
     "instructions": "1221_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mAx7Dd0-kpg",
+      "youtubeId": "mAx7Dd0-kpg",
       "xPercentage": 70.37109375,
       "yPercentage": 80.56640625
     }
@@ -15258,7 +15258,7 @@
     "instructions": "1222_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "W37d22EKSIE",
+      "youtubeId": "W37d22EKSIE",
       "xPercentage": 72.765625,
       "yPercentage": 38.72265625
     }
@@ -15271,7 +15271,7 @@
     "instructions": "1223_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "fHMXdFd-UlU",
+      "youtubeId": "fHMXdFd-UlU",
       "xPercentage": 57.56250000000001,
       "yPercentage": 62.6796875
     }
@@ -15284,7 +15284,7 @@
     "instructions": "1224_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "rrE5krFiddQ",
+      "youtubeId": "rrE5krFiddQ",
       "xPercentage": 34.51171875,
       "yPercentage": 50.02734375
     }
@@ -15297,7 +15297,7 @@
     "instructions": "1225_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "gMaVZwUR1bQ",
+      "youtubeId": "gMaVZwUR1bQ",
       "xPercentage": 38.2421875,
       "yPercentage": 40.81249999999999
     }
@@ -15310,7 +15310,7 @@
     "instructions": "1226_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "AdE7yI80igA",
+      "youtubeId": "AdE7yI80igA",
       "xPercentage": 29.0234375,
       "yPercentage": 72.0234375
     }
@@ -15323,7 +15323,7 @@
     "instructions": "1227_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "sWyAA0Isk5w",
+      "youtubeId": "sWyAA0Isk5w",
       "xPercentage": 72.16796875,
       "yPercentage": 53.5390625
     }
@@ -15336,7 +15336,7 @@
     "instructions": "1228_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "o2PWpqgLkDg",
+      "youtubeId": "o2PWpqgLkDg",
       "xPercentage": 52.29296875,
       "yPercentage": 21.546875
     }
@@ -15349,7 +15349,7 @@
     "instructions": "1229_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "rTf67cOphBY",
+      "youtubeId": "rTf67cOphBY",
       "xPercentage": 55.0546875,
       "yPercentage": 65.9921875
     }
@@ -15362,7 +15362,7 @@
     "instructions": "1230_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "osW9N9eoxJo",
+      "youtubeId": "osW9N9eoxJo",
       "xPercentage": 40.078125,
       "yPercentage": 84.2734375
     }
@@ -15375,7 +15375,7 @@
     "instructions": "1231_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "gUOHlnBSEs4",
+      "youtubeId": "gUOHlnBSEs4",
       "xPercentage": 56.984375,
       "yPercentage": 24.125
     }
@@ -15388,7 +15388,7 @@
     "instructions": "1232_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "TFc9d-PT00w",
+      "youtubeId": "TFc9d-PT00w",
       "xPercentage": 31.9453125,
       "yPercentage": 61.55859375
     }
@@ -15401,7 +15401,7 @@
     "instructions": "1233_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "nqzlVPA2yXU",
+      "youtubeId": "nqzlVPA2yXU",
       "xPercentage": 14.953125,
       "yPercentage": 39.39843750000001
     }
@@ -15414,7 +15414,7 @@
     "instructions": "1234_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "mK8nobCYVLU",
+      "youtubeId": "mK8nobCYVLU",
       "xPercentage": 11.66796875,
       "yPercentage": 50.8828125
     }
@@ -15427,7 +15427,7 @@
     "instructions": "1235_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "FmJaw8eDwaU",
+      "youtubeId": "FmJaw8eDwaU",
       "xPercentage": 88.46875,
       "yPercentage": 53.1015625
     }
@@ -15440,7 +15440,7 @@
     "instructions": "1236_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "-URBkqqIp9k",
+      "youtubeId": "-URBkqqIp9k",
       "xPercentage": 79.08984375,
       "yPercentage": 66.78125
     }
@@ -15453,7 +15453,7 @@
     "instructions": "1237_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "RpgOzohImDU",
+      "youtubeId": "RpgOzohImDU",
       "xPercentage": 35.265625,
       "yPercentage": 39.1953125
     }
@@ -15466,7 +15466,7 @@
     "instructions": "1238_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "a34bFi6dr4g",
+      "youtubeId": "a34bFi6dr4g",
       "xPercentage": 62.6796875,
       "yPercentage": 80.19921875
     }
@@ -15479,7 +15479,7 @@
     "instructions": "1239_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "CUz8LidNNqM",
+      "youtubeId": "CUz8LidNNqM",
       "xPercentage": 35.9765625,
       "yPercentage": 53.91015625
     }
@@ -15492,7 +15492,7 @@
     "instructions": "1240_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "PZNBFvMha8Y",
+      "youtubeId": "PZNBFvMha8Y",
       "xPercentage": 63.578125,
       "yPercentage": 44.65234375
     }
@@ -15505,7 +15505,7 @@
     "instructions": "1241_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "AGNpoL2mCsE",
+      "youtubeId": "AGNpoL2mCsE",
       "xPercentage": 37.34765625,
       "yPercentage": 34.0859375
     }
@@ -15518,7 +15518,7 @@
     "instructions": "1242_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "07aVqRbfS2o",
+      "youtubeId": "07aVqRbfS2o",
       "xPercentage": 33.86328125,
       "yPercentage": 31.1875
     }
@@ -15531,7 +15531,7 @@
     "instructions": "1243_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "byS73AbXhao",
+      "youtubeId": "byS73AbXhao",
       "xPercentage": 37.76171875,
       "yPercentage": 25.5234375
     }
@@ -15544,7 +15544,7 @@
     "instructions": "1244_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "POxAQgzMw3c",
+      "youtubeId": "POxAQgzMw3c",
       "xPercentage": 34.89453125,
       "yPercentage": 24.93359375
     }
@@ -15557,7 +15557,7 @@
     "instructions": "1245_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "s3_LWRh7LGY",
+      "youtubeId": "s3_LWRh7LGY",
       "xPercentage": 26.84765625,
       "yPercentage": 34
     }
@@ -15570,7 +15570,7 @@
     "instructions": "1246_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "4z5YZMN2Hg4",
+      "youtubeId": "4z5YZMN2Hg4",
       "xPercentage": 55.6796875,
       "yPercentage": 25.71875
     }
@@ -15583,7 +15583,7 @@
     "instructions": "1247_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "BRUuTIZ7oXc",
+      "youtubeId": "BRUuTIZ7oXc",
       "xPercentage": 35.828125,
       "yPercentage": 41.90625
     }
@@ -15596,7 +15596,7 @@
     "instructions": "1248_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "0f3xkSA6jmQ",
+      "youtubeId": "0f3xkSA6jmQ",
       "xPercentage": 52.45703125,
       "yPercentage": 45.84375000000001
     }
@@ -15609,7 +15609,7 @@
     "instructions": "1249_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "Fqz6-DaPJvU",
+      "youtubeId": "Fqz6-DaPJvU",
       "xPercentage": 33.0859375,
       "yPercentage": 46.23828125
     }
@@ -15622,7 +15622,7 @@
     "instructions": "1250_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "GvNmogPevIo",
+      "youtubeId": "GvNmogPevIo",
       "xPercentage": 38.8671875,
       "yPercentage": 72.5625
     }
@@ -15635,7 +15635,7 @@
     "instructions": "1251_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "HVp_ceZzc1w",
+      "youtubeId": "HVp_ceZzc1w",
       "xPercentage": 31.10546875,
       "yPercentage": 32.60546875
     }
@@ -15648,7 +15648,7 @@
     "instructions": "1252_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "7Fcy0NLfFjw",
+      "youtubeId": "7Fcy0NLfFjw",
       "xPercentage": 63.6015625,
       "yPercentage": 46.51953125
     }
@@ -15661,7 +15661,7 @@
     "instructions": "1253_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "d3pERuWi9ZQ",
+      "youtubeId": "d3pERuWi9ZQ",
       "xPercentage": 55.50390625,
       "yPercentage": 23.734375
     }
@@ -15674,7 +15674,7 @@
     "instructions": "1254_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "oSrpaXgUWKA",
+      "youtubeId": "oSrpaXgUWKA",
       "xPercentage": 22.89453125,
       "yPercentage": 48.65625
     }
@@ -15687,7 +15687,7 @@
     "instructions": "1255_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "youtubeLink": "1kKP2z4FOds",
+      "youtubeId": "1kKP2z4FOds",
       "xPercentage": 67.8984375,
       "yPercentage": 55.8359375
     }

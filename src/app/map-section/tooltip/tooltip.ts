@@ -20,11 +20,11 @@ export class Tooltip {
 
   readonly CollectibleType = CollectibleType;
 
-  readonly youtubeLink = computed(() => {
-    return this.domSanitizer.bypassSecurityTrustResourceUrl(
-      `https://www.youtube-nocookie.com/embed/${this.checklistModel().collectibleModel!.youtubeLink}`
-    );
-  });
+  readonly youtubeLink = computed(() =>
+    this.domSanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube-nocookie.com/embed/${this.checklistModel().collectibleModel!.youtubeId}`
+    )
+  );
 
   onChecked() {
     this.checklistDataService.updateChecklistModelChecked(this.checklistModel());
