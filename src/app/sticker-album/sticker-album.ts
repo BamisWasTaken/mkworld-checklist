@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel } from '../core/models';
-import { ChecklistDataService } from '../core/services';
+import { ChecklistDataService, SettingsService } from '../core/services';
 
 const STICKERS_PER_PAGE = 32;
 
@@ -24,12 +24,13 @@ const STICKERS_PER_PAGE = 32;
 })
 export class StickerAlbum implements AfterViewInit {
   private readonly checklistDataService = inject(ChecklistDataService);
+  private readonly settingsService = inject(SettingsService);
 
   @ViewChildren('stickerItem') stickerItems!: QueryList<ElementRef>;
 
   scrollToMap = output<ChecklistModel>();
 
-  readonly showCollectedStickers = signal(true);
+  readonly showCollectedStickers = this.settingsService.shouldShowCollectedStickers();
   private previousStickerPositions = new Map<number, DOMRect>();
   private previousStickerOrder: number[] = [];
 
@@ -85,7 +86,7 @@ export class StickerAlbum implements AfterViewInit {
     // We need to record based on the current filter state, not the DOM state
     this.recordCurrentPositionsForFilter(this.showCollectedStickers());
     const currentPage = this.page();
-    this.showCollectedStickers.update(current => !current);
+    this.settingsService.toggleShowCollectedStickers();
 
     // Keep the same page if possible, otherwise go to the last available page
     setTimeout(() => {

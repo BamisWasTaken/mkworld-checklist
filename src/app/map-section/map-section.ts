@@ -14,8 +14,7 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
 import { ChecklistModel } from '../core/models';
-import { ChecklistDataService } from '../core/services';
-import { TooltipService } from '../core/services/tooltip.service';
+import { ChecklistDataService, SettingsService, TooltipService } from '../core/services';
 import { Tooltip } from './tooltip/tooltip';
 
 interface TooltipPosition {
@@ -34,6 +33,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly checklistDataService = inject(ChecklistDataService);
   private readonly tooltipService = inject(TooltipService);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly settingsService = inject(SettingsService);
 
   readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
 
@@ -42,7 +42,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private mouseDownPosition: { x: number; y: number } | null = null;
   private readonly DRAG_THRESHOLD = 5; // pixels
 
-  readonly showCollected = signal(false);
+  readonly showCollectedCollectibles = this.settingsService.shouldShowCollectedCollectibles();
 
   readonly hovered = signal<ChecklistModel | null>(null);
 
@@ -51,7 +51,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly tooltipTransform = computed(() => `scale(${1 / this.tooltipScale()})`);
 
   private readonly TOOLTIP_WIDTH = 300;
-  private readonly TOOLTIP_HEIGHT = 350;
+  private readonly TOOLTIP_HEIGHT = 400;
   private readonly TOOLTIP_MARGIN = 12;
 
   readonly tooltipPosition = computed(() => {
@@ -82,7 +82,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly collectibleChecklistModels = computed(() => {
     const checklistModels = this.checklistDataService.getChecklistModels()();
 
-    if (this.showCollected()) {
+    if (this.showCollectedCollectibles()) {
       return checklistModels.filter(
         (checklistModel: ChecklistModel) => checklistModel.collectibleModel
       );
@@ -244,8 +244,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
   }
 
   toggleShowCollected(): void {
-    const showCollected = !this.showCollected();
-    if (!showCollected) {
+    this.settingsService.toggleShowCollectedCollectibles();
+    if (!this.showCollectedCollectibles()) {
       this.checklistDataService.addDisappearingChecklistModels(
         this.collectibleChecklistModels().filter(
           (checklistModel: ChecklistModel) =>
@@ -253,7 +253,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
         )
       );
     }
-    this.showCollected.set(showCollected);
   }
 
   ngAfterViewInit(): void {

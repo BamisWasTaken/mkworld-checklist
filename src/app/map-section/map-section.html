@@ -8,13 +8,13 @@
     >
       <div
         class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
-        [class.bg-yellow-400]="showCollected()"
-        [class.border-yellow-400]="showCollected()"
+        [class.bg-yellow-400]="showCollectedCollectibles()"
+        [class.border-yellow-400]="showCollectedCollectibles()"
       >
         <div
           class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
-          [class.scale-100]="showCollected()"
-          [class.scale-0]="!showCollected()"
+          [class.scale-100]="showCollectedCollectibles()"
+          [class.scale-0]="!showCollectedCollectibles()"
         ></div>
       </div>
       <span
@@ -26,7 +26,7 @@
         id="show-collected-map"
         type="checkbox"
         class="sr-only"
-        [checked]="showCollected()"
+        [checked]="showCollectedCollectibles()"
         (change)="toggleShowCollected()"
       />
     </label>
@@ -50,13 +50,15 @@
       @if (
         !collectibleChecklistModel.checked ||
         collectibleChecklistModel.disappearing ||
-        showCollected()
+        showCollectedCollectibles()
       ) {
         <div
           id="collectible-div-{{ collectibleChecklistModel.index }}"
-          class="collectible absolute ready"
+          class="collectible absolute"
           [class.hovered]="hovered() === collectibleChecklistModel"
-          [class.disappearing]="collectibleChecklistModel.disappearing && !showCollected()"
+          [class.disappearing]="
+            collectibleChecklistModel.disappearing && !showCollectedCollectibles()
+          "
           [style.--target-scale]="
             focusedCollectibleIndex() === collectibleChecklistModel.index ||
             hovered() === collectibleChecklistModel

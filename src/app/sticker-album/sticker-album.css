@@ -108,3 +108,7 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3); /* yellow-400 with opacity */
 }
+
+.sticker {
+  filter: drop-shadow(0 0 1px rgb(150, 150, 150));
+}

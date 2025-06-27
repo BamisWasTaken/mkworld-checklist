@@ -15,7 +15,7 @@
 .tooltip::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
   border-left: 8px solid transparent;
@@ -35,7 +35,7 @@
 .tooltip.tooltip-below::after {
   content: '';
   position: absolute;
-  top: -8px;
+  top: -6px;
   left: 50%;
   transform: translateX(-50%);
   border-left: 8px solid transparent;
@@ -57,7 +57,7 @@
 .tooltip.tooltip-left::after {
   content: '';
   position: absolute;
-  right: -8px;
+  right: -6px;
   top: 50%;
   transform: translateY(-50%);
   border-top: 8px solid transparent;
@@ -80,7 +80,7 @@
 .tooltip.tooltip-right::after {
   content: '';
   position: absolute;
-  left: -8px;
+  left: -6px;
   top: 50%;
   transform: translateY(-50%);
   border-top: 8px solid transparent;
