@@ -84,6 +84,10 @@ export class TodoSection {
       });
   }
 
+  toggleAchievementExpanded(achievement: Achievement): void {
+    this.achievementDataService.toggleAchievementExpanded(achievement);
+  }
+
   onMilestoneCheck(achievement: Achievement, milestone: Milestone): void {
     this.achievementDataService.updateAchievementMilestoneReached(achievement, milestone);
   }

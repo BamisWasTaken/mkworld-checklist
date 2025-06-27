@@ -1,12 +1,16 @@
-import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
-import { ChecklistModel, CollectibleType } from '../models';
+import { computed, effect, inject, Injectable, PLATFORM_ID, Signal, signal } from '@angular/core';
 import checklistData from '../../../../public/data/checklist-data.json';
+import { ChecklistModel, ChecklistModelState, CollectibleType } from '../models';
+import { isPlatformBrowser } from '@angular/common';
+import { CONSTANTS } from '../../constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChecklistDataService {
-  private checklistModels = signal<ChecklistModel[]>([]);
+  private readonly platformId = inject(PLATFORM_ID);
+
+  private readonly checklistModels = signal<ChecklistModel[]>(checklistData);
 
   private uncollectedPeachCoins = computed(() =>
     this.getUncollectedCollectibles(CollectibleType.PEACH_COIN)
@@ -19,11 +23,28 @@ export class ChecklistDataService {
   );
 
   constructor() {
-    this.checklistModels.set(checklistData);
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadChecklistModelsFromStorage();
+
+      effect(() => {
+        localStorage.setItem(
+          CONSTANTS.STORAGE_KEY_CHECKLIST_MODELS,
+          JSON.stringify(
+            this.checklistModels().map(
+              (checklistModel: ChecklistModel) =>
+                ({
+                  index: checklistModel.index,
+                  checked: checklistModel.checked,
+                }) as ChecklistModelState
+            )
+          )
+        );
+      });
+    }
   }
 
-  getChecklistModels(): WritableSignal<ChecklistModel[]> {
-    return this.checklistModels;
+  getChecklistModels(): Signal<ChecklistModel[]> {
+    return this.checklistModels.asReadonly();
   }
 
   updateChecklistModelChecked(checklistModelToUpdate: ChecklistModel): void {
@@ -73,5 +94,24 @@ export class ChecklistDataService {
         !checklistModel.checked &&
         checklistModel.collectibleModel?.collectibleType === collectibleType
     ).length;
+  }
+
+  private loadChecklistModelsFromStorage(): void {
+    const storedChecklistModels = localStorage.getItem(CONSTANTS.STORAGE_KEY_CHECKLIST_MODELS);
+    if (storedChecklistModels) {
+      const checklistModelStates: ChecklistModelState[] = JSON.parse(storedChecklistModels);
+      this.checklistModels.update((checklistModels: ChecklistModel[]) =>
+        checklistModels.map((checklistModel: ChecklistModel) => {
+          const checklistModelState = checklistModelStates.find(
+            (checklistModelState: ChecklistModelState) =>
+              checklistModelState.index === checklistModel.index
+          );
+          return {
+            ...checklistModel,
+            checked: checklistModelState?.checked ?? checklistModel.checked,
+          };
+        })
+      );
+    }
   }
 }

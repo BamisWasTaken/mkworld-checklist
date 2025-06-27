@@ -1,19 +1,41 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { effect, inject, Injectable, PLATFORM_ID, Signal, signal } from '@angular/core';
 import achievementsData from '../../../../public/data/achievements-data.json';
-import { Achievement, Milestone } from '../models';
+import { Achievement, AchievementState, Milestone } from '../models';
+import { isPlatformBrowser } from '@angular/common';
+import { CONSTANTS } from '../../constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AchievementDataService {
-  private achievements = signal<Achievement[]>([]);
+  private readonly platformId = inject(PLATFORM_ID);
+
+  private readonly achievements = signal<Achievement[]>(achievementsData as Achievement[]);
 
   constructor() {
-    this.achievements.set(achievementsData as Achievement[]);
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadAchievementsFromStorage();
+
+      effect(() => {
+        localStorage.setItem(
+          CONSTANTS.STORAGE_KEY_ACHIEVEMENTS,
+          JSON.stringify(
+            this.achievements().map(
+              (achievement: Achievement) =>
+                ({
+                  index: achievement.index,
+                  milestoneReached: achievement.milestoneReached,
+                  expanded: achievement.expanded,
+                }) as AchievementState
+            )
+          )
+        );
+      });
+    }
   }
 
-  getAchievements(): WritableSignal<Achievement[]> {
-    return this.achievements;
+  getAchievements(): Signal<Achievement[]> {
+    return this.achievements.asReadonly();
   }
 
   updateAchievementMilestoneReached(
@@ -30,6 +52,16 @@ export class AchievementDataService {
     this.achievements.update((achievements: Achievement[]) =>
       achievements.map((achievement: Achievement) =>
         achievement.index === achievementToUpdate.index ? achievementToUpdate : achievement
+      )
+    );
+  }
+
+  toggleAchievementExpanded(achievementToToggle: Achievement): void {
+    this.achievements.update((achievements: Achievement[]) =>
+      achievements.map((achievement: Achievement) =>
+        achievement.index === achievementToToggle.index
+          ? { ...achievement, expanded: !achievement.expanded }
+          : achievement
       )
     );
   }
@@ -53,6 +85,25 @@ export class AchievementDataService {
           (milestone: Milestone) => (milestone.disappearing = false)
         );
       }, 200);
+    }
+  }
+
+  private loadAchievementsFromStorage(): void {
+    const storedAchievements = localStorage.getItem(CONSTANTS.STORAGE_KEY_ACHIEVEMENTS);
+    if (storedAchievements) {
+      const achievementStates: AchievementState[] = JSON.parse(storedAchievements);
+      this.achievements.update((achievements: Achievement[]) =>
+        achievements.map((achievement: Achievement) => {
+          const achievementState = achievementStates.find(
+            (achievementState: AchievementState) => achievementState.index === achievement.index
+          );
+          return {
+            ...achievement,
+            milestoneReached: achievementState?.milestoneReached ?? 0,
+            expanded: achievementState?.expanded ?? false,
+          };
+        })
+      );
     }
   }
 }

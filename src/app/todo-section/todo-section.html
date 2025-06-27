@@ -68,7 +68,7 @@
           <!-- Achievement Header -->
           <div
             class="flex items-center gap-2 bg-gray-50 p-2 todo-item cursor-pointer hover:bg-gray-100 transition-colors duration-200"
-            (click)="achievement.expanded = !achievement.expanded"
+            (click)="toggleAchievementExpanded(achievement)"
           >
             <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
               <span class="text-sm font-bold">🏆</span>
