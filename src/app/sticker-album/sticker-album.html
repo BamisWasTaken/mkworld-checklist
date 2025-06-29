@@ -5,7 +5,12 @@
   <div class="w-full p-6 flex flex-col items-center">
     <!-- Toggle for collected stickers -->
     <div class="absolute top-6 right-6 flex items-center gap-2">
-      <label class="flex items-center gap-2 cursor-pointer group filter-toggle">
+      <label
+        class="flex items-center gap-2 cursor-pointer group filter-toggle"
+        [class.opacity-50]="isAnimating()"
+        [class.cursor-not-allowed]="isAnimating()"
+        [class.cursor-pointer]="!isAnimating()"
+      >
         <div
           class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
           [class.bg-yellow-400]="showCollectedStickers()"
@@ -27,6 +32,7 @@
           class="sr-only"
           [checked]="showCollectedStickers()"
           (change)="toggleShowCollectedStickers()"
+          [disabled]="isAnimating()"
         />
       </label>
     </div>

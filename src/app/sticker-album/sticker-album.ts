@@ -12,7 +12,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChecklistModel } from '../core/models';
+import { ChecklistModel, PageAnimationDirection } from '../core/models';
 import { ChecklistDataService, SettingsService } from '../core/services';
 
 const STICKERS_PER_PAGE = 32;
@@ -42,7 +42,7 @@ export class StickerAlbum implements AfterViewInit {
       .filter(model => model.hasSticker);
     const filteredModels = this.showCollectedStickers()
       ? allChecklistModels
-      : allChecklistModels.filter(model => !model.checked);
+      : allChecklistModels.filter(model => !model.checked || model.disappearing);
     return this.createPages(filteredModels);
   });
 
@@ -52,9 +52,7 @@ export class StickerAlbum implements AfterViewInit {
   page = signal(0);
   pageCount = computed(() => this.pages().length);
 
-  // Animation state signals
   isAnimating = signal(false);
-  animationDirection = signal<'left' | 'right'>('right');
 
   tooltipText = signal<string | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
@@ -84,104 +82,59 @@ export class StickerAlbum implements AfterViewInit {
   }
 
   goToPage(newPage: number) {
-    if (this.isAnimating() || newPage === this.page()) {
-      return;
-    }
+    if (!this.isAnimating() && newPage !== this.page() && this.pageContainer?.nativeElement) {
+      const currentPage = this.page();
+      const direction =
+        newPage > currentPage ? PageAnimationDirection.LEFT : PageAnimationDirection.RIGHT;
 
-    const currentPage = this.page();
-    const direction = newPage > currentPage ? 'left' : 'right';
+      this.isAnimating.set(true);
 
-    this.animationDirection.set(direction);
-    this.isAnimating.set(true);
+      const pageElement = this.pageContainer.nativeElement as HTMLElement;
+      const slideDistance = 50;
+      const translateXOut =
+        direction === PageAnimationDirection.RIGHT ? slideDistance : -slideDistance;
 
-    // Step 1: Animate current page out
-    this.animatePageOut(direction).then(() => {
-      // Step 2: Set new page and animate it in
-      this.page.set(newPage);
+      pageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+      pageElement.style.transform = `translateX(${translateXOut}px)`;
+      pageElement.style.opacity = '0';
 
-      // Small delay to ensure DOM has updated
       setTimeout(() => {
-        this.animatePageIn(direction).then(() => {
+        this.page.set(newPage);
+
+        const translateXIn = -translateXOut;
+
+        pageElement.style.transition = 'none';
+        pageElement.style.transform = `translateX(${translateXIn}px)`;
+
+        pageElement.getBoundingClientRect();
+
+        pageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+        pageElement.style.transform = 'translateX(0)';
+        pageElement.style.opacity = '1';
+
+        setTimeout(() => {
           this.isAnimating.set(false);
-        });
-      }, 50);
-    });
-  }
-
-  private animatePageOut(direction: 'left' | 'right'): Promise<void> {
-    return new Promise(resolve => {
-      if (!this.pageContainer?.nativeElement) {
-        resolve();
-        return;
-      }
-
-      const currentPageElement = this.pageContainer.nativeElement as HTMLElement;
-      const slideDistance = 50;
-      const translateX = direction === 'right' ? slideDistance : -slideDistance;
-
-      currentPageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
-      currentPageElement.style.transform = `translateX(${translateX}px)`;
-      currentPageElement.style.opacity = '0';
-
-      setTimeout(() => {
-        resolve();
+        }, 300);
       }, 300);
-    });
-  }
-
-  private animatePageIn(direction: 'left' | 'right'): Promise<void> {
-    return new Promise(resolve => {
-      if (!this.pageContainer?.nativeElement) {
-        resolve();
-        return;
-      }
-
-      const newPageElement = this.pageContainer.nativeElement as HTMLElement;
-      const slideDistance = 50;
-      const translateX = direction === 'right' ? -slideDistance : slideDistance;
-
-      // Set initial position
-      newPageElement.style.transition = 'none';
-      newPageElement.style.transform = `translateX(${translateX}px)`;
-      newPageElement.style.opacity = '0';
-
-      // Force reflow
-      newPageElement.getBoundingClientRect();
-
-      // Animate to final position
-      newPageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
-      newPageElement.style.transform = 'translateX(0)';
-      newPageElement.style.opacity = '1';
-
-      setTimeout(() => {
-        // Clean up styles
-        newPageElement.style.transition = '';
-        newPageElement.style.transform = '';
-        newPageElement.style.opacity = '';
-        resolve();
-      }, 300);
-    });
+    }
   }
 
   toggleShowCollectedStickers() {
+    if (this.isAnimating()) {
+      return; // Prevent multiple toggles during animation
+    }
+
     // Record current positions BEFORE the filter change
-    // We need to record based on the current filter state, not the DOM state
     this.recordCurrentPositionsForFilter(this.showCollectedStickers());
     const currentPage = this.page();
+
     this.settingsService.toggleShowCollectedStickers();
+    const newPageCount = this.pageCount();
+    const currentPageStillExists = currentPage < newPageCount;
 
-    // Keep the same page if possible, otherwise go to the last available page
-    setTimeout(() => {
-      const newPageCount = this.pageCount();
-      if (currentPage >= newPageCount) {
-        // Current page no longer exists, go to the last available page
-        this.page.set(Math.max(0, newPageCount - 1));
-      }
-      // If current page still exists, stay on it (no change needed)
-    }, 0);
-
-    // Animate after change detection runs
-    setTimeout(() => this.animateLayoutChanges(), 0);
+    if (!currentPageStillExists) {
+      this.goToPage(newPageCount - 1);
+    }
   }
 
   private recordCurrentPositionsForFilter(showCollected: boolean): void {
