@@ -22,21 +22,26 @@ export class PageService {
 
   private readonly page = computed(() => {
     return this.stickersInStickerAlbum().slice(
-      this.pageNumber() * CONSTANTS.STICKERS_PER_PAGE,
-      (this.pageNumber() + 1) * CONSTANTS.STICKERS_PER_PAGE
+      this.finalPageNumber() * CONSTANTS.STICKERS_PER_PAGE,
+      (this.finalPageNumber() + 1) * CONSTANTS.STICKERS_PER_PAGE
     );
   });
-  private readonly pageNumber = signal(0);
   private readonly pageCount = computed(() =>
     Math.ceil(this.stickersInStickerAlbum().length / CONSTANTS.STICKERS_PER_PAGE)
   );
+  private readonly userPageNumber = signal(0);
+  private readonly finalPageNumber = computed(() => {
+    const userPageNumber = this.userPageNumber();
+    const pageCount = this.pageCount();
+    return userPageNumber >= pageCount ? pageCount - 1 : userPageNumber;
+  });
 
   getPage(): Signal<ChecklistModel[]> {
     return this.page;
   }
 
   getPageNumber(): Signal<number> {
-    return this.pageNumber.asReadonly();
+    return this.finalPageNumber;
   }
 
   getPageCount(): Signal<number> {
@@ -44,6 +49,6 @@ export class PageService {
   }
 
   setPageNumber(pageNumber: number): void {
-    this.pageNumber.set(pageNumber);
+    this.userPageNumber.set(pageNumber);
   }
 }
