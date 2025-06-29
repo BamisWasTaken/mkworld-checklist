@@ -1,5 +1,6 @@
 import {
   Component,
+  computed,
   ElementRef,
   HostListener,
   inject,
@@ -42,6 +43,8 @@ export class StickerAlbum {
   private hoverTimeout: ReturnType<typeof setTimeout> | null = null;
 
   isAnimating = signal(false);
+  isSwitchingPage = signal(false);
+  areControlsDisabled = computed(() => this.isAnimating() || this.isSwitchingPage());
 
   tooltipText = signal<string | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
@@ -75,12 +78,16 @@ export class StickerAlbum {
   }
 
   goToPage(newPage: number) {
-    if (!this.isAnimating() && newPage !== this.pageNumber() && this.pageContainer?.nativeElement) {
+    if (
+      !this.areControlsDisabled() &&
+      newPage !== this.pageNumber() &&
+      this.pageContainer?.nativeElement
+    ) {
       const currentPage = this.pageNumber();
       const direction =
         newPage > currentPage ? PageAnimationDirection.LEFT : PageAnimationDirection.RIGHT;
 
-      this.isAnimating.set(true);
+      this.isSwitchingPage.set(true);
 
       const pageElement = this.pageContainer.nativeElement as HTMLElement;
       const slideDistance = 50;
@@ -106,14 +113,15 @@ export class StickerAlbum {
         pageElement.style.opacity = '1';
 
         setTimeout(() => {
-          this.isAnimating.set(false);
+          this.isSwitchingPage.set(false);
         }, 300);
       }, 300);
     }
   }
 
   toggleShowCollectedStickers() {
-    if (!this.isAnimating()) {
+    if (!this.areControlsDisabled()) {
+      this.isAnimating.set(true);
       this.settingsService.toggleShowCollectedStickers();
     }
   }
@@ -191,6 +199,8 @@ export class StickerAlbum {
   }
 
   private animateLayoutChanges(): void {
+    this.isAnimating.set(true);
+
     let firstNewStickerAtPageEnd = true;
     let amountOfNewStickersAtEndOfPage = 0;
     const pageWidth = this.pageContainer.nativeElement.getBoundingClientRect().width - 48;
@@ -208,7 +218,7 @@ export class StickerAlbum {
       if (previousRect) {
         dx = previousRect.left - currentRect.left;
         dy = previousRect.top - currentRect.top;
-      } else if (index > this.previousStickerPositions.at(-1)!.index) {
+      } else if (index > this.previousStickerPositions.at(-1)!.index && !this.isSwitchingPage()) {
         if (firstNewStickerAtPageEnd) {
           firstNewStickerAtPageEnd = false;
           amountOfNewStickersAtEndOfPage = CONSTANTS.STICKERS_PER_PAGE - positionOnPage;
@@ -244,6 +254,10 @@ export class StickerAlbum {
         }, 500);
       }
     });
+
+    setTimeout(() => {
+      this.isAnimating.set(false);
+    }, 500);
   }
 
   private animateNewSticker(element: HTMLElement): void {
