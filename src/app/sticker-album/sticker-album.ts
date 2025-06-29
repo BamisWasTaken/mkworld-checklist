@@ -53,7 +53,7 @@ export class StickerAlbum {
         this.page = page;
         if (this.stickerItems) {
           this.recordCurrentPositionsForFilter(this.showCollectedStickers());
-          setTimeout(() => this.handleStickerChanges(), 0);
+          queueMicrotask(() => this.handleStickerChanges());
         }
       });
   }
@@ -113,20 +113,8 @@ export class StickerAlbum {
   }
 
   toggleShowCollectedStickers() {
-    if (this.isAnimating()) {
-      return; // Prevent multiple toggles during animation
-    }
-
-    // Record current positions BEFORE the filter change
-    this.recordCurrentPositionsForFilter(this.showCollectedStickers());
-    const currentPage = this.pageNumber();
-
-    this.settingsService.toggleShowCollectedStickers();
-    const newPageCount = this.pageCount();
-    const currentPageStillExists = currentPage < newPageCount;
-
-    if (!currentPageStillExists) {
-      this.goToPage(newPageCount - 1);
+    if (!this.isAnimating()) {
+      this.settingsService.toggleShowCollectedStickers();
     }
   }
 
@@ -261,9 +249,6 @@ export class StickerAlbum {
         this.animateNewSticker(element);
       }
     });
-
-    // Update the previous positions for next time
-    this.recordCurrentPositionsForFilter(this.showCollectedStickers());
   }
 
   private animateNewStickers(): void {
@@ -321,16 +306,11 @@ export class StickerAlbum {
       // First time or no previous positions, just animate new stickers
       this.animateNewStickers();
       // Record positions for next time
-      this.recordCurrentPositionsForFilter(this.showCollectedStickers());
     }
   }
 
   onStickerChecked(checklistModel: ChecklistModel): void {
     this.checklistDataService.updateChecklistModelChecked(checklistModel);
-
-    if (!this.showCollectedStickers()) {
-      this.recordCurrentPositionsForFilter(this.showCollectedStickers());
-    }
   }
 
   onStickerClick(event: MouseEvent, checklistModel: ChecklistModel) {
