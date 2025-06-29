@@ -111,3 +111,8 @@
 .sticker {
   filter: drop-shadow(0 0 1px rgb(150, 150, 150));
 }
+
+.sticker.disappearing {
+  opacity: 0;
+  transform: scale(0);
+}

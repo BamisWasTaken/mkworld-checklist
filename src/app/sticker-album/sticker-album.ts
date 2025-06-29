@@ -13,6 +13,7 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, PageAnimationDirection, StickerPosition } from '../core/models';
 import { ChecklistDataService, PageService, SettingsService } from '../core/services';
+import { CONSTANTS } from '../constants';
 
 @Component({
   selector: 'mkworld-sticker-album',
@@ -51,7 +52,7 @@ export class StickerAlbum {
       .subscribe((page: ChecklistModel[]) => {
         if (this.stickerItems) {
           this.recordCurrentPositionsForFilter();
-          queueMicrotask(() => this.handleStickerChanges());
+          queueMicrotask(() => this.animateLayoutChanges());
         }
         this.page = page;
       });
@@ -117,16 +118,6 @@ export class StickerAlbum {
     }
   }
 
-  private recordCurrentPositionsForFilter(): void {
-    this.previousStickerPositions = [];
-
-    this.stickerItems.forEach((itemRef: ElementRef) => {
-      const element = itemRef.nativeElement;
-      const index = parseInt(element.id.split('-')[1]);
-      this.previousStickerPositions.push({ index, position: element.getBoundingClientRect() });
-    });
-  }
-
   onGoToMap(checklistModel: ChecklistModel): void {
     this.scrollToMap.emit(checklistModel);
   }
@@ -177,118 +168,6 @@ export class StickerAlbum {
     }
   }
 
-  private animateLayoutChanges(): void {
-    const orderChanged =
-      this.previousStickerPositions.length !== this.page.length ||
-      this.previousStickerPositions.some(
-        (prevStickerPosition: StickerPosition, i: number) =>
-          prevStickerPosition.index !== this.page[i].index
-      );
-
-    if (!orderChanged) {
-      // No reordering happened, just animate new stickers appearing
-      this.animateNewStickers();
-      return;
-    }
-
-    // Animate existing stickers that moved
-    this.stickerItems.forEach(itemRef => {
-      const element = itemRef.nativeElement;
-      const index = parseInt(element.id.split('-')[1]);
-      const currentRect = element.getBoundingClientRect();
-      const previousRect = this.previousStickerPositions.find(
-        (prevStickerPosition: StickerPosition) => prevStickerPosition.index === index
-      )?.position;
-
-      if (previousRect) {
-        // Calculate the transform to move from old position to new position
-        const dx = previousRect.left - currentRect.left;
-        const dy = previousRect.top - currentRect.top;
-
-        if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
-          // Apply initial transform to put element back in old position
-          element.style.transform = `translate(${dx}px, ${dy}px)`;
-          element.style.transition = 'none';
-
-          // Force reflow
-          element.getBoundingClientRect();
-
-          // Play the animation
-          element.style.transition = 'transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1)';
-          element.style.transform = 'translate(0, 0)';
-
-          // Clean up after animation
-          setTimeout(() => {
-            element.style.transition = '';
-            element.style.transform = '';
-          }, 500);
-        }
-      } else {
-        // This is a new sticker that appeared
-        this.animateNewSticker(element);
-      }
-    });
-  }
-
-  private animateNewStickers(): void {
-    this.stickerItems.forEach(itemRef => {
-      const element = itemRef.nativeElement;
-      const index = parseInt(element.id.split('-')[1]);
-
-      if (
-        !this.previousStickerPositions.find(
-          (prevStickerPosition: StickerPosition) => prevStickerPosition.index === index
-        )
-      ) {
-        this.animateNewSticker(element);
-      }
-    });
-  }
-
-  private animateNewSticker(element: HTMLElement): void {
-    // Handle newly entering elements (scale-in animation)
-    element.style.opacity = '0';
-    element.style.transform = 'scale(0)';
-    element.style.transition = 'none';
-
-    // Force reflow
-    element.getBoundingClientRect();
-
-    // Animate to final state
-    element.style.transition =
-      'opacity 0.4s cubic-bezier(0.4, 0.2, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1)';
-    element.style.opacity = '1';
-    element.style.transform = 'scale(1)';
-
-    // Clean up after animation
-    setTimeout(() => {
-      element.style.transition = '';
-      element.style.opacity = '';
-      element.style.transform = '';
-    }, 400);
-  }
-
-  private handleStickerChanges(): void {
-    // Check if this is a filter change (toggle show collected stickers)
-    // or if stickers were checked/unchecked
-    const currentStickerOrder: number[] = [];
-
-    this.stickerItems.forEach(itemRef => {
-      const element = itemRef.nativeElement;
-      const index = parseInt(element.id.split('-')[1]);
-      currentStickerOrder.push(index);
-    });
-
-    // If we have previous positions recorded, this might be a filter change
-    if (this.previousStickerPositions.length > 0) {
-      this.animateLayoutChanges();
-    } else {
-      // First time or no previous positions, just animate new stickers
-      this.animateNewStickers();
-      // Record positions for next time
-    }
-  }
-
   onStickerChecked(checklistModel: ChecklistModel): void {
     this.checklistDataService.updateChecklistModelChecked(checklistModel);
   }
@@ -299,5 +178,90 @@ export class StickerAlbum {
     } else {
       this.onStickerTooltip(checklistModel.instructions, event);
     }
+  }
+
+  private recordCurrentPositionsForFilter(): void {
+    this.previousStickerPositions = [];
+
+    this.stickerItems.forEach((itemRef: ElementRef) => {
+      const element = itemRef.nativeElement;
+      const index = parseInt(element.id.split('-')[1]);
+      this.previousStickerPositions.push({ index, position: element.getBoundingClientRect() });
+    });
+  }
+
+  private animateLayoutChanges(): void {
+    let firstNewStickerAtPageEnd = true;
+    let amountOfNewStickersAtEndOfPage = 0;
+    const pageWidth = this.pageContainer.nativeElement.getBoundingClientRect().width - 48;
+    this.stickerItems.forEach((itemRef: ElementRef, positionOnPage: number) => {
+      const element = itemRef.nativeElement;
+      const index = parseInt(element.id.split('-')[1]);
+      const currentRect = element.getBoundingClientRect();
+      const previousRect = this.previousStickerPositions.find(
+        (prevStickerPosition: StickerPosition) => prevStickerPosition.index === index
+      )?.position;
+
+      let dx = 0;
+      let dy = 0;
+
+      if (previousRect) {
+        dx = previousRect.left - currentRect.left;
+        dy = previousRect.top - currentRect.top;
+      } else if (index > this.previousStickerPositions.at(-1)!.index) {
+        if (firstNewStickerAtPageEnd) {
+          firstNewStickerAtPageEnd = false;
+          amountOfNewStickersAtEndOfPage = CONSTANTS.STICKERS_PER_PAGE - positionOnPage;
+        }
+
+        // Calculate the row the current sticker is in
+        const currentStickerRow = Math.ceil((positionOnPage + 1) / CONSTANTS.STICKERS_PER_ROW);
+        // Calculate the amount of new stickers in the row
+        const newStickersInRow =
+          amountOfNewStickersAtEndOfPage -
+          CONSTANTS.STICKERS_PER_ROW * (CONSTANTS.STICKERS_PER_COLUMN - currentStickerRow);
+        dx = pageWidth;
+        if (newStickersInRow < 8) {
+          // If there are less than 8 new stickers in the row, the stickers in the row should be offset just enough to start off screen
+          dx = (pageWidth / 8) * newStickersInRow;
+        }
+      } else {
+        this.animateNewSticker(element);
+      }
+
+      if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
+        element.style.transform = `translate(${dx}px, ${dy}px)`;
+        element.style.transition = 'none';
+
+        element.getBoundingClientRect();
+
+        element.style.transition = 'transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1)';
+        element.style.transform = 'translate(0, 0)';
+
+        setTimeout(() => {
+          element.style.transition = '';
+          element.style.transform = '';
+        }, 500);
+      }
+    });
+  }
+
+  private animateNewSticker(element: HTMLElement): void {
+    element.style.opacity = '0';
+    element.style.transform = 'scale(0)';
+    element.style.transition = 'none';
+
+    element.getBoundingClientRect();
+
+    element.style.transition =
+      'opacity 0.4s cubic-bezier(0.4, 0.2, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1)';
+    element.style.opacity = '1';
+    element.style.transform = 'scale(1)';
+
+    setTimeout(() => {
+      element.style.transition = '';
+      element.style.opacity = '';
+      element.style.transform = '';
+    }, 400);
   }
 }
