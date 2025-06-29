@@ -8,3 +8,4 @@ export * from './settings';
 export * from './achievement-state';
 export * from './checklist-model-state';
 export * from './page-animation-direction';
+export * from './sticker-position';

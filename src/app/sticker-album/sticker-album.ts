@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChecklistModel, PageAnimationDirection } from '../core/models';
+import { ChecklistModel, PageAnimationDirection, StickerPosition } from '../core/models';
 import { ChecklistDataService, PageService, SettingsService } from '../core/services';
 
 @Component({
@@ -31,8 +31,7 @@ export class StickerAlbum {
   scrollToMap = output<ChecklistModel>();
 
   readonly showCollectedStickers = this.settingsService.shouldShowCollectedStickers();
-  private previousStickerPositions = new Map<number, DOMRect>();
-  private previousStickerOrder: number[] = [];
+  private previousStickerPositions: StickerPosition[] = [];
 
   page: ChecklistModel[] = [];
   readonly pageNumber = this.pageService.getPageNumber();
@@ -50,11 +49,11 @@ export class StickerAlbum {
     toObservable(this.pageService.getPage())
       .pipe(takeUntilDestroyed())
       .subscribe((page: ChecklistModel[]) => {
-        this.page = page;
         if (this.stickerItems) {
-          this.recordCurrentPositionsForFilter(this.showCollectedStickers());
+          this.recordCurrentPositionsForFilter();
           queueMicrotask(() => this.handleStickerChanges());
         }
+        this.page = page;
       });
   }
 
@@ -118,28 +117,13 @@ export class StickerAlbum {
     }
   }
 
-  private recordCurrentPositionsForFilter(showCollected: boolean): void {
-    this.previousStickerPositions.clear();
-    this.previousStickerOrder = [];
+  private recordCurrentPositionsForFilter(): void {
+    this.previousStickerPositions = [];
 
-    // Get the checklist models based on the current filter state
-    const allChecklistModels = this.checklistDataService
-      .getChecklistModels()()
-      .filter(model => model.hasSticker);
-    const filteredModels = showCollected
-      ? allChecklistModels
-      : allChecklistModels.filter(model => !model.checked);
-
-    // Record the order of stickers that should be visible
-    filteredModels.forEach(model => {
-      this.previousStickerOrder.push(model.index);
-    });
-
-    // Record positions of currently visible stickers
-    this.stickerItems.forEach(itemRef => {
+    this.stickerItems.forEach((itemRef: ElementRef) => {
       const element = itemRef.nativeElement;
-      const index = parseInt(element.getAttribute('data-sticker-index') || '0');
-      this.previousStickerPositions.set(index, element.getBoundingClientRect());
+      const index = parseInt(element.id.split('-')[1]);
+      this.previousStickerPositions.push({ index, position: element.getBoundingClientRect() });
     });
   }
 
@@ -194,19 +178,12 @@ export class StickerAlbum {
   }
 
   private animateLayoutChanges(): void {
-    const currentStickerOrder: number[] = [];
-
-    // Get current sticker order
-    this.stickerItems.forEach(itemRef => {
-      const element = itemRef.nativeElement;
-      const index = parseInt(element.getAttribute('data-sticker-index') || '0');
-      currentStickerOrder.push(index);
-    });
-
-    // Only animate if the order actually changed
     const orderChanged =
-      this.previousStickerOrder.length !== currentStickerOrder.length ||
-      this.previousStickerOrder.some((prevIndex, i) => prevIndex !== currentStickerOrder[i]);
+      this.previousStickerPositions.length !== this.page.length ||
+      this.previousStickerPositions.some(
+        (prevStickerPosition: StickerPosition, i: number) =>
+          prevStickerPosition.index !== this.page[i].index
+      );
 
     if (!orderChanged) {
       // No reordering happened, just animate new stickers appearing
@@ -217,9 +194,11 @@ export class StickerAlbum {
     // Animate existing stickers that moved
     this.stickerItems.forEach(itemRef => {
       const element = itemRef.nativeElement;
-      const index = parseInt(element.getAttribute('data-sticker-index') || '0');
+      const index = parseInt(element.id.split('-')[1]);
       const currentRect = element.getBoundingClientRect();
-      const previousRect = this.previousStickerPositions.get(index);
+      const previousRect = this.previousStickerPositions.find(
+        (prevStickerPosition: StickerPosition) => prevStickerPosition.index === index
+      )?.position;
 
       if (previousRect) {
         // Calculate the transform to move from old position to new position
@@ -252,14 +231,15 @@ export class StickerAlbum {
   }
 
   private animateNewStickers(): void {
-    // Find stickers that weren't in the previous order
-    const previousIndexes = new Set(this.previousStickerOrder);
-
     this.stickerItems.forEach(itemRef => {
       const element = itemRef.nativeElement;
-      const index = parseInt(element.getAttribute('data-sticker-index') || '0');
+      const index = parseInt(element.id.split('-')[1]);
 
-      if (!previousIndexes.has(index)) {
+      if (
+        !this.previousStickerPositions.find(
+          (prevStickerPosition: StickerPosition) => prevStickerPosition.index === index
+        )
+      ) {
         this.animateNewSticker(element);
       }
     });
@@ -295,12 +275,12 @@ export class StickerAlbum {
 
     this.stickerItems.forEach(itemRef => {
       const element = itemRef.nativeElement;
-      const index = parseInt(element.getAttribute('data-sticker-index') || '0');
+      const index = parseInt(element.id.split('-')[1]);
       currentStickerOrder.push(index);
     });
 
     // If we have previous positions recorded, this might be a filter change
-    if (this.previousStickerOrder.length > 0) {
+    if (this.previousStickerPositions.length > 0) {
       this.animateLayoutChanges();
     } else {
       // First time or no previous positions, just animate new stickers
