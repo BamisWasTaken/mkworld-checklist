@@ -1,7 +1,5 @@
 import {
-  AfterViewInit,
   Component,
-  computed,
   ElementRef,
   HostListener,
   inject,
@@ -11,11 +9,10 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, PageAnimationDirection } from '../core/models';
-import { ChecklistDataService, SettingsService } from '../core/services';
-
-const STICKERS_PER_PAGE = 32;
+import { ChecklistDataService, PageService, SettingsService } from '../core/services';
 
 @Component({
   selector: 'mkworld-sticker-album',
@@ -23,9 +20,10 @@ const STICKERS_PER_PAGE = 32;
   templateUrl: './sticker-album.html',
   styleUrls: ['./sticker-album.css'],
 })
-export class StickerAlbum implements AfterViewInit {
+export class StickerAlbum {
   private readonly checklistDataService = inject(ChecklistDataService);
   private readonly settingsService = inject(SettingsService);
+  private readonly pageService = inject(PageService);
 
   @ViewChildren('stickerItem') stickerItems!: QueryList<ElementRef>;
   @ViewChild('pageContainer', { static: false }) pageContainer!: ElementRef;
@@ -36,54 +34,49 @@ export class StickerAlbum implements AfterViewInit {
   private previousStickerPositions = new Map<number, DOMRect>();
   private previousStickerOrder: number[] = [];
 
-  pages = computed(() => {
-    const allChecklistModels = this.checklistDataService
-      .getChecklistModels()()
-      .filter(model => model.hasSticker);
-    const filteredModels = this.showCollectedStickers()
-      ? allChecklistModels
-      : allChecklistModels.filter(model => !model.checked || model.disappearing);
-    return this.createPages(filteredModels);
-  });
+  page: ChecklistModel[] = [];
+  readonly pageNumber = this.pageService.getPageNumber();
+  readonly pageCount = this.pageService.getPageCount();
 
   hoveredChecklistModel = signal<ChecklistModel | null>(null);
   private hoverTimeout: ReturnType<typeof setTimeout> | null = null;
-
-  page = signal(0);
-  pageCount = computed(() => this.pages().length);
 
   isAnimating = signal(false);
 
   tooltipText = signal<string | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
 
-  ngAfterViewInit() {
-    // Subscribe to changes in the sticker items to animate layout changes
-    this.stickerItems.changes.subscribe(() => {
-      // Small delay to ensure DOM has updated
-      setTimeout(() => this.handleStickerChanges(), 0);
-    });
+  constructor() {
+    toObservable(this.pageService.getPage())
+      .pipe(takeUntilDestroyed())
+      .subscribe((page: ChecklistModel[]) => {
+        this.page = page;
+        if (this.stickerItems) {
+          this.recordCurrentPositionsForFilter(this.showCollectedStickers());
+          setTimeout(() => this.handleStickerChanges(), 0);
+        }
+      });
   }
 
   prevPage() {
-    if (this.page() > 0) {
-      this.goToPage(this.page() - 1);
+    if (this.pageNumber() > 0) {
+      this.goToPage(this.pageNumber() - 1);
     } else {
       this.goToPage(this.pageCount() - 1);
     }
   }
 
   nextPage() {
-    if (this.page() < this.pageCount() - 1) {
-      this.goToPage(this.page() + 1);
+    if (this.pageNumber() < this.pageCount() - 1) {
+      this.goToPage(this.pageNumber() + 1);
     } else {
       this.goToPage(0);
     }
   }
 
   goToPage(newPage: number) {
-    if (!this.isAnimating() && newPage !== this.page() && this.pageContainer?.nativeElement) {
-      const currentPage = this.page();
+    if (!this.isAnimating() && newPage !== this.pageNumber() && this.pageContainer?.nativeElement) {
+      const currentPage = this.pageNumber();
       const direction =
         newPage > currentPage ? PageAnimationDirection.LEFT : PageAnimationDirection.RIGHT;
 
@@ -99,7 +92,7 @@ export class StickerAlbum implements AfterViewInit {
       pageElement.style.opacity = '0';
 
       setTimeout(() => {
-        this.page.set(newPage);
+        this.pageService.setPageNumber(newPage);
 
         const translateXIn = -translateXOut;
 
@@ -126,7 +119,7 @@ export class StickerAlbum implements AfterViewInit {
 
     // Record current positions BEFORE the filter change
     this.recordCurrentPositionsForFilter(this.showCollectedStickers());
-    const currentPage = this.page();
+    const currentPage = this.pageNumber();
 
     this.settingsService.toggleShowCollectedStickers();
     const newPageCount = this.pageCount();
@@ -310,14 +303,6 @@ export class StickerAlbum implements AfterViewInit {
     }, 400);
   }
 
-  private createPages(checklistModels: ChecklistModel[]): ChecklistModel[][] {
-    const pages: ChecklistModel[][] = [];
-    for (let i = 0; i < checklistModels.length; i += STICKERS_PER_PAGE) {
-      pages.push(checklistModels.slice(i, i + STICKERS_PER_PAGE));
-    }
-    return pages;
-  }
-
   private handleStickerChanges(): void {
     // Check if this is a filter change (toggle show collected stickers)
     // or if stickers were checked/unchecked
@@ -342,11 +327,9 @@ export class StickerAlbum implements AfterViewInit {
 
   onStickerChecked(checklistModel: ChecklistModel): void {
     this.checklistDataService.updateChecklistModelChecked(checklistModel);
-    // When a sticker is checked/unchecked, we need to animate the layout changes
-    // but only if we're not showing collected stickers
+
     if (!this.showCollectedStickers()) {
       this.recordCurrentPositionsForFilter(this.showCollectedStickers());
-      // The animation will be triggered by the stickerItems.changes subscription
     }
   }
 

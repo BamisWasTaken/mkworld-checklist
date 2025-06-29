@@ -63,10 +63,16 @@ export class ChecklistDataService {
     }
   }
 
-  addDisappearingChecklistModel(checklistModel: ChecklistModel): void {
-    checklistModel.disappearing = true;
+  addDisappearingChecklistModel(disappearingChecklistModel: ChecklistModel): void {
+    disappearingChecklistModel.disappearing = true;
     setTimeout(() => {
-      checklistModel.disappearing = false;
+      this.checklistModels.update((checklistModels: ChecklistModel[]) =>
+        checklistModels.map((checklistModel: ChecklistModel) =>
+          checklistModel.index === disappearingChecklistModel.index
+            ? { ...checklistModel, disappearing: false }
+            : checklistModel
+        )
+      );
     }, 200);
   }
 

@@ -63,53 +63,51 @@
 
   <!-- Sticker grid container - no padding, full width -->
   <div class="relative w-full overflow-hidden">
-    @if (pages().length > 0) {
-      <div #pageContainer class="w-full page-container">
-        <div
-          class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full select-none px-6 sticker-grid"
-        >
-          @for (checklistModel of pages()[page()]; track checklistModel.index) {
-            <div
-              #stickerItem
-              [attr.data-sticker-index]="checklistModel.index"
-              class="flex flex-col items-center cursor-pointer transition-scale duration-200 sticker"
-              [class.opacity-60]="checklistModel.checked"
-              [class.scale-110]="hoveredChecklistModel() === checklistModel"
-              (mouseenter)="onChecklistItemHover(true, checklistModel)"
-              (mouseleave)="onChecklistItemHover(false, checklistModel)"
-              (click)="onStickerClick($event, checklistModel)"
-            >
-              <div class="w-24 h-24 flex items-center justify-center">
-                <img
-                  src="/imgs/stickers/sticker-{{ checklistModel.index }}.png"
-                  [alt]="'STICKERS.' + checklistModel.stickerAltText | translate"
-                  class="max-w-full max-h-full object-contain"
-                  draggable="false"
-                />
-              </div>
-              <input
-                type="checkbox"
-                class="absolute top-1 right-1 sticker-checkbox"
-                [checked]="checklistModel.checked"
-                (change)="onStickerChecked(checklistModel)"
-                (click)="$event.stopPropagation()"
-                aria-label="STICKER_ALBUM.STICKER.TOGGLE_STICKER_COLLECTED_ALT_TEXT"
+    <div #pageContainer class="w-full page-container">
+      <div
+        class="grid grid-cols-8 grid-rows-4 gap-4 mt-2 mb-6 w-full select-none px-6 sticker-grid"
+      >
+        @for (checklistModel of page; track checklistModel.index) {
+          <div
+            #stickerItem
+            [attr.data-sticker-index]="checklistModel.index"
+            class="flex flex-col items-center cursor-pointer transition-scale duration-200 sticker"
+            [class.opacity-60]="checklistModel.checked"
+            [class.scale-110]="hoveredChecklistModel() === checklistModel"
+            (mouseenter)="onChecklistItemHover(true, checklistModel)"
+            (mouseleave)="onChecklistItemHover(false, checklistModel)"
+            (click)="onStickerClick($event, checklistModel)"
+          >
+            <div class="w-24 h-24 flex items-center justify-center">
+              <img
+                src="/imgs/stickers/sticker-{{ checklistModel.index }}.png"
+                [alt]="'STICKERS.' + checklistModel.stickerAltText | translate"
+                class="max-w-full max-h-full object-contain"
+                draggable="false"
               />
             </div>
-          }
-        </div>
+            <input
+              type="checkbox"
+              class="absolute top-1 right-1 sticker-checkbox"
+              [checked]="checklistModel.checked"
+              (change)="onStickerChecked(checklistModel)"
+              (click)="$event.stopPropagation()"
+              aria-label="STICKER_ALBUM.STICKER.TOGGLE_STICKER_COLLECTED_ALT_TEXT"
+            />
+          </div>
+        }
       </div>
-    }
+    </div>
   </div>
 
   <div class="flex justify-center gap-2 mb-2">
     @for (dot of [].constructor(pageCount()); track $index) {
       <span
         class="w-3 h-3 rounded-full transition-all duration-200"
-        [class.bg-yellow-400]="$index === page()"
-        [class.bg-gray-300]="$index !== page()"
-        [class.opacity-80]="$index === page()"
-        [class.opacity-50]="$index !== page()"
+        [class.bg-yellow-400]="$index === pageNumber()"
+        [class.bg-gray-300]="$index !== pageNumber()"
+        [class.opacity-80]="$index === pageNumber()"
+        [class.opacity-50]="$index !== pageNumber()"
         [class.cursor-not-allowed]="isAnimating()"
         [class.cursor-pointer]="!isAnimating()"
         (click)="goToPage($index)"
