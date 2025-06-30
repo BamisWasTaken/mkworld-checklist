@@ -38,7 +38,7 @@
     (contextmenu)="$event.preventDefault()"
   >
     <img
-      src="/imgs/map.png"
+      src="/imgs/map.webp"
       alt="Mario Kart World Map"
       class="w-full h-full cursor-grab"
       [class.cursor-grabbing]="isPanning"
@@ -73,7 +73,7 @@
         aria-label="Collectible marker"
       >
         <img
-          [src]="`/imgs/${collectibleChecklistModel.collectibleModel?.collectibleType}.png`"
+          [src]="`/imgs/${collectibleChecklistModel.collectibleModel?.collectibleType}.webp`"
           [alt]="collectibleChecklistModel.collectibleModel!.collectibleType + ' marker'"
           [style.height]="collectibleHeight()"
           [class.collected]="collectibleChecklistModel.checked"
