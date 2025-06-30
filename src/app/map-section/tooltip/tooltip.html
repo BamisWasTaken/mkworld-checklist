@@ -38,6 +38,12 @@
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
     ></iframe>
+  } @else {
+    <img
+      width="100%"
+      [src]="`/imgs/tooltips/IMAGE_${checklistModel().index}.png`"
+      [alt]="'MAP_SECTION.TOOLTIP.IMAGE_ALT_TEXT' | translate: { index: checklistModel().index }"
+    />
   }
 
   <p class="instruction">{{ 'STICKERS.' + checklistModel().instructions | translate }}</p>

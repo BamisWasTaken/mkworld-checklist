@@ -500,7 +500,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "46_MISSION_NAME",
-      "image": "https://img.game8.co/4191053/f240f4945255903a4c995ec8440a3a43.png/show",
       "xPercentage": 71.640625,
       "yPercentage": 42.4453125
     }
@@ -814,7 +813,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "71_MISSION_NAME",
-      "image": "https://img.game8.co/4194767/0dad01c30868bab36466a721460e399e.jpeg/show",
       "xPercentage": 59.640625,
       "yPercentage": 51.4140625
     }
@@ -830,7 +828,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "72_MISSION_NAME",
-      "image": "https://img.game8.co/4192647/d5666936c9b57794a98b28aa3d1b2fcc.png/show",
       "xPercentage": 78.00390625,
       "yPercentage": 50.9296875
     }
@@ -1045,7 +1042,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "92_MISSION_NAME",
-      "image": "https://img.game8.co/4191187/50daec5a6a38c1b126047a07676524db.png/show",
       "xPercentage": 65.8203125,
       "yPercentage": 35.79296875
     }
@@ -2014,7 +2010,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "192_MISSION_NAME",
-      "image": "https://img.game8.co/4192763/3b4f0eeea3d3f515a24d4be03bb16d9f.png/show",
       "xPercentage": 81.0234375,
       "yPercentage": 34.9609375
     }
@@ -2073,7 +2068,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "197_MISSION_NAME",
-      "image": "https://img.game8.co/4187751/a1e9db23da257eef15af8f033ccf2a5a.png/show",
       "xPercentage": 66.546875,
       "yPercentage": 47.17578125000001
     }
@@ -2768,7 +2762,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "262_MISSION_NAME",
-      "image": "https://img.game8.co/4189735/48991c112d802ff03bd0de9818d994b1.png/show",
       "xPercentage": 88.43359375,
       "yPercentage": 44.28515625
     }
@@ -3023,7 +3016,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "288_MISSION_NAME",
-      "image": "https://img.game8.co/4193897/54a7830159d7ea14eefaf58b7fd01104.png/show",
       "xPercentage": 79.72265625,
       "yPercentage": 55.46484375
     }
@@ -3039,7 +3031,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "289_MISSION_NAME",
-      "image": "https://img.game8.co/4191088/6436c153e018a409baa843fb27b12384.png/show",
       "xPercentage": 74.34375,
       "yPercentage": 55.03125
     }
@@ -3210,7 +3201,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "305_MISSION_NAME",
-      "image": "https://img.game8.co/4192039/7a8df4c1a8e744ca9a418e1244a8266a.png/show",
       "xPercentage": 70.15625,
       "yPercentage": 57.1484375
     }
@@ -3287,7 +3277,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "312_MISSION_NAME",
-      "image": "https://img.game8.co/4194743/5801cf1bef756df84b66a57278e852cb.jpeg/show",
       "xPercentage": 22.60546875,
       "yPercentage": 46.359375
     }
@@ -3636,7 +3625,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "342_MISSION_NAME",
-      "image": "https://img.game8.co/4194757/7712f42c9a3c8b7c2d900f3977b88db4.jpeg/show",
       "xPercentage": 74.43359375,
       "yPercentage": 52.7578125
     }
@@ -3713,7 +3701,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "347_MISSION_NAME",
-      "image": "https://img.game8.co/4188617/d344829a4ab8ebeb55aa93b7e38bb1ef.png/show",
       "xPercentage": 69.61328125,
       "yPercentage": 67.02734375
     }
@@ -3846,7 +3833,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "356_MISSION_NAME",
-      "image": "https://img.game8.co/4190585/f27855a91a9a950040ee112cf373aa05.png/show",
       "xPercentage": 58.85546874999999,
       "yPercentage": 39.22265625
     }
@@ -4212,7 +4198,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "389_MISSION_NAME",
-      "image": "https://img.game8.co/4192593/22577e5698b609231c3ab84c5b74b388.png/show",
       "xPercentage": 59.9453125,
       "yPercentage": 28.0390625
     }
@@ -4543,7 +4528,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "418_MISSION_NAME",
-      "image": "https://img.game8.co/4191090/754f244519b5287c86887fcb03d201d9.png/show",
       "xPercentage": 69.1171875,
       "yPercentage": 31.0625
     }
@@ -4577,7 +4561,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "421_MISSION_NAME",
-      "image": "https://img.game8.co/4192595/3aa6a8716263021a767c8ebfa383eaf2.png/show",
       "xPercentage": 63.94921875,
       "yPercentage": 27.46875
     }
@@ -4620,7 +4603,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "425_MISSION_NAME",
-      "image": "https://img.game8.co/4191657/0baeb68bf86f8b8d1cbef4aa7f93f67d.png/show",
       "xPercentage": 59.10546875,
       "yPercentage": 33.58984375
     }
@@ -4721,7 +4703,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "434_MISSION_NAME",
-      "image": "https://img.game8.co/4190707/f63a3d62ebf808744d45fdbe4d8d44e8.png/show",
       "xPercentage": 60.30859374999999,
       "yPercentage": 43.5390625
     }
@@ -5997,7 +5978,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "529_MISSION_NAME",
-      "image": "https://img.game8.co/4191184/b0c5e35238ea94e772cefe0856f4e857.png/show",
       "xPercentage": 71.58203125,
       "yPercentage": 47.94921875
     }
@@ -7467,7 +7447,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "637_MISSION_NAME",
-      "image": "https://img.game8.co/4191849/d75da7e600c2a2eda49de839e798d2b8.png/show",
       "xPercentage": 27.78125,
       "yPercentage": 41.94921874999999
     }
@@ -7796,7 +7775,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "661_MISSION_NAME",
-      "image": "https://img.game8.co/4191106/dda1cc241ef4038ec171e48c1f7c3272.png/show",
       "xPercentage": 71.8046875,
       "yPercentage": 40.3203125
     }
@@ -7812,7 +7790,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "662_MISSION_NAME",
-      "image": "https://img.game8.co/4191202/ad1bdb973870bb06e76e4350bfbba7e6.png/show",
       "xPercentage": 73.40234375,
       "yPercentage": 40.15625000000001
     }
@@ -7946,7 +7923,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "671_MISSION_NAME",
-      "image": "https://img.game8.co/4190084/89387a7df890788e8a45865e2f8bfed4.png/show",
       "xPercentage": 71.828125,
       "yPercentage": 32.546875
     }
@@ -7962,7 +7938,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "672_MISSION_NAME",
-      "image": "https://img.game8.co/4191189/15ee950ee4a214f026fd37c32d7f1248.png/show",
       "xPercentage": 65.39453125,
       "yPercentage": 31.3203125
     }
@@ -7978,7 +7953,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "673_MISSION_NAME",
-      "image": "https://img.game8.co/4188817/a1af3b8b724ad08857a82899fb552eff.png/show",
       "xPercentage": 82.52734375,
       "yPercentage": 40.25390625000001
     }
@@ -7994,7 +7968,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "674_MISSION_NAME",
-      "image": "https://img.game8.co/4192762/8676d3e0371ac932c2fee50ccadc7580.png/show",
       "xPercentage": 70.125,
       "yPercentage": 44.47656250000001
     }
@@ -8010,7 +7983,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "675_MISSION_NAME",
-      "image": "https://img.game8.co/4192766/b704e85fb7cbcfa9d6d32d4d0457baa7.png/show",
       "xPercentage": 68.62890625,
       "yPercentage": 33.96875
     }
@@ -8041,7 +8013,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "677_MISSION_NAME",
-      "image": "https://img.game8.co/4192101/77aab2a806b8a893aac2b1bb36d7b962.png/show",
       "xPercentage": 75.5078125,
       "yPercentage": 29.90234375
     }
@@ -8132,7 +8103,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "683_MISSION_NAME",
-      "image": "https://img.game8.co/4192648/08cd0ff78b59ac838d4f2fe68f70939f.png/show",
       "xPercentage": 71.1484375,
       "yPercentage": 50.65625
     }
@@ -8148,7 +8118,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "684_MISSION_NAME",
-      "image": "https://img.game8.co/4187752/9d3c90534824abf1d7ef3d1955e48cbd.png/show",
       "xPercentage": 63.85546875,
       "yPercentage": 33.83203125
     }
@@ -8164,7 +8133,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "685_MISSION_NAME",
-      "image": "https://img.game8.co/4191099/95a7fee3f268d5e2662f295cad2598e4.png/show",
       "xPercentage": 74.19140625,
       "yPercentage": 37.36328125
     }
@@ -8205,7 +8173,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "688_MISSION_NAME",
-      "image": "https://img.game8.co/4192103/dbbc0b20ef172f58b9af4c818b12912e.png/show",
       "xPercentage": 77.203125,
       "yPercentage": 31.70703125
     }
@@ -8283,7 +8250,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "693_MISSION_NAME",
-      "image": "https://img.game8.co/4189737/f5fc9319b5e23254b3d7ea30795a3b40.png/show",
       "xPercentage": 88.078125,
       "yPercentage": 46.01953125
     }
@@ -8299,7 +8265,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "694_MISSION_NAME",
-      "image": "https://img.game8.co/4192761/c7d4e3a775b1e397caac43fdce95b116.png/show",
       "xPercentage": 79.46875,
       "yPercentage": 32.828125
     }
@@ -8315,7 +8280,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "695_MISSION_NAME",
-      "image": "https://img.game8.co/4188841/972c9fad2c0099837cb137083742f78d.png/show",
       "xPercentage": 84.140625,
       "yPercentage": 39.61328125
     }
@@ -8331,7 +8295,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "696_MISSION_NAME",
-      "image": "https://img.game8.co/4191058/a34e3bdf0e90de75a461a634a8132145.png/show",
       "xPercentage": 85.40234375,
       "yPercentage": 45.58984375
     }
@@ -8347,7 +8310,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "697_MISSION_NAME",
-      "image": "https://img.game8.co/4192764/34b4228971b927ff9b78a0b70ed19417.png/show",
       "xPercentage": 87.921875,
       "yPercentage": 38.5390625
     }
@@ -8393,7 +8355,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "700_MISSION_NAME",
-      "image": "https://img.game8.co/4194739/2d125c2324619aaa71d5b5fad0d89c0f.jpeg/show",
       "xPercentage": 85.63671875,
       "yPercentage": 42.734375
     }
@@ -8442,7 +8403,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "704_MISSION_NAME",
-      "image": "https://img.game8.co/4190072/afbed106098abae3ca28b8b2cdd11cf1.png/show",
       "xPercentage": 82.9140625,
       "yPercentage": 40.56640625
     }
@@ -8483,7 +8443,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "707_MISSION_NAME",
-      "image": "https://img.game8.co/4191186/2f76542be600a4bab0804e3772d3cb05.png/show",
       "xPercentage": 69.234375,
       "yPercentage": 41.93359375
     }
@@ -8499,7 +8458,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "708_MISSION_NAME",
-      "image": "https://img.game8.co/4191092/d077a80df0480db7fada2f7b09452109.png/show",
       "xPercentage": 78.64453125,
       "yPercentage": 48.9140625
     }
@@ -8524,7 +8482,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "710_MISSION_NAME",
-      "image": "https://img.game8.co/4192220/3f72f3a1c985aa0c2a6abb6d4b26ced8.png/show",
       "xPercentage": 79.5546875,
       "yPercentage": 39.51171875
     }
@@ -8540,7 +8497,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "711_MISSION_NAME",
-      "image": "https://img.game8.co/4191182/0a635ae736e9e1af3f596f482fb109e6.png/show",
       "xPercentage": 70.57421875,
       "yPercentage": 39.625
     }
@@ -8888,7 +8844,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "734_MISSION_NAME",
-      "image": "https://img.game8.co/4188680/2fd65c4fa0c0dd851eebb87cbf7d0540.png/show",
       "xPercentage": 71.63671875,
       "yPercentage": 69.7578125
     }
@@ -8936,7 +8891,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "737_MISSION_NAME",
-      "image": "https://img.game8.co/4194754/e8e1a95d7885441fc9f264a6ae3bcfa9.jpeg/show",
       "xPercentage": 73.84765625,
       "yPercentage": 73.30859375
     }
@@ -8984,7 +8938,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "740_MISSION_NAME",
-      "image": "https://img.game8.co/4189739/93f5e3a9cd31c769f5403bcf95241f9e.png/show",
       "xPercentage": 68.4921875,
       "yPercentage": 74.66796875
     }
@@ -9437,7 +9390,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "771_MISSION_NAME",
-      "image": "https://img.game8.co/4190725/50ecb4a9ecd9a693b33cbfcaf968d688.png/show",
       "xPercentage": 72.484375,
       "yPercentage": 66.57421875
     }
@@ -9525,7 +9477,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "777_MISSION_NAME",
-      "image": "https://img.game8.co/4192041/06cd592d77688cc8e0816731e2863992.png/show",
       "xPercentage": 69.05859375,
       "yPercentage": 61.03515625
     }
@@ -9541,7 +9492,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "778_MISSION_NAME",
-      "image": "https://img.game8.co/4190748/b5f892325c3ea6f3129a82aafaa7563a.png/show",
       "xPercentage": 75.62109375,
       "yPercentage": 69.234375
     }
@@ -9810,7 +9760,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "796_MISSION_NAME",
-      "image": "https://img.game8.co/4192257/dd87d17691246688d39dfdfc4c988415.png/show",
       "xPercentage": 64.0078125,
       "yPercentage": 78.578125
     }
@@ -9873,7 +9822,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "800_MISSION_NAME",
-      "image": "https://img.game8.co/4189726/e14e92c3d20a95fa805d69457d751b5d.png/show",
       "xPercentage": 68.1796875,
       "yPercentage": 78.65234375
     }
@@ -9889,7 +9837,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "801_MISSION_NAME",
-      "image": "https://img.game8.co/4194734/ea744678f537069e2611f35b254d181f.jpeg/show",
       "xPercentage": 62.79296875,
       "yPercentage": 82.0078125
     }
@@ -10063,7 +10010,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "812_MISSION_NAME",
-      "image": "https://img.game8.co/4194744/1a7f0b9a383dd498a2c3d372bcb4c944.jpeg/show",
       "xPercentage": 70.8828125,
       "yPercentage": 73.3828125
     }
@@ -10143,7 +10089,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "818_MISSION_NAME",
-      "image": "https://img.game8.co/4187759/3442aa41a4ea134fc40f5630e020606c.png/show",
       "xPercentage": 61.41015625,
       "yPercentage": 45.26953124999999
     }
@@ -10186,7 +10131,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "822_MISSION_NAME",
-      "image": "https://img.game8.co/4190581/6c7b781d5fa871ad4402a3b3e45113fe.png/show",
       "xPercentage": 58.55859375,
       "yPercentage": 38.78515625
     }
@@ -10202,7 +10146,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "823_MISSION_NAME",
-      "image": "https://img.game8.co/4194746/34ce6cfae597b2ec456cde6e8cffee31.jpeg/show",
       "xPercentage": 59.55078124999999,
       "yPercentage": 60.49609375
     }
@@ -10233,7 +10176,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "825_MISSION_NAME",
-      "image": "https://img.game8.co/4194759/1133c738820d5386046c28272b2a3af9.jpeg/show",
       "xPercentage": 59.23437499999999,
       "yPercentage": 52.91015625
     }
@@ -10249,7 +10191,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "826_MISSION_NAME",
-      "image": "https://img.game8.co/4194745/790000b5f22ac6e85d24d349db75214d.jpeg/show",
       "xPercentage": 73.81640625,
       "yPercentage": 55.9765625
     }
@@ -10280,7 +10221,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "828_MISSION_NAME",
-      "image": "https://img.game8.co/4188630/b46b5588bca942b820145e964950ae0d.png/show",
       "xPercentage": 61.875,
       "yPercentage": 58.5234375
     }
@@ -10311,7 +10251,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "830_MISSION_NAME",
-      "image": "https://img.game8.co/4190711/bd74af74b3eb4309a6317109b5310fbc.png/show",
       "xPercentage": 60.73046875,
       "yPercentage": 48.9296875
     }
@@ -10327,7 +10266,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "831_MISSION_NAME",
-      "image": "https://img.game8.co/4192040/7132932db4a74e62eed6f2ee8776e1db.png/show",
       "xPercentage": 62.2578125,
       "yPercentage": 46.58203125
     }
@@ -10343,7 +10281,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "832_MISSION_NAME",
-      "image": "https://img.game8.co/4190992/5c9c03e62291245da1c1c1d11069f598.png/show",
       "xPercentage": 65.14453125,
       "yPercentage": 50.140625
     }
@@ -10359,7 +10296,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "833_MISSION_NAME",
-      "image": "https://img.game8.co/4194753/a4e0a1f8d7691628f44eb51bb005c156.jpeg/show",
       "xPercentage": 58.0078125,
       "yPercentage": 50.48828125
     }
@@ -10456,7 +10392,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "840_MISSION_NAME",
-      "image": "https://img.game8.co/4191089/85f05590551188ceb494595c76cba9f9.png/show",
       "xPercentage": 80.5859375,
       "yPercentage": 50.60546875
     }
@@ -10497,7 +10432,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "843_MISSION_NAME",
-      "image": "https://img.game8.co/4194728/ba32b221c784e4e44aa5d360c4aa9d0e.jpeg/show",
       "xPercentage": 59.91796874999999,
       "yPercentage": 46.8515625
     }
@@ -10576,7 +10510,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "849_MISSION_NAME",
-      "image": "https://img.game8.co/4191652/1ba1d811d07090968bab5e0ce9729a53.png/show",
       "xPercentage": 58.6875,
       "yPercentage": 34.94140625
     }
@@ -11208,7 +11141,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "893_MISSION_NAME",
-      "image": "https://img.game8.co/4190714/94ad752da4888b8e0fb3d416836bad80.png/show",
       "xPercentage": 59.32421875,
       "yPercentage": 42.70703125000001
     }
@@ -12578,7 +12510,6 @@
     "collectibleModel": {
       "collectibleType": "p-switch",
       "missionName": "999_MISSION_NAME",
-      "image": "https://img.game8.co/4192042/a93dbb7fe71186e524e4bc2875bde911.png/show",
       "xPercentage": 70.76953125,
       "yPercentage": 53.05859375
     }
@@ -14183,7 +14114,6 @@
     "instructions": "1134_INSTRUCTIONS",
     "collectibleModel": {
       "collectibleType": "peach-coin",
-      "image": "",
       "xPercentage": 50.6015625,
       "yPercentage": 20.8125
     }

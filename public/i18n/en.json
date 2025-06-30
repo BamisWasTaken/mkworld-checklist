@@ -33,7 +33,10 @@
     }
   },
   "MAP_SECTION": {
-    "SHOW_COLLECTED": "Show collected"
+    "SHOW_COLLECTED": "Show collected",
+    "TOOLTIP": {
+      "IMAGE_ALT_TEXT": "Image of collectible nr. {{index}}"
+    }
   },
   "FOOTER": {
     "TITLE": "Mario Kart World Checklist © 2025",
@@ -2136,7 +2139,7 @@
     "1131_INSTRUCTIONS": "Drop down from Starview Peak onto the ledge.",
     "1132_INSTRUCTIONS": "Located on a high ledge outside Boo Cinema. Drive past the Peach Medallion near the Toad camp in the snowy area, then drop down to the grassy section below to reach it.",
     "1133_INSTRUCTIONS": "In between two rocks under the green bridge.",
-    "1134_INSTRUCTIONS": "It is recommended that you have a Gold Mushroom and/or a Triple Mushroom. Jump from the highest point in Acorn Heights and dash boost your way into landing on the giant log. The Peach Medallion will be on top.",
+    "1134_INSTRUCTIONS": "It is recommended that you have a Gold Mushroom and / or a Triple Mushroom. Jump from the highest point in Acorn Heights and dash boost your way into landing on the giant log. The Peach Medallion will be on top.",
     "1135_INSTRUCTIONS": "Drop down from one of the initial curves in Starview Peak. You will land at an observatory where you will see the Peach Medallion when you go around.",
     "1136_INSTRUCTIONS": "Found underneath the bridge southeast of Starview Peak.",
     "1137_INSTRUCTIONS": "From the DK Pass starting point, turn right and head up the ramps, then turn offroad to the right and follow main road uphill. Take the ramp to get onto the cabin roof and blast in the cannon to reach the platform with the Peach Medallion. Note: If you drive up to the top of the platform normally, the Peach Medallion will not appear!",
