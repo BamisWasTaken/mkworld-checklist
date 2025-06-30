@@ -80,6 +80,7 @@
           <img
             [src]="`/imgs/${collectibleChecklistModel.collectibleModel?.collectibleType}${collectibleChecklistModel.checked ? '-collected' : ''}.png`"
             [alt]="collectibleChecklistModel.collectibleModel!.collectibleType + ' marker'"
+            [style.width]="collectibleWidth()"
             class="collectible-img"
             draggable="false"
           />

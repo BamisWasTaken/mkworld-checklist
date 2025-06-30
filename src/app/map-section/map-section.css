@@ -17,10 +17,11 @@
 }
 
 .collectible-img {
-  width: 12px;
-  height: 12px;
   user-select: none;
   pointer-events: none;
+  object-fit: contain;
+  max-width: 100%;
+  display: block;
 }
 
 @keyframes scaleIn {
