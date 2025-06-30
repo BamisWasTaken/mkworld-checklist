@@ -1,20 +1,28 @@
-import { Injectable, Signal, signal } from '@angular/core';
+import { computed, inject, Injectable, Signal, signal } from '@angular/core';
 import { ChecklistModel } from '../models';
+import { ChecklistDataService } from './checklist-data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TooltipService {
-  private activeTooltipData = signal<ChecklistModel | null>(null);
-  private isScrollingToTooltip = signal(false);
+  private readonly checklistDataService = inject(ChecklistDataService);
+
+  private readonly activeTooltipIndex = signal<number | null>(null);
+  private readonly activeTooltipData = computed(() =>
+    this.checklistDataService
+      .getChecklistModels()()
+      .find((checklistModel: ChecklistModel) => checklistModel.index === this.activeTooltipIndex())
+  );
+  private readonly isScrollingToTooltip = signal(false);
 
   setActiveTooltipData(checklistModel: ChecklistModel | null): void {
-    if (this.activeTooltipData()?.index === checklistModel?.index) {
-      this.activeTooltipData.set(null);
+    if (this.activeTooltipIndex() === checklistModel?.index) {
+      this.activeTooltipIndex.set(null);
       return;
     }
 
-    this.activeTooltipData.set(checklistModel);
+    this.activeTooltipIndex.set(checklistModel?.index ?? null);
   }
 
   setActiveTooltipDataWithScrollProtection(checklistModel: ChecklistModel | null): void {
@@ -31,7 +39,7 @@ export class TooltipService {
     return this.isScrollingToTooltip;
   }
 
-  getActiveTooltipData(): Signal<ChecklistModel | null> {
+  getActiveTooltipData(): Signal<ChecklistModel | undefined> {
     return this.activeTooltipData;
   }
 }

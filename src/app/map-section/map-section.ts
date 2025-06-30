@@ -264,6 +264,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
         minZoom: 1,
         maxZoom: 10,
         zoomDoubleClickSpeed: 1,
+        smoothScroll: false,
       });
 
       this.pzInstance.on('panstart', () => (this.isPanning = true));
