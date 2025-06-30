@@ -81,10 +81,11 @@
           >
             <div class="w-24 h-24 flex items-center justify-center">
               <img
-                src="/imgs/stickers/sticker-{{ checklistModel.index }}.webp"
+                [ngSrc]="'/imgs/stickers/sticker-' + checklistModel.index + '.webp'"
                 [alt]="'STICKERS.' + checklistModel.stickerAltText | translate"
-                class="max-w-full max-h-full object-contain"
+                class="object-contain"
                 draggable="false"
+                fill
               />
             </div>
             <input

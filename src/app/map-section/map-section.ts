@@ -1,4 +1,4 @@
-import { isPlatformBrowser, NgStyle } from '@angular/common';
+import { isPlatformBrowser, NgOptimizedImage, NgStyle } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
-import { ChecklistModel } from '../core/models';
+import { ChecklistModel, CollectibleType } from '../core/models';
 import { ChecklistDataService, SettingsService, TooltipService } from '../core/services';
 import { Tooltip } from './tooltip/tooltip';
 
@@ -28,7 +28,7 @@ interface TooltipPosition {
   selector: 'mkworld-map-section',
   templateUrl: './map-section.html',
   styleUrls: ['./map-section.css'],
-  imports: [TranslateModule, Tooltip, NgStyle],
+  imports: [TranslateModule, Tooltip, NgStyle, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapSection implements AfterViewInit, OnDestroy {
@@ -36,6 +36,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly tooltipService = inject(TooltipService);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly settingsService = inject(SettingsService);
+
+  readonly CollectibleType = CollectibleType;
 
   readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
 
@@ -51,10 +53,10 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
   readonly panzoomScale = signal(1);
   readonly tooltipTransform = computed(() => `scale(${1 / this.panzoomScale()})`);
-  readonly collectibleHeight = computed(() => 16 - Math.floor(this.panzoomScale()) + 'px');
+  readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
 
   private readonly TOOLTIP_WIDTH = 300;
-  private readonly TOOLTIP_HEIGHT = 400;
+  private readonly TOOLTIP_HEIGHT = 420;
   private readonly TOOLTIP_MARGIN = 12;
 
   readonly tooltipPosition = computed(() => {

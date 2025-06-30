@@ -13,9 +13,10 @@
           [class.removing]="lastPeachCoinBeingRemoved()"
         >
           <img
-            src="imgs/peach-coin.webp"
+            ngSrc="imgs/peach-coin.webp"
             [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
-            class="w-8 h-8"
+            width="32"
+            height="32"
           />
           <span class="flex-1">{{
             'TODO_SECTION.PEACH_MEDALLION_TODO'
@@ -29,9 +30,10 @@
           [class.removing]="lastQuestionMarkPanelBeingRemoved()"
         >
           <img
-            src="imgs/questionmark-panel.webp"
+            ngSrc="imgs/questionmark-panel.webp"
             [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
-            class="w-8 h-8"
+            width="32"
+            height="32"
           />
           <span class="flex-1">{{
             'TODO_SECTION.QUESTIONMARK_PANEL_TODO'
@@ -45,9 +47,10 @@
           [class.removing]="lastPSwitchBeingRemoved()"
         >
           <img
-            src="imgs/p-switch.webp"
+            ngSrc="imgs/p-switch.webp"
             [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
-            class="w-8"
+            width="32"
+            height="20"
           />
           <span class="flex-1">{{
             'TODO_SECTION.PSWITCH_TODO' | translate: { uncollected: uncollectedPSwitches() }

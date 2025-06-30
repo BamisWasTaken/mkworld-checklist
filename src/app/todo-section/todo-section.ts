@@ -1,4 +1,4 @@
-import { DecimalPipe } from '@angular/common';
+import { DecimalPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
@@ -9,7 +9,7 @@ import { AchievementDataService, ChecklistDataService } from '../core/services';
   selector: 'mkworld-todo-section',
   templateUrl: './todo-section.html',
   styleUrls: ['./todo-section.css'],
-  imports: [TranslateModule, DecimalPipe],
+  imports: [TranslateModule, DecimalPipe, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoSection {

@@ -4,15 +4,18 @@
   </button>
 
   <div class="description-container">
-    <img
-      [src]="checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN ? '/imgs/stickers/random-sticker.webp' : `/imgs/stickers/sticker-${checklistModel().index}.webp`"
-      [alt]="
-        checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN
-          ? 'STICKERS.SHARED.RANDOM_STICKER_ALT_TEXT'
-          : ('STICKERS.' + checklistModel().stickerAltText | translate)
-      "
-      class="sticker-thumbnail"
-    />
+    <div class="w-[32px] h-[32px] relative">
+      <img
+        [ngSrc]="checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN ? '/imgs/stickers/random-sticker.webp' : `/imgs/stickers/sticker-${checklistModel().index}.webp`"
+        [alt]="
+          checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN
+            ? 'STICKERS.SHARED.RANDOM_STICKER_ALT_TEXT'
+            : ('STICKERS.' + checklistModel().stickerAltText | translate)
+        "
+        fill
+        class="sticker-thumbnail"
+      />
+    </div>
     <p class="description">
       @switch (checklistModel().collectibleModel!.collectibleType) {
         @case (CollectibleType.PEACH_COIN) {
@@ -41,8 +44,10 @@
   } @else {
     <img
       width="100%"
-      [src]="`/imgs/tooltips/IMAGE_${checklistModel().index}.png`"
+      [ngSrc]="`/imgs/tooltips/IMAGE_${checklistModel().index}.webp`"
       [alt]="'MAP_SECTION.TOOLTIP.IMAGE_ALT_TEXT' | translate: { index: checklistModel().index }"
+      width="536"
+      height="300"
     />
   }
 

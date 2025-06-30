@@ -125,8 +125,6 @@
 }
 
 .sticker-thumbnail {
-  width: 32px;
-  height: 32px;
   object-fit: contain;
   flex-shrink: 0;
   filter: drop-shadow(0 0 2px black);

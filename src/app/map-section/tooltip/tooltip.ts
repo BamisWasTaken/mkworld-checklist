@@ -3,12 +3,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../core/models';
 import { ChecklistDataService, TooltipService } from '../../core/services';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'mkworld-tooltip',
   templateUrl: './tooltip.html',
   styleUrl: './tooltip.css',
-  imports: [TranslateModule],
+  imports: [TranslateModule, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Tooltip {
