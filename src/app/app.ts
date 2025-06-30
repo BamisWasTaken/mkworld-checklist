@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ChecklistModel } from './core/models';
 import { ChecklistDataService } from './core/services';
@@ -15,6 +15,7 @@ import { TooltipService } from './core/services/tooltip.service';
   imports: [TranslateModule, ProgressBar, StickerAlbum, Header, Footer, MapSection, TodoSection],
   templateUrl: './app.html',
   styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
   private readonly translateService = inject(TranslateService);

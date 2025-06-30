@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
 import { Achievement, ChecklistModel, Milestone } from '../core/models';
@@ -10,6 +10,7 @@ import { AchievementDataService, ChecklistDataService } from '../core/services';
   templateUrl: './todo-section.html',
   styleUrls: ['./todo-section.css'],
   imports: [TranslateModule, DecimalPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoSection {
   private readonly checklistDataService = inject(ChecklistDataService);

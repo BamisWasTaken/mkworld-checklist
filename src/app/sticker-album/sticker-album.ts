@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   ElementRef,
@@ -21,6 +22,7 @@ import { CONSTANTS } from '../constants';
   imports: [TranslateModule],
   templateUrl: './sticker-album.html',
   styleUrls: ['./sticker-album.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StickerAlbum {
   private readonly checklistDataService = inject(ChecklistDataService);

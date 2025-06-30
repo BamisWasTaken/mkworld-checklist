@@ -1,6 +1,7 @@
 import { isPlatformBrowser, NgStyle } from '@angular/common';
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   computed,
   ElementRef,
@@ -28,6 +29,7 @@ interface TooltipPosition {
   templateUrl: './map-section.html',
   styleUrls: ['./map-section.css'],
   imports: [TranslateModule, Tooltip, NgStyle],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapSection implements AfterViewInit, OnDestroy {
   private readonly checklistDataService = inject(ChecklistDataService);

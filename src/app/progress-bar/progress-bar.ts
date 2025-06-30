@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './progress-bar.html',
   styleUrls: ['./progress-bar.css'],
   imports: [TranslateModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressBar {
   readonly progress = input.required<number>();

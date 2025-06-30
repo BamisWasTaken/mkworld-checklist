@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../core/models';
@@ -9,6 +9,7 @@ import { ChecklistDataService, TooltipService } from '../../core/services';
   templateUrl: './tooltip.html',
   styleUrl: './tooltip.css',
   imports: [TranslateModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Tooltip {
   private readonly checklistDataService = inject(ChecklistDataService);
