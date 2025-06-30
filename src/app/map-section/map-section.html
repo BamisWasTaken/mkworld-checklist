@@ -47,45 +47,40 @@
       collectibleChecklistModel of collectibleChecklistModels();
       track collectibleChecklistModel.index
     ) {
-      @if (
-        !collectibleChecklistModel.checked ||
-        collectibleChecklistModel.disappearing ||
-        showCollectedCollectibles()
-      ) {
-        <div
-          id="collectible-div-{{ collectibleChecklistModel.index }}"
-          class="collectible absolute"
-          [class.hovered]="hovered() === collectibleChecklistModel"
-          [class.disappearing]="
-            collectibleChecklistModel.disappearing && !showCollectedCollectibles()
-          "
-          [style.--target-scale]="
-            focusedCollectibleIndex() === collectibleChecklistModel.index ||
-            hovered() === collectibleChecklistModel
-              ? 1.2
-              : 1
-          "
-          [ngStyle]="{
-            left: collectibleChecklistModel.collectibleModel!.xPercentage + '%',
-            top: collectibleChecklistModel.collectibleModel!.yPercentage + '%',
-          }"
-          [attr.data-collectible-index]="collectibleChecklistModel.index"
-          (mouseenter)="hovered.set(collectibleChecklistModel)"
-          (mouseleave)="hovered.set(null)"
-          (click)="onClick(collectibleChecklistModel)"
-          tabindex="0"
-          role="button"
-          aria-label="Collectible marker"
-        >
-          <img
-            [src]="`/imgs/${collectibleChecklistModel.collectibleModel?.collectibleType}${collectibleChecklistModel.checked ? '-collected' : ''}.png`"
-            [alt]="collectibleChecklistModel.collectibleModel!.collectibleType + ' marker'"
-            [style.width]="collectibleWidth()"
-            class="collectible-img"
-            draggable="false"
-          />
-        </div>
-      }
+      <div
+        id="collectible-div-{{ collectibleChecklistModel.index }}"
+        class="collectible absolute"
+        [class.hovered]="hovered() === collectibleChecklistModel"
+        [class.disappearing]="
+          collectibleChecklistModel.disappearing && !showCollectedCollectibles()
+        "
+        [style.--target-scale]="
+          focusedCollectibleIndex() === collectibleChecklistModel.index ||
+          hovered() === collectibleChecklistModel
+            ? 1.2
+            : 1
+        "
+        [ngStyle]="{
+          left: collectibleChecklistModel.collectibleModel!.xPercentage + '%',
+          top: collectibleChecklistModel.collectibleModel!.yPercentage + '%',
+        }"
+        [attr.data-collectible-index]="collectibleChecklistModel.index"
+        (mouseenter)="hovered.set(collectibleChecklistModel)"
+        (mouseleave)="hovered.set(null)"
+        (click)="onClick(collectibleChecklistModel)"
+        tabindex="0"
+        role="button"
+        aria-label="Collectible marker"
+      >
+        <img
+          [src]="`/imgs/${collectibleChecklistModel.collectibleModel?.collectibleType}.png`"
+          [alt]="collectibleChecklistModel.collectibleModel!.collectibleType + ' marker'"
+          [style.height]="collectibleHeight()"
+          [class.collected]="collectibleChecklistModel.checked"
+          class="collectible-img"
+          draggable="false"
+        />
+      </div>
     }
 
     @if (activeTooltipData(); as tooltipData) {

@@ -49,7 +49,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
   readonly panzoomScale = signal(1);
   readonly tooltipTransform = computed(() => `scale(${1 / this.panzoomScale()})`);
-  readonly collectibleWidth = computed(() => 16 - Math.floor(this.panzoomScale()) + 'px');
+  readonly collectibleHeight = computed(() => 16 - Math.floor(this.panzoomScale()) + 'px');
 
   private readonly TOOLTIP_WIDTH = 300;
   private readonly TOOLTIP_HEIGHT = 400;

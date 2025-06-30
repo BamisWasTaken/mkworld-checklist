@@ -49,6 +49,9 @@ export class ChecklistDataService {
 
   updateChecklistModelChecked(checklistModelToUpdate: ChecklistModel): void {
     checklistModelToUpdate.checked = !checklistModelToUpdate.checked;
+    if (checklistModelToUpdate.checked && !checklistModelToUpdate.disappearing) {
+      this.addDisappearingChecklistModel(checklistModelToUpdate);
+    }
 
     this.checklistModels.update((checklistModels: ChecklistModel[]) =>
       checklistModels.map((checklistModel: ChecklistModel) =>
@@ -57,10 +60,6 @@ export class ChecklistDataService {
           : checklistModel
       )
     );
-
-    if (checklistModelToUpdate.checked && !checklistModelToUpdate.disappearing) {
-      this.addDisappearingChecklistModel(checklistModelToUpdate);
-    }
   }
 
   addDisappearingChecklistModel(disappearingChecklistModel: ChecklistModel): void {
