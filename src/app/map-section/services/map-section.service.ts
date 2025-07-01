@@ -111,14 +111,11 @@ export class MapSectionService {
     pzInstance: PanZoom
   ): Bounds {
     const mapSectionRect = mapSectionRef.nativeElement.getBoundingClientRect();
+    const mapRect = mapPanzoomRef.nativeElement.getBoundingClientRect();
     const panTransform = pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 };
 
-    if (!this.mapPanzoomWidth && !this.mapPanzoomHeight) {
-      const mapRect = mapPanzoomRef.nativeElement.getBoundingClientRect();
-      this.mapPanzoomWidth = mapRect.width / panTransform.scale;
-      this.mapPanzoomHeight = mapRect.height / panTransform.scale;
-    }
-
+    this.mapPanzoomWidth = mapRect.width / panTransform.scale;
+    this.mapPanzoomHeight = mapRect.height / panTransform.scale;
     const mapSectionWidth = mapSectionRect.width;
     const mapSectionHeight = mapSectionRect.height;
 
