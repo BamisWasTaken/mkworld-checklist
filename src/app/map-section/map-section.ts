@@ -128,7 +128,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
           Math.pow(event.clientX - this.mouseDownPosition.x, 2) +
             Math.pow(event.clientY - this.mouseDownPosition.y, 2)
         );
-        if (distance > CONSTANTS.DRAG_THRESHOLD) {
+        if (distance > CONSTANTS.MAP_DRAG_THRESHOLD) {
           this.mouseDownPosition = null;
           return;
         }

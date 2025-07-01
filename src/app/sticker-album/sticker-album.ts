@@ -52,6 +52,13 @@ export class StickerAlbum {
   tooltipText = signal<string | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
 
+  // Drag functionality properties
+  private isDragging = false;
+  private dragStartX = 0;
+  private dragStartY = 0;
+  private dragCurrentX = 0;
+  private dragCurrentY = 0;
+
   constructor() {
     toObservable(this.pageService.getPage())
       .pipe(takeUntilDestroyed())
@@ -280,5 +287,81 @@ export class StickerAlbum {
       element.style.opacity = '';
       element.style.transform = '';
     }, 400);
+  }
+
+  @HostListener('mousedown', ['$event'])
+  onMouseDown(event: MouseEvent): void {
+    this.startDrag(event.clientX, event.clientY);
+  }
+
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent): void {
+    if (this.isDragging) {
+      this.updateDrag(event.clientX, event.clientY);
+    }
+  }
+
+  @HostListener('mouseup')
+  onMouseUp(): void {
+    if (this.isDragging) {
+      this.endDrag();
+    }
+  }
+
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent): void {
+    const touch = event.touches[0];
+    this.startDrag(touch.clientX, touch.clientY);
+  }
+
+  @HostListener('touchmove', ['$event'])
+  onTouchMove(event: TouchEvent): void {
+    if (this.isDragging) {
+      const touch = event.touches[0];
+      this.updateDrag(touch.clientX, touch.clientY);
+    }
+  }
+
+  @HostListener('touchend')
+  onTouchEnd(): void {
+    if (this.isDragging) {
+      this.endDrag();
+    }
+  }
+
+  private startDrag(startX: number, startY: number): void {
+    this.isDragging = true;
+    this.dragStartX = startX;
+    this.dragStartY = startY;
+    this.dragCurrentX = startX;
+    this.dragCurrentY = startY;
+  }
+
+  private updateDrag(currentX: number, currentY: number): void {
+    this.dragCurrentX = currentX;
+    this.dragCurrentY = currentY;
+  }
+
+  private endDrag(): void {
+    if (!this.isDragging) {
+      return;
+    }
+
+    const deltaX = this.dragCurrentX - this.dragStartX;
+    const deltaY = this.dragCurrentY - this.dragStartY;
+    const dragDistance = Math.abs(deltaX);
+
+    if (
+      dragDistance >= CONSTANTS.STICKER_ALBUM_DRAG_THRESHOLD &&
+      Math.abs(deltaX) > Math.abs(deltaY)
+    ) {
+      if (deltaX > 0) {
+        this.prevPage();
+      } else {
+        this.nextPage();
+      }
+    }
+
+    this.isDragging = false;
   }
 }
