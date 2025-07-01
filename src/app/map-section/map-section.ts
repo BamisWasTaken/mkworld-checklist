@@ -14,11 +14,10 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
-import { ChecklistModel, CollectibleModel, CollectibleType } from '../core/models';
+import { ChecklistModel, CollectibleType } from '../core/models';
 import { ChecklistDataService, SettingsService, TooltipService } from '../core/services';
+import { MapSectionService } from './services/map-section.service';
 import { Tooltip } from './tooltip/tooltip';
-import { CONSTANTS } from '../constants';
-import { Bounds, QuadTreeNode, TooltipPosition } from './models';
 
 @Component({
   selector: 'mkworld-map-section',
@@ -32,6 +31,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly tooltipService = inject(TooltipService);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly settingsService = inject(SettingsService);
+  private readonly mapSectionService = inject(MapSectionService);
 
   readonly CollectibleType = CollectibleType;
 
@@ -43,10 +43,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private mouseDownPosition: { x: number; y: number } | null = null;
   private readonly DRAG_THRESHOLD = 5; // pixels
 
-  // Quadtree optimization
-  private quadtree: QuadTreeNode | null = null;
-  private updateVisibleCollectiblesTimeout: number | null = null;
-
   readonly showCollectedCollectibles = this.settingsService.shouldShowCollectedCollectibles();
 
   readonly hovered = signal<ChecklistModel | null>(null);
@@ -56,55 +52,31 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly tooltipTransform = computed(() => `scale(${1 / this.panzoomScale()})`);
   readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
 
-  readonly collectibleChecklistModels =
-    this.checklistDataService.getCollectibleChecklistModelsOnMap();
-  readonly visibleCollectibleIndexes = signal<number[]>([]);
-  readonly visibleCollectibleChecklistModels = computed(() => {
-    if (this.collectibleChecklistModels().length > CONSTANTS.QUADTREE_THRESHOLD) {
-      return this.collectibleChecklistModels().filter((checklistModel: ChecklistModel) =>
-        this.visibleCollectibleIndexes().includes(checklistModel.index)
-      );
-    }
-    return this.collectibleChecklistModels();
-  });
+  readonly visibleCollectibleChecklistModels =
+    this.mapSectionService.getVisibleCollectibleChecklistModels();
 
   readonly tooltipPosition = computed(() =>
-    this.calculateTooltipPosition(this.activeTooltipData()?.collectibleModel)
+    this.mapSectionService.calculateTooltipPosition(
+      this.mapPanzoomRef()!,
+      this.mapSectionRef()!,
+      this.pzInstance!,
+      this.activeTooltipData()?.collectibleModel
+    )
   );
-
-  readonly focusedCollectibleIndex = computed(() => {
-    return this.activeTooltipData()?.index ?? null;
-  });
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.initializeQuadTree(this.checklistDataService.getChecklistModels()());
-      this.pzInstance = panzoom(this.mapPanzoomRef()!.nativeElement, {
-        bounds: true,
-        boundsPadding: 1,
-        minZoom: 1,
-        maxZoom: 10,
-        zoomDoubleClickSpeed: 1,
-        smoothScroll: false,
-      });
-
-      this.pzInstance.on('panstart', () => (this.isPanning = true));
-      this.pzInstance.on('panend', () => (this.isPanning = false));
-      this.pzInstance.on('pan', () => this.debouncedUpdateVisibleCollectibles());
-      this.pzInstance.on('zoom', (pz: PanZoom) => {
-        this.panzoomScale.set(pz.getTransform().scale);
-        this.debouncedUpdateVisibleCollectibles();
-      });
+      this.mapSectionService.updateVisibleCollectibleIndexes(
+        this.mapPanzoomRef()!,
+        this.mapSectionRef()!,
+        this.pzInstance!
+      );
+      this.initializePanZoom();
     }
   }
 
   ngOnDestroy(): void {
-    if (this.updateVisibleCollectiblesTimeout) {
-      clearTimeout(this.updateVisibleCollectiblesTimeout);
-    }
-    if (this.pzInstance) {
-      this.pzInstance.dispose();
-    }
+    this.mapSectionService.cleanup(this.pzInstance);
   }
 
   onClick(checklistModel: ChecklistModel): void {
@@ -187,101 +159,32 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }, 100);
   }
 
-  private calculateTooltipPosition(collectibleModel?: CollectibleModel): TooltipPosition {
-    if (!collectibleModel) {
-      return TooltipPosition.ABOVE;
-    }
+  private initializePanZoom(): void {
+    this.pzInstance = panzoom(this.mapPanzoomRef()!.nativeElement, {
+      bounds: true,
+      boundsPadding: 1,
+      minZoom: 1,
+      maxZoom: 10,
+      zoomDoubleClickSpeed: 1,
+      smoothScroll: false,
+    });
 
-    const visibleBounds = this.calculateVisibleBounds();
-
-    // Calculate available space in each direction
-    const spaceAbove = collectibleModel.yPercentage - visibleBounds.y;
-    const spaceBelow = visibleBounds.y + visibleBounds.height - collectibleModel.yPercentage;
-    const spaceLeft = collectibleModel.xPercentage - visibleBounds.x;
-    const spaceRight = visibleBounds.x + visibleBounds.width - collectibleModel.xPercentage;
-
-    // Final fallback: choose the position with the most available space
-    const spaceScores = [
-      { position: TooltipPosition.ABOVE, score: Math.min(spaceAbove, spaceLeft, spaceRight) },
-      { position: TooltipPosition.BELOW, score: Math.min(spaceBelow, spaceLeft, spaceRight) },
-      { position: TooltipPosition.LEFT, score: Math.min(spaceLeft, spaceAbove, spaceBelow) },
-      { position: TooltipPosition.RIGHT, score: Math.min(spaceRight, spaceAbove, spaceBelow) },
-    ];
-
-    const bestPosition = spaceScores.reduce((best, current) =>
-      current.score > best.score ? current : best
+    this.pzInstance.on('panstart', () => (this.isPanning = true));
+    this.pzInstance.on('panend', () => (this.isPanning = false));
+    this.pzInstance.on('pan', () =>
+      this.mapSectionService.debouncedUpdateVisibleCollectibles(
+        this.mapPanzoomRef()!,
+        this.mapSectionRef()!,
+        this.pzInstance!
+      )
     );
-
-    return bestPosition.position;
-  }
-
-  private initializeQuadTree(checklistModels: ChecklistModel[]): void {
-    const collectibles = checklistModels.filter(
-      (checklistModel: ChecklistModel) => checklistModel.collectibleModel
-    );
-
-    // Initialize quadtree with full map bounds (0-100%)
-    this.quadtree = new QuadTreeNode({ x: 0, y: 0, width: 100, height: 100 });
-
-    // Insert all collectibles into the quadtree
-    for (const collectible of collectibles) {
-      this.quadtree.insert(collectible);
-    }
-
-    // Set initial visible collectibles
-    this.updateVisibleCollectibles();
-  }
-
-  private updateVisibleCollectibles(): void {
-    if (!this.quadtree || !this.mapPanzoomRef()?.nativeElement) {
-      return;
-    }
-
-    const visibleBounds = this.calculateVisibleBounds();
-    const visibleCollectibleIndexes = this.quadtree
-      .retrieve(visibleBounds)
-      .map((checklistModel: ChecklistModel) => checklistModel.index);
-
-    this.visibleCollectibleIndexes.set(visibleCollectibleIndexes);
-  }
-
-  private calculateVisibleBounds(): Bounds {
-    const mapSectionRect = this.mapSectionRef()!.nativeElement.getBoundingClientRect();
-    const mapRect = this.mapPanzoomRef()!.nativeElement.getBoundingClientRect();
-    const panTransform = this.pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 };
-
-    const mapSectionWidth = mapSectionRect.width;
-    const mapSectionHeight = mapSectionRect.height;
-    const mapWidth = mapRect.width / panTransform.scale;
-    const mapHeight = mapRect.height / panTransform.scale;
-
-    const visibleLeft = -panTransform.x / panTransform.scale;
-    const visibleTop = -panTransform.y / panTransform.scale;
-    const visibleRight = visibleLeft + mapSectionWidth / panTransform.scale;
-    const visibleBottom = visibleTop + mapSectionHeight / panTransform.scale;
-
-    const x = Math.max(0, (visibleLeft / mapWidth) * 100) - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
-    const y = Math.max(0, (visibleTop / mapHeight) * 100) - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
-    const width =
-      Math.min(100 - x, ((visibleRight - visibleLeft) / mapWidth) * 100) +
-      2 * CONSTANTS.QUADTREE_VISIBLE_BUFFER;
-    const height =
-      Math.min(100 - y, ((visibleBottom - visibleTop) / mapHeight) * 100) +
-      2 * CONSTANTS.QUADTREE_VISIBLE_BUFFER;
-
-    return { x, y, width, height };
-  }
-
-  private debouncedUpdateVisibleCollectibles(): void {
-    if (this.collectibleChecklistModels().length > CONSTANTS.QUADTREE_THRESHOLD) {
-      if (this.updateVisibleCollectiblesTimeout) {
-        clearTimeout(this.updateVisibleCollectiblesTimeout);
-      }
-
-      this.updateVisibleCollectiblesTimeout = window.setTimeout(() => {
-        this.updateVisibleCollectibles();
-        this.updateVisibleCollectiblesTimeout = null;
-      }, CONSTANTS.QUADTREE_DEBOUNCE_TIME);
-    }
+    this.pzInstance.on('zoom', (pz: PanZoom) => {
+      this.panzoomScale.set(pz.getTransform().scale);
+      this.mapSectionService.debouncedUpdateVisibleCollectibles(
+        this.mapPanzoomRef()!,
+        this.mapSectionRef()!,
+        this.pzInstance!
+      );
+    });
   }
 }

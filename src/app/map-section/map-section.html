@@ -59,7 +59,7 @@
         "
         [class.collected]="collectibleChecklistModel.checked"
         [style.--target-scale]="
-          focusedCollectibleIndex() === collectibleChecklistModel.index ||
+          activeTooltipData()?.index === collectibleChecklistModel.index ||
           hovered() === collectibleChecklistModel
             ? 1.2 * collectibleScale()
             : collectibleScale()

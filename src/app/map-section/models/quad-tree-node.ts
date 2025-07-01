@@ -1,12 +1,11 @@
 import { Bounds } from './bounds';
 import { ChecklistModel } from '../../core/models';
+import { CONSTANTS } from '../../constants';
 
 export class QuadTreeNode {
   bounds: Bounds;
   collectibles: ChecklistModel[] = [];
   children: QuadTreeNode[] = [];
-  maxObjects = 10;
-  maxLevels = 5;
 
   constructor(bounds: Bounds) {
     this.bounds = bounds;
@@ -53,7 +52,7 @@ export class QuadTreeNode {
 
     this.collectibles.push(collectible);
 
-    if (this.collectibles.length > this.maxObjects && this.children.length === 0) {
+    if (this.collectibles.length > CONSTANTS.QUAD_TREE_MAX_OBJECTS && this.children.length === 0) {
       this.split();
 
       for (const item of this.collectibles) {
@@ -71,7 +70,6 @@ export class QuadTreeNode {
       return returnObjects;
     }
 
-    // Only include collectibles that are actually within the bounds
     for (const collectible of this.collectibles) {
       const x = collectible.collectibleModel!.xPercentage;
       const y = collectible.collectibleModel!.yPercentage;
@@ -102,13 +100,5 @@ export class QuadTreeNode {
       bounds.y > this.bounds.y + this.bounds.height ||
       bounds.y + bounds.height < this.bounds.y
     );
-  }
-
-  clear(): void {
-    this.collectibles = [];
-    for (const child of this.children) {
-      child.clear();
-    }
-    this.children = [];
   }
 }
