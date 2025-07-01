@@ -41,6 +41,10 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly mapSectionRef = viewChild<ElementRef>('mapSection');
 
   readonly showCollectedCollectibles = this.settingsService.shouldShowCollectedCollectibles();
+  readonly shownCollectibleTypes = this.settingsService.getShownCollectibleTypes();
+  readonly showPeachCoins = this.settingsService.shouldShowPeachCoins();
+  readonly showQuestionMarkPanels = this.settingsService.shouldShowQuestionMarkPanels();
+  readonly showPSwitches = this.settingsService.shouldShowPSwitches();
 
   readonly visibleCollectibleChecklistModels =
     this.mapSectionService.getVisibleCollectibleChecklistModels();
@@ -98,6 +102,18 @@ export class MapSection implements AfterViewInit, OnDestroy {
       );
     }
     this.settingsService.toggleShowCollectedCollectibles();
+  }
+
+  toggleShowCollectibleType(collectibleType: CollectibleType): void {
+    if (this.shownCollectibleTypes().includes(collectibleType)) {
+      this.checklistDataService.addDisappearingChecklistModels(
+        this.visibleCollectibleChecklistModels().filter(
+          (checklistModel: ChecklistModel) =>
+            checklistModel.collectibleModel?.collectibleType === collectibleType
+        )
+      );
+    }
+    this.settingsService.toggleShowCollectibleType(collectibleType);
   }
 
   @HostListener('document:click', ['$event'])

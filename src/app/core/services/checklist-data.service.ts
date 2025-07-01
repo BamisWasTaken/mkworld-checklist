@@ -15,17 +15,23 @@ export class ChecklistDataService {
   private readonly checklistModels = signal<ChecklistModel[]>(checklistData);
 
   private readonly collectibleChecklistModelsOnMap = computed(() => {
-    const checklistModels = this.checklistModels();
+    let checklistModels = this.checklistModels();
+
+    checklistModels = checklistModels.filter(
+      (checklistModel: ChecklistModel) =>
+        checklistModel.collectibleModel &&
+        (this.settingsService
+          .getShownCollectibleTypes()()
+          .includes(checklistModel.collectibleModel.collectibleType) ||
+          checklistModel.disappearing)
+    );
 
     if (this.settingsService.shouldShowCollectedCollectibles()()) {
-      return checklistModels.filter(
-        (checklistModel: ChecklistModel) => checklistModel.collectibleModel
-      );
+      return checklistModels;
     }
 
     return checklistModels.filter(
-      (checklistModel: ChecklistModel) =>
-        checklistModel.collectibleModel && (!checklistModel.checked || checklistModel.disappearing)
+      (checklistModel: ChecklistModel) => !checklistModel.checked || checklistModel.disappearing
     );
   });
 
