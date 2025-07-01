@@ -14,17 +14,11 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import panzoom, { PanZoom } from 'panzoom';
-import { ChecklistModel, CollectibleType } from '../core/models';
+import { ChecklistModel, CollectibleModel, CollectibleType } from '../core/models';
 import { ChecklistDataService, SettingsService, TooltipService } from '../core/services';
 import { Tooltip } from './tooltip/tooltip';
-import { QuadTreeNode } from './models/quant-tree-node';
-import { Bounds } from './models/bounds';
-
-interface TooltipPosition {
-  x: number;
-  y: number;
-  position: 'above' | 'below' | 'left' | 'right';
-}
+import { CONSTANTS } from '../constants';
+import { Bounds, QuadTreeNode, TooltipPosition } from './models';
 
 @Component({
   selector: 'mkworld-map-section',
@@ -42,6 +36,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly CollectibleType = CollectibleType;
 
   readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
+  readonly mapSectionRef = viewChild<ElementRef>('mapSection');
 
   private pzInstance: PanZoom | null = null;
   protected isPanning = false;
@@ -51,9 +46,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
   // Quadtree optimization
   private quadtree: QuadTreeNode | null = null;
   private updateVisibleCollectiblesTimeout: number | null = null;
-  private readonly QUADTREE_THRESHOLD = 100;
-  private readonly DEBOUNCE_TIME = 200;
-  private readonly QUADTREE_VISIBLE_BUFFER = 2;
 
   readonly showCollectedCollectibles = this.settingsService.shouldShowCollectedCollectibles();
 
@@ -67,7 +59,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   // Visible collectibles using quadtree optimization
   readonly visibleCollectibleIndexes = signal<number[]>([]);
   readonly visibleCollectibleChecklistModels = computed(() => {
-    if (this.collectibleChecklistModels().length > this.QUADTREE_THRESHOLD) {
+    if (this.collectibleChecklistModels().length > CONSTANTS.QUADTREE_THRESHOLD) {
       return this.collectibleChecklistModels().filter((checklistModel: ChecklistModel) =>
         this.visibleCollectibleIndexes().includes(checklistModel.index)
       );
@@ -75,34 +67,9 @@ export class MapSection implements AfterViewInit, OnDestroy {
     return this.collectibleChecklistModels();
   });
 
-  private readonly TOOLTIP_WIDTH = 300;
-  private readonly TOOLTIP_HEIGHT = 420;
-  private readonly TOOLTIP_MARGIN = 12;
-
-  readonly tooltipPosition = computed(() => {
-    if (!this.activeTooltipData() || !this.mapPanzoomRef()?.nativeElement) {
-      return null;
-    }
-
-    const mapRect = this.mapPanzoomRef()!.nativeElement.getBoundingClientRect();
-    const panTransform = this.pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 };
-
-    // Calculate collectible position
-    const collectibleX =
-      mapRect.left +
-      panTransform.x +
-      (this.activeTooltipData()!.collectibleModel!.xPercentage / 100) *
-        mapRect.width *
-        panTransform.scale;
-    const collectibleY =
-      mapRect.top +
-      panTransform.y +
-      (this.activeTooltipData()!.collectibleModel!.yPercentage / 100) *
-        mapRect.height *
-        panTransform.scale;
-
-    return this.calculateOptimalPosition(collectibleX, collectibleY, mapRect);
-  });
+  readonly tooltipPosition = computed(() =>
+    this.calculateOptimalPosition(this.activeTooltipData()?.collectibleModel)
+  );
 
   readonly collectibleChecklistModels = computed(() => {
     const checklistModels = this.checklistDataService.getChecklistModels()();
@@ -122,162 +89,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly focusedCollectibleIndex = computed(() => {
     return this.activeTooltipData()?.index ?? null;
   });
-
-  onClick(checklistModel: ChecklistModel): void {
-    if (this.isPanning) {
-      return;
-    }
-
-    this.tooltipService.setActiveTooltipData(checklistModel);
-  }
-
-  private calculateOptimalPosition(
-    collectibleX: number,
-    collectibleY: number,
-    mapRect: DOMRect
-  ): TooltipPosition {
-    const scaledWidth = this.TOOLTIP_WIDTH;
-    const scaledHeight = this.TOOLTIP_HEIGHT;
-    const margin = this.TOOLTIP_MARGIN;
-
-    // Calculate available space in each direction
-    const spaceAbove = collectibleY - mapRect.top - margin;
-    const spaceBelow = mapRect.bottom - collectibleY - margin;
-    const spaceLeft = collectibleX - mapRect.left - margin;
-    const spaceRight = mapRect.right - collectibleX - margin;
-
-    // Check if tooltip fits completely in each position (both dimensions)
-    const fitsAbove =
-      spaceAbove >= scaledHeight && spaceLeft >= scaledWidth / 2 && spaceRight >= scaledWidth / 2;
-    const fitsBelow =
-      spaceBelow >= scaledHeight && spaceLeft >= scaledWidth / 2 && spaceRight >= scaledWidth / 2;
-    const fitsLeft =
-      spaceLeft >= scaledWidth && spaceAbove >= scaledHeight / 2 && spaceBelow >= scaledHeight / 2;
-    const fitsRight =
-      spaceRight >= scaledWidth && spaceAbove >= scaledHeight / 2 && spaceBelow >= scaledHeight / 2;
-
-    // Try positions in order of preference: above, below, left, right
-    if (fitsAbove) {
-      return {
-        x: collectibleX,
-        y: collectibleY - margin,
-        position: 'above',
-      };
-    }
-
-    if (fitsBelow) {
-      return {
-        x: collectibleX,
-        y: collectibleY + margin,
-        position: 'below',
-      };
-    }
-
-    if (fitsLeft) {
-      return {
-        x: collectibleX - margin,
-        y: collectibleY,
-        position: 'left',
-      };
-    }
-
-    if (fitsRight) {
-      return {
-        x: collectibleX + margin,
-        y: collectibleY,
-        position: 'right',
-      };
-    }
-
-    // Fallback logic: if no position fits completely, choose the best partial fit
-    const hasVerticalSpace = spaceAbove >= scaledHeight || spaceBelow >= scaledHeight;
-    const hasHorizontalSpace = spaceLeft >= scaledWidth || spaceRight >= scaledWidth;
-
-    // If we have vertical space but not horizontal, prefer above/below
-    if (hasVerticalSpace && !hasHorizontalSpace) {
-      if (spaceAbove >= scaledHeight) {
-        return {
-          x: collectibleX,
-          y: collectibleY - margin,
-          position: 'above',
-        };
-      } else if (spaceBelow >= scaledHeight) {
-        return {
-          x: collectibleX,
-          y: collectibleY + margin,
-          position: 'below',
-        };
-      }
-    }
-
-    // If we have horizontal space but not vertical, prefer left/right
-    if (hasHorizontalSpace && !hasVerticalSpace) {
-      if (spaceLeft >= scaledWidth) {
-        return {
-          x: collectibleX - margin,
-          y: collectibleY,
-          position: 'left',
-        };
-      } else if (spaceRight >= scaledWidth) {
-        return {
-          x: collectibleX + margin,
-          y: collectibleY,
-          position: 'right',
-        };
-      }
-    }
-
-    // Final fallback: choose the position with the most available space
-    const spaceScores = [
-      { position: 'above' as const, score: Math.min(spaceAbove, spaceLeft, spaceRight) },
-      { position: 'below' as const, score: Math.min(spaceBelow, spaceLeft, spaceRight) },
-      { position: 'left' as const, score: Math.min(spaceLeft, spaceAbove, spaceBelow) },
-      { position: 'right' as const, score: Math.min(spaceRight, spaceAbove, spaceBelow) },
-    ];
-
-    const bestPosition = spaceScores.reduce((best, current) =>
-      current.score > best.score ? current : best
-    );
-
-    // Position the tooltip as close as possible to the collectible
-    switch (bestPosition.position) {
-      case 'above':
-        return {
-          x: collectibleX,
-          y: collectibleY - margin,
-          position: 'above',
-        };
-      case 'below':
-        return {
-          x: collectibleX,
-          y: collectibleY + margin,
-          position: 'below',
-        };
-      case 'left':
-        return {
-          x: collectibleX - margin,
-          y: collectibleY,
-          position: 'left',
-        };
-      case 'right':
-        return {
-          x: collectibleX + margin,
-          y: collectibleY,
-          position: 'right',
-        };
-    }
-  }
-
-  toggleShowCollected(): void {
-    if (this.showCollectedCollectibles()) {
-      this.checklistDataService.addDisappearingChecklistModels(
-        this.visibleCollectibleChecklistModels().filter(
-          (checklistModel: ChecklistModel) => checklistModel.checked
-        )
-      );
-    }
-    this.settingsService.toggleShowCollectedCollectibles();
-  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -308,6 +119,25 @@ export class MapSection implements AfterViewInit, OnDestroy {
     if (this.pzInstance) {
       this.pzInstance.dispose();
     }
+  }
+
+  onClick(checklistModel: ChecklistModel): void {
+    if (this.isPanning) {
+      return;
+    }
+
+    this.tooltipService.setActiveTooltipData(checklistModel);
+  }
+
+  toggleShowCollected(): void {
+    if (this.showCollectedCollectibles()) {
+      this.checklistDataService.addDisappearingChecklistModels(
+        this.visibleCollectibleChecklistModels().filter(
+          (checklistModel: ChecklistModel) => checklistModel.checked
+        )
+      );
+    }
+    this.settingsService.toggleShowCollectedCollectibles();
   }
 
   @HostListener('document:click', ['$event'])
@@ -371,6 +201,34 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }, 100);
   }
 
+  private calculateOptimalPosition(collectibleModel?: CollectibleModel): TooltipPosition {
+    if (!collectibleModel) {
+      return TooltipPosition.ABOVE;
+    }
+
+    const visibleBounds = this.calculateVisibleBounds();
+
+    // Calculate available space in each direction
+    const spaceAbove = collectibleModel.yPercentage - visibleBounds.y;
+    const spaceBelow = visibleBounds.y + visibleBounds.height - collectibleModel.yPercentage;
+    const spaceLeft = collectibleModel.xPercentage - visibleBounds.x;
+    const spaceRight = visibleBounds.x + visibleBounds.width - collectibleModel.xPercentage;
+
+    // Final fallback: choose the position with the most available space
+    const spaceScores = [
+      { position: TooltipPosition.ABOVE, score: Math.min(spaceAbove, spaceLeft, spaceRight) },
+      { position: TooltipPosition.BELOW, score: Math.min(spaceBelow, spaceLeft, spaceRight) },
+      { position: TooltipPosition.LEFT, score: Math.min(spaceLeft, spaceAbove, spaceBelow) },
+      { position: TooltipPosition.RIGHT, score: Math.min(spaceRight, spaceAbove, spaceBelow) },
+    ];
+
+    const bestPosition = spaceScores.reduce((best, current) =>
+      current.score > best.score ? current : best
+    );
+
+    return bestPosition.position;
+  }
+
   private initializeQuadTree(checklistModels: ChecklistModel[]): void {
     const collectibles = checklistModels.filter(
       (checklistModel: ChecklistModel) => checklistModel.collectibleModel
@@ -393,10 +251,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
       return;
     }
 
-    const mapRect = this.mapPanzoomRef()!.nativeElement.getBoundingClientRect();
-    const panTransform = this.pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 };
-
-    const visibleBounds = this.calculateVisibleBounds(mapRect, panTransform);
+    const visibleBounds = this.calculateVisibleBounds();
     const visibleCollectibleIndexes = this.quadtree
       .retrieve(visibleBounds)
       .map((checklistModel: ChecklistModel) => checklistModel.index);
@@ -404,22 +259,23 @@ export class MapSection implements AfterViewInit, OnDestroy {
     this.visibleCollectibleIndexes.set(visibleCollectibleIndexes);
   }
 
-  private calculateVisibleBounds(
-    mapRect: DOMRect,
-    panTransform: { scale: number; x: number; y: number }
-  ): Bounds {
-    // Convert screen coordinates to percentage coordinates
+  private calculateVisibleBounds(): Bounds {
+    const mapSectionRect = this.mapSectionRef()!.nativeElement.getBoundingClientRect();
+    const mapRect = this.mapPanzoomRef()!.nativeElement.getBoundingClientRect();
+    const panTransform = this.pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 };
+
+    const mapSectionWidth = mapSectionRect.width;
+    const mapSectionHeight = mapSectionRect.height;
     const mapWidth = mapRect.width / panTransform.scale;
     const mapHeight = mapRect.height / panTransform.scale;
 
-    // Calculate the visible area in screen coordinates
-    const visibleLeft = -panTransform.x / panTransform.scale - this.QUADTREE_VISIBLE_BUFFER;
-    const visibleTop = -panTransform.y / panTransform.scale - this.QUADTREE_VISIBLE_BUFFER;
-    const visibleRight = visibleLeft + mapWidth / panTransform.scale + this.QUADTREE_VISIBLE_BUFFER;
+    const visibleLeft = -panTransform.x / panTransform.scale - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
+    const visibleTop = -panTransform.y / panTransform.scale - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
+    const visibleRight =
+      visibleLeft + mapSectionWidth / panTransform.scale + CONSTANTS.QUADTREE_VISIBLE_BUFFER;
     const visibleBottom =
-      visibleTop + mapHeight / panTransform.scale + this.QUADTREE_VISIBLE_BUFFER;
+      visibleTop + mapSectionHeight / panTransform.scale + CONSTANTS.QUADTREE_VISIBLE_BUFFER;
 
-    // Convert to percentage coordinates
     const x = Math.max(0, (visibleLeft / mapWidth) * 100);
     const y = Math.max(0, (visibleTop / mapHeight) * 100);
     const width = Math.min(100 - x, ((visibleRight - visibleLeft) / mapWidth) * 100);
@@ -429,7 +285,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   }
 
   private debouncedUpdateVisibleCollectibles(): void {
-    if (this.collectibleChecklistModels().length > this.QUADTREE_THRESHOLD) {
+    if (this.collectibleChecklistModels().length > CONSTANTS.QUADTREE_THRESHOLD) {
       if (this.updateVisibleCollectiblesTimeout) {
         clearTimeout(this.updateVisibleCollectiblesTimeout);
       }
@@ -437,7 +293,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
       this.updateVisibleCollectiblesTimeout = window.setTimeout(() => {
         this.updateVisibleCollectibles();
         this.updateVisibleCollectiblesTimeout = null;
-      }, this.DEBOUNCE_TIME);
+      }, CONSTANTS.QUADTREE_DEBOUNCE_TIME);
     }
   }
 }

@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../core/models';
 import { ChecklistDataService, TooltipService } from '../../core/services';
 import { NgOptimizedImage } from '@angular/common';
+import { TooltipPosition } from '../models';
 
 @Component({
   selector: 'mkworld-tooltip',
@@ -18,7 +19,7 @@ export class Tooltip {
   private readonly domSanitizer = inject(DomSanitizer);
 
   readonly checklistModel = input.required<ChecklistModel>();
-  readonly position = input<'above' | 'below' | 'left' | 'right'>('above');
+  readonly position = input<TooltipPosition>(TooltipPosition.ABOVE);
 
   readonly CollectibleType = CollectibleType;
 
