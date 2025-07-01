@@ -24,6 +24,125 @@ interface TooltipPosition {
   position: 'above' | 'below' | 'left' | 'right';
 }
 
+interface Bounds {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+class QuadTreeNode {
+  bounds: Bounds;
+  collectibles: ChecklistModel[] = [];
+  children: QuadTreeNode[] = [];
+  maxObjects = 10;
+  maxLevels = 5;
+
+  constructor(bounds: Bounds) {
+    this.bounds = bounds;
+  }
+
+  split(): void {
+    const subWidth = this.bounds.width / 2;
+    const subHeight = this.bounds.height / 2;
+    const x = this.bounds.x;
+    const y = this.bounds.y;
+
+    this.children = [
+      new QuadTreeNode({ x, y, width: subWidth, height: subHeight }),
+      new QuadTreeNode({ x: x + subWidth, y, width: subWidth, height: subHeight }),
+      new QuadTreeNode({ x, y: y + subHeight, width: subWidth, height: subHeight }),
+      new QuadTreeNode({ x: x + subWidth, y: y + subHeight, width: subWidth, height: subHeight }),
+    ];
+  }
+
+  getIndex(collectible: ChecklistModel): number {
+    const x = collectible.collectibleModel!.xPercentage;
+    const y = collectible.collectibleModel!.yPercentage;
+    const verticalMidpoint = this.bounds.x + this.bounds.width / 2;
+    const horizontalMidpoint = this.bounds.y + this.bounds.height / 2;
+
+    // Determine which quadrant the collectible belongs to
+    // Use inclusive boundaries to ensure every collectible fits somewhere
+    const isTop = y <= horizontalMidpoint;
+    const isLeft = x <= verticalMidpoint;
+
+    if (isLeft) {
+      return isTop ? 0 : 2; // top-left or bottom-left
+    } else {
+      return isTop ? 1 : 3; // top-right or bottom-right
+    }
+  }
+
+  insert(collectible: ChecklistModel): void {
+    if (this.children.length > 0) {
+      const index = this.getIndex(collectible);
+      this.children[index].insert(collectible);
+      return;
+    }
+
+    this.collectibles.push(collectible);
+
+    if (this.collectibles.length > this.maxObjects && this.children.length === 0) {
+      this.split();
+
+      for (const item of this.collectibles) {
+        const index = this.getIndex(item);
+        this.children[index].insert(item);
+      }
+      this.collectibles = [];
+    }
+  }
+
+  retrieve(bounds: Bounds): ChecklistModel[] {
+    const returnObjects: ChecklistModel[] = [];
+
+    if (!this.intersects(bounds)) {
+      return returnObjects;
+    }
+
+    // Only include collectibles that are actually within the bounds
+    for (const collectible of this.collectibles) {
+      const x = collectible.collectibleModel!.xPercentage;
+      const y = collectible.collectibleModel!.yPercentage;
+
+      if (
+        x >= bounds.x &&
+        x <= bounds.x + bounds.width &&
+        y >= bounds.y &&
+        y <= bounds.y + bounds.height
+      ) {
+        returnObjects.push(collectible);
+      }
+    }
+
+    if (this.children.length > 0) {
+      for (const child of this.children) {
+        returnObjects.push(...child.retrieve(bounds));
+      }
+    }
+
+    return returnObjects;
+  }
+
+  private intersects(bounds: Bounds): boolean {
+    return !(
+      bounds.x > this.bounds.x + this.bounds.width ||
+      bounds.x + bounds.width < this.bounds.x ||
+      bounds.y > this.bounds.y + this.bounds.height ||
+      bounds.y + bounds.height < this.bounds.y
+    );
+  }
+
+  clear(): void {
+    this.collectibles = [];
+    for (const child of this.children) {
+      child.clear();
+    }
+    this.children = [];
+  }
+}
+
 @Component({
   selector: 'mkworld-map-section',
   templateUrl: './map-section.html',
@@ -46,6 +165,13 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private mouseDownPosition: { x: number; y: number } | null = null;
   private readonly DRAG_THRESHOLD = 5; // pixels
 
+  // Quadtree optimization
+  private quadtree: QuadTreeNode | null = null;
+  private updateVisibleCollectiblesTimeout: number | null = null;
+  private readonly QUADTREE_THRESHOLD = 100;
+  private readonly DEBOUNCE_TIME = 200;
+  private readonly QUADTREE_VISIBLE_BUFFER = 2;
+
   readonly showCollectedCollectibles = this.settingsService.shouldShowCollectedCollectibles();
 
   readonly hovered = signal<ChecklistModel | null>(null);
@@ -54,6 +180,14 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly panzoomScale = signal(1);
   readonly tooltipTransform = computed(() => `scale(${1 / this.panzoomScale()})`);
   readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
+
+  // Visible collectibles using quadtree optimization
+  readonly visibleCollectibleIndexes = signal<number[]>([]);
+  readonly visibleCollectibleChecklistModels = computed(() =>
+    this.collectibleChecklistModels().filter((checklistModel: ChecklistModel) =>
+      this.visibleCollectibleIndexes().includes(checklistModel.index)
+    )
+  );
 
   private readonly TOOLTIP_WIDTH = 300;
   private readonly TOOLTIP_HEIGHT = 420;
@@ -249,19 +383,19 @@ export class MapSection implements AfterViewInit, OnDestroy {
   }
 
   toggleShowCollected(): void {
-    this.settingsService.toggleShowCollectedCollectibles();
-    if (!this.showCollectedCollectibles()) {
+    if (this.showCollectedCollectibles()) {
       this.checklistDataService.addDisappearingChecklistModels(
-        this.collectibleChecklistModels().filter(
-          (checklistModel: ChecklistModel) =>
-            checklistModel.checked && checklistModel.collectibleModel
+        this.visibleCollectibleChecklistModels().filter(
+          (checklistModel: ChecklistModel) => checklistModel.checked
         )
       );
     }
+    this.settingsService.toggleShowCollectedCollectibles();
   }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
+      this.initializeQuadTree(this.checklistDataService.getChecklistModels()());
       this.pzInstance = panzoom(this.mapPanzoomRef()!.nativeElement, {
         bounds: true,
         boundsPadding: 1,
@@ -273,13 +407,18 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
       this.pzInstance.on('panstart', () => (this.isPanning = true));
       this.pzInstance.on('panend', () => (this.isPanning = false));
+      this.pzInstance.on('pan', () => this.debouncedUpdateVisibleCollectibles());
       this.pzInstance.on('zoom', (pz: PanZoom) => {
         this.panzoomScale.set(pz.getTransform().scale);
+        this.debouncedUpdateVisibleCollectibles();
       });
     }
   }
 
   ngOnDestroy(): void {
+    if (this.updateVisibleCollectiblesTimeout) {
+      clearTimeout(this.updateVisibleCollectiblesTimeout);
+    }
     if (this.pzInstance) {
       this.pzInstance.dispose();
     }
@@ -344,5 +483,73 @@ export class MapSection implements AfterViewInit, OnDestroy {
     setTimeout(() => {
       this.mouseDownPosition = null;
     }, 100);
+  }
+
+  private initializeQuadTree(checklistModels: ChecklistModel[]): void {
+    const collectibles = checklistModels.filter(
+      (checklistModel: ChecklistModel) => checklistModel.collectibleModel
+    );
+
+    // Initialize quadtree with full map bounds (0-100%)
+    this.quadtree = new QuadTreeNode({ x: 0, y: 0, width: 100, height: 100 });
+
+    // Insert all collectibles into the quadtree
+    for (const collectible of collectibles) {
+      this.quadtree.insert(collectible);
+    }
+
+    // Set initial visible collectibles
+    this.updateVisibleCollectibles();
+  }
+
+  private updateVisibleCollectibles(): void {
+    if (!this.quadtree || !this.mapPanzoomRef()?.nativeElement) {
+      return;
+    }
+
+    const mapRect = this.mapPanzoomRef()!.nativeElement.getBoundingClientRect();
+    const panTransform = this.pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 };
+
+    const visibleBounds = this.calculateVisibleBounds(mapRect, panTransform);
+    const visibleCollectibleIndexes = this.quadtree
+      .retrieve(visibleBounds)
+      .map((checklistModel: ChecklistModel) => checklistModel.index);
+
+    this.visibleCollectibleIndexes.set(visibleCollectibleIndexes);
+  }
+
+  private calculateVisibleBounds(
+    mapRect: DOMRect,
+    panTransform: { scale: number; x: number; y: number }
+  ): Bounds {
+    // Convert screen coordinates to percentage coordinates
+    const mapWidth = mapRect.width / panTransform.scale;
+    const mapHeight = mapRect.height / panTransform.scale;
+
+    // Calculate the visible area in screen coordinates
+    const visibleLeft = -panTransform.x / panTransform.scale - this.QUADTREE_VISIBLE_BUFFER;
+    const visibleTop = -panTransform.y / panTransform.scale - this.QUADTREE_VISIBLE_BUFFER;
+    const visibleRight = visibleLeft + mapWidth / panTransform.scale + this.QUADTREE_VISIBLE_BUFFER;
+    const visibleBottom =
+      visibleTop + mapHeight / panTransform.scale + this.QUADTREE_VISIBLE_BUFFER;
+
+    // Convert to percentage coordinates
+    const x = Math.max(0, (visibleLeft / mapWidth) * 100);
+    const y = Math.max(0, (visibleTop / mapHeight) * 100);
+    const width = Math.min(100 - x, ((visibleRight - visibleLeft) / mapWidth) * 100);
+    const height = Math.min(100 - y, ((visibleBottom - visibleTop) / mapHeight) * 100);
+
+    return { x, y, width, height };
+  }
+
+  private debouncedUpdateVisibleCollectibles(): void {
+    if (this.updateVisibleCollectiblesTimeout) {
+      clearTimeout(this.updateVisibleCollectiblesTimeout);
+    }
+
+    this.updateVisibleCollectiblesTimeout = window.setTimeout(() => {
+      this.updateVisibleCollectibles();
+      this.updateVisibleCollectiblesTimeout = null;
+    }, this.DEBOUNCE_TIME);
   }
 }
