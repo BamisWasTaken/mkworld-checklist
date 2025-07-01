@@ -58,9 +58,7 @@ export class MapSectionService {
     pzInstance: PanZoom
   ): void {
     const visibleBounds = this.calculateVisibleBounds(mapPanzoomRef, mapSectionRef, pzInstance);
-    const visibleCollectibleIndexes = this.quadTree
-      .retrieve(visibleBounds)
-      .map((collectible: QuadTreeCollectible) => collectible.index);
+    const visibleCollectibleIndexes = this.quadTree.retrieve(visibleBounds);
 
     this.visibleCollectibleIndexes.set(visibleCollectibleIndexes);
   }
@@ -78,10 +76,10 @@ export class MapSectionService {
     const visibleBounds = this.calculateVisibleBounds(mapPanzoomRef, mapSectionRef, pzInstance);
 
     // Calculate available space in each direction
-    const spaceAbove = collectibleModel.yPercentage - visibleBounds.y;
-    const spaceBelow = visibleBounds.y + visibleBounds.height - collectibleModel.yPercentage;
-    const spaceLeft = collectibleModel.xPercentage - visibleBounds.x;
-    const spaceRight = visibleBounds.x + visibleBounds.width - collectibleModel.xPercentage;
+    const spaceAbove = collectibleModel.yPercentage - visibleBounds.top;
+    const spaceBelow = visibleBounds.bottom - collectibleModel.yPercentage;
+    const spaceLeft = collectibleModel.xPercentage - visibleBounds.left;
+    const spaceRight = visibleBounds.right - collectibleModel.xPercentage;
 
     // Final fallback: choose the position with the most available space
     const spaceScores = [
@@ -129,18 +127,13 @@ export class MapSectionService {
     const visibleRight = visibleLeft + mapSectionWidth / panTransform.scale;
     const visibleBottom = visibleTop + mapSectionHeight / panTransform.scale;
 
-    const x =
-      Math.max(0, (visibleLeft / this.mapPanzoomWidth!) * 100) - CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
-    const y =
-      Math.max(0, (visibleTop / this.mapPanzoomHeight!) * 100) - CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
-    const width =
-      Math.min(100 - x, ((visibleRight - visibleLeft) / this.mapPanzoomWidth!) * 100) +
-      2 * CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
-    const height =
-      Math.min(100 - y, ((visibleBottom - visibleTop) / this.mapPanzoomHeight!) * 100) +
-      2 * CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
+    const left = (visibleLeft / this.mapPanzoomWidth!) * 100 - CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
+    const top = (visibleTop / this.mapPanzoomHeight!) * 100 - CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
+    const right = (visibleRight / this.mapPanzoomWidth!) * 100 + CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
+    const bottom =
+      (visibleBottom / this.mapPanzoomHeight!) * 100 + CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
 
-    return { x, y, width, height } as Bounds;
+    return { left, top, right, bottom } as Bounds;
   }
 
   private initializeQuadTree(): QuadTreeNode {
@@ -148,7 +141,7 @@ export class MapSectionService {
       .getChecklistModels()()
       .filter((checklistModel: ChecklistModel) => checklistModel.collectibleModel);
 
-    const quadtree = new QuadTreeNode({ x: 0, y: 0, width: 100, height: 100 });
+    const quadtree = new QuadTreeNode({ left: 0, top: 0, right: 100, bottom: 100 });
 
     for (const collectible of collectibles) {
       const quadTreeCollectible: QuadTreeCollectible = {

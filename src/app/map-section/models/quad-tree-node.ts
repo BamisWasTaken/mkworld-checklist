@@ -12,24 +12,42 @@ export class QuadTreeNode {
   }
 
   split(): void {
-    const subWidth = this.bounds.width / 2;
-    const subHeight = this.bounds.height / 2;
-    const x = this.bounds.x;
-    const y = this.bounds.y;
+    const subWidth = (this.bounds.right - this.bounds.left) / 2;
+    const subHeight = (this.bounds.bottom - this.bounds.top) / 2;
 
     this.children = [
-      new QuadTreeNode({ x, y, width: subWidth, height: subHeight }),
-      new QuadTreeNode({ x: x + subWidth, y, width: subWidth, height: subHeight }),
-      new QuadTreeNode({ x, y: y + subHeight, width: subWidth, height: subHeight }),
-      new QuadTreeNode({ x: x + subWidth, y: y + subHeight, width: subWidth, height: subHeight }),
+      new QuadTreeNode({
+        left: this.bounds.left,
+        top: this.bounds.top,
+        right: this.bounds.left + subWidth,
+        bottom: this.bounds.top + subHeight,
+      }),
+      new QuadTreeNode({
+        left: this.bounds.left + subWidth,
+        top: this.bounds.top,
+        right: this.bounds.right,
+        bottom: this.bounds.top + subHeight,
+      }),
+      new QuadTreeNode({
+        left: this.bounds.left,
+        top: this.bounds.top + subHeight,
+        right: this.bounds.left + subWidth,
+        bottom: this.bounds.bottom,
+      }),
+      new QuadTreeNode({
+        left: this.bounds.left + subWidth,
+        top: this.bounds.top + subHeight,
+        right: this.bounds.right,
+        bottom: this.bounds.bottom,
+      }),
     ];
   }
 
   getIndex(collectible: QuadTreeCollectible): number {
     const x = collectible.xPercentage;
     const y = collectible.yPercentage;
-    const verticalMidpoint = this.bounds.x + this.bounds.width / 2;
-    const horizontalMidpoint = this.bounds.y + this.bounds.height / 2;
+    const verticalMidpoint = this.bounds.left + (this.bounds.right - this.bounds.left) / 2;
+    const horizontalMidpoint = this.bounds.top + (this.bounds.bottom - this.bounds.top) / 2;
 
     // Determine which quadrant the collectible belongs to
     // Use inclusive boundaries to ensure every collectible fits somewhere
@@ -63,8 +81,8 @@ export class QuadTreeNode {
     }
   }
 
-  retrieve(bounds: Bounds): QuadTreeCollectible[] {
-    const returnObjects: QuadTreeCollectible[] = [];
+  retrieve(bounds: Bounds): number[] {
+    const returnObjects: number[] = [];
 
     if (!this.intersects(bounds)) {
       return returnObjects;
@@ -74,20 +92,13 @@ export class QuadTreeNode {
       const x = collectible.xPercentage;
       const y = collectible.yPercentage;
 
-      if (
-        x >= bounds.x &&
-        x <= bounds.x + bounds.width &&
-        y >= bounds.y &&
-        y <= bounds.y + bounds.height
-      ) {
-        returnObjects.push(collectible);
+      if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
+        returnObjects.push(collectible.index);
       }
     }
 
-    if (this.children.length > 0) {
-      for (const child of this.children) {
-        returnObjects.push(...child.retrieve(bounds));
-      }
+    for (const child of this.children) {
+      returnObjects.push(...child.retrieve(bounds));
     }
 
     return returnObjects;
@@ -95,10 +106,10 @@ export class QuadTreeNode {
 
   private intersects(bounds: Bounds): boolean {
     return !(
-      bounds.x > this.bounds.x + this.bounds.width ||
-      bounds.x + bounds.width < this.bounds.x ||
-      bounds.y > this.bounds.y + this.bounds.height ||
-      bounds.y + bounds.height < this.bounds.y
+      bounds.left > this.bounds.right ||
+      bounds.right < this.bounds.left ||
+      bounds.top > this.bounds.bottom ||
+      bounds.bottom < this.bounds.top
     );
   }
 }
