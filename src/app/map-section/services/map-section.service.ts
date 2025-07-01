@@ -4,6 +4,7 @@ import { CONSTANTS } from '../../constants';
 import { ChecklistModel, CollectibleModel } from '../../core/models';
 import { ChecklistDataService } from '../../core/services';
 import { Bounds, QuadTreeNode, TooltipPosition } from '../models';
+import { QuadTreeCollectible } from '../models/quad-tree-collectible';
 
 @Injectable({
   providedIn: 'root',
@@ -59,7 +60,7 @@ export class MapSectionService {
     const visibleBounds = this.calculateVisibleBounds(mapPanzoomRef, mapSectionRef, pzInstance);
     const visibleCollectibleIndexes = this.quadTree
       .retrieve(visibleBounds)
-      .map((checklistModel: ChecklistModel) => checklistModel.index);
+      .map((collectible: QuadTreeCollectible) => collectible.index);
 
     this.visibleCollectibleIndexes.set(visibleCollectibleIndexes);
   }
@@ -150,7 +151,12 @@ export class MapSectionService {
     const quadtree = new QuadTreeNode({ x: 0, y: 0, width: 100, height: 100 });
 
     for (const collectible of collectibles) {
-      quadtree.insert(collectible);
+      const quadTreeCollectible: QuadTreeCollectible = {
+        index: collectible.index,
+        xPercentage: collectible.collectibleModel!.xPercentage,
+        yPercentage: collectible.collectibleModel!.yPercentage,
+      };
+      quadtree.insert(quadTreeCollectible);
     }
 
     return quadtree;

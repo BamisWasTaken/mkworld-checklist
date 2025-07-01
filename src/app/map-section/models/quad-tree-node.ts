@@ -1,10 +1,10 @@
-import { Bounds } from './bounds';
-import { ChecklistModel } from '../../core/models';
 import { CONSTANTS } from '../../constants';
+import { Bounds } from './bounds';
+import { QuadTreeCollectible } from './quad-tree-collectible';
 
 export class QuadTreeNode {
   bounds: Bounds;
-  collectibles: ChecklistModel[] = [];
+  collectibles: QuadTreeCollectible[] = [];
   children: QuadTreeNode[] = [];
 
   constructor(bounds: Bounds) {
@@ -25,9 +25,9 @@ export class QuadTreeNode {
     ];
   }
 
-  getIndex(collectible: ChecklistModel): number {
-    const x = collectible.collectibleModel!.xPercentage;
-    const y = collectible.collectibleModel!.yPercentage;
+  getIndex(collectible: QuadTreeCollectible): number {
+    const x = collectible.xPercentage;
+    const y = collectible.yPercentage;
     const verticalMidpoint = this.bounds.x + this.bounds.width / 2;
     const horizontalMidpoint = this.bounds.y + this.bounds.height / 2;
 
@@ -43,7 +43,7 @@ export class QuadTreeNode {
     }
   }
 
-  insert(collectible: ChecklistModel): void {
+  insert(collectible: QuadTreeCollectible): void {
     if (this.children.length > 0) {
       const index = this.getIndex(collectible);
       this.children[index].insert(collectible);
@@ -63,16 +63,16 @@ export class QuadTreeNode {
     }
   }
 
-  retrieve(bounds: Bounds): ChecklistModel[] {
-    const returnObjects: ChecklistModel[] = [];
+  retrieve(bounds: Bounds): QuadTreeCollectible[] {
+    const returnObjects: QuadTreeCollectible[] = [];
 
     if (!this.intersects(bounds)) {
       return returnObjects;
     }
 
     for (const collectible of this.collectibles) {
-      const x = collectible.collectibleModel!.xPercentage;
-      const y = collectible.collectibleModel!.yPercentage;
+      const x = collectible.xPercentage;
+      const y = collectible.yPercentage;
 
       if (
         x >= bounds.x &&
