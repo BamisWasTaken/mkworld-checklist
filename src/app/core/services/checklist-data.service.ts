@@ -3,14 +3,31 @@ import checklistData from '../../../../public/data/checklist-data.json';
 import { ChecklistModel, ChecklistModelState, CollectibleType } from '../models';
 import { isPlatformBrowser } from '@angular/common';
 import { CONSTANTS } from '../../constants';
+import { SettingsService } from './settings.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChecklistDataService {
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly settingsService = inject(SettingsService);
 
   private readonly checklistModels = signal<ChecklistModel[]>(checklistData);
+
+  private readonly collectibleChecklistModelsOnMap = computed(() => {
+    const checklistModels = this.checklistModels();
+
+    if (this.settingsService.shouldShowCollectedCollectibles()()) {
+      return checklistModels.filter(
+        (checklistModel: ChecklistModel) => checklistModel.collectibleModel
+      );
+    }
+
+    return checklistModels.filter(
+      (checklistModel: ChecklistModel) =>
+        checklistModel.collectibleModel && (!checklistModel.checked || checklistModel.disappearing)
+    );
+  });
 
   private uncollectedPeachCoins = computed(() =>
     this.getUncollectedCollectibles(CollectibleType.PEACH_COIN)
@@ -47,10 +64,23 @@ export class ChecklistDataService {
     return this.checklistModels.asReadonly();
   }
 
+  getCollectibleChecklistModelsOnMap(): Signal<ChecklistModel[]> {
+    return this.collectibleChecklistModelsOnMap;
+  }
+
   updateChecklistModelChecked(checklistModelToUpdate: ChecklistModel): void {
     checklistModelToUpdate.checked = !checklistModelToUpdate.checked;
     if (checklistModelToUpdate.checked && !checklistModelToUpdate.disappearing) {
-      this.addDisappearingChecklistModel(checklistModelToUpdate);
+      checklistModelToUpdate.disappearing = true;
+      setTimeout(() => {
+        this.checklistModels.update((checklistModels: ChecklistModel[]) =>
+          checklistModels.map((checklistModel: ChecklistModel) =>
+            checklistModel.index === checklistModelToUpdate.index
+              ? { ...checklistModel, disappearing: false }
+              : checklistModel
+          )
+        );
+      }, 200);
     }
 
     this.checklistModels.update((checklistModels: ChecklistModel[]) =>
@@ -62,23 +92,26 @@ export class ChecklistDataService {
     );
   }
 
-  addDisappearingChecklistModel(disappearingChecklistModel: ChecklistModel): void {
-    disappearingChecklistModel.disappearing = true;
+  addDisappearingChecklistModels(checklistModelsToDisappear: ChecklistModel[]): void {
+    const checklistModelIndexesToDisappear = checklistModelsToDisappear.map(
+      (checklistModel: ChecklistModel) => checklistModel.index
+    );
+    this.checklistModels.update((checklistModels: ChecklistModel[]) =>
+      checklistModels.map((checklistModel: ChecklistModel) =>
+        checklistModelIndexesToDisappear.includes(checklistModel.index)
+          ? { ...checklistModel, disappearing: true }
+          : checklistModel
+      )
+    );
     setTimeout(() => {
       this.checklistModels.update((checklistModels: ChecklistModel[]) =>
         checklistModels.map((checklistModel: ChecklistModel) =>
-          checklistModel.index === disappearingChecklistModel.index
+          checklistModelIndexesToDisappear.includes(checklistModel.index)
             ? { ...checklistModel, disappearing: false }
             : checklistModel
         )
       );
     }, 200);
-  }
-
-  addDisappearingChecklistModels(checklistModels: ChecklistModel[]): void {
-    checklistModels.forEach((checklistModel: ChecklistModel) => {
-      this.addDisappearingChecklistModel(checklistModel);
-    });
   }
 
   getUncollectedPeachCoins(): Signal<number> {

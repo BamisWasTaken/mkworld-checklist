@@ -57,6 +57,7 @@
         [class.disappearing]="
           collectibleChecklistModel.disappearing && !showCollectedCollectibles()
         "
+        [class.collected]="collectibleChecklistModel.checked"
         [style.--target-scale]="
           focusedCollectibleIndex() === collectibleChecklistModel.index ||
           hovered() === collectibleChecklistModel
@@ -84,7 +85,6 @@
               : 20
           "
           width="20"
-          [class.collected]="collectibleChecklistModel.checked"
           class="collectible-img"
           draggable="false"
         />

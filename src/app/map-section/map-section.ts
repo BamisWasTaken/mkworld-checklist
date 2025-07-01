@@ -35,8 +35,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
   readonly CollectibleType = CollectibleType;
 
-  readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
-  readonly mapSectionRef = viewChild<ElementRef>('mapSection');
+  private readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
+  private readonly mapSectionRef = viewChild<ElementRef>('mapSection');
 
   private pzInstance: PanZoom | null = null;
   protected isPanning = false;
@@ -56,7 +56,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly tooltipTransform = computed(() => `scale(${1 / this.panzoomScale()})`);
   readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
 
-  // Visible collectibles using quadtree optimization
+  readonly collectibleChecklistModels =
+    this.checklistDataService.getCollectibleChecklistModelsOnMap();
   readonly visibleCollectibleIndexes = signal<number[]>([]);
   readonly visibleCollectibleChecklistModels = computed(() => {
     if (this.collectibleChecklistModels().length > CONSTANTS.QUADTREE_THRESHOLD) {
@@ -68,23 +69,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
   });
 
   readonly tooltipPosition = computed(() =>
-    this.calculateOptimalPosition(this.activeTooltipData()?.collectibleModel)
+    this.calculateTooltipPosition(this.activeTooltipData()?.collectibleModel)
   );
-
-  readonly collectibleChecklistModels = computed(() => {
-    const checklistModels = this.checklistDataService.getChecklistModels()();
-
-    if (this.showCollectedCollectibles()) {
-      return checklistModels.filter(
-        (checklistModel: ChecklistModel) => checklistModel.collectibleModel
-      );
-    }
-
-    return checklistModels.filter(
-      (checklistModel: ChecklistModel) =>
-        checklistModel.collectibleModel && (!checklistModel.checked || checklistModel.disappearing)
-    );
-  });
 
   readonly focusedCollectibleIndex = computed(() => {
     return this.activeTooltipData()?.index ?? null;
@@ -201,7 +187,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }, 100);
   }
 
-  private calculateOptimalPosition(collectibleModel?: CollectibleModel): TooltipPosition {
+  private calculateTooltipPosition(collectibleModel?: CollectibleModel): TooltipPosition {
     if (!collectibleModel) {
       return TooltipPosition.ABOVE;
     }
@@ -269,17 +255,19 @@ export class MapSection implements AfterViewInit, OnDestroy {
     const mapWidth = mapRect.width / panTransform.scale;
     const mapHeight = mapRect.height / panTransform.scale;
 
-    const visibleLeft = -panTransform.x / panTransform.scale - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
-    const visibleTop = -panTransform.y / panTransform.scale - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
-    const visibleRight =
-      visibleLeft + mapSectionWidth / panTransform.scale + CONSTANTS.QUADTREE_VISIBLE_BUFFER;
-    const visibleBottom =
-      visibleTop + mapSectionHeight / panTransform.scale + CONSTANTS.QUADTREE_VISIBLE_BUFFER;
+    const visibleLeft = -panTransform.x / panTransform.scale;
+    const visibleTop = -panTransform.y / panTransform.scale;
+    const visibleRight = visibleLeft + mapSectionWidth / panTransform.scale;
+    const visibleBottom = visibleTop + mapSectionHeight / panTransform.scale;
 
-    const x = Math.max(0, (visibleLeft / mapWidth) * 100);
-    const y = Math.max(0, (visibleTop / mapHeight) * 100);
-    const width = Math.min(100 - x, ((visibleRight - visibleLeft) / mapWidth) * 100);
-    const height = Math.min(100 - y, ((visibleBottom - visibleTop) / mapHeight) * 100);
+    const x = Math.max(0, (visibleLeft / mapWidth) * 100) - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
+    const y = Math.max(0, (visibleTop / mapHeight) * 100) - CONSTANTS.QUADTREE_VISIBLE_BUFFER;
+    const width =
+      Math.min(100 - x, ((visibleRight - visibleLeft) / mapWidth) * 100) +
+      2 * CONSTANTS.QUADTREE_VISIBLE_BUFFER;
+    const height =
+      Math.min(100 - y, ((visibleBottom - visibleTop) / mapHeight) * 100) +
+      2 * CONSTANTS.QUADTREE_VISIBLE_BUFFER;
 
     return { x, y, width, height };
   }

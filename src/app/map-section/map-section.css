@@ -1,14 +1,19 @@
 .collectible {
   transition:
     transform 0.2s ease-in-out,
-    opacity 0.2s ease-in-out;
+    opacity 0.2s ease-in-out,
+    filter 0.2s ease-in-out;
   position: absolute;
   z-index: 10;
-  opacity: 1;
   cursor: pointer;
   animation: scaleIn 0.2s ease-out;
   transform: translate(-50%, -50%) scale(var(--target-scale));
   will-change: transform;
+}
+
+.collectible.collected {
+  opacity: 0.5;
+  filter: grayscale(1);
 }
 
 .collectible.disappearing {
@@ -17,16 +22,11 @@
 }
 
 .collectible-img {
-  transition: filter 0.2s ease-in-out;
   user-select: none;
   pointer-events: none;
   object-fit: contain;
   max-height: 100%;
   display: block;
-}
-
-.collectible-img.collected {
-  filter: grayscale(100%);
 }
 
 @keyframes scaleIn {
