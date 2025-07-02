@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../core/models';
@@ -23,6 +23,8 @@ export class Tooltip {
 
   readonly CollectibleType = CollectibleType;
 
+  readonly hoveredPeachCoinSticker = signal<boolean>(false);
+
   readonly youtubeLink = computed(() =>
     this.domSanitizer.bypassSecurityTrustResourceUrl(
       `https://www.youtube-nocookie.com/embed/${this.checklistModel().collectibleModel!.youtubeId}`
@@ -35,5 +37,11 @@ export class Tooltip {
 
   onClose() {
     this.tooltipService.setActiveTooltipData(null);
+  }
+
+  onStickerHover(isHovered: boolean) {
+    if (this.checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN) {
+      this.hoveredPeachCoinSticker.set(isHovered);
+    }
   }
 }

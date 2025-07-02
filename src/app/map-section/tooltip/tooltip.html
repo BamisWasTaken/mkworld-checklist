@@ -3,8 +3,22 @@
     <span class="close-icon">×</span>
   </button>
 
+  @if (hoveredPeachCoinSticker()) {
+    <div
+      class="rounded-full bg-gray-800 text-white p-2 absolute text-center peach-coin-sticker-tooltip"
+    >
+      <p>
+        {{ 'MAP_SECTION.TOOLTIP.PEACH_COIN_STICKER_TOOLTIP' | translate }}
+      </p>
+    </div>
+  }
+
   <div class="description-container">
-    <div class="w-[32px] h-[32px] relative">
+    <div
+      class="w-[32px] h-[32px] relative"
+      (mouseenter)="onStickerHover(true)"
+      (mouseleave)="onStickerHover(false)"
+    >
       <img
         [ngSrc]="checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN ? '/imgs/stickers/random-sticker.webp' : `/imgs/stickers/sticker-${checklistModel().index}.webp`"
         [alt]="

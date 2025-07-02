@@ -8,6 +8,36 @@
   z-index: 1000;
 }
 
+.peach-coin-sticker-tooltip {
+  width: 375px;
+  transform: translate(-170px, -120%) translateY(0);
+  animation: peach-coin-sticker-tooltip-appear 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+  opacity: 1;
+  z-index: 1001;
+}
+
+.peach-coin-sticker-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #1e2939;
+}
+
+@keyframes peach-coin-sticker-tooltip-appear {
+  from {
+    opacity: 0;
+    transform: translate(-170px, -120%) translateY(8px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-170px, -120%) translateY(0) scale(1);
+  }
+}
+
 .tooltip.tooltip-above {
   animation: tooltip-appear 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
   transform: translate(-50%, -100%);
