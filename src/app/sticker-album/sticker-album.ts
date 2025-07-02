@@ -192,7 +192,13 @@ export class StickerAlbum {
 
   onStickerClick(event: MouseEvent, checklistModel: ChecklistModel) {
     if (checklistModel.collectibleModel) {
-      this.onGoToMap(checklistModel);
+      if (
+        this.checklistDataService.getCollectibleChecklistModelsOnMap()().includes(checklistModel)
+      ) {
+        this.onGoToMap(checklistModel);
+      } else {
+        this.onStickerTooltip('SHARED.STICKER_NOT_ON_MAP', event);
+      }
     } else {
       this.onStickerTooltip(checklistModel.instructions, event);
     }

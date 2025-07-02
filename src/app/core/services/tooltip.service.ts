@@ -14,7 +14,6 @@ export class TooltipService {
       .getChecklistModels()()
       .find((checklistModel: ChecklistModel) => checklistModel.index === this.activeTooltipIndex())
   );
-  private readonly isScrollingToTooltip = signal(false);
 
   setActiveTooltipData(checklistModel: ChecklistModel | null): void {
     if (this.activeTooltipIndex() === checklistModel?.index) {
@@ -26,17 +25,9 @@ export class TooltipService {
   }
 
   setActiveTooltipDataWithScrollProtection(checklistModel: ChecklistModel | null): void {
-    this.isScrollingToTooltip.set(true);
-    this.setActiveTooltipData(checklistModel);
-
-    // Clear the scroll protection after a short delay
     setTimeout(() => {
-      this.isScrollingToTooltip.set(false);
+      this.setActiveTooltipData(checklistModel);
     }, 200);
-  }
-
-  isScrollingToTooltipActive(): Signal<boolean> {
-    return this.isScrollingToTooltip;
   }
 
   getActiveTooltipData(): Signal<ChecklistModel | undefined> {

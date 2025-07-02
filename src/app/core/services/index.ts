@@ -3,3 +3,4 @@ export * from './achievement-data.service';
 export * from './tooltip.service';
 export * from './settings.service';
 export * from './page.service';
+export * from './map-section.service';

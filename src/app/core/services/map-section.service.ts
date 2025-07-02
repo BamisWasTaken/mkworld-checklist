@@ -1,10 +1,10 @@
 import { computed, ElementRef, inject, Injectable, Signal, signal } from '@angular/core';
-import { PanZoom } from 'panzoom';
+import panzoom, { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../../constants';
-import { ChecklistModel, CollectibleModel } from '../../core/models';
-import { ChecklistDataService } from '../../core/services';
-import { Bounds, QuadTreeNode, TooltipPosition } from '../models';
-import { QuadTreeCollectible } from '../models/quad-tree-collectible';
+import { ChecklistModel, CollectibleModel } from '../models';
+import { ChecklistDataService } from '.';
+import { Bounds, QuadTreeNode, TooltipPosition } from '../../map-section/models';
+import { QuadTreeCollectible } from '../../map-section/models/quad-tree-collectible';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +13,7 @@ export class MapSectionService {
   private readonly checklistDataService = inject(ChecklistDataService);
 
   private quadTree = this.initializeQuadTree();
+  private pzInstance: PanZoom | null = null;
 
   private readonly collectibleChecklistModels =
     this.checklistDataService.getCollectibleChecklistModelsOnMap();
@@ -61,6 +62,25 @@ export class MapSectionService {
     const visibleCollectibleIndexes = this.quadTree.retrieve(visibleBounds);
 
     this.visibleCollectibleIndexes.set(visibleCollectibleIndexes);
+  }
+
+  getPanzoomInstance(): PanZoom {
+    if (!this.pzInstance) {
+      throw new Error('Panzoom instance not initialized');
+    }
+    return this.pzInstance;
+  }
+
+  initializePanzoom(mapPanzoomRef: ElementRef): PanZoom {
+    this.pzInstance = panzoom(mapPanzoomRef.nativeElement, {
+      bounds: true,
+      boundsPadding: 1,
+      minZoom: 1,
+      maxZoom: 10,
+      zoomDoubleClickSpeed: 1,
+      smoothScroll: false,
+    });
+    return this.pzInstance;
   }
 
   calculateTooltipPosition(

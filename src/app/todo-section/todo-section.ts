@@ -31,7 +31,7 @@ export class TodoSection {
       .getChecklistModels()()
       .filter(
         (checklistModel: ChecklistModel) =>
-          (!checklistModel.checked || checklistModel.disappearing) &&
+          (!checklistModel.checked || checklistModel.disappearingFromStickerAlbum) &&
           !checklistModel.collectibleModel
       );
     const seenInstructions = new Set<string>();

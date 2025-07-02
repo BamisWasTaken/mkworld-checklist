@@ -17,7 +17,7 @@ export class PageService {
       .filter(model => model.hasSticker);
     return this.settingsService.shouldShowCollectedStickers()()
       ? allStickers
-      : allStickers.filter(model => !model.checked || model.disappearing);
+      : allStickers.filter(model => !model.checked || model.disappearingFromStickerAlbum);
   });
 
   private readonly page = computed(() => {

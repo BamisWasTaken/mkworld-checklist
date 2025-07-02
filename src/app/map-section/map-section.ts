@@ -13,13 +13,17 @@ import {
   viewChild,
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import panzoom, { PanZoom } from 'panzoom';
-import { ChecklistModel, CollectibleType } from '../core/models';
-import { ChecklistDataService, SettingsService, TooltipService } from '../core/services';
-import { MapSectionService } from './services/map-section.service';
-import { Tooltip } from './tooltip/tooltip';
+import { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../constants';
+import { ChecklistModel, CollectibleType } from '../core/models';
+import {
+  ChecklistDataService,
+  MapSectionService,
+  SettingsService,
+  TooltipService,
+} from '../core/services';
 import { MouseDownPosition } from './models';
+import { Tooltip } from './tooltip/tooltip';
 
 @Component({
   selector: 'mkworld-map-section',
@@ -98,7 +102,9 @@ export class MapSection implements AfterViewInit, OnDestroy {
       this.checklistDataService.addDisappearingChecklistModels(
         this.visibleCollectibleChecklistModels().filter(
           (checklistModel: ChecklistModel) => checklistModel.checked
-        )
+        ),
+        false,
+        true
       );
     }
     this.settingsService.toggleShowCollectedCollectibles();
@@ -110,7 +116,9 @@ export class MapSection implements AfterViewInit, OnDestroy {
         this.visibleCollectibleChecklistModels().filter(
           (checklistModel: ChecklistModel) =>
             checklistModel.collectibleModel?.collectibleType === collectibleType
-        )
+        ),
+        false,
+        true
       );
     }
     this.settingsService.toggleShowCollectibleType(collectibleType);
@@ -119,10 +127,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     if (this.activeTooltipData()) {
-      if (this.tooltipService.isScrollingToTooltipActive()()) {
-        return;
-      }
-
       if (this.mouseDownPosition) {
         const distance = Math.sqrt(
           Math.pow(event.clientX - this.mouseDownPosition.x, 2) +
@@ -158,14 +162,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   }
 
   private initializePanZoom(): void {
-    this.pzInstance = panzoom(this.mapPanzoomRef()!.nativeElement, {
-      bounds: true,
-      boundsPadding: 1,
-      minZoom: 1,
-      maxZoom: 10,
-      zoomDoubleClickSpeed: 1,
-      smoothScroll: false,
-    });
+    this.pzInstance = this.mapSectionService.initializePanzoom(this.mapPanzoomRef()!);
 
     this.pzInstance.on('panstart', () => (this.isPanning = true));
     this.pzInstance.on('panend', () => setTimeout(() => (this.isPanning = false), 50));

@@ -59,7 +59,8 @@
       "STARTED_MARIO_KART_WORLD_INSTRUCTIONS": "Unlocked automatically upon starting the game.",
       "PEACH_COIN_TOOLTIP": "Collect a Peach Medallion!",
       "QUESTIONMARK_PANEL_TOOLTIP": "Activate a ? Panel!",
-      "RANDOM_STICKER_ALT_TEXT": "Random Sticker"
+      "RANDOM_STICKER_ALT_TEXT": "Random Sticker",
+      "STICKER_NOT_ON_MAP": "This sticker is not visible on the map. Adjust the map settings to show it."
     },
     "0_ALT_TEXT": "Airship Fortress Track",
     "0_INSTRUCTIONS": "Found by Amph_pm.",

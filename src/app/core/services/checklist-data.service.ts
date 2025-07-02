@@ -23,7 +23,7 @@ export class ChecklistDataService {
         (this.settingsService
           .getShownCollectibleTypes()()
           .includes(checklistModel.collectibleModel.collectibleType) ||
-          checklistModel.disappearing)
+          checklistModel.disappearingFromMap)
     );
 
     if (this.settingsService.shouldShowCollectedCollectibles()()) {
@@ -31,7 +31,8 @@ export class ChecklistDataService {
     }
 
     return checklistModels.filter(
-      (checklistModel: ChecklistModel) => !checklistModel.checked || checklistModel.disappearing
+      (checklistModel: ChecklistModel) =>
+        !checklistModel.checked || checklistModel.disappearingFromMap
     );
   });
 
@@ -76,13 +77,19 @@ export class ChecklistDataService {
 
   updateChecklistModelChecked(checklistModelToUpdate: ChecklistModel): void {
     checklistModelToUpdate.checked = !checklistModelToUpdate.checked;
-    if (checklistModelToUpdate.checked && !checklistModelToUpdate.disappearing) {
-      checklistModelToUpdate.disappearing = true;
+    if (checklistModelToUpdate.checked && !checklistModelToUpdate.disappearingFromStickerAlbum) {
+      checklistModelToUpdate.disappearingFromStickerAlbum = true;
+      checklistModelToUpdate.disappearingFromMap =
+        !this.settingsService.shouldShowCollectedCollectibles()();
       setTimeout(() => {
         this.checklistModels.update((checklistModels: ChecklistModel[]) =>
           checklistModels.map((checklistModel: ChecklistModel) =>
             checklistModel.index === checklistModelToUpdate.index
-              ? { ...checklistModel, disappearing: false }
+              ? {
+                  ...checklistModel,
+                  disappearingFromStickerAlbum: false,
+                  disappearingFromMap: false,
+                }
               : checklistModel
           )
         );
@@ -98,14 +105,22 @@ export class ChecklistDataService {
     );
   }
 
-  addDisappearingChecklistModels(checklistModelsToDisappear: ChecklistModel[]): void {
+  addDisappearingChecklistModels(
+    checklistModelsToDisappear: ChecklistModel[],
+    disappearingFromStickerAlbum: boolean,
+    disappearingFromMap: boolean
+  ): void {
     const checklistModelIndexesToDisappear = checklistModelsToDisappear.map(
       (checklistModel: ChecklistModel) => checklistModel.index
     );
     this.checklistModels.update((checklistModels: ChecklistModel[]) =>
       checklistModels.map((checklistModel: ChecklistModel) =>
         checklistModelIndexesToDisappear.includes(checklistModel.index)
-          ? { ...checklistModel, disappearing: true }
+          ? {
+              ...checklistModel,
+              disappearingFromStickerAlbum,
+              disappearingFromMap,
+            }
           : checklistModel
       )
     );
@@ -113,7 +128,11 @@ export class ChecklistDataService {
       this.checklistModels.update((checklistModels: ChecklistModel[]) =>
         checklistModels.map((checklistModel: ChecklistModel) =>
           checklistModelIndexesToDisappear.includes(checklistModel.index)
-            ? { ...checklistModel, disappearing: false }
+            ? {
+                ...checklistModel,
+                disappearingFromStickerAlbum: false,
+                disappearingFromMap: false,
+              }
             : checklistModel
         )
       );

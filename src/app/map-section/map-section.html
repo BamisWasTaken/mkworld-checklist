@@ -145,8 +145,11 @@
         id="collectible-div-{{ collectibleChecklistModel.index }}"
         class="collectible absolute"
         [class.hovered]="hovered() === collectibleChecklistModel"
-        [class.disappearing]="collectibleChecklistModel.disappearing"
+        [class.disappearing]="collectibleChecklistModel.disappearingFromMap"
         [class.collected]="collectibleChecklistModel.checked"
+        [class.opacity-50]="
+          activeTooltipData() && activeTooltipData()!.index !== collectibleChecklistModel.index
+        "
         [style.--target-scale]="
           activeTooltipData()?.index === collectibleChecklistModel.index ||
           hovered() === collectibleChecklistModel
