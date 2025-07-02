@@ -96,8 +96,9 @@
 }
 
 .milestones-container.expanded {
-  max-height: 500px;
+  max-height: 300px;
   opacity: 1;
+  overflow-y: auto;
 }
 
 .milestone-item {

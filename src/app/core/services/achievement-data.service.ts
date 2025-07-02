@@ -61,7 +61,7 @@ export class AchievementDataService {
       achievements.map((achievement: Achievement) =>
         achievement.index === achievementToToggle.index
           ? { ...achievement, expanded: !achievement.expanded }
-          : achievement
+          : { ...achievement, expanded: false }
       )
     );
   }
