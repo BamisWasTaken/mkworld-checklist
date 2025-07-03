@@ -1,0 +1,13 @@
+<div class="background-progress-container">
+  <div
+    class="background-progress-bar"
+    [class.completed]="progressPercentage() >= 100"
+    [style.width.%]="progressPercentage()"
+    [style.background]="progressGradient()"
+  >
+    <div class="progress-overlay" [class.completed]="progressPercentage() >= 100"></div>
+    @if (progressPercentage() > 0) {
+      <div class="progress-particles" [class.completed]="progressPercentage() >= 100"></div>
+    }
+  </div>
+</div>

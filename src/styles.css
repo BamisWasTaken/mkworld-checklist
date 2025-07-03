@@ -17,7 +17,6 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-header,
 footer {
   background: linear-gradient(90deg, #ff9900 0%, #ffdb4d 40%, #3ecf4c 70%, #1ccad8 100%);
   color: #23272e;
@@ -35,9 +34,6 @@ h1,
 h2,
 h3 {
   color: #ff9900;
-  text-shadow:
-    0 2px 8px #1ccad8,
-    0 1px 0 #fff;
 }
 
 a {

@@ -46,6 +46,14 @@ export class ChecklistDataService {
     this.getUncollectedCollectibles(CollectibleType.P_SWITCH)
   );
 
+  private readonly checklistModelsWithSticker = computed(() =>
+    this.checklistModels().filter((checklistModel: ChecklistModel) => checklistModel.hasSticker)
+  );
+  private readonly progress = computed(
+    () => this.checklistModelsWithSticker().filter((item: ChecklistModel) => item.checked).length
+  );
+  private readonly total = computed(() => this.checklistModelsWithSticker().length);
+
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
       this.loadChecklistModelsFromStorage();
@@ -149,6 +157,14 @@ export class ChecklistDataService {
 
   getUncollectedPSwitches(): Signal<number> {
     return this.uncollectedPSwitches;
+  }
+
+  getProgress(): Signal<number> {
+    return this.progress;
+  }
+
+  getTotal(): Signal<number> {
+    return this.total;
   }
 
   private getUncollectedCollectibles(collectibleType: CollectibleType): number {

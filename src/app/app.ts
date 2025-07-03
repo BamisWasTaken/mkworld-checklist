@@ -1,22 +1,20 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { PanZoom } from 'panzoom';
+import { BackgroundProgress } from './background-progress/background-progress';
 import { ChecklistModel } from './core/models';
-import { ChecklistDataService, MapSectionService } from './core/services';
+import { MapSectionService } from './core/services';
+import { TooltipService } from './core/services/tooltip.service';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { MapSection } from './map-section/map-section';
-import { ProgressBar } from './progress-bar/progress-bar';
 import { StickerAlbum } from './sticker-album/sticker-album';
 import { TodoSection } from './todo-section/todo-section';
-import { TooltipService } from './core/services/tooltip.service';
-import { PanZoom } from 'panzoom';
-import { BackgroundProgress } from './background-progress/background-progress';
 
 @Component({
   selector: 'mkworld-root',
   imports: [
     TranslateModule,
-    ProgressBar,
     StickerAlbum,
     Header,
     Footer,
@@ -30,20 +28,8 @@ import { BackgroundProgress } from './background-progress/background-progress';
 })
 export class App {
   private readonly translateService = inject(TranslateService);
-  private readonly checklistDataService = inject(ChecklistDataService);
   private readonly tooltipService = inject(TooltipService);
   private readonly mapSectionService = inject(MapSectionService);
-
-  checklistModelsWithSticker = computed(() =>
-    this.checklistDataService
-      .getChecklistModels()()
-      .filter((checklistModel: ChecklistModel) => checklistModel.hasSticker)
-  );
-
-  progress = computed(
-    () => this.checklistModelsWithSticker().filter((item: ChecklistModel) => item.checked).length
-  );
-  readonly total = this.checklistModelsWithSticker().length;
 
   pzInstance: PanZoom | null = null;
 

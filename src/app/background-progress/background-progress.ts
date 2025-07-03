@@ -1,137 +1,36 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChecklistDataService } from '../core/services';
 
 @Component({
   selector: 'mkworld-background-progress',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <div class="background-progress-container">
-      <div
-        class="background-progress-bar"
-        [style.width.%]="progressPercentage()"
-        [style.background]="progressGradient()"
-      >
-        <div class="progress-overlay"></div>
-        <div class="progress-particles" *ngIf="progressPercentage() > 0"></div>
-      </div>
-    </div>
-  `,
-  styles: [
-    `
-      .background-progress-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: -1;
-        overflow: hidden;
-        background: linear-gradient(135deg, #23272e 0%, #1ccad8 100%);
-      }
-
-      .background-progress-bar {
-        height: 100%;
-        transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.1);
-      }
-
-      .progress-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 153, 0, 0.3) 0%,
-          rgba(255, 219, 77, 0.4) 25%,
-          rgba(62, 207, 76, 0.5) 50%,
-          rgba(28, 202, 216, 0.6) 75%,
-          rgba(255, 153, 0, 0.7) 100%
-        );
-        opacity: 0.8;
-        animation: shimmer 3s ease-in-out infinite;
-      }
-
-      .progress-particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image:
-          radial-gradient(circle at 20% 80%, rgba(255, 153, 0, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(28, 202, 216, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(62, 207, 76, 0.3) 0%, transparent 50%);
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes shimmer {
-        0%,
-        100% {
-          opacity: 0.6;
-        }
-        50% {
-          opacity: 0.9;
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        33% {
-          transform: translateY(-10px) rotate(1deg);
-        }
-        66% {
-          transform: translateY(5px) rotate(-1deg);
-        }
-      }
-
-      /* Add a subtle glow effect */
-      .background-progress-bar::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(255, 255, 255, 0.1) 50%,
-          transparent 100%
-        );
-        animation: glow 4s ease-in-out infinite;
-      }
-
-      @keyframes glow {
-        0%,
-        100% {
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-      }
-    `,
-  ],
+  templateUrl: './background-progress.html',
+  styleUrls: ['./background-progress.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BackgroundProgress {
-  progress = input.required<number>();
-  total = input.required<number>();
+  private readonly checklistDataService = inject(ChecklistDataService);
+
+  readonly progress = this.checklistDataService.getProgress();
+  readonly total = this.checklistDataService.getTotal();
 
   progressPercentage = computed(() => {
     if (this.total() === 0) return 0;
-    return (this.progress() / this.total()) * 1000;
+    return (this.progress() / this.total()) * 100;
   });
 
   progressGradient = computed(() => {
     const percentage = this.progressPercentage();
+
+    if (percentage >= 100) {
+      return `linear-gradient(135deg, 
+        #23272e 0%, 
+        #ffd700 ${Math.max(0, percentage - 30)}%, 
+rgb(255, 193, 78) ${Math.max(0, percentage - 15)}%, 
+        #fff8dc ${Math.max(0, percentage - 5)}%, 
+        #ffd700 ${percentage}%, 
+        #23272e ${Math.min(100, percentage + 5)}%
+      )`;
+    }
 
     return `linear-gradient(135deg, 
       #23272e 0%, 

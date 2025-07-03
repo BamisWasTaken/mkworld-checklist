@@ -1,6 +1,6 @@
 <div class="tooltip" [class]="'tooltip-' + position()">
   <button class="close-button" (click)="onClose()" aria-label="Close tooltip">
-    <span class="close-icon">×</span>
+    <span class="close-icon -mt-[3px]">×</span>
   </button>
 
   @if (hoveredPeachCoinSticker()) {
@@ -45,25 +45,27 @@
     </p>
   </div>
 
-  @if (checklistModel().collectibleModel!.youtubeId) {
-    <iframe
-      width="100%"
-      [src]="youtubeLink()"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
-  } @else {
-    <img
-      width="100%"
-      [ngSrc]="`/imgs/tooltips/IMAGE_${checklistModel().index}.webp`"
-      [alt]="'MAP_SECTION.TOOLTIP.IMAGE_ALT_TEXT' | translate: { index: checklistModel().index }"
-      width="536"
-      height="300"
-    />
-  }
+  <div class="hint-container">
+    @if (checklistModel().collectibleModel!.youtubeId) {
+      <iframe
+        width="100%"
+        [src]="youtubeLink()"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    } @else {
+      <img
+        width="100%"
+        [ngSrc]="`/imgs/tooltips/IMAGE_${checklistModel().index}.webp`"
+        [alt]="'MAP_SECTION.TOOLTIP.IMAGE_ALT_TEXT' | translate: { index: checklistModel().index }"
+        width="536"
+        height="300"
+      />
+    }
+  </div>
 
   <p class="instruction">{{ 'STICKERS.' + checklistModel().instructions | translate }}</p>
 
