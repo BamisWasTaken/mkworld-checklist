@@ -15,10 +15,13 @@
 .todo-item {
   transition: all 0.2s ease-in-out;
   transform-origin: top;
-  animation: slideDown 0.2s ease-out;
   max-height: 100px;
   opacity: 1;
   transform: translateX(0);
+}
+
+.todo-item.appearing {
+  animation: slideDown 0.2s ease-out;
 }
 
 .todo-item.removing {

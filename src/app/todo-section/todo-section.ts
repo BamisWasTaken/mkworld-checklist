@@ -1,9 +1,10 @@
 import { DecimalPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Achievement, ChecklistModel, Milestone } from '../core/models';
 import { AchievementDataService, ChecklistDataService } from '../core/services';
+import { TodoItem } from './models/todo-item';
 
 @Component({
   selector: 'mkworld-todo-section',
@@ -15,6 +16,7 @@ import { AchievementDataService, ChecklistDataService } from '../core/services';
 export class TodoSection {
   private readonly checklistDataService = inject(ChecklistDataService);
   private readonly achievementDataService = inject(AchievementDataService);
+  private readonly translateService = inject(TranslateService);
 
   readonly uncollectedPeachCoins = this.checklistDataService.getUncollectedPeachCoins();
   readonly uncollectedQuestionMarkPanels =
@@ -26,7 +28,8 @@ export class TodoSection {
 
   readonly achievements = this.achievementDataService.getAchievements();
 
-  readonly todoItems = computed(() => {
+  previousTodoItems: TodoItem[] = [];
+  readonly todoItems = computed<TodoItem[]>(() => {
     const checklistModels = this.checklistDataService
       .getChecklistModels()()
       .filter(
@@ -34,17 +37,48 @@ export class TodoSection {
           (!checklistModel.checked || checklistModel.disappearingFromStickerAlbum) &&
           !checklistModel.collectibleModel
       );
-    const seenInstructions = new Set<string>();
-    return checklistModels.filter((checklistModel: ChecklistModel) => {
-      if (
-        seenInstructions.has(checklistModel.instructions) ||
-        checklistModel.instructions === 'SHARED.MILESTONE_REACHED_INSTRUCTIONS'
-      ) {
-        return false;
+
+    const todoItems: TodoItem[] = [];
+
+    checklistModels.forEach((checklistModel: ChecklistModel) => {
+      if (checklistModel.instructions !== 'SHARED.MILESTONE_REACHED_INSTRUCTIONS') {
+        const foundTodoItem = todoItems.find(
+          (todoItem: TodoItem) =>
+            todoItem.checklistModel.instructions === checklistModel.instructions
+        );
+        if (foundTodoItem) {
+          foundTodoItem.amountUnchecked++;
+        } else {
+          todoItems.push({ checklistModel, amountUnchecked: 1, appearing: false });
+        }
       }
-      seenInstructions.add(checklistModel.instructions);
-      return true;
     });
+
+    if (this.previousTodoItems.length !== todoItems.length) {
+      todoItems.forEach((todoItem: TodoItem) => {
+        if (
+          !this.previousTodoItems.find(
+            (previousTodoItem: TodoItem) =>
+              previousTodoItem.checklistModel.instructions === todoItem.checklistModel.instructions
+          )
+        ) {
+          todoItem.appearing = true;
+        }
+      });
+    }
+
+    todoItems.sort((a: TodoItem, b: TodoItem) => {
+      const aTranslated = this.translateService.instant(
+        'STICKERS.' + a.checklistModel.instructions
+      );
+      const bTranslated = this.translateService.instant(
+        'STICKERS.' + b.checklistModel.instructions
+      );
+      return aTranslated.localeCompare(bTranslated);
+    });
+    this.previousTodoItems = todoItems;
+
+    return todoItems;
   });
 
   constructor() {

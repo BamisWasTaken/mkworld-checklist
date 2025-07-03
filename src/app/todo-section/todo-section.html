@@ -9,7 +9,7 @@
     <ul class="w-full flex flex-col text-gray-700 todo-list">
       @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
         <li
-          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
           [class.removing]="lastPeachCoinBeingRemoved()"
         >
           <img
@@ -26,7 +26,7 @@
       }
       @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
         <li
-          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
           [class.removing]="lastQuestionMarkPanelBeingRemoved()"
         >
           <img
@@ -43,7 +43,7 @@
       }
       @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
         <li
-          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
           [class.removing]="lastPSwitchBeingRemoved()"
         >
           <img
@@ -70,7 +70,7 @@
         <li class="achievement-item rounded shadow-sm">
           <!-- Achievement Header -->
           <div
-            class="flex items-center gap-2 bg-gray-50 p-2 todo-item cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+            class="flex items-center gap-2 bg-gray-50 p-2 todo-item appearing cursor-pointer hover:bg-gray-100 transition-colors duration-200"
             (click)="toggleAchievementExpanded(achievement)"
           >
             <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
@@ -108,7 +108,7 @@
                 milestone.milestoneNumber >= achievement.milestoneReached || milestone.disappearing
               ) {
                 <div
-                  class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item ml-4 mt-1"
+                  class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearingml-4 mt-1"
                   [class.opacity-60]="achievement.milestoneReached === milestone.milestoneNumber"
                   [class.line-through]="achievement.milestoneReached === milestone.milestoneNumber"
                   [class.removing]="milestone.disappearing"
@@ -139,13 +139,18 @@
         {{ 'TODO_SECTION.OTHER_TITLE' | translate }}
       </h3>
       <ul class="w-full flex flex-col text-gray-700 todo-list">
-        @for (item of todoItems(); track item.index) {
+        @for (item of todoItems(); track item.checklistModel.index) {
           <li
             class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
-            [class.removing]="item.disappearingFromStickerAlbum"
+            [class.appearing]="item.appearing"
+            [class.removing]="
+              item.checklistModel.disappearingFromStickerAlbum && item.amountUnchecked === 1
+            "
           >
             <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">🎯</div>
-            <span class="flex-1">{{ 'STICKERS.' + item.instructions | translate }}</span>
+            <span class="flex-1">{{
+              'STICKERS.' + item.checklistModel.instructions | translate
+            }}</span>
           </li>
         }
       </ul>
