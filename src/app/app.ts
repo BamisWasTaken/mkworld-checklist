@@ -10,10 +10,20 @@ import { StickerAlbum } from './sticker-album/sticker-album';
 import { TodoSection } from './todo-section/todo-section';
 import { TooltipService } from './core/services/tooltip.service';
 import { PanZoom } from 'panzoom';
+import { BackgroundProgress } from './background-progress/background-progress';
 
 @Component({
   selector: 'mkworld-root',
-  imports: [TranslateModule, ProgressBar, StickerAlbum, Header, Footer, MapSection, TodoSection],
+  imports: [
+    TranslateModule,
+    ProgressBar,
+    StickerAlbum,
+    Header,
+    Footer,
+    MapSection,
+    TodoSection,
+    BackgroundProgress,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

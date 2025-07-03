@@ -13,7 +13,6 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #23272e 0%, #1ccad8 100%);
   color: #fff;
   font-family: system-ui, sans-serif;
 }
