@@ -84,6 +84,11 @@ export class AchievementDataService {
         achievementToUpdate.milestones.forEach(
           (milestone: Milestone) => (milestone.disappearing = false)
         );
+        this.achievements.update((achievements: Achievement[]) =>
+          achievements.map((achievement: Achievement) =>
+            achievement.index === achievementToUpdate.index ? achievementToUpdate : achievement
+          )
+        );
       }, 200);
     }
   }
