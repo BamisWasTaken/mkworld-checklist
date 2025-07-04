@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { BackgroundProgress } from './background-progress/background-progress';
@@ -24,7 +24,6 @@ import { TodoSection } from './todo-section/todo-section';
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
   private readonly translateService = inject(TranslateService);

@@ -1,5 +1,5 @@
+import { NgOptimizedImage } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   Component,
   computed,
   ElementRef,
@@ -13,17 +13,15 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
+import { CONSTANTS } from '../constants';
 import { ChecklistModel, PageAnimationDirection, StickerPosition } from '../core/models';
 import { ChecklistDataService, PageService, SettingsService } from '../core/services';
-import { CONSTANTS } from '../constants';
-import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'mkworld-sticker-album',
   imports: [TranslateModule, NgOptimizedImage],
   templateUrl: './sticker-album.html',
   styleUrls: ['./sticker-album.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StickerAlbum {
   private readonly checklistDataService = inject(ChecklistDataService);
