@@ -24,21 +24,33 @@ export class BackgroundProgress {
     if (percentage >= 100) {
       return `linear-gradient(135deg, 
         #23272e 0%, 
-        #ffd700 ${Math.max(0, percentage - 30)}%, 
-rgb(255, 193, 78) ${Math.max(0, percentage - 15)}%, 
-        #fff8dc ${Math.max(0, percentage - 5)}%, 
-        #ffd700 ${percentage}%, 
-        #23272e ${Math.min(100, percentage + 5)}%
+        #23272e 5%, 
+        rgb(199, 170, 9) 15%, 
+        rgb(255, 193, 78) 30%, 
+        #fff8dc 45%, 
+        rgb(204, 174, 4) 60%, 
+        #23272e 75%, 
+        #23272e 100%
       )`;
     }
 
     return `linear-gradient(135deg, 
       #23272e 0%, 
-      #1ccad8 ${Math.max(0, percentage - 20)}%, 
-      #3ecf4c ${Math.max(0, percentage - 10)}%, 
-      #ffdb4d ${Math.max(0, percentage - 5)}%, 
-      #ff9900 ${percentage}%, 
-      #23272e ${Math.min(100, percentage + 5)}%
+      #23272e 5%, 
+      #1ccad8 20%, 
+      #3ecf4c 35%, 
+      #ffdb4d 50%, 
+      #ff9900 65%, 
+      #23272e 80%, 
+      #23272e 100%
     )`;
+  });
+
+  gradientPosition = computed(() => {
+    const percentage = this.progressPercentage();
+    // Calculate the position so the gradient moves smoothly
+    // The gradient should move from left to right as progress increases
+    // We want the bright part of the gradient to be at the current progress position
+    return `${Math.max(0, 100 - percentage)}% 0`;
   });
 }

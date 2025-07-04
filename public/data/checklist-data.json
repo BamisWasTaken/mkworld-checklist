@@ -637,7 +637,7 @@
   },
   {
     "index": 54,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -667,7 +667,7 @@
   },
   {
     "index": 57,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -1191,7 +1191,7 @@
   },
   {
     "index": 98,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -1291,7 +1291,7 @@
   },
   {
     "index": 108,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -1361,7 +1361,7 @@
   },
   {
     "index": 115,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -1705,7 +1705,7 @@
   },
   {
     "index": 148,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -2005,7 +2005,7 @@
   },
   {
     "index": 176,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -2096,7 +2096,7 @@
   },
   {
     "index": 183,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -2473,7 +2473,7 @@
   },
   {
     "index": 216,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -2651,7 +2651,7 @@
   },
   {
     "index": 231,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -2948,7 +2948,7 @@
   },
   {
     "index": 256,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -4256,7 +4256,7 @@
   },
   {
     "index": 363,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -5580,7 +5580,7 @@
   },
   {
     "index": 464,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -5590,7 +5590,7 @@
   },
   {
     "index": 465,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13900,7 +13900,7 @@
   },
   {
     "index": 1031,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13910,7 +13910,7 @@
   },
   {
     "index": 1032,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13920,7 +13920,7 @@
   },
   {
     "index": 1033,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13930,7 +13930,7 @@
   },
   {
     "index": 1034,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13940,7 +13940,7 @@
   },
   {
     "index": 1035,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13950,7 +13950,7 @@
   },
   {
     "index": 1036,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13960,7 +13960,7 @@
   },
   {
     "index": 1037,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13970,7 +13970,7 @@
   },
   {
     "index": 1038,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13980,7 +13980,7 @@
   },
   {
     "index": 1039,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -13990,7 +13990,7 @@
   },
   {
     "index": 1040,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14000,7 +14000,7 @@
   },
   {
     "index": 1041,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14010,7 +14010,7 @@
   },
   {
     "index": 1042,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14020,7 +14020,7 @@
   },
   {
     "index": 1043,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14030,7 +14030,7 @@
   },
   {
     "index": 1044,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14040,7 +14040,7 @@
   },
   {
     "index": 1045,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14050,7 +14050,7 @@
   },
   {
     "index": 1046,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14060,7 +14060,7 @@
   },
   {
     "index": 1047,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14070,7 +14070,7 @@
   },
   {
     "index": 1048,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14080,7 +14080,7 @@
   },
   {
     "index": 1049,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14090,7 +14090,7 @@
   },
   {
     "index": 1050,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14100,7 +14100,7 @@
   },
   {
     "index": 1051,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14110,7 +14110,7 @@
   },
   {
     "index": 1052,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14120,7 +14120,7 @@
   },
   {
     "index": 1053,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14130,7 +14130,7 @@
   },
   {
     "index": 1054,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,
@@ -14140,7 +14140,7 @@
   },
   {
     "index": 1055,
-    "checked": true,
+    "checked": false,
     "disappearingFromStickerAlbum": false,
     "disappearingFromMap": false,
     "hasSticker": true,

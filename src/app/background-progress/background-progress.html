@@ -4,6 +4,7 @@
     [class.completed]="progressPercentage() >= 100"
     [style.width.%]="progressPercentage()"
     [style.background]="progressGradient()"
+    [style.background-position]="gradientPosition()"
   >
     <div class="progress-overlay" [class.completed]="progressPercentage() >= 100"></div>
     @if (progressPercentage() > 0) {

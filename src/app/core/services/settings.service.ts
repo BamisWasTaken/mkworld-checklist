@@ -85,13 +85,13 @@ export class SettingsService {
     const storedSettings = localStorage.getItem(CONSTANTS.STORAGE_KEY_SETTINGS);
     if (storedSettings) {
       const settings: Settings = JSON.parse(storedSettings);
-      if (settings.showCollectedStickers) {
+      if (settings.showCollectedStickers !== undefined) {
         this.showCollectedStickers.set(settings.showCollectedStickers);
       }
-      if (settings.showCollectedCollectibles) {
+      if (settings.showCollectedCollectibles !== undefined) {
         this.showCollectedCollectibles.set(settings.showCollectedCollectibles);
       }
-      if (settings.shownCollectibleTypes) {
+      if (settings.shownCollectibleTypes !== undefined) {
         this.shownCollectibleTypes.set(settings.shownCollectibleTypes);
       }
     }
