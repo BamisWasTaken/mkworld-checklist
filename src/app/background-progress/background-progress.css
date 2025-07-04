@@ -55,18 +55,18 @@
   right: 0;
   bottom: 0;
   background-image:
-    radial-gradient(circle at 20% 80%, rgba(255, 153, 0, 0.3) 0%, transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(28, 202, 216, 0.3) 0%, transparent 30%),
-    radial-gradient(circle at 40% 40%, rgba(62, 207, 76, 0.3) 0%, transparent 30%);
+    radial-gradient(circle at 20% 80%, rgba(255, 153, 0, 0.8) 0%, transparent 70%),
+    radial-gradient(circle at 80% 20%, rgba(28, 202, 216, 0.8) 0%, transparent 70%),
+    radial-gradient(circle at 40% 40%, rgba(62, 207, 76, 0.8) 0%, transparent 70%);
   animation: float 6s ease-in-out infinite;
-  filter: blur(10px);
+  filter: blur(20px);
 }
 
 .progress-particles.completed {
   background-image:
-    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.4) 0%, transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(255, 248, 220, 0.6) 0%, transparent 30%),
-    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.8) 0%, transparent 30%);
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.4) 0%, transparent 70%),
+    radial-gradient(circle at 80% 20%, rgba(255, 248, 220, 0.6) 0%, transparent 70%),
+    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.8) 0%, transparent 70%);
 }
 
 @keyframes shimmer {
@@ -94,13 +94,13 @@
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateX(0px) translateY(0px) rotate(0deg);
   }
   33% {
-    transform: translateY(-10px) rotate(1deg);
+    transform: translateX(10px) translateY(-10px) rotate(1deg);
   }
   66% {
-    transform: translateY(10px) rotate(-1deg);
+    transform: translateX(-10px) translateY(10px) rotate(-1deg);
   }
 }
 
