@@ -6,6 +6,7 @@
     "milestoneText": "MILESTONE_TEXT_COINS",
     "milestoneReached": 0,
     "expanded": false,
+    "icon": "🪙",
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -221,6 +222,7 @@
     "milestoneText": "MILESTONE_TEXT_KM_DRIVEN",
     "milestoneReached": 0,
     "expanded": false,
+    "icon": "🚗",
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -561,6 +563,7 @@
     "milestoneText": "MILESTONE_TEXT_KM_GLIDED",
     "milestoneReached": 0,
     "expanded": false,
+    "icon": "✈️",
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -736,6 +739,7 @@
     "milestoneText": "MILESTONE_TEXT_TRICKS_PERFORMED",
     "milestoneReached": 0,
     "expanded": false,
+    "icon": "🛹",
     "milestones": [
       {
         "milestoneNumber": 1,
@@ -966,6 +970,7 @@
     "milestoneText": "MILESTONE_TEXT_TIMES_RACED",
     "milestoneReached": 0,
     "expanded": false,
+    "icon": "🏁",
     "milestones": [
       {
         "milestoneNumber": 1,

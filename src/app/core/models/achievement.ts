@@ -5,6 +5,7 @@ export interface Achievement {
   index: number;
   type: AchievementType;
   title: string;
+  icon: string;
   milestoneText: string;
   milestones: Milestone[];
   milestoneReached: number;
