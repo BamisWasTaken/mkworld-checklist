@@ -2,6 +2,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+.instructions {
+  line-height: 1.2;
+}
+
 .todo-list li {
   overflow: hidden;
   transition: all 0.2s ease-in-out;

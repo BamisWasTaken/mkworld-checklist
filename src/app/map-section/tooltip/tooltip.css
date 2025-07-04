@@ -173,9 +173,10 @@
 }
 
 .instruction {
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
   margin-bottom: 16px;
+  line-height: 1.2;
 }
 
 .hint-container {

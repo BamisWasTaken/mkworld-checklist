@@ -147,8 +147,16 @@
               item.checklistModel.disappearingFromStickerAlbum && item.amountUnchecked === 1
             "
           >
-            <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">🎯</div>
-            <span class="flex-1">{{
+            <div class="w-8 min-h-8 flex items-center justify-center relative">
+              <img
+                ngSrc="imgs/stickers/sticker-{{ item.checklistModel.index }}.webp"
+                [alt]="'STICKERS.' + item.checklistModel.stickerAltText | translate"
+                width="32"
+                height="32"
+                class="w-8 h-auto object-contain"
+              />
+            </div>
+            <span class="flex-1 instructions">{{
               'STICKERS.' + item.checklistModel.instructions | translate
             }}</span>
           </li>
