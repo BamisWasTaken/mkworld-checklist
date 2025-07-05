@@ -3,12 +3,17 @@
   background-size: cover;
 }
 
-.task-bar-text {
-  transition: opacity 0.3s ease-in-out;
+.description-display {
+  overflow: hidden;
 }
 
-.task-bar-text.fade {
-  opacity: 0.7;
+.description-text {
+  font-size: 24px;
+  filter: drop-shadow(1.5px 1.5px 0 rgb(82, 82, 82));
+  background: -webkit-linear-gradient(#fff, #ddd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .arrow-button {
@@ -17,6 +22,10 @@
 
 .arrow-button:hover {
   transform: scale(1.1);
+}
+
+.active-page-dot {
+  filter: drop-shadow(0 0 1.5px rgb(0, 0, 0));
 }
 
 /* Page container for slide animations */
@@ -114,7 +123,7 @@
 }
 
 .sticker {
-  filter: drop-shadow(0 0 1px rgb(150, 150, 150));
+  filter: drop-shadow(0 0 5px rgb(175, 175, 175));
 }
 
 .sticker.disappearing {
