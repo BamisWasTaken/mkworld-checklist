@@ -98,11 +98,11 @@ export class StickerAlbum {
       this.isSwitchingPage.set(true);
 
       const pageElement = this.pageContainer.nativeElement as HTMLElement;
-      const slideDistance = animate ? 50 : 0;
+      const slideDistance = animate ? 20 : 0;
       const translateXOut =
         direction === PageAnimationDirection.RIGHT ? slideDistance : -slideDistance;
 
-      pageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+      pageElement.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
       pageElement.style.transform = `translateX(${translateXOut}px)`;
       pageElement.style.opacity = '0';
 
@@ -116,14 +116,14 @@ export class StickerAlbum {
 
         pageElement.getBoundingClientRect();
 
-        pageElement.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+        pageElement.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
         pageElement.style.transform = 'translateX(0)';
         pageElement.style.opacity = '1';
 
         setTimeout(() => {
           this.isSwitchingPage.set(false);
-        }, 300);
-      }, 300);
+        }, 200);
+      }, 200);
     }
   }
 
@@ -249,7 +249,7 @@ export class StickerAlbum {
           // If there are less than 8 new stickers in the row, the stickers in the row should be offset just enough to start off screen
           dx = (pageWidth / 8) * newStickersInRow;
         }
-      } else {
+      } else if (!this.isSwitchingPage()) {
         this.animateNewSticker(element);
       }
 
