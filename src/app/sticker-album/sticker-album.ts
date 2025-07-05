@@ -73,7 +73,7 @@ export class StickerAlbum {
     if (this.pageNumber() > 0) {
       this.goToPage(this.pageNumber() - 1);
     } else {
-      this.goToPage(this.pageCount() - 1);
+      this.goToPage(this.pageCount() - 1, false);
     }
   }
 
@@ -81,11 +81,11 @@ export class StickerAlbum {
     if (this.pageNumber() < this.pageCount() - 1) {
       this.goToPage(this.pageNumber() + 1);
     } else {
-      this.goToPage(0);
+      this.goToPage(0, false);
     }
   }
 
-  goToPage(newPage: number) {
+  goToPage(newPage: number, animate: boolean = true) {
     if (
       !this.areControlsDisabled() &&
       newPage !== this.pageNumber() &&
@@ -98,7 +98,7 @@ export class StickerAlbum {
       this.isSwitchingPage.set(true);
 
       const pageElement = this.pageContainer.nativeElement as HTMLElement;
-      const slideDistance = 50;
+      const slideDistance = animate ? 50 : 0;
       const translateXOut =
         direction === PageAnimationDirection.RIGHT ? slideDistance : -slideDistance;
 
