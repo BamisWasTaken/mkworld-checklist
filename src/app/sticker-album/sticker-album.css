@@ -78,11 +78,9 @@
   border-radius: 50%;
   border: 2px solid #9ca3af; /* gray-400 */
   background-color: white;
-  width: 1.25rem; /* w-5 */
-  height: 1.25rem; /* h-5 */
+  width: 1.5rem; /* w-5 */
+  height: 1.5rem; /* h-5 */
   position: absolute;
-  top: 0.25rem; /* top-1 */
-  right: 0.25rem; /* right-1 */
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);

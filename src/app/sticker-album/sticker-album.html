@@ -4,7 +4,7 @@
   <!-- Padding container for non-scrolling elements -->
   <div class="w-full p-4 flex flex-col items-center">
     <!-- Toggle for collected stickers -->
-    <div class="absolute bottom-2 right-3 flex items-center gap-2">
+    <div class="absolute top-2 right-3 flex items-center gap-2">
       <label
         class="flex items-center gap-2 cursor-pointer group filter-toggle"
         [class.opacity-50]="areControlsDisabled()"
@@ -37,42 +37,45 @@
       </label>
     </div>
 
-    <button
-      class="absolute left-1 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition-all duration-300 z-10 arrow-button"
+    <img
+      ngSrc="/imgs/page-arrow-left.webp"
+      [alt]="'STICKER_ALBUM.PREVIOUS_PAGE_ALT_TEXT' | translate"
+      width="30"
+      height="33"
+      class="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-300 hover:scale-110 z-10 arrow-button"
       [class.opacity-50]="areControlsDisabled()"
       [class.cursor-not-allowed]="areControlsDisabled()"
       [class.cursor-pointer]="!areControlsDisabled()"
-      aria-label="STICKER_ALBUM.PREVIOUS_PAGE_ALT_TEXT"
+      [class.hover:scale-110]="!areControlsDisabled()"
       (click)="prevPage()"
-      [disabled]="areControlsDisabled()"
-    >
-      <span class="block w-6 h-6 border-l-4 border-b-4 border-yellow-700 rotate-45"></span>
-    </button>
-    <button
-      class="absolute right-1 top-1/2 -translate-y-1/2 bg-yellow-300 rounded-full p-2 shadow hover:bg-yellow-400 transition-all duration-300 z-10 arrow-button"
+      draggable="false"
+    />
+    <img
+      ngSrc="/imgs/page-arrow-right.webp"
+      [alt]="'STICKER_ALBUM.NEXT_PAGE_ALT_TEXT' | translate"
+      width="30"
+      height="33"
+      class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-300 hover:scale-110 z-10 arrow-button"
       [class.opacity-50]="areControlsDisabled()"
       [class.cursor-not-allowed]="areControlsDisabled()"
       [class.cursor-pointer]="!areControlsDisabled()"
-      aria-label="STICKER_ALBUM.NEXT_PAGE_ALT_TEXT"
+      [class.hover:scale-110]="!areControlsDisabled()"
       (click)="nextPage()"
-      [disabled]="areControlsDisabled()"
-    >
-      <span class="block w-6 h-6 border-r-4 border-b-4 border-yellow-700 -rotate-45"></span>
-    </button>
+      draggable="false"
+    />
   </div>
 
   <!-- Sticker grid container - no padding, full width -->
   <div class="relative w-full overflow-hidden">
     <div #pageContainer class="w-full page-container">
       <div
-        class="grid grid-cols-8 grid-rows-4 gap-x-4 gap-y-6 mt-2 mb-2 w-full select-none px-18 sticker-grid"
+        class="grid grid-cols-8 grid-rows-4 gap-x-4 gap-y-6 mt-2 mb-2 w-full select-none px-14 sticker-grid"
       >
         @for (checklistModel of page; track checklistModel.index) {
           <div
             #stickerItem
             [id]="'sticker-' + checklistModel.index"
             class="flex flex-col items-center cursor-pointer transition-scale duration-200 sticker"
-            [class.opacity-60]="checklistModel.checked"
             [class.scale-110]="hoveredChecklistModel()?.index === checklistModel.index"
             [class.disappearing]="
               checklistModel.disappearingFromStickerAlbum && !showCollectedStickers()
@@ -81,7 +84,10 @@
             (mouseleave)="onChecklistItemHover(false, checklistModel)"
             (click)="onStickerClick($event, checklistModel)"
           >
-            <div class="w-24 h-24 flex items-center justify-center">
+            <div
+              class="w-24 h-24 flex items-center justify-center"
+              [class.opacity-50]="checklistModel.checked"
+            >
               <img
                 [ngSrc]="'/imgs/stickers/sticker-' + checklistModel.index + '.webp'"
                 [alt]="'STICKERS.' + checklistModel.stickerAltText | translate"
@@ -92,7 +98,7 @@
             </div>
             <input
               type="checkbox"
-              class="absolute top-1 right-1 sticker-checkbox"
+              class="absolute top-0 right-0 sticker-checkbox"
               [checked]="checklistModel.checked"
               (change)="onStickerChecked(checklistModel)"
               (click)="$event.stopPropagation()"
