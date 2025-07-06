@@ -9,7 +9,6 @@
   "STICKER_ALBUM": {
     "PREVIOUS_PAGE_ALT_TEXT": "Previous Page",
     "NEXT_PAGE_ALT_TEXT": "Next Page",
-    "STICKER_HOVER": "Hover a sticker to see its description here.",
     "CLOSE_TOOLTIP_ALT_TEXT": "Close tooltip",
     "SHOW_COLLECTED_STICKERS": "Show collected stickers",
     "DESCRIPTION_BACKGROUND_ALT_TEXT": "Description background",
@@ -62,7 +61,8 @@
       "PEACH_COIN_TOOLTIP": "Collect a Peach Medallion!",
       "QUESTIONMARK_PANEL_TOOLTIP": "Activate a ? Panel!",
       "RANDOM_STICKER_ALT_TEXT": "Random Sticker",
-      "STICKER_NOT_ON_MAP": "This sticker is not visible on the map. Adjust the map settings to show it."
+      "STICKER_NOT_ON_MAP": "This sticker is not visible on the map. Adjust the map settings to jump to it.",
+      "DOUBLE_CLICK_TO_JUMP": "Click again to jump to this collectible"
     },
     "0_ALT_TEXT": "Airship Fortress Track",
     "0_INSTRUCTIONS": "Found by Amph_pm.",

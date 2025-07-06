@@ -48,6 +48,7 @@ export class StickerAlbum {
   areControlsDisabled = computed(() => this.isAnimating() || this.isSwitchingPage());
 
   tooltipText = signal<string | null>(null);
+  tooltipSticker = signal<ChecklistModel | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
 
   // Drag functionality properties
@@ -153,18 +154,32 @@ export class StickerAlbum {
     }
   }
 
-  onStickerTooltip(instructions: string, event: MouseEvent): void {
-    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    this.tooltipText.set(instructions);
-    this.tooltipPosition.set({
-      x: rect.left + rect.width / 2,
-      y: rect.top,
-    });
+  onStickerClick(event: MouseEvent, checklistModel: ChecklistModel): void {
+    if (checklistModel.collectibleModel) {
+      if (
+        this.checklistDataService.getCollectibleChecklistModelsOnMap()().includes(checklistModel)
+      ) {
+        if (checklistModel === this.tooltipSticker()) {
+          this.onGoToMap(checklistModel);
+        } else {
+          this.onStickerTooltip('SHARED.DOUBLE_CLICK_TO_JUMP', event, checklistModel);
+        }
+      } else {
+        this.onStickerTooltip('SHARED.STICKER_NOT_ON_MAP', event, checklistModel);
+      }
+    } else {
+      this.onStickerTooltip(checklistModel.instructions, event, checklistModel);
+    }
   }
 
   closeTooltip(): void {
     this.tooltipText.set(null);
+    this.tooltipSticker.set(null);
     this.tooltipPosition.set(null);
+  }
+
+  onStickerChecked(checklistModel: ChecklistModel): void {
+    this.checklistDataService.updateChecklistModelChecked(checklistModel);
   }
 
   @HostListener('document:click', ['$event'])
@@ -184,22 +199,18 @@ export class StickerAlbum {
     }
   }
 
-  onStickerChecked(checklistModel: ChecklistModel): void {
-    this.checklistDataService.updateChecklistModelChecked(checklistModel);
-  }
-
-  onStickerClick(event: MouseEvent, checklistModel: ChecklistModel) {
-    if (checklistModel.collectibleModel) {
-      if (
-        this.checklistDataService.getCollectibleChecklistModelsOnMap()().includes(checklistModel)
-      ) {
-        this.onGoToMap(checklistModel);
-      } else {
-        this.onStickerTooltip('SHARED.STICKER_NOT_ON_MAP', event);
-      }
-    } else {
-      this.onStickerTooltip(checklistModel.instructions, event);
-    }
+  private onStickerTooltip(
+    instructions: string,
+    event: MouseEvent,
+    checklistModel: ChecklistModel
+  ): void {
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    this.tooltipText.set(instructions);
+    this.tooltipSticker.set(checklistModel);
+    this.tooltipPosition.set({
+      x: rect.left + rect.width / 2,
+      y: rect.top,
+    });
   }
 
   private recordCurrentPositionsForFilter(): void {
