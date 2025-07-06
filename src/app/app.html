@@ -1,16 +1,21 @@
 <mkworld-background-progress></mkworld-background-progress>
 
-<mkworld-header></mkworld-header>
+@if (isMobileView()) {
+  <mkworld-header [isMobile]="isMobileView()"></mkworld-header>
+}
 
-<main class="flex flex-col lg:flex-row items-start justify-center gap-8 px-4">
+<main class="flex flex-col lg:flex-row items-start justify-center gap-8">
   <div class="flex flex-col gap-8 max-w-6xl">
     <mkworld-sticker-album (scrollToMap)="onScrollToMap($event)"></mkworld-sticker-album>
     <mkworld-map-section id="map-section"></mkworld-map-section>
   </div>
 
-  <mkworld-todo-section
-    class="max-w-lg lg:sticky lg:top-4 self-center lg:self-start"
-  ></mkworld-todo-section>
+  <div class="flex flex-col gap-8 max-w-lg">
+    @if (!isMobileView()) {
+      <mkworld-header [isMobile]="isMobileView()"></mkworld-header>
+    }
+    <mkworld-todo-section></mkworld-todo-section>
+  </div>
 </main>
 
 <mkworld-footer></mkworld-footer>

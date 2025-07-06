@@ -213,8 +213,6 @@ export class StickerAlbum {
   }
 
   private animateLayoutChanges(): void {
-    this.isAnimating.set(true);
-
     let firstNewStickerAtPageEnd = true;
     let amountOfNewStickersAtEndOfPage = 0;
     const pageWidth = this.pageContainer.nativeElement.getBoundingClientRect().width - 48;
@@ -250,10 +248,12 @@ export class StickerAlbum {
           dx = (pageWidth / 8) * newStickersInRow;
         }
       } else if (!this.isSwitchingPage()) {
+        this.isAnimating.set(true);
         this.animateNewSticker(element);
       }
 
       if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
+        this.isAnimating.set(true);
         element.style.transform = `translate(${dx}px, ${dy}px)`;
         element.style.transition = 'none';
 

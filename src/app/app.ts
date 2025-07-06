@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { BackgroundProgress } from './background-progress/background-progress';
@@ -29,13 +30,23 @@ export class App {
   private readonly translateService = inject(TranslateService);
   private readonly tooltipService = inject(TooltipService);
   private readonly mapSectionService = inject(MapSectionService);
+  private readonly platformId = inject(PLATFORM_ID);
 
   pzInstance: PanZoom | null = null;
+  isMobileView = signal(false);
 
   constructor() {
     this.translateService.addLangs(['en']);
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMobileView.set(window.innerWidth < 1024);
+
+      window.addEventListener('resize', () => {
+        this.isMobileView.set(window.innerWidth < 1024);
+      });
+    }
   }
 
   onScrollToMap(checklistModel: ChecklistModel): void {

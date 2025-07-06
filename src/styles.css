@@ -17,19 +17,13 @@ body {
   font-family: system-ui, sans-serif;
   background: url('/imgs/wallpaper.webp') repeat;
   background-size: 50%;
+  padding-top: 2rem;
 }
 
 footer {
   background: linear-gradient(90deg, #ff9900 0%, #ffdb4d 40%, #3ecf4c 70%, #1ccad8 100%);
   color: #23272e;
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.15);
-}
-
-main {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
-  padding: 2rem 0;
 }
 
 h1,
