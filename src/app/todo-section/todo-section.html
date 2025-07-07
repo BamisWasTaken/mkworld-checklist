@@ -108,7 +108,7 @@
                 milestone.milestoneNumber >= achievement.milestoneReached || milestone.disappearing
               ) {
                 <div
-                  class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearingml-4 mt-1"
+                  class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing ml-4 mt-1"
                   [class.opacity-60]="achievement.milestoneReached === milestone.milestoneNumber"
                   [class.line-through]="achievement.milestoneReached === milestone.milestoneNumber"
                   [class.removing]="milestone.disappearing"
