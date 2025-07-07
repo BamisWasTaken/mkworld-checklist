@@ -55,7 +55,7 @@
       "RACED_SPECIAL_CUP_DESCRIPTION": "You raced in the Special Cup!",
       "RACED_SPECIAL_CUP_INSTRUCTIONS": "Complete the Special Cup in Grand Prix mode.",
       "MILESTONE_REACHED_DESCRIPTION": "This is randomly unlocked!",
-      "MILESTONE_REACHED_INSTRUCTIONS": "Randomly given upon hitting a drive distance, glide distance, coin collection, or trick count milestone; or collecting a Peach Medallion.",
+      "MILESTONE_REACHED_INSTRUCTIONS": "Randomly given by achievement or Peach Medallion.",
       "STARTED_MARIO_KART_WORLD_DESCRIPTION": "You started Mario Kart World!",
       "STARTED_MARIO_KART_WORLD_INSTRUCTIONS": "Unlocked automatically upon starting the game.",
       "PEACH_COIN_TOOLTIP": "Collect a Peach Medallion!",

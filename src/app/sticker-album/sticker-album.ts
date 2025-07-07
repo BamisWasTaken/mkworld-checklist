@@ -50,6 +50,7 @@ export class StickerAlbum {
   tooltipText = signal<string | null>(null);
   tooltipSticker = signal<ChecklistModel | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
+  tooltipPositionAbove = signal<boolean>(false);
 
   // Drag functionality properties
   private isDragging = false;
@@ -204,12 +205,19 @@ export class StickerAlbum {
     event: MouseEvent,
     checklistModel: ChecklistModel
   ): void {
+    const index = this.page.indexOf(checklistModel);
+    if (Math.floor(index / CONSTANTS.STICKERS_PER_ROW) === 0) {
+      this.tooltipPositionAbove.set(false);
+    } else {
+      this.tooltipPositionAbove.set(true);
+    }
+
     const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
     this.tooltipText.set(instructions);
     this.tooltipSticker.set(checklistModel);
     this.tooltipPosition.set({
       x: rect.left + rect.width / 2,
-      y: rect.top,
+      y: this.tooltipPositionAbove() ? rect.top : rect.bottom,
     });
   }
 

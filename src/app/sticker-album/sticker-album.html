@@ -157,12 +157,22 @@
 @if (tooltipText() && tooltipPosition()) {
   <div
     class="sticker-tooltip fixed z-50 flex flex-col items-center"
+    [class.tooltip-above]="tooltipPositionAbove()"
+    [class.tooltip-below]="!tooltipPositionAbove()"
     [style.left.px]="tooltipPosition()!.x"
     [style.top.px]="tooltipPosition()!.y"
-    style="transform: translate(-50%, -100%); margin-top: -8px"
   >
+    <!-- Triangle pointing up (when tooltip is below) -->
+    @if (!tooltipPositionAbove()) {
+      <div
+        class="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[8px] border-b-gray-800 -mb-px"
+      ></div>
+    }
+
     <!-- Tooltip content box -->
-    <div class="relative max-w-[300px] bg-gray-800 text-white rounded-md shadow-lg">
+    <div
+      class="relative lg:max-w-[300px] max-w-[200px] bg-gray-800 text-white rounded-md shadow-lg"
+    >
       <div class="flex items-center px-4 py-2">
         <p class="pr-2 text-center lg:text-lg text-md">
           {{ 'STICKERS.' + tooltipText()! | translate }}
@@ -176,9 +186,12 @@
         </button>
       </div>
     </div>
-    <!-- Triangle -->
-    <div
-      class="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-gray-800 -mt-[2px]"
-    ></div>
+
+    <!-- Triangle pointing down (when tooltip is above) -->
+    @if (tooltipPositionAbove()) {
+      <div
+        class="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-gray-800 -mt-[2px]"
+      ></div>
+    }
   </div>
 }
