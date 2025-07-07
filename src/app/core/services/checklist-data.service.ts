@@ -167,6 +167,21 @@ export class ChecklistDataService {
     return this.total;
   }
 
+  importChecklistModels(checklistModelStates: ChecklistModelState[]): void {
+    this.checklistModels.update((checklistModels: ChecklistModel[]) =>
+      checklistModels.map((checklistModel: ChecklistModel) => {
+        const checklistModelState = checklistModelStates.find(
+          (checklistModelState: ChecklistModelState) =>
+            checklistModelState.index === checklistModel.index
+        );
+        return {
+          ...checklistModel,
+          checked: checklistModelState?.checked ?? checklistModel.checked,
+        };
+      })
+    );
+  }
+
   private getUncollectedCollectibles(collectibleType: CollectibleType): number {
     return this.checklistModels().filter(
       (checklistModel: ChecklistModel) =>
@@ -179,18 +194,7 @@ export class ChecklistDataService {
     const storedChecklistModels = localStorage.getItem(CONSTANTS.STORAGE_KEY_CHECKLIST_MODELS);
     if (storedChecklistModels) {
       const checklistModelStates: ChecklistModelState[] = JSON.parse(storedChecklistModels);
-      this.checklistModels.update((checklistModels: ChecklistModel[]) =>
-        checklistModels.map((checklistModel: ChecklistModel) => {
-          const checklistModelState = checklistModelStates.find(
-            (checklistModelState: ChecklistModelState) =>
-              checklistModelState.index === checklistModel.index
-          );
-          return {
-            ...checklistModel,
-            checked: checklistModelState?.checked ?? checklistModel.checked,
-          };
-        })
-      );
+      this.importChecklistModels(checklistModelStates);
     }
   }
 }

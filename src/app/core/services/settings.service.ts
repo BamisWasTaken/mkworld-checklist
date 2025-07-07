@@ -81,19 +81,23 @@ export class SettingsService {
     });
   }
 
+  importSettings(settings: Settings): void {
+    if (settings.showCollectedStickers !== undefined) {
+      this.showCollectedStickers.set(settings.showCollectedStickers);
+    }
+    if (settings.showCollectedCollectibles !== undefined) {
+      this.showCollectedCollectibles.set(settings.showCollectedCollectibles);
+    }
+    if (settings.shownCollectibleTypes !== undefined) {
+      this.shownCollectibleTypes.set(settings.shownCollectibleTypes);
+    }
+  }
+
   private loadSettingsFromStorage(): void {
     const storedSettings = localStorage.getItem(CONSTANTS.STORAGE_KEY_SETTINGS);
     if (storedSettings) {
       const settings: Settings = JSON.parse(storedSettings);
-      if (settings.showCollectedStickers !== undefined) {
-        this.showCollectedStickers.set(settings.showCollectedStickers);
-      }
-      if (settings.showCollectedCollectibles !== undefined) {
-        this.showCollectedCollectibles.set(settings.showCollectedCollectibles);
-      }
-      if (settings.shownCollectibleTypes !== undefined) {
-        this.shownCollectibleTypes.set(settings.shownCollectibleTypes);
-      }
+      this.importSettings(settings);
     }
   }
 }

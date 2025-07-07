@@ -66,6 +66,21 @@ export class AchievementDataService {
     );
   }
 
+  importAchievements(achievementStates: AchievementState[]): void {
+    this.achievements.update((achievements: Achievement[]) =>
+      achievements.map((achievement: Achievement) => {
+        const achievementState = achievementStates.find(
+          (achievementState: AchievementState) => achievementState.index === achievement.index
+        );
+        return {
+          ...achievement,
+          milestoneReached: achievementState?.milestoneReached ?? 0,
+          expanded: achievementState?.expanded ?? false,
+        };
+      })
+    );
+  }
+
   private setDisappearingMilestones(
     achievementToUpdate: Achievement,
     milestoneChecked: Milestone
@@ -97,18 +112,7 @@ export class AchievementDataService {
     const storedAchievements = localStorage.getItem(CONSTANTS.STORAGE_KEY_ACHIEVEMENTS);
     if (storedAchievements) {
       const achievementStates: AchievementState[] = JSON.parse(storedAchievements);
-      this.achievements.update((achievements: Achievement[]) =>
-        achievements.map((achievement: Achievement) => {
-          const achievementState = achievementStates.find(
-            (achievementState: AchievementState) => achievementState.index === achievement.index
-          );
-          return {
-            ...achievement,
-            milestoneReached: achievementState?.milestoneReached ?? 0,
-            expanded: achievementState?.expanded ?? false,
-          };
-        })
-      );
+      this.importAchievements(achievementStates);
     }
   }
 }
