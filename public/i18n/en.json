@@ -26,9 +26,6 @@
     "SAVE_LOAD_TIP_1": "Your progress is automatically saved locally",
     "SAVE_LOAD_TIP_2": "You can export your progress and import it on another device"
   },
-  "PROGRESS_BAR": {
-    "PROGRESS": "{{collected}} / {{total}} Stickers Collected"
-  },
   "STICKER_ALBUM": {
     "PREVIOUS_PAGE_ALT_TEXT": "Previous Page",
     "NEXT_PAGE_ALT_TEXT": "Next Page",
@@ -40,7 +37,7 @@
     }
   },
   "TODO_SECTION": {
-    "TITLE": "To-Do List",
+    "TITLE": "{{progress}} / {{total}} Stickers Collected",
     "ACHIEVEMENTS_TITLE": "Achievements",
     "COLLECTIBLES_TITLE": "Collectibles",
     "OTHER_TITLE": "Other",

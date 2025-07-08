@@ -26,6 +26,9 @@ export class TodoSection {
   readonly lastQuestionMarkPanelBeingRemoved = signal<boolean>(false);
   readonly lastPSwitchBeingRemoved = signal<boolean>(false);
 
+  readonly progress = this.checklistDataService.getProgress();
+  readonly total = this.checklistDataService.getTotal();
+
   readonly achievements = this.achievementDataService.getAchievements();
 
   previousTodoItems: TodoItem[] = [];
