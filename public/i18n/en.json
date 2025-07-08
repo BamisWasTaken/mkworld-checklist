@@ -60,8 +60,14 @@
     }
   },
   "FOOTER": {
-    "TITLE": "Mario Kart World Checklist © 2025",
-    "FONT_MADE_BY": "Font made by"
+    "DESCRIPTION": "Mario Kart Tools is a Mario Kart World 100% Guide. This checklist helps you track your MK World progress in a fun way. I hope",
+    "PICTURES_CONCEPTS_EXCLUSIVE": "Pictures and concepts of this site are the exclusive property of the Nintendo company.",
+    "FONT_MADE_BY": "Font made by",
+    "STICKER_DATA_FROM": "Sticker data from",
+    "MAP_DATA_FROM": "Map data from",
+    "VIDEOS_AND_IMAGES_FROM": "Videos and images from",
+    "MADE_WITH_BY": "Made with <span class='text-red-500'>♥</span> by ",
+    "SUPPORT_THIS_PROJECT": "Support this project"
   },
   "SHARED": {
     "PEACH_MEDALLION_ALT_TEXT": "Peach Medallion",

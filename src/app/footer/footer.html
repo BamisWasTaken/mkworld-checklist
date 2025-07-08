@@ -1,15 +1,84 @@
-<footer
-  class="w-full p-4 mt-8 bg-gradient-to-t from-yellow-200 to-white text-center text-gray-500 text-sm rounded-t-lg shadow-inner"
->
-  {{ 'FOOTER.TITLE' | translate }}
-  <div class="mt-2 text-xs">
-    {{ 'FOOTER.FONT_MADE_BY' | translate }}
-    <a
-      href="https://twitter.com/ImWhoreHay"
-      target="_blank"
-      rel="noopener"
-      class="underline text-blue-600 hover:text-blue-800"
-      >&#64;ImWhoreHay</a
-    >
+<footer class="w-full py-8 mt-8 text-center bg-[#111]/90 text-gray-300">
+  <div class="flex flex-col lg:flex-row lg:justify-center lg:items-start lg:text-left lg:gap-[12%]">
+    <!-- Description Block -->
+    <div class="mb-4 lg:mb-0 lg:max-w-lg text-md">
+      <p class="mb-4">
+        {{ 'FOOTER.DESCRIPTION' | translate }}
+      </p>
+      <p>
+        {{ 'FOOTER.PICTURES_CONCEPTS_EXCLUSIVE' | translate }}
+      </p>
+    </div>
+
+    <!-- Credits Block -->
+    <div class="mb-4 lg:mb-0 lg:max-w-s">
+      <div class="xl:text-lg text-md mb-2">
+        {{ 'FOOTER.FONT_MADE_BY' | translate }}
+        <a
+          href="https://twitter.com/ImWhoreHay"
+          target="_blank"
+          rel="noopener"
+          class="text-gray-500 hover:text-gray-400 transition-colors duration-200"
+          >&#64;ImWhoreHay</a
+        >
+      </div>
+      <div class="xl:text-lg text-md mb-2">
+        {{ 'FOOTER.STICKER_DATA_FROM' | translate }}
+        <a
+          href="https://www.reddit.com/user/Kui76"
+          target="_blank"
+          rel="noopener"
+          class="text-gray-500 hover:text-gray-400 transition-colors duration-200"
+          >u/Kui76</a
+        >
+      </div>
+      <div class="xl:text-lg text-md mb-2">
+        {{ 'FOOTER.MAP_DATA_FROM' | translate }}
+        <a
+          href="https://game8.co"
+          target="_blank"
+          rel="noopener"
+          class="text-gray-500 hover:text-gray-400 transition-colors duration-200"
+          >game8</a
+        >
+        &
+        <a
+          href="https://gamerguides.com"
+          target="_blank"
+          rel="noopener"
+          class="text-gray-500 hover:text-gray-400 transition-colors duration-200"
+          >gamerguides</a
+        >
+      </div>
+      <div class="xl:text-lg text-md">
+        {{ 'FOOTER.VIDEOS_AND_IMAGES_FROM' | translate }}
+        <a
+          href="https://game8.co"
+          target="_blank"
+          rel="noopener"
+          class="text-gray-500 hover:text-gray-400 transition-colors duration-200"
+          >game8</a
+        >
+      </div>
+    </div>
+
+    <!-- Creator Block -->
+    <div class="lg:max-w-md text-lg">
+      <div class="mb-2">
+        <span [innerHTML]="'FOOTER.MADE_WITH_BY' | translate"></span>
+        <a
+          href="https://www.youtube.com/@bamisyt"
+          target="_blank"
+          rel="noopener"
+          class="text-gray-500 hover:text-gray-400 transition-colors duration-200"
+          >Bamis</a
+        >
+      </div>
+      <div class="text-lg">
+        <a href="#" class="text-gray-500 hover:text-gray-400 transition-colors duration-200">{{
+          'FOOTER.SUPPORT_THIS_PROJECT' | translate
+        }}</a>
+      </div>
+    </div>
   </div>
 </footer>

@@ -20,12 +20,6 @@ body {
   padding-top: 2rem;
 }
 
-footer {
-  background: linear-gradient(90deg, #ff9900 0%, #ffdb4d 40%, #3ecf4c 70%, #1ccad8 100%);
-  color: #23272e;
-  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.15);
-}
-
 h1,
 h2,
 h3 {
@@ -33,6 +27,5 @@ h3 {
 }
 
 a {
-  color: #164786;
   text-decoration: none;
 }
