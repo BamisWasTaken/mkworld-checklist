@@ -1,11 +1,127 @@
 <header>
-  <div class="w-[80%]">
-    <img
-      ngSrc="/imgs/mktoolslogo.webp"
-      [alt]="'HEADER.LOGO_ALT_TEXT' | translate"
-      width="801"
-      height="418"
-      sizes="100vw"
-    />
+  <div class="w-full flex items-center">
+    @if (isMobile()) {
+      <div class="w-full flex flex-row items-center justify-center gap-4 pb-4">
+        <div class="w-[300px] flex justify-center">
+          <img
+            ngSrc="/imgs/mktoolslogo.webp"
+            [alt]="'HEADER.LOGO_ALT_TEXT' | translate"
+            width="400"
+            height="209"
+            sizes="100vw"
+          />
+        </div>
+
+        <div class="w-[100px] flex flex-col items-center gap-4">
+          <button
+            class="group cursor-pointer"
+            (click)="openHelp()"
+            [attr.aria-label]="'HEADER.HELP_ALT_TEXT' | translate"
+            [title]="'HEADER.HELP_ALT_TEXT' | translate"
+          >
+            <span
+              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button transition-all duration-200"
+            >
+              help
+            </span>
+          </button>
+
+          <input
+            #fileInput
+            type="file"
+            accept=".json"
+            class="hidden"
+            (change)="onFileSelected($event)"
+          />
+
+          <button
+            class="group cursor-pointer"
+            (click)="downloadSaveFile()"
+            [attr.aria-label]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
+            [title]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
+          >
+            <span
+              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button transition-all duration-200"
+            >
+              download
+            </span>
+          </button>
+
+          <button
+            class="group cursor-pointer"
+            (click)="uploadSaveFile()"
+            [attr.aria-label]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
+            [title]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
+          >
+            <span
+              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-colors icon-button transition-all duration-200"
+            >
+              publish
+            </span>
+          </button>
+        </div>
+      </div>
+    } @else {
+      <div class="w-[80%] flex justify-center">
+        <img
+          ngSrc="/imgs/mktoolslogo.webp"
+          [alt]="'HEADER.LOGO_ALT_TEXT' | translate"
+          width="801"
+          height="418"
+          sizes="100vw"
+        />
+      </div>
+
+      <div class="w-[20%] flex flex-col items-center gap-4">
+        <button
+          class="group cursor-pointer"
+          (click)="openHelp()"
+          [attr.aria-label]="'HEADER.HELP_ALT_TEXT' | translate"
+          [title]="'HEADER.HELP_ALT_TEXT' | translate"
+        >
+          <span
+            class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 icon-button transition-all duration-200"
+          >
+            help
+          </span>
+        </button>
+
+        <input
+          #fileInput
+          type="file"
+          accept=".json"
+          class="hidden"
+          (change)="onFileSelected($event)"
+        />
+
+        <button
+          class="group cursor-pointer"
+          (click)="downloadSaveFile()"
+          [attr.aria-label]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
+          [title]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
+        >
+          <span
+            class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 icon-button transition-all duration-200"
+          >
+            download
+          </span>
+        </button>
+
+        <button
+          class="group cursor-pointer"
+          (click)="uploadSaveFile()"
+          [attr.aria-label]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
+          [title]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
+        >
+          <span
+            class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 transition-colors icon-button transition-all duration-200"
+          >
+            publish
+          </span>
+        </button>
+      </div>
+    }
   </div>
 </header>
+
+<mkworld-help [isOpen]="isHelpOpen()" (closeHelp)="closeHelp()" />

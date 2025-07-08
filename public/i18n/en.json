@@ -1,7 +1,30 @@
 {
   "HEADER": {
     "LOGO_ALT_TEXT": "Mario Kart Tools Logo",
-    "SUBTITLE": "Track your sticker collection and tasks as you complete Mario Kart World!"
+    "SUBTITLE": "Track your sticker collection and tasks as you complete Mario Kart World!",
+    "DOWNLOAD_SAVE_ALT_TEXT": "Download save file",
+    "UPLOAD_SAVE_ALT_TEXT": "Upload save file",
+    "HELP_ALT_TEXT": "Help and tips",
+    "ERROR_PARSING_SAVE_FILE": "Error parsing save file"
+  },
+  "HELP_MODAL": {
+    "TITLE": "Help & Tips",
+    "CLOSE_ALT_TEXT": "Close help",
+    "WELCOME_TO_MKWORLD_CHECKLIST": "Welcome to Mario Kart Tools!",
+    "MAIN_DESCRIPTION": "This app helps you track your progress through Mario Kart World. Here are some tips to get you started:",
+    "STICKER_ALBUM_SUBTITLE": "Sticker Album",
+    "STICKER_ALBUM_TIP_1": "Sort your stickers with X in-game, they'll be in the exact order as here",
+    "STICKER_ALBUM_TIP_2": "Hover / click on stickers to see their descriptions and how to find them",
+    "STICKER_ALBUM_TIP_3": "Double-click stickers unlocked through collectibles to jump to them on the map",
+    "STICKER_ALBUM_TIP_4": "Swipe or use the arrows to switch pages",
+    "MAP_SECTION_SUBTITLE": "Map",
+    "MAP_SECTION_TIP_1": "Peach Medallions unlock random stickers, track them separately from the stickers they unlock",
+    "MAP_SECTION_TIP_2": "Use the filter options if you want to reduce lag",
+    "ACHIEVEMENTS_SUBTITLE": "Achievements",
+    "ACHIEVEMENTS_TIP_1": "Check your latest unlocked stickers to track how many milestones you have left (km driven, coins, etc.)",
+    "SAVE_LOAD_SUBTITLE": "Save & Load",
+    "SAVE_LOAD_TIP_1": "Your progress is automatically saved locally",
+    "SAVE_LOAD_TIP_2": "You can export your progress and import it on another device"
   },
   "PROGRESS_BAR": {
     "PROGRESS": "{{collected}} / {{total}} Stickers Collected"
