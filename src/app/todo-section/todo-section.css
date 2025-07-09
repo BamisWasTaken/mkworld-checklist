@@ -72,20 +72,8 @@
   color: #374151;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
   border-bottom: 1px solid #e5e7eb;
   position: relative;
-}
-
-.todo-section h3::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 2rem;
-  height: 2px;
-  background: linear-gradient(90deg, #fbbf24, #f59e0b);
-  border-radius: 1px;
 }
 
 /* Achievement styles */

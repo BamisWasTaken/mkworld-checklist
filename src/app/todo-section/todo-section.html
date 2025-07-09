@@ -1,17 +1,17 @@
-<section class="w-full bg-white rounded-lg shadow p-4 flex flex-col items-center todo-section">
+<section class="w-full bg-gray-200 rounded-lg shadow p-4 flex flex-col items-center todo-section">
   <h2 class="text-xl text-left font-bold mb-4 w-full">
     {{ 'TODO_SECTION.TITLE' | translate: { progress: progress(), total: total() } }}
   </h2>
 
   <!-- Collectibles Section -->
   <div class="w-full mb-6">
-    <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200 pb-2">
+    <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
       {{ 'TODO_SECTION.COLLECTIBLES_TITLE' | translate }}
     </h3>
     <ul class="w-full flex flex-col text-gray-700 todo-list">
       @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
         <li
-          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
+          class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
           [class.removing]="lastPeachCoinBeingRemoved()"
         >
           <img
@@ -28,7 +28,7 @@
       }
       @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
         <li
-          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
+          class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
           [class.removing]="lastQuestionMarkPanelBeingRemoved()"
         >
           <img
@@ -45,7 +45,7 @@
       }
       @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
         <li
-          class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
+          class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
           [class.removing]="lastPSwitchBeingRemoved()"
         >
           <img
@@ -64,7 +64,7 @@
 
   <!-- Achievements Section -->
   <div class="w-full mb-6">
-    <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200 pb-2">
+    <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
       {{ 'TODO_SECTION.ACHIEVEMENTS_TITLE' | translate }}
     </h3>
     <ul class="w-full flex flex-col text-gray-700 todo-list">
@@ -137,7 +137,7 @@
   <!-- Other Items Section -->
   @if (todoItems().length > 0) {
     <div class="w-full">
-      <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200 pb-2">
+      <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
         {{ 'TODO_SECTION.OTHER_TITLE' | translate }}
       </h3>
       <ul class="w-full flex flex-col text-gray-700 todo-list">
