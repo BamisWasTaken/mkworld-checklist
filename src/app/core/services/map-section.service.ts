@@ -2,15 +2,19 @@ import { computed, ElementRef, inject, Injectable, Signal, signal } from '@angul
 import panzoom, { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../../constants';
 import { ChecklistModel, CollectibleModel } from '../models';
-import { ChecklistDataService } from '.';
 import { Bounds, QuadTreeNode, TooltipPosition } from '../../map-section/models';
 import { QuadTreeCollectible } from '../../map-section/models/quad-tree-collectible';
+import { ChecklistDataService } from './checklist-data.service';
+import { MobileService } from './mobile.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MapSectionService {
   private readonly checklistDataService = inject(ChecklistDataService);
+  private readonly mobileService = inject(MobileService);
+
+  private readonly isMobileView = this.mobileService.getIsMobileView();
 
   private quadTree = this.initializeQuadTree();
   private pzInstance: PanZoom | null = null;
@@ -81,6 +85,12 @@ export class MapSectionService {
       smoothScroll: false,
       onTouch: () => false,
     });
+
+    if (this.isMobileView()) {
+      this.pzInstance.zoomTo(0, 0, 2);
+      this.pzInstance.setMinZoom(2);
+    }
+
     return this.pzInstance;
   }
 

@@ -1,4 +1,7 @@
-<section #mapSection class="relative w-full h-auto rounded-lg shadow overflow-hidden z-50">
+<section
+  #mapSection
+  class="relative w-full h-auto lg:h-auto md:min-h-[400px] min-h-[600px] rounded-lg shadow overflow-hidden z-50"
+>
   <div
     class="absolute top-2 right-2 z-10 flex items-center gap-2 p-2 rounded-md bg-white/70 backdrop-blur-sm"
   >
@@ -127,9 +130,6 @@
     #mapPanzoom
     class="w-full h-full relative"
     (contextmenu)="$event.preventDefault()"
-    (touchstart)="onMapTouchStart($event)"
-    (touchmove)="onMapTouchMove($event)"
-    (touchend)="onMapTouchEnd($event)"
   >
     <img
       ngSrc="/imgs/map.webp"
@@ -167,8 +167,6 @@
         (mouseenter)="hovered.set(collectibleChecklistModel)"
         (mouseleave)="hovered.set(null)"
         (click)="onClick(collectibleChecklistModel)"
-        (touchstart)="onTouchStart($event, collectibleChecklistModel)"
-        (touchend)="onTouchEnd($event, collectibleChecklistModel)"
         tabindex="0"
         role="button"
         aria-label="Collectible marker"

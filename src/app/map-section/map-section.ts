@@ -19,11 +19,13 @@ import { ChecklistModel, CollectibleType } from '../core/models';
 import {
   ChecklistDataService,
   MapSectionService,
+  MobileService,
   SettingsService,
   TooltipService,
 } from '../core/services';
 import { MouseDownPosition } from './models';
 import { Tooltip } from './tooltip/tooltip';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'mkworld-map-section',
@@ -38,6 +40,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly settingsService = inject(SettingsService);
   private readonly mapSectionService = inject(MapSectionService);
+  private readonly mobileService = inject(MobileService);
 
   readonly CollectibleType = CollectibleType;
 
@@ -54,7 +57,9 @@ export class MapSection implements AfterViewInit, OnDestroy {
     this.mapSectionService.getVisibleCollectibleChecklistModels();
 
   readonly panzoomScale = signal(1);
-  readonly tooltipTransform = computed(() => `scale(${1 / this.panzoomScale()})`);
+  readonly tooltipTransform = computed(
+    () => `scale(${1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.3 : 1)})`
+  );
   readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
 
   readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
@@ -73,6 +78,19 @@ export class MapSection implements AfterViewInit, OnDestroy {
   isPanning = false;
 
   private mouseDownPosition: MouseDownPosition | null = null;
+
+  constructor() {
+    toObservable(this.mobileService.getIsMobileView()).subscribe((isMobile: boolean | null) => {
+      if (this.pzInstance) {
+        if (isMobile) {
+          this.pzInstance!.zoomTo(0, 0, 2);
+          this.pzInstance!.setMinZoom(2);
+        } else if (isMobile === false) {
+          this.pzInstance!.setMinZoom(1);
+        }
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -95,33 +113,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }
 
     this.tooltipService.setActiveTooltipData(checklistModel);
-  }
-
-  onTouchStart(event: TouchEvent, checklistModel: ChecklistModel): void {
-    event.preventDefault();
-    this.hovered.set(checklistModel);
-  }
-
-  onTouchEnd(event: TouchEvent, checklistModel: ChecklistModel): void {
-    event.preventDefault();
-    this.hovered.set(null);
-    if (this.isPanning) {
-      return;
-    }
-
-    this.tooltipService.setActiveTooltipData(checklistModel);
-  }
-
-  onMapTouchStart(event: TouchEvent): void {
-    event.preventDefault();
-  }
-
-  onMapTouchMove(event: TouchEvent): void {
-    event.preventDefault();
-  }
-
-  onMapTouchEnd(event: TouchEvent): void {
-    event.preventDefault();
   }
 
   toggleShowCollected(): void {
