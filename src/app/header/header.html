@@ -1,8 +1,8 @@
 <header>
   <div class="w-full flex items-center">
     @if (isMobile()) {
-      <div class="w-full flex flex-row items-center justify-center gap-4 pb-4">
-        <div class="w-[300px] flex justify-center">
+      <div class="w-full flex flex-row items-center justify-center gap-4 pb-2">
+        <div class="w-[50%] flex justify-center">
           <img
             ngSrc="/imgs/mktoolslogo.webp"
             [alt]="'HEADER.LOGO_ALT_TEXT' | translate"
@@ -12,7 +12,7 @@
           />
         </div>
 
-        <div class="w-[100px] flex flex-col items-center gap-4">
+        <div class="w-[50px] flex flex-col items-center gap-2">
           <button
             class="group cursor-pointer"
             (click)="openHelp()"
@@ -20,7 +20,7 @@
             [title]="'HEADER.HELP_ALT_TEXT' | translate"
           >
             <span
-              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button transition-all duration-200"
+              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
             >
               help
             </span>
@@ -41,7 +41,7 @@
             [title]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
           >
             <span
-              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button transition-all duration-200"
+              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
             >
               download
             </span>
@@ -54,7 +54,7 @@
             [title]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
           >
             <span
-              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-colors icon-button transition-all duration-200"
+              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-colors icon-button-mobile transition-all duration-200"
             >
               publish
             </span>

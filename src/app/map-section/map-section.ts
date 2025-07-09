@@ -97,6 +97,33 @@ export class MapSection implements AfterViewInit, OnDestroy {
     this.tooltipService.setActiveTooltipData(checklistModel);
   }
 
+  onTouchStart(event: TouchEvent, checklistModel: ChecklistModel): void {
+    event.preventDefault();
+    this.hovered.set(checklistModel);
+  }
+
+  onTouchEnd(event: TouchEvent, checklistModel: ChecklistModel): void {
+    event.preventDefault();
+    this.hovered.set(null);
+    if (this.isPanning) {
+      return;
+    }
+
+    this.tooltipService.setActiveTooltipData(checklistModel);
+  }
+
+  onMapTouchStart(event: TouchEvent): void {
+    event.preventDefault();
+  }
+
+  onMapTouchMove(event: TouchEvent): void {
+    event.preventDefault();
+  }
+
+  onMapTouchEnd(event: TouchEvent): void {
+    event.preventDefault();
+  }
+
   toggleShowCollected(): void {
     if (this.showCollectedCollectibles()) {
       this.checklistDataService.addDisappearingChecklistModels(
@@ -126,28 +153,56 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
+    this.handleDocumentInteraction(event);
+  }
+
+  @HostListener('document:touchend', ['$event'])
+  onDocumentTouchEnd(event: TouchEvent) {
+    this.handleDocumentInteraction(event);
+  }
+
+  @HostListener('document:mousedown', ['$event'])
+  onDocumentMouseDown(event: MouseEvent) {
+    this.mouseDownPosition = { x: event.clientX, y: event.clientY } as MouseDownPosition;
+  }
+
+  @HostListener('document:touchstart', ['$event'])
+  onDocumentTouchStart(event: TouchEvent) {
+    if (event.touches.length > 0) {
+      this.mouseDownPosition = {
+        x: event.touches[0].clientX,
+        y: event.touches[0].clientY,
+      } as MouseDownPosition;
+    }
+  }
+
+  private handleDocumentInteraction(event: MouseEvent | TouchEvent): void {
     if (this.activeTooltipData()) {
       if (this.mouseDownPosition) {
-        const distance = Math.sqrt(
-          Math.pow(event.clientX - this.mouseDownPosition.x, 2) +
-            Math.pow(event.clientY - this.mouseDownPosition.y, 2)
-        );
-        if (distance > CONSTANTS.MAP_DRAG_THRESHOLD) {
-          this.mouseDownPosition = null;
-          return;
+        const clientX = 'touches' in event ? event.changedTouches[0]?.clientX : event.clientX;
+        const clientY = 'touches' in event ? event.changedTouches[0]?.clientY : event.clientY;
+
+        if (clientX !== undefined && clientY !== undefined) {
+          const distance = Math.sqrt(
+            Math.pow(clientX - this.mouseDownPosition.x, 2) +
+              Math.pow(clientY - this.mouseDownPosition.y, 2)
+          );
+          if (distance > CONSTANTS.MAP_DRAG_THRESHOLD) {
+            this.mouseDownPosition = null;
+            return;
+          }
         }
       }
 
       const collectibleIndex = this.activeTooltipData()!.index;
-      const clickedCollectible = (event.target as HTMLElement).closest(
-        `[data-collectible-index='${collectibleIndex}']`
-      );
+      const target = event.target as HTMLElement;
+      const clickedCollectible = target.closest(`[data-collectible-index='${collectibleIndex}']`);
 
       if (clickedCollectible) {
         return;
       }
 
-      const clickedTooltip = (event.target as HTMLElement).closest('.map-tooltip-container');
+      const clickedTooltip = target.closest('.map-tooltip-container');
 
       if (!clickedTooltip) {
         this.tooltipService.setActiveTooltipData(null);
@@ -156,16 +211,11 @@ export class MapSection implements AfterViewInit, OnDestroy {
     this.mouseDownPosition = null;
   }
 
-  @HostListener('document:mousedown', ['$event'])
-  onDocumentMouseDown(event: MouseEvent) {
-    this.mouseDownPosition = { x: event.clientX, y: event.clientY } as MouseDownPosition;
-  }
-
   private initializePanZoom(): void {
     this.pzInstance = this.mapSectionService.initializePanzoom(this.mapPanzoomRef()!);
 
     this.pzInstance.on('panstart', () => (this.isPanning = true));
-    this.pzInstance.on('panend', () => setTimeout(() => (this.isPanning = false), 50));
+    this.pzInstance.on('panend', () => setTimeout(() => (this.isPanning = false), 20));
     this.pzInstance.on('pan', () =>
       this.mapSectionService.debouncedUpdateVisibleCollectibles(
         this.mapPanzoomRef()!,

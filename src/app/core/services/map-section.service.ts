@@ -79,6 +79,7 @@ export class MapSectionService {
       maxZoom: 10,
       zoomDoubleClickSpeed: 1,
       smoothScroll: false,
+      onTouch: () => false,
     });
     return this.pzInstance;
   }

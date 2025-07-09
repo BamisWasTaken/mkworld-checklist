@@ -127,6 +127,9 @@
     #mapPanzoom
     class="w-full h-full relative"
     (contextmenu)="$event.preventDefault()"
+    (touchstart)="onMapTouchStart($event)"
+    (touchmove)="onMapTouchMove($event)"
+    (touchend)="onMapTouchEnd($event)"
   >
     <img
       ngSrc="/imgs/map.webp"
@@ -164,6 +167,8 @@
         (mouseenter)="hovered.set(collectibleChecklistModel)"
         (mouseleave)="hovered.set(null)"
         (click)="onClick(collectibleChecklistModel)"
+        (touchstart)="onTouchStart($event, collectibleChecklistModel)"
+        (touchend)="onTouchEnd($event, collectibleChecklistModel)"
         tabindex="0"
         role="button"
         aria-label="Collectible marker"

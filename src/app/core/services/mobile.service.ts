@@ -7,7 +7,7 @@ import { inject, Injectable, PLATFORM_ID, Signal, signal } from '@angular/core';
 export class MobileService {
   private readonly platformId = inject(PLATFORM_ID);
 
-  private readonly isMobileView = signal(false);
+  private readonly isMobileView = signal<boolean | null>(null);
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
@@ -19,7 +19,7 @@ export class MobileService {
     }
   }
 
-  getIsMobileView(): Signal<boolean> {
+  getIsMobileView(): Signal<boolean | null> {
     return this.isMobileView.asReadonly();
   }
 }
