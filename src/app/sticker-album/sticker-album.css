@@ -8,7 +8,6 @@
 }
 
 .description-text {
-  font-size: 24px;
   filter: drop-shadow(1.5px 1.5px 0 rgb(82, 82, 82));
   background: -webkit-linear-gradient(#fff, #ddd);
   background-clip: text;

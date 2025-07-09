@@ -4,12 +4,12 @@ import {
   Component,
   ElementRef,
   inject,
-  input,
   signal,
   viewChild,
 } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ImportExportService } from '../core/services/import-export.service';
+import { MobileService } from '../core/services/mobile.service';
 import { Help } from '../help/help';
 
 @Component({
@@ -22,8 +22,9 @@ import { Help } from '../help/help';
 export class Header {
   private readonly importExportService = inject(ImportExportService);
   private readonly translateService = inject(TranslateService);
+  private readonly mobileService = inject(MobileService);
 
-  readonly isMobile = input.required<boolean>();
+  readonly isMobile = this.mobileService.getIsMobileView();
 
   fileInput = viewChild<ElementRef<HTMLInputElement>>('fileInput');
 

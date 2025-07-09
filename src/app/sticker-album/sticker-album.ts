@@ -28,6 +28,10 @@ export class StickerAlbum {
   private readonly settingsService = inject(SettingsService);
   private readonly pageService = inject(PageService);
 
+  readonly stickersPerRow = this.pageService.getStickersPerRow();
+  readonly stickersPerColumn = this.pageService.getStickersPerColumn();
+  readonly stickersPerPage = this.pageService.getStickersPerPage();
+
   @ViewChildren('stickerItem') stickerItems!: QueryList<ElementRef>;
   @ViewChild('pageContainer', { static: false }) pageContainer!: ElementRef;
 
@@ -206,7 +210,7 @@ export class StickerAlbum {
     checklistModel: ChecklistModel
   ): void {
     const index = this.page.indexOf(checklistModel);
-    if (Math.floor(index / CONSTANTS.STICKERS_PER_ROW) === 0) {
+    if (Math.floor(index / this.stickersPerRow()) === 0) {
       this.tooltipPositionAbove.set(false);
     } else {
       this.tooltipPositionAbove.set(true);
@@ -252,15 +256,15 @@ export class StickerAlbum {
       } else if (index > this.previousStickerPositions.at(-1)!.index && !this.isSwitchingPage()) {
         if (firstNewStickerAtPageEnd) {
           firstNewStickerAtPageEnd = false;
-          amountOfNewStickersAtEndOfPage = CONSTANTS.STICKERS_PER_PAGE - positionOnPage;
+          amountOfNewStickersAtEndOfPage = this.stickersPerPage() - positionOnPage;
         }
 
         // Calculate the row the current sticker is in
-        const currentStickerRow = Math.ceil((positionOnPage + 1) / CONSTANTS.STICKERS_PER_ROW);
+        const currentStickerRow = Math.ceil((positionOnPage + 1) / this.stickersPerRow());
         // Calculate the amount of new stickers in the row
         const newStickersInRow =
           amountOfNewStickersAtEndOfPage -
-          CONSTANTS.STICKERS_PER_ROW * (CONSTANTS.STICKERS_PER_COLUMN - currentStickerRow);
+          this.stickersPerRow() * (this.stickersPerColumn() - currentStickerRow);
         dx = pageWidth;
         if (newStickersInRow < 8) {
           // If there are less than 8 new stickers in the row, the stickers in the row should be offset just enough to start off screen

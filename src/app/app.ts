@@ -1,10 +1,10 @@
-import { Component, inject, signal, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { BackgroundProgress } from './background-progress/background-progress';
 import { ChecklistModel } from './core/models';
 import { MapSectionService } from './core/services';
+import { MobileService } from './core/services/mobile.service';
 import { TooltipService } from './core/services/tooltip.service';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
@@ -30,23 +30,15 @@ export class App {
   private readonly translateService = inject(TranslateService);
   private readonly tooltipService = inject(TooltipService);
   private readonly mapSectionService = inject(MapSectionService);
-  private readonly platformId = inject(PLATFORM_ID);
+  private readonly mobileService = inject(MobileService);
 
   pzInstance: PanZoom | null = null;
-  isMobileView = signal(false);
+  isMobileView = this.mobileService.getIsMobileView();
 
   constructor() {
     this.translateService.addLangs(['en']);
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
-
-    if (isPlatformBrowser(this.platformId)) {
-      this.isMobileView.set(window.innerWidth < 1024);
-
-      window.addEventListener('resize', () => {
-        this.isMobileView.set(window.innerWidth < 1024);
-      });
-    }
   }
 
   onScrollToMap(checklistModel: ChecklistModel): void {
