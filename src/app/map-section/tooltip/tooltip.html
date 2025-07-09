@@ -1,5 +1,11 @@
 <div class="tooltip" [class]="'tooltip-' + position()">
-  <button class="close-button" (click)="onClose()" aria-label="Close tooltip">
+  <button
+    class="close-button touch-manipulation"
+    (click)="onClose()"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+    aria-label="Close tooltip"
+  >
     <span class="close-icon -mt-[3px]">×</span>
   </button>
 

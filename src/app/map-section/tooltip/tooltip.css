@@ -143,6 +143,10 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
 .close-icon {
   font-size: 18px;
   color: #666;
