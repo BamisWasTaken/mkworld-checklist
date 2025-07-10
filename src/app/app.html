@@ -18,4 +18,8 @@
   </div>
 </main>
 
-<mkworld-footer></mkworld-footer>
+@defer (on viewport; prefetch on idle) {
+  <mkworld-footer></mkworld-footer>
+} @placeholder {
+  <div class="h-[200px]"></div>
+}

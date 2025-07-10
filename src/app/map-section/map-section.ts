@@ -25,7 +25,6 @@ import {
 } from '../core/services';
 import { MouseDownPosition } from './models';
 import { Tooltip } from './tooltip/tooltip';
-import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'mkworld-map-section',
@@ -78,19 +77,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
   isPanning = false;
 
   private mouseDownPosition: MouseDownPosition | null = null;
-
-  constructor() {
-    toObservable(this.mobileService.getIsMobileView()).subscribe((isMobile: boolean | null) => {
-      if (this.pzInstance) {
-        if (isMobile) {
-          this.pzInstance!.zoomTo(0, 0, 2);
-          this.pzInstance!.setMinZoom(2);
-        } else if (isMobile === false) {
-          this.pzInstance!.setMinZoom(1);
-        }
-      }
-    });
-  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

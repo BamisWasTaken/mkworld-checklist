@@ -80,16 +80,11 @@ export class MapSectionService {
       bounds: true,
       boundsPadding: 1,
       minZoom: 1,
-      maxZoom: 10,
+      maxZoom: 13,
       zoomDoubleClickSpeed: 1,
       smoothScroll: false,
       onTouch: () => false,
     });
-
-    if (this.isMobileView()) {
-      this.pzInstance.zoomTo(0, 0, 2);
-      this.pzInstance.setMinZoom(2);
-    }
 
     return this.pzInstance;
   }
