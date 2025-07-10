@@ -1,7 +1,7 @@
 .tooltip {
   position: absolute;
   width: 300px;
-  background: white;
+  background: rgb(35, 38, 41);
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -9,7 +9,7 @@
 }
 
 .peach-coin-sticker-tooltip {
-  width: 375px;
+  width: 325px;
   transform: translate(-170px, -120%) translateY(0);
   animation: peach-coin-sticker-tooltip-appear 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
   opacity: 1;
@@ -53,7 +53,7 @@
   transform: translateX(-50%);
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid white;
+  border-top: 8px solid rgb(35, 38, 41);
 }
 
 /* Below position - must override the default tooltip styles */
@@ -73,7 +73,7 @@
   transform: translateX(-50%);
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid white;
+  border-bottom: 8px solid rgb(35, 38, 41);
   border-top: none;
   bottom: auto;
 }
@@ -95,7 +95,7 @@
   transform: translateY(-50%);
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-left: 8px solid white;
+  border-left: 8px solid rgb(35, 38, 41);
   border-right: none;
   bottom: auto;
   left: auto;
@@ -118,7 +118,7 @@
   transform: translateY(-50%);
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-right: 8px solid white;
+  border-right: 8px solid rgb(35, 38, 41);
   border-left: none;
   bottom: auto;
 }
@@ -149,7 +149,7 @@
 
 .close-icon {
   font-size: 18px;
-  color: #666;
+  color: #999;
   font-weight: bold;
   line-height: 1;
 }
@@ -168,17 +168,17 @@
 }
 
 .description {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.2;
-  color: #333;
+  color: rgb(232, 236, 241);
   margin: 0;
   font-weight: 500;
   flex: 1;
 }
 
 .instruction {
-  font-size: 13px;
-  color: #333;
+  font-size: 14px;
+  color: rgb(232, 236, 241);
   margin-bottom: 16px;
   line-height: 1.2;
 }

@@ -8,7 +8,10 @@
     class="help-content bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto"
     (click)="$event.stopPropagation()"
   >
-    <div class="flex justify-between items-center px-6 py-4 border-b border-gray-200">
+    <div
+      class="flex justify-between items-center px-6 py-4 border-b border-gray-200 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('/imgs/help-title-background.webp')"
+    >
       <h2 class="text-2xl font-bold text-gray-900">
         {{ 'HELP_MODAL.TITLE' | translate }}
       </h2>
@@ -18,7 +21,7 @@
         [attr.aria-label]="'HELP_MODAL.CLOSE_ALT_TEXT' | translate"
       >
         <span
-          class="material-symbols-outlined text-2xl hover:bg-gray-100 active:bg-gray-200 rounded-full p-1"
+          class="material-symbols-outlined text-2xl hover:bg-gray-100 active:bg-gray-200 duration-200 transition-colors rounded-full p-1"
           >close</span
         >
       </button>
