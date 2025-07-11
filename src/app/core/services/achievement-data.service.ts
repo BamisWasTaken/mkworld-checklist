@@ -81,6 +81,10 @@ export class AchievementDataService {
     );
   }
 
+  resetAchievements(): void {
+    this.achievements.set(achievementsData as Achievement[]);
+  }
+
   private setDisappearingMilestones(
     achievementToUpdate: Achievement,
     milestoneChecked: Milestone

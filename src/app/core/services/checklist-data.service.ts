@@ -1,9 +1,10 @@
 import { computed, effect, inject, Injectable, PLATFORM_ID, Signal, signal } from '@angular/core';
 import checklistData from '../../../../public/data/checklist-data.json';
-import { ChecklistModel, ChecklistModelState, CollectibleType } from '../models';
+import { ChecklistModel, ChecklistModelState, CollectibleType, QuickAction } from '../models';
 import { isPlatformBrowser } from '@angular/common';
 import { CONSTANTS } from '../../constants';
 import { SettingsService } from './settings.service';
+import { AchievementDataService } from './achievement-data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ import { SettingsService } from './settings.service';
 export class ChecklistDataService {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly settingsService = inject(SettingsService);
+  private readonly achievementDataService = inject(AchievementDataService);
 
   private readonly checklistModels = signal<ChecklistModel[]>(checklistData);
 
@@ -179,6 +181,48 @@ export class ChecklistDataService {
           checked: checklistModelState?.checked ?? checklistModel.checked,
         };
       })
+    );
+  }
+
+  performQuickAction(quickAction: QuickAction): void {
+    switch (quickAction) {
+      case QuickAction.CHECK_ALL_QUESTIONMARK_PANELS:
+        this.setAllChecklistModelsCheckedByType(CollectibleType.QUESTIONMARK_PANEL, true);
+        break;
+      case QuickAction.UNCHECK_ALL_QUESTIONMARK_PANELS:
+        this.setAllChecklistModelsCheckedByType(CollectibleType.QUESTIONMARK_PANEL, false);
+        break;
+      case QuickAction.CHECK_ALL_PEACH_MEDALLIONS:
+        this.setAllChecklistModelsCheckedByType(CollectibleType.PEACH_COIN, true);
+        break;
+      case QuickAction.UNCHECK_ALL_PEACH_MEDALLIONS:
+        this.setAllChecklistModelsCheckedByType(CollectibleType.PEACH_COIN, false);
+        break;
+      case QuickAction.CHECK_ALL_P_SWITCHES:
+        this.setAllChecklistModelsCheckedByType(CollectibleType.P_SWITCH, true);
+        break;
+      case QuickAction.UNCHECK_ALL_P_SWITCHES:
+        this.setAllChecklistModelsCheckedByType(CollectibleType.P_SWITCH, false);
+        break;
+      case QuickAction.RESET:
+        this.checklistModels.set(checklistData);
+        this.achievementDataService.resetAchievements();
+        break;
+    }
+  }
+
+  private setAllChecklistModelsCheckedByType(
+    collectibleType: CollectibleType,
+    checked: boolean
+  ): void {
+    this.checklistModels.update((checklistModels: ChecklistModel[]) =>
+      checklistModels.map((checklistModel: ChecklistModel) => ({
+        ...checklistModel,
+        checked:
+          checklistModel.collectibleModel?.collectibleType === collectibleType
+            ? checked
+            : checklistModel.checked,
+      }))
     );
   }
 
