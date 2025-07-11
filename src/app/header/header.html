@@ -14,11 +14,7 @@
       />
     </div>
 
-    <div
-      class="w-[50px] flex flex-col items-center"
-      [class.gap-4]="!isMobile()"
-      [class.gap-2]="isMobile()"
-    >
+    <div class="w-[50px] flex flex-col items-center" [class.gap-2]="!isMobile()">
       <button
         class="group cursor-pointer"
         (click)="openHelp()"
@@ -26,7 +22,7 @@
         [title]="'HEADER.HELP_ALT_TEXT' | translate"
       >
         <span
-          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
+          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-all duration-200"
           [class.icon-button]="!isMobile()"
           [class.icon-button-mobile]="isMobile()"
         >
@@ -49,7 +45,7 @@
         [title]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
       >
         <span
-          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
+          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-all duration-200"
           [class.icon-button]="!isMobile()"
           [class.icon-button-mobile]="isMobile()"
         >
@@ -64,15 +60,56 @@
         [title]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
       >
         <span
-          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-colors icon-button-mobile transition-all duration-200"
+          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-colors transition-all duration-200"
           [class.icon-button]="!isMobile()"
           [class.icon-button-mobile]="isMobile()"
         >
           publish
         </span>
       </button>
+
+      <div class="relative settings-dropdown-container">
+        <button
+          class="group cursor-pointer"
+          (click)="toggleSettingsDropdown()"
+          [attr.aria-label]="'HEADER.SETTINGS_ALT_TEXT' | translate"
+          [title]="'HEADER.SETTINGS_ALT_TEXT' | translate"
+        >
+          <span
+            class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-all duration-200"
+            [class.icon-button]="!isMobile()"
+            [class.icon-button-mobile]="isMobile()"
+            [class.rotate-90]="isSettingsDropdownOpen()"
+          >
+            settings
+          </span>
+        </button>
+
+        <div
+          class="absolute right-0 mt-2 w-64 bg-gray-100 rounded-lg shadow-lg border border-gray-200 z-40 settings-dropdown"
+          [class.open]="isSettingsDropdownOpen()"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="py-2">
+            @for (quickAction of quickActions; track quickAction) {
+              <div
+                class="px-4 py-2 hover:bg-white cursor-pointer text-sm text-gray-700"
+                (click)="onQuickActionSelected(quickAction)"
+              >
+                {{ 'HEADER.QUICK_ACTIONS.' + quickAction | translate }}
+              </div>
+            }
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <mkworld-help [isOpen]="isHelpOpen()" (closeHelp)="closeHelp()" />
+
+<mkworld-confirmation-popup
+  [isOpen]="isConfirmationOpen()"
+  [quickAction]="selectedQuickAction()"
+  (confirmed)="onConfirmationResult($event)"
+/>

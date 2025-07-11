@@ -5,3 +5,22 @@
 .icon-button-mobile {
   font-size: 25px;
 }
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.settings-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.settings-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}

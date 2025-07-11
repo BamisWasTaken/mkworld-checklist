@@ -297,7 +297,11 @@ export class StickerAlbum {
       if (previousRect) {
         dx = previousRect.left - currentRect.left;
         dy = previousRect.top - currentRect.top;
-      } else if (index > this.previousStickerPositions.at(-1)!.index && !this.isSwitchingPage()) {
+      } else if (
+        this.previousStickerPositions.at(-1) &&
+        index > this.previousStickerPositions.at(-1)!.index &&
+        !this.isSwitchingPage()
+      ) {
         if (firstNewStickerAtPageEnd) {
           firstNewStickerAtPageEnd = false;
           amountOfNewStickersAtEndOfPage = this.stickersPerPage() - positionOnPage;

@@ -5,7 +5,27 @@
     "DOWNLOAD_SAVE_ALT_TEXT": "Download save file",
     "UPLOAD_SAVE_ALT_TEXT": "Upload save file",
     "HELP_ALT_TEXT": "Help and tips",
-    "ERROR_PARSING_SAVE_FILE": "Error parsing save file"
+    "ERROR_PARSING_SAVE_FILE": "Error parsing save file",
+    "SETTINGS_ALT_TEXT": "Quick actions",
+    "QUICK_ACTIONS": {
+      "CHECK_ALL_QUESTIONMARK_PANELS": "Check all ? Panels",
+      "UNCHECK_ALL_QUESTIONMARK_PANELS": "Uncheck all ? Panels",
+      "CHECK_ALL_PEACH_MEDALLIONS": "Check all Peach Medallions",
+      "UNCHECK_ALL_PEACH_MEDALLIONS": "Uncheck all Peach Medallions",
+      "CHECK_ALL_P_SWITCHES": "Check all P-Switches",
+      "UNCHECK_ALL_P_SWITCHES": "Uncheck all P-Switches",
+      "RESET": "Reset all progress",
+      "CONFIRMATION_TITLE": "Confirm",
+      "CONFIRMATION_MESSAGE_CHECK_ALL_QUESTIONMARK_PANELS": "Are you sure you want to check all ? Panels?",
+      "CONFIRMATION_MESSAGE_UNCHECK_ALL_QUESTIONMARK_PANELS": "Are you sure you want to uncheck all ? Panels?",
+      "CONFIRMATION_MESSAGE_CHECK_ALL_PEACH_MEDALLIONS": "Are you sure you want to check all Peach Medallions?",
+      "CONFIRMATION_MESSAGE_UNCHECK_ALL_PEACH_MEDALLIONS": "Are you sure you want to uncheck all Peach Medallions?",
+      "CONFIRMATION_MESSAGE_CHECK_ALL_P_SWITCHES": "Are you sure you want to check all P-Switches?",
+      "CONFIRMATION_MESSAGE_UNCHECK_ALL_P_SWITCHES": "Are you sure you want to uncheck all P-Switches?",
+      "CONFIRMATION_MESSAGE_RESET": "Are you sure you want to reset all progress?",
+      "CONFIRM": "Confirm",
+      "CANCEL": "Cancel"
+    }
   },
   "HELP_MODAL": {
     "TITLE": "Help & Tips",
