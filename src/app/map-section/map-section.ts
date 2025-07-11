@@ -57,7 +57,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
   readonly panzoomScale = signal(1);
   readonly tooltipTransform = computed(
-    () => `scale(${1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.3 : 1)})`
+    () => `scale(${1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.5 : 1)})`
   );
   readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
 
