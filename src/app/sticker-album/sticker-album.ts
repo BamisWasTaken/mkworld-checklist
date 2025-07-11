@@ -5,10 +5,9 @@ import {
   ElementRef,
   HostListener,
   inject,
-  QueryList,
   signal,
-  ViewChild,
-  ViewChildren,
+  viewChild,
+  viewChildren,
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
@@ -37,15 +36,14 @@ export class StickerAlbum {
   private readonly tooltipService = inject(TooltipService);
   private readonly mapSectionService = inject(MapSectionService);
 
+  readonly stickerItems = viewChildren<ElementRef>('stickerItem');
+  readonly pageContainer = viewChild<ElementRef>('pageContainer');
+
   readonly stickersPerRow = this.pageService.getStickersPerRow();
   readonly stickersPerColumn = this.pageService.getStickersPerColumn();
   readonly stickersPerPage = this.pageService.getStickersPerPage();
 
-  @ViewChildren('stickerItem') stickerItems!: QueryList<ElementRef>;
-  @ViewChild('pageContainer', { static: false }) pageContainer!: ElementRef;
-
   readonly showCollectedStickers = this.settingsService.shouldShowCollectedStickers();
-  private previousStickerPositions: StickerPosition[] = [];
 
   page: ChecklistModel[] = [];
   readonly pageNumber = this.pageService.getPageNumber();
@@ -54,29 +52,30 @@ export class StickerAlbum {
   hoveredChecklistModel = signal<ChecklistModel | null>(null);
   private hoverTimeout: ReturnType<typeof setTimeout> | null = null;
 
-  isAnimating = signal(false);
-  isSwitchingPage = signal(false);
-  areControlsDisabled = computed(() => this.isAnimating() || this.isSwitchingPage());
+  private readonly isAnimating = signal(false);
+  private readonly isSwitchingPage = signal(false);
+  readonly areControlsDisabled = computed(() => this.isAnimating() || this.isSwitchingPage());
 
   tooltipText = signal<string | null>(null);
   tooltipSticker = signal<ChecklistModel | null>(null);
   tooltipPosition = signal<{ x: number; y: number } | null>(null);
   tooltipPositionAbove = signal<boolean>(false);
 
-  // Drag functionality properties
+  private previousStickerPositions: StickerPosition[] = [];
+
   private isDragging = false;
   private dragStartX = 0;
   private dragStartY = 0;
   private dragCurrentX = 0;
   private dragCurrentY = 0;
 
-  pzInstance: PanZoom | null = null;
+  private pzInstance: PanZoom | null = null;
 
   constructor() {
     toObservable(this.pageService.getPage())
       .pipe(takeUntilDestroyed())
       .subscribe((page: ChecklistModel[]) => {
-        if (this.stickerItems) {
+        if (this.stickerItems()) {
           this.recordCurrentPositionsForFilter();
           queueMicrotask(() => this.animateLayoutChanges());
         }
@@ -104,7 +103,7 @@ export class StickerAlbum {
     if (
       !this.areControlsDisabled() &&
       newPage !== this.pageNumber() &&
-      this.pageContainer?.nativeElement
+      this.pageContainer()?.nativeElement
     ) {
       const currentPage = this.pageNumber();
       const direction =
@@ -112,7 +111,7 @@ export class StickerAlbum {
 
       this.isSwitchingPage.set(true);
 
-      const pageElement = this.pageContainer.nativeElement as HTMLElement;
+      const pageElement = this.pageContainer()!.nativeElement as HTMLElement;
       const slideDistance = animate ? 20 : 0;
       const translateXOut =
         direction === PageAnimationDirection.RIGHT ? slideDistance : -slideDistance;
@@ -149,24 +148,7 @@ export class StickerAlbum {
     }
   }
 
-  onGoToMap(checklistModel: ChecklistModel): void {
-    const mapElement = document.getElementById('map-section');
-    if (mapElement) {
-      if (!this.pzInstance) {
-        this.pzInstance = this.mapSectionService.getPanzoomInstance();
-      }
-      mapElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      const x = (1024 / 100) * ((checklistModel.collectibleModel!.xPercentage - 25) * 2);
-      const y = (1281 / 100) * ((checklistModel.collectibleModel!.yPercentage - 25) * 2);
-      this.pzInstance.zoomAbs(0, 0, 2);
-      this.pzInstance.moveTo(-x, -y);
-
-      this.tooltipService.setActiveTooltipDataWithScrollProtection(checklistModel);
-    }
-  }
-
-  onChecklistItemHover(isHovered: boolean, checklistModel: ChecklistModel): void {
+  onStickerHover(isHovered: boolean, checklistModel: ChecklistModel): void {
     if (this.hoverTimeout) {
       clearTimeout(this.hoverTimeout);
       this.hoverTimeout = null;
@@ -179,6 +161,10 @@ export class StickerAlbum {
         this.hoveredChecklistModel.set(null);
       }, 150);
     }
+  }
+
+  onStickerChecked(checklistModel: ChecklistModel): void {
+    this.checklistDataService.updateChecklistModelChecked(checklistModel);
   }
 
   onStickerClick(event: MouseEvent, checklistModel: ChecklistModel): void {
@@ -205,10 +191,6 @@ export class StickerAlbum {
     this.tooltipPosition.set(null);
   }
 
-  onStickerChecked(checklistModel: ChecklistModel): void {
-    this.checklistDataService.updateChecklistModelChecked(checklistModel);
-  }
-
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     if (this.tooltipText()) {
@@ -223,6 +205,46 @@ export class StickerAlbum {
   onWindowScroll(): void {
     if (this.tooltipText()) {
       this.closeTooltip();
+    }
+  }
+
+  @HostListener('mousedown', ['$event'])
+  onMouseDown(event: MouseEvent): void {
+    this.startDrag(event.clientX, event.clientY);
+  }
+
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent): void {
+    if (this.isDragging) {
+      this.updateDrag(event.clientX, event.clientY);
+    }
+  }
+
+  @HostListener('mouseup')
+  onMouseUp(): void {
+    if (this.isDragging) {
+      this.endDrag();
+    }
+  }
+
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent): void {
+    const touch = event.touches[0];
+    this.startDrag(touch.clientX, touch.clientY);
+  }
+
+  @HostListener('touchmove', ['$event'])
+  onTouchMove(event: TouchEvent): void {
+    if (this.isDragging) {
+      const touch = event.touches[0];
+      this.updateDrag(touch.clientX, touch.clientY);
+    }
+  }
+
+  @HostListener('touchend')
+  onTouchEnd(): void {
+    if (this.isDragging) {
+      this.endDrag();
     }
   }
 
@@ -250,7 +272,7 @@ export class StickerAlbum {
   private recordCurrentPositionsForFilter(): void {
     this.previousStickerPositions = [];
 
-    this.stickerItems.forEach((itemRef: ElementRef) => {
+    this.stickerItems().forEach((itemRef: ElementRef) => {
       const element = itemRef.nativeElement;
       const index = parseInt(element.id.split('-')[1]);
       this.previousStickerPositions.push({ index, position: element.getBoundingClientRect() });
@@ -260,8 +282,8 @@ export class StickerAlbum {
   private animateLayoutChanges(): void {
     let firstNewStickerAtPageEnd = true;
     let amountOfNewStickersAtEndOfPage = 0;
-    const pageWidth = this.pageContainer.nativeElement.getBoundingClientRect().width - 48;
-    this.stickerItems.forEach((itemRef: ElementRef, positionOnPage: number) => {
+    const pageWidth = this.pageContainer()!.nativeElement.getBoundingClientRect().width - 48;
+    this.stickerItems().forEach((itemRef: ElementRef, positionOnPage: number) => {
       const element = itemRef.nativeElement;
       const index = parseInt(element.id.split('-')[1]);
       const currentRect = element.getBoundingClientRect();
@@ -338,46 +360,6 @@ export class StickerAlbum {
     }, 400);
   }
 
-  @HostListener('mousedown', ['$event'])
-  onMouseDown(event: MouseEvent): void {
-    this.startDrag(event.clientX, event.clientY);
-  }
-
-  @HostListener('mousemove', ['$event'])
-  onMouseMove(event: MouseEvent): void {
-    if (this.isDragging) {
-      this.updateDrag(event.clientX, event.clientY);
-    }
-  }
-
-  @HostListener('mouseup')
-  onMouseUp(): void {
-    if (this.isDragging) {
-      this.endDrag();
-    }
-  }
-
-  @HostListener('touchstart', ['$event'])
-  onTouchStart(event: TouchEvent): void {
-    const touch = event.touches[0];
-    this.startDrag(touch.clientX, touch.clientY);
-  }
-
-  @HostListener('touchmove', ['$event'])
-  onTouchMove(event: TouchEvent): void {
-    if (this.isDragging) {
-      const touch = event.touches[0];
-      this.updateDrag(touch.clientX, touch.clientY);
-    }
-  }
-
-  @HostListener('touchend')
-  onTouchEnd(): void {
-    if (this.isDragging) {
-      this.endDrag();
-    }
-  }
-
   private startDrag(startX: number, startY: number): void {
     this.isDragging = true;
     this.dragStartX = startX;
@@ -392,10 +374,6 @@ export class StickerAlbum {
   }
 
   private endDrag(): void {
-    if (!this.isDragging) {
-      return;
-    }
-
     const deltaX = this.dragCurrentX - this.dragStartX;
     const deltaY = this.dragCurrentY - this.dragStartY;
     const dragDistance = Math.abs(deltaX);
@@ -412,5 +390,22 @@ export class StickerAlbum {
     }
 
     this.isDragging = false;
+  }
+
+  private onGoToMap(checklistModel: ChecklistModel): void {
+    const mapElement = document.getElementById('map-section');
+    if (mapElement) {
+      if (!this.pzInstance) {
+        this.pzInstance = this.mapSectionService.getPanzoomInstance();
+      }
+      mapElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      const x = (1024 / 100) * ((checklistModel.collectibleModel!.xPercentage - 25) * 2);
+      const y = (1281 / 100) * ((checklistModel.collectibleModel!.yPercentage - 25) * 2);
+      this.pzInstance.zoomAbs(0, 0, 2);
+      this.pzInstance.moveTo(-x, -y);
+
+      this.tooltipService.setActiveTooltipDataWithScrollProtection(checklistModel);
+    }
   }
 }

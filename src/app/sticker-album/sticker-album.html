@@ -1,7 +1,6 @@
 <section
   class="w-full rounded-lg shadow relative flex flex-col items-center overflow-hidden sticker-album-container"
 >
-  <!-- Padding container for non-scrolling elements -->
   <div class="w-full p-4 flex flex-col items-center">
     <!-- Toggle for collected stickers -->
     <div class="absolute top-2 right-3 flex items-center gap-2">
@@ -80,8 +79,8 @@
             [class.disappearing]="
               checklistModel.disappearingFromStickerAlbum && !showCollectedStickers()
             "
-            (mouseenter)="onChecklistItemHover(true, checklistModel)"
-            (mouseleave)="onChecklistItemHover(false, checklistModel)"
+            (mouseenter)="onStickerHover(true, checklistModel)"
+            (mouseleave)="onStickerHover(false, checklistModel)"
             (click)="onStickerClick($event, checklistModel)"
           >
             <div

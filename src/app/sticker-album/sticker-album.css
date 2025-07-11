@@ -3,16 +3,8 @@
   background-size: cover;
 }
 
-.description-display {
-  overflow: hidden;
-}
-
-.description-text {
-  filter: drop-shadow(1.5px 1.5px 0 rgb(82, 82, 82));
-  background: -webkit-linear-gradient(#fff, #ddd);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.filter-toggle {
+  transition: all 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
 .arrow-button {
@@ -24,47 +16,29 @@
   transform: scale(1.1);
 }
 
-.active-page-dot {
-  filter: drop-shadow(0 0 1.5px rgb(0, 0, 0));
-}
-
-/* Page container for slide animations */
 .page-container {
   position: relative;
   width: 100%;
   will-change: transform, opacity;
 }
 
-/* Sticker grid container for FLIP animations */
 .sticker-grid {
   position: relative;
   will-change: transform;
 }
 
-/* Individual sticker container for FLIP animations */
 .sticker-grid > div {
   position: relative;
   will-change: transform, opacity;
 }
 
-/* Smooth transitions for sticker interactions */
-.sticker-container {
-  transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-  will-change: transform;
+.sticker {
+  filter: drop-shadow(0 0 5px rgb(175, 175, 175));
 }
 
-/* Toggle checkbox animations */
-.toggle-checkbox {
-  transition: all 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-.toggle-checkbox:hover {
-  transform: scale(1.05);
-}
-
-/* Filter toggle button styling */
-.filter-toggle {
-  transition: all 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+.sticker.disappearing {
+  opacity: 0;
+  transform: scale(0);
 }
 
 .sticker-checkbox {
@@ -116,16 +90,22 @@
   box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3); /* yellow-400 with opacity */
 }
 
-.sticker {
-  filter: drop-shadow(0 0 5px rgb(175, 175, 175));
+.description-display {
+  overflow: hidden;
 }
 
-.sticker.disappearing {
-  opacity: 0;
-  transform: scale(0);
+.description-text {
+  filter: drop-shadow(1.5px 1.5px 0 rgb(82, 82, 82));
+  background: -webkit-linear-gradient(#fff, #ddd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Tooltip styling */
+.active-page-dot {
+  filter: drop-shadow(0 0 1.5px rgb(0, 0, 0));
+}
+
 .sticker-tooltip {
   pointer-events: auto;
   transition:
