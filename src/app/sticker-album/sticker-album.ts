@@ -5,7 +5,6 @@ import {
   ElementRef,
   HostListener,
   inject,
-  output,
   QueryList,
   signal,
   ViewChild,
@@ -13,9 +12,16 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
+import { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../constants';
 import { ChecklistModel, PageAnimationDirection, StickerPosition } from '../core/models';
-import { ChecklistDataService, PageService, SettingsService } from '../core/services';
+import {
+  ChecklistDataService,
+  MapSectionService,
+  PageService,
+  SettingsService,
+  TooltipService,
+} from '../core/services';
 
 @Component({
   selector: 'mkworld-sticker-album',
@@ -27,6 +33,8 @@ export class StickerAlbum {
   private readonly checklistDataService = inject(ChecklistDataService);
   private readonly settingsService = inject(SettingsService);
   private readonly pageService = inject(PageService);
+  private readonly tooltipService = inject(TooltipService);
+  private readonly mapSectionService = inject(MapSectionService);
 
   readonly stickersPerRow = this.pageService.getStickersPerRow();
   readonly stickersPerColumn = this.pageService.getStickersPerColumn();
@@ -34,8 +42,6 @@ export class StickerAlbum {
 
   @ViewChildren('stickerItem') stickerItems!: QueryList<ElementRef>;
   @ViewChild('pageContainer', { static: false }) pageContainer!: ElementRef;
-
-  scrollToMap = output<ChecklistModel>();
 
   readonly showCollectedStickers = this.settingsService.shouldShowCollectedStickers();
   private previousStickerPositions: StickerPosition[] = [];
@@ -62,6 +68,8 @@ export class StickerAlbum {
   private dragStartY = 0;
   private dragCurrentX = 0;
   private dragCurrentY = 0;
+
+  pzInstance: PanZoom | null = null;
 
   constructor() {
     toObservable(this.pageService.getPage())
@@ -141,7 +149,20 @@ export class StickerAlbum {
   }
 
   onGoToMap(checklistModel: ChecklistModel): void {
-    this.scrollToMap.emit(checklistModel);
+    const mapElement = document.getElementById('map-section');
+    if (mapElement) {
+      if (!this.pzInstance) {
+        this.pzInstance = this.mapSectionService.getPanzoomInstance();
+      }
+      mapElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      const x = (1024 / 100) * ((checklistModel.collectibleModel!.xPercentage - 25) * 2);
+      const y = (1281 / 100) * ((checklistModel.collectibleModel!.yPercentage - 25) * 2);
+      this.pzInstance.zoomAbs(0, 0, 2);
+      this.pzInstance.moveTo(-x, -y);
+
+      this.tooltipService.setActiveTooltipDataWithScrollProtection(checklistModel);
+    }
   }
 
   onChecklistItemHover(isHovered: boolean, checklistModel: ChecklistModel): void {

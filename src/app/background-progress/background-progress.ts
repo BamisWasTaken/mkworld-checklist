@@ -18,6 +18,11 @@ export class BackgroundProgress {
     return (this.progress() / this.total()) * 100;
   });
 
+  gradientPosition = computed(() => {
+    const percentage = this.progressPercentage();
+    return `${Math.max(0, 100 - percentage)}% 0`;
+  });
+
   progressGradient = computed(() => {
     const percentage = this.progressPercentage();
 
@@ -44,13 +49,5 @@ export class BackgroundProgress {
       #23272e 80%, 
       #23272e 100%
     )`;
-  });
-
-  gradientPosition = computed(() => {
-    const percentage = this.progressPercentage();
-    // Calculate the position so the gradient moves smoothly
-    // The gradient should move from left to right as progress increases
-    // We want the bright part of the gradient to be at the current progress position
-    return `${Math.max(0, 100 - percentage)}% 0`;
   });
 }

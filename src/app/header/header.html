@@ -1,126 +1,77 @@
 <header>
-  <div class="w-full flex items-center">
-    @if (isMobile()) {
-      <div class="w-full flex flex-row items-center justify-center gap-4 pb-2">
-        <div class="w-[50%] flex justify-center">
-          <img
-            ngSrc="/imgs/mktoolslogo.webp"
-            [alt]="'HEADER.LOGO_ALT_TEXT' | translate"
-            width="400"
-            height="209"
-            sizes="100vw"
-          />
-        </div>
+  <div class="w-full flex flex-row items-center justify-center">
+    <div
+      class="flex justify-center"
+      [style.width]="isMobile() ? '50%' : '80%'"
+      [class.pb-2]="isMobile()"
+    >
+      <img
+        ngSrc="/imgs/mktoolslogo.webp"
+        [alt]="'HEADER.LOGO_ALT_TEXT' | translate"
+        [width]="isMobile() ? 400 : 801"
+        [height]="isMobile() ? 209 : 418"
+        sizes="100vw"
+      />
+    </div>
 
-        <div class="w-[50px] flex flex-col items-center gap-2">
-          <button
-            class="group cursor-pointer"
-            (click)="openHelp()"
-            [attr.aria-label]="'HEADER.HELP_ALT_TEXT' | translate"
-            [title]="'HEADER.HELP_ALT_TEXT' | translate"
-          >
-            <span
-              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
-            >
-              help
-            </span>
-          </button>
-
-          <input
-            #fileInput
-            type="file"
-            accept=".json"
-            class="hidden"
-            (change)="onFileSelected($event)"
-          />
-
-          <button
-            class="group cursor-pointer"
-            (click)="downloadSaveFile()"
-            [attr.aria-label]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
-            [title]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
-          >
-            <span
-              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
-            >
-              download
-            </span>
-          </button>
-
-          <button
-            class="group cursor-pointer"
-            (click)="uploadSaveFile()"
-            [attr.aria-label]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
-            [title]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
-          >
-            <span
-              class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-colors icon-button-mobile transition-all duration-200"
-            >
-              publish
-            </span>
-          </button>
-        </div>
-      </div>
-    } @else {
-      <div class="w-[80%] flex justify-center">
-        <img
-          ngSrc="/imgs/mktoolslogo.webp"
-          [alt]="'HEADER.LOGO_ALT_TEXT' | translate"
-          width="801"
-          height="418"
-          sizes="100vw"
-        />
-      </div>
-
-      <div class="w-[50px] flex flex-col items-center gap-4">
-        <button
-          class="group cursor-pointer"
-          (click)="openHelp()"
-          [attr.aria-label]="'HEADER.HELP_ALT_TEXT' | translate"
-          [title]="'HEADER.HELP_ALT_TEXT' | translate"
+    <div
+      class="w-[50px] flex flex-col items-center"
+      [class.gap-4]="!isMobile()"
+      [class.gap-2]="isMobile()"
+    >
+      <button
+        class="group cursor-pointer"
+        (click)="openHelp()"
+        [attr.aria-label]="'HEADER.HELP_ALT_TEXT' | translate"
+        [title]="'HEADER.HELP_ALT_TEXT' | translate"
+      >
+        <span
+          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
+          [class.icon-button]="!isMobile()"
+          [class.icon-button-mobile]="isMobile()"
         >
-          <span
-            class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 icon-button transition-all duration-200"
-          >
-            help
-          </span>
-        </button>
+          help
+        </span>
+      </button>
 
-        <input
-          #fileInput
-          type="file"
-          accept=".json"
-          class="hidden"
-          (change)="onFileSelected($event)"
-        />
+      <input
+        #fileInput
+        type="file"
+        accept=".json"
+        class="hidden"
+        (change)="onFileSelected($event)"
+      />
 
-        <button
-          class="group cursor-pointer"
-          (click)="downloadSaveFile()"
-          [attr.aria-label]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
-          [title]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
+      <button
+        class="group cursor-pointer"
+        (click)="downloadSaveFile()"
+        [attr.aria-label]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
+        [title]="'HEADER.DOWNLOAD_SAVE_ALT_TEXT' | translate"
+      >
+        <span
+          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 icon-button-mobile transition-all duration-200"
+          [class.icon-button]="!isMobile()"
+          [class.icon-button-mobile]="isMobile()"
         >
-          <span
-            class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 icon-button transition-all duration-200"
-          >
-            download
-          </span>
-        </button>
+          download
+        </span>
+      </button>
 
-        <button
-          class="group cursor-pointer"
-          (click)="uploadSaveFile()"
-          [attr.aria-label]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
-          [title]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
+      <button
+        class="group cursor-pointer"
+        (click)="uploadSaveFile()"
+        [attr.aria-label]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
+        [title]="'HEADER.UPLOAD_SAVE_ALT_TEXT' | translate"
+      >
+        <span
+          class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 active:text-yellow-400 transition-colors icon-button-mobile transition-all duration-200"
+          [class.icon-button]="!isMobile()"
+          [class.icon-button-mobile]="isMobile()"
         >
-          <span
-            class="material-symbols-outlined text-gray-400 group-hover:text-yellow-500 transition-colors icon-button transition-all duration-200"
-          >
-            publish
-          </span>
-        </button>
-      </div>
-    }
+          publish
+        </span>
+      </button>
+    </div>
   </div>
 </header>
 

@@ -3,14 +3,12 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
 
 import {
   provideClientHydration,
   withEventReplay,
   withI18nSupport,
 } from '@angular/platform-browser';
-import { routes } from './app.routes';
 
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
@@ -23,7 +21,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
     provideClientHydration(withEventReplay(), withI18nSupport()),
     provideHttpClient(withFetch()),
     provideTranslateService({
