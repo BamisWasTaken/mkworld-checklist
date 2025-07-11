@@ -1,20 +1,16 @@
 import { computed, ElementRef, inject, Injectable, Signal, signal } from '@angular/core';
 import panzoom, { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../../constants';
-import { ChecklistModel, CollectibleModel } from '../models';
 import { Bounds, QuadTreeNode, TooltipPosition } from '../../map-section/models';
 import { QuadTreeCollectible } from '../../map-section/models/quad-tree-collectible';
+import { ChecklistModel, CollectibleModel } from '../models';
 import { ChecklistDataService } from './checklist-data.service';
-import { MobileService } from './mobile.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MapSectionService {
   private readonly checklistDataService = inject(ChecklistDataService);
-  private readonly mobileService = inject(MobileService);
-
-  private readonly isMobileView = this.mobileService.getIsMobileView();
 
   private quadTree = this.initializeQuadTree();
   private pzInstance: PanZoom | null = null;

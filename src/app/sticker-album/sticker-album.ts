@@ -14,7 +14,7 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../constants';
-import { ChecklistModel, PageAnimationDirection, StickerPosition } from '../core/models';
+import { ChecklistModel } from '../core/models';
 import {
   ChecklistDataService,
   MapSectionService,
@@ -22,6 +22,7 @@ import {
   SettingsService,
   TooltipService,
 } from '../core/services';
+import { PageAnimationDirection, StickerPosition } from './models';
 
 @Component({
   selector: 'mkworld-sticker-album',

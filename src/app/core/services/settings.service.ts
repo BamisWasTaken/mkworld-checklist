@@ -58,20 +58,6 @@ export class SettingsService {
     this.showCollectedCollectibles.update((value: boolean) => !value);
   }
 
-  getShownCollectibleTypes(): Signal<CollectibleType[]> {
-    return this.shownCollectibleTypes.asReadonly();
-  }
-
-  shouldShowPeachCoins(): Signal<boolean> {
-    return this.showPeachCoins;
-  }
-  shouldShowQuestionMarkPanels(): Signal<boolean> {
-    return this.showQuestionMarkPanels;
-  }
-  shouldShowPSwitches(): Signal<boolean> {
-    return this.showPSwitches;
-  }
-
   toggleShowCollectibleType(collectibleType: CollectibleType) {
     this.shownCollectibleTypes.update((shownCollectibleTypes: CollectibleType[]) => {
       if (shownCollectibleTypes.includes(collectibleType)) {
@@ -79,6 +65,22 @@ export class SettingsService {
       }
       return [...shownCollectibleTypes, collectibleType];
     });
+  }
+
+  getShownCollectibleTypes(): Signal<CollectibleType[]> {
+    return this.shownCollectibleTypes.asReadonly();
+  }
+
+  shouldShowPeachCoins(): Signal<boolean> {
+    return this.showPeachCoins;
+  }
+
+  shouldShowQuestionMarkPanels(): Signal<boolean> {
+    return this.showQuestionMarkPanels;
+  }
+
+  shouldShowPSwitches(): Signal<boolean> {
+    return this.showPSwitches;
   }
 
   importSettings(settings: Settings): void {

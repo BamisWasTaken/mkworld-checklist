@@ -58,12 +58,12 @@ export class PageService {
     return this.finalPageNumber;
   }
 
-  getPageCount(): Signal<number> {
-    return this.pageCount;
-  }
-
   setPageNumber(pageNumber: number): void {
     this.userPageNumber.set(pageNumber);
+  }
+
+  getPageCount(): Signal<number> {
+    return this.pageCount;
   }
 
   getStickersPerRow(): Signal<number> {
