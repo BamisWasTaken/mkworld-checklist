@@ -10,7 +10,7 @@
 
 .peach-coin-sticker-tooltip {
   width: 325px;
-  transform: translate(-170px, -120%) translateY(0);
+  transform: translate(-150px, -120%) translateY(0);
   animation: peach-coin-sticker-tooltip-appear 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
   opacity: 1;
   z-index: 1001;
@@ -30,11 +30,11 @@
 @keyframes peach-coin-sticker-tooltip-appear {
   from {
     opacity: 0;
-    transform: translate(-170px, -120%) translateY(8px) scale(0.5);
+    transform: translate(-150px, -120%) translateY(8px) scale(0.5);
   }
   to {
     opacity: 1;
-    transform: translate(-170px, -120%) translateY(0) scale(1);
+    transform: translate(-150px, -120%) translateY(0) scale(1);
   }
 }
 
