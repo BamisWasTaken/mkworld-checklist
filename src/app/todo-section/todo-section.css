@@ -1,9 +1,10 @@
 .todo-title {
-  background: linear-gradient(135deg, #fbbf24, #d97706);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  transition: color 0.3s ease-in-out;
   filter: drop-shadow(0 0 1.5px rgb(0, 0, 0));
+}
+
+.todo-title.completed {
+  filter: drop-shadow(0 0 1.5px rgb(134, 103, 0));
 }
 
 .todo-list {
@@ -156,6 +157,16 @@ input[type='checkbox']:hover {
 input[type='checkbox']:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+}
+
+.achievement-completed {
+  background: linear-gradient(135deg, #fef3c7, #fde68a) !important;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+.achievement-completed:hover {
+  background: linear-gradient(135deg, #fff2c0, #ffe682) !important;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
 }
 
 /* Animations */

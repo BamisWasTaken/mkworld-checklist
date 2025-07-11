@@ -84,6 +84,26 @@ export class TodoSection {
     return todoItems;
   });
 
+  titleColor = computed(() => {
+    const progressPercentage = (this.progress() / this.total()) * 100;
+
+    if (progressPercentage === 0) {
+      return '#ffffff';
+    } else if (progressPercentage >= 100) {
+      return '#fbbf24';
+    } else {
+      const white = { r: 255, g: 255, b: 255 }; // #ffffff
+      const brightGold = { r: 251, g: 191, b: 36 }; // #fbbf24
+
+      const factor = progressPercentage / 100;
+      const r = Math.round(white.r + (brightGold.r - white.r) * factor);
+      const g = Math.round(white.g + (brightGold.g - white.g) * factor);
+      const b = Math.round(white.b + (brightGold.b - white.b) * factor);
+
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+  });
+
   constructor() {
     toObservable(this.uncollectedPeachCoins)
       .pipe(takeUntilDestroyed())
