@@ -9,9 +9,9 @@
 
   <!-- Collectibles Section -->
   @if (
-    uncollectedPeachCoins() > 199 ||
-    uncollectedQuestionMarkPanels() > 149 ||
-    uncollectedPSwitches() > 392 ||
+    uncollectedPeachCoins() > 0 ||
+    uncollectedQuestionMarkPanels() > 0 ||
+    uncollectedPSwitches() > 0 ||
     lastPeachCoinBeingRemoved() ||
     lastQuestionMarkPanelBeingRemoved() ||
     lastPSwitchBeingRemoved()
@@ -82,8 +82,7 @@
     </h3>
     <ul class="w-full flex flex-col text-gray-700 todo-list">
       @for (achievement of achievements(); track achievement.index) {
-        <li class="achievement-item rounded shadow-sm">
-          <!-- Achievement Header -->
+        <li class="rounded shadow-sm">
           <div
             class="flex items-center gap-2 bg-gray-50 p-2 todo-item appearing cursor-pointer hover:bg-gray-100 transition-colors duration-200"
             [class.achievement-completed]="
@@ -178,9 +177,7 @@
                 class="w-8 h-auto object-contain"
               />
             </div>
-            <span class="flex-1 instructions">{{
-              'STICKERS.' + item.checklistModel.instructions | translate
-            }}</span>
+            <span class="flex-1 instructions">{{ item.checklistModel.instructions }}</span>
           </li>
         }
       </ul>

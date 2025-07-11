@@ -18,19 +18,29 @@ export class TodoSection {
   private readonly achievementDataService = inject(AchievementDataService);
   private readonly translateService = inject(TranslateService);
 
+  // Title
+  readonly progress = this.checklistDataService.getProgress();
+  readonly total = this.checklistDataService.getTotal();
+
+  readonly titleColor = computed(() => {
+    const progressPercentage = (this.progress() / this.total()) * 100;
+    return this.getTitleColor(progressPercentage);
+  });
+
+  // Collectibles section
   readonly uncollectedPeachCoins = this.checklistDataService.getUncollectedPeachCoins();
   readonly uncollectedQuestionMarkPanels =
     this.checklistDataService.getUncollectedQuestionMarkPanels();
   readonly uncollectedPSwitches = this.checklistDataService.getUncollectedPSwitches();
+
   readonly lastPeachCoinBeingRemoved = signal<boolean>(false);
   readonly lastQuestionMarkPanelBeingRemoved = signal<boolean>(false);
   readonly lastPSwitchBeingRemoved = signal<boolean>(false);
 
-  readonly progress = this.checklistDataService.getProgress();
-  readonly total = this.checklistDataService.getTotal();
-
+  // Achievements section
   readonly achievements = this.achievementDataService.getAchievements();
 
+  // Other section
   previousTodoItems: TodoItem[] = [];
   readonly todoItems = computed<TodoItem[]>(() => {
     const checklistModels = this.checklistDataService
@@ -41,67 +51,7 @@ export class TodoSection {
           !checklistModel.collectibleModel
       );
 
-    const todoItems: TodoItem[] = [];
-
-    checklistModels.forEach((checklistModel: ChecklistModel) => {
-      if (checklistModel.instructions !== 'SHARED.MILESTONE_REACHED_INSTRUCTIONS') {
-        const foundTodoItem = todoItems.find(
-          (todoItem: TodoItem) =>
-            todoItem.checklistModel.instructions === checklistModel.instructions
-        );
-        if (foundTodoItem) {
-          foundTodoItem.amountUnchecked++;
-        } else {
-          todoItems.push({ checklistModel, amountUnchecked: 1, appearing: false });
-        }
-      }
-    });
-
-    if (this.previousTodoItems.length !== todoItems.length) {
-      todoItems.forEach((todoItem: TodoItem) => {
-        if (
-          !this.previousTodoItems.find(
-            (previousTodoItem: TodoItem) =>
-              previousTodoItem.checklistModel.instructions === todoItem.checklistModel.instructions
-          )
-        ) {
-          todoItem.appearing = true;
-        }
-      });
-    }
-
-    todoItems.sort((a: TodoItem, b: TodoItem) => {
-      const aTranslated = this.translateService.instant(
-        'STICKERS.' + a.checklistModel.instructions
-      );
-      const bTranslated = this.translateService.instant(
-        'STICKERS.' + b.checklistModel.instructions
-      );
-      return aTranslated.localeCompare(bTranslated);
-    });
-    this.previousTodoItems = todoItems;
-
-    return todoItems;
-  });
-
-  titleColor = computed(() => {
-    const progressPercentage = (this.progress() / this.total()) * 100;
-
-    if (progressPercentage === 0) {
-      return '#ffffff';
-    } else if (progressPercentage >= 100) {
-      return '#fbbf24';
-    } else {
-      const white = { r: 255, g: 255, b: 255 }; // #ffffff
-      const brightGold = { r: 251, g: 191, b: 36 }; // #fbbf24
-
-      const factor = progressPercentage / 100;
-      const r = Math.round(white.r + (brightGold.r - white.r) * factor);
-      const g = Math.round(white.g + (brightGold.g - white.g) * factor);
-      const b = Math.round(white.b + (brightGold.b - white.b) * factor);
-
-      return `rgb(${r}, ${g}, ${b})`;
-    }
+    return this.generateTodoItems(checklistModels);
   });
 
   constructor() {
@@ -148,5 +98,69 @@ export class TodoSection {
 
   onMilestoneCheck(achievement: Achievement, milestone: Milestone): void {
     this.achievementDataService.updateAchievementMilestoneReached(achievement, milestone);
+  }
+
+  private getTitleColor(progressPercentage: number): string {
+    if (progressPercentage === 0) {
+      return '#ffffff';
+    } else if (progressPercentage >= 100) {
+      return '#fbbf24';
+    } else {
+      const white = { r: 255, g: 255, b: 255 }; // #ffffff
+      const brightGold = { r: 251, g: 191, b: 36 }; // #fbbf24
+
+      const factor = progressPercentage / 100;
+      const r = Math.round(white.r + (brightGold.r - white.r) * factor);
+      const g = Math.round(white.g + (brightGold.g - white.g) * factor);
+      const b = Math.round(white.b + (brightGold.b - white.b) * factor);
+
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+  }
+
+  private generateTodoItems(checklistModels: ChecklistModel[]): TodoItem[] {
+    const todoItems: TodoItem[] = [];
+
+    checklistModels.forEach((checklistModel: ChecklistModel) => {
+      if (checklistModel.instructions !== 'SHARED.MILESTONE_REACHED_INSTRUCTIONS') {
+        const translatedChecklistModel = {
+          ...checklistModel,
+          instructions: this.translateService.instant('STICKERS.' + checklistModel.instructions),
+        };
+        const foundTodoItem = todoItems.find(
+          (todoItem: TodoItem) =>
+            todoItem.checklistModel.instructions === translatedChecklistModel.instructions
+        );
+        if (foundTodoItem) {
+          foundTodoItem.amountUnchecked++;
+        } else {
+          todoItems.push({
+            checklistModel: translatedChecklistModel,
+            amountUnchecked: 1,
+            appearing: false,
+          });
+        }
+      }
+    });
+
+    if (this.previousTodoItems.length !== todoItems.length) {
+      todoItems.forEach((todoItem: TodoItem) => {
+        if (
+          !this.previousTodoItems.find(
+            (previousTodoItem: TodoItem) =>
+              previousTodoItem.checklistModel.instructions === todoItem.checklistModel.instructions
+          )
+        ) {
+          todoItem.appearing = true;
+        }
+      });
+    }
+
+    todoItems.sort((a: TodoItem, b: TodoItem) =>
+      a.checklistModel.instructions.localeCompare(b.checklistModel.instructions)
+    );
+    this.previousTodoItems = todoItems;
+
+    return todoItems;
   }
 }

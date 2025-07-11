@@ -1,3 +1,11 @@
+.todo-section h3 {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
 .todo-title {
   transition: color 0.3s ease-in-out;
   filter: drop-shadow(0 0 1.5px rgb(0, 0, 0));
@@ -9,10 +17,6 @@
 
 .todo-list {
   transition: all 0.2s ease-in-out;
-}
-
-.instructions {
-  line-height: 1.2;
 }
 
 .todo-list li {
@@ -37,6 +41,19 @@
   animation: slideDown 0.2s ease-out;
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+  }
+}
+
 .todo-item.removing {
   transform: translateX(-100%);
   opacity: 0;
@@ -54,40 +71,8 @@
   transform: scale(0.8);
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    max-height: 100px;
-  }
-}
-
-/* New achievement styles */
-.achievement-section {
-  transition: all 0.2s ease-in-out;
-}
-
-.achievement-section:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Section headers */
-.todo-section h3 {
-  color: #374151;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid #e5e7eb;
-  position: relative;
-}
-
-/* Achievement styles */
-.achievement-item {
-  margin-bottom: 0.5rem;
+.instructions {
+  line-height: 1.2;
 }
 
 .milestones-container {
@@ -117,7 +102,6 @@
   margin-bottom: 0;
 }
 
-/* Checkbox styling */
 input[type='checkbox'] {
   appearance: none;
   -webkit-appearance: none;
@@ -167,16 +151,4 @@ input[type='checkbox']:focus {
 .achievement-completed:hover {
   background: linear-gradient(135deg, #fff2c0, #ffe682) !important;
   box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
-}
-
-/* Animations */
-@keyframes expandMilestones {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 500px;
-    opacity: 1;
-  }
 }
