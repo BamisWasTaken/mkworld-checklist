@@ -54,6 +54,7 @@
   },
   "MAP_SECTION": {
     "SHOW_COLLECTED": "Show collected",
+    "COLLECTIBLE_MARKER_ARIA_LABEL": "Collectible marker {{index}}",
     "TOOLTIP": {
       "PEACH_COIN_STICKER_TOOLTIP": "This collectible unlocks a random sticker",
       "IMAGE_ALT_TEXT": "Image of collectible nr. {{index}}"

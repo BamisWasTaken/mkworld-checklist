@@ -1,3 +1,8 @@
+#map-panzoom {
+  touch-action: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 .collectible {
   transition:
     transform 0.2s ease-in-out,
@@ -35,9 +40,4 @@
   to {
     transform: translate(-50%, -50%) scale(var(--target-scale));
   }
-}
-
-#map-panzoom {
-  touch-action: none;
-  -webkit-overflow-scrolling: touch;
 }

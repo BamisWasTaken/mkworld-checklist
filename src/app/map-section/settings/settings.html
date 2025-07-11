@@ -1,0 +1,123 @@
+<div
+  class="absolute top-2 right-2 z-10 flex items-center gap-2 p-2 rounded-md bg-white/70 backdrop-blur-sm"
+>
+  <label
+    for="show-collected-map"
+    class="flex items-center gap-2 cursor-pointer group filter-toggle"
+  >
+    <div
+      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+      [class.bg-yellow-400]="showCollectedCollectibles()"
+      [class.border-yellow-400]="showCollectedCollectibles()"
+    >
+      <div
+        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
+        [class.scale-100]="showCollectedCollectibles()"
+        [class.scale-0]="!showCollectedCollectibles()"
+      ></div>
+    </div>
+    <span
+      class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200 select-none"
+    >
+      {{ 'MAP_SECTION.SHOW_COLLECTED' | translate }}
+    </span>
+    <input
+      id="show-collected-map"
+      type="checkbox"
+      class="sr-only"
+      [checked]="showCollectedCollectibles()"
+      (change)="toggleShowCollected()"
+    />
+  </label>
+</div>
+<div
+  class="absolute top-14 right-2 z-10 flex flex-col gap-3 p-2 rounded-md bg-white/70 backdrop-blur-sm"
+>
+  <label
+    for="show-p-switches-map"
+    class="flex items-center gap-2 cursor-pointer group filter-toggle"
+  >
+    <div
+      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+      [class.bg-yellow-400]="showPSwitches()"
+      [class.border-yellow-400]="showPSwitches()"
+    >
+      <div
+        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
+        [class.scale-100]="showPSwitches()"
+        [class.scale-0]="!showPSwitches()"
+      ></div>
+    </div>
+    <img
+      ngSrc="imgs/p-switch.webp"
+      [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
+      width="32"
+      height="20"
+    />
+    <input
+      id="show-p-switches-map"
+      type="checkbox"
+      class="sr-only"
+      [checked]="showPSwitches()"
+      (change)="toggleShowCollectibleType(CollectibleType.P_SWITCH)"
+    />
+  </label>
+  <label
+    for="show-question-mark-panels-map"
+    class="flex items-center gap-2 cursor-pointer group filter-toggle"
+  >
+    <div
+      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+      [class.bg-yellow-400]="showQuestionMarkPanels()"
+      [class.border-yellow-400]="showQuestionMarkPanels()"
+    >
+      <div
+        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
+        [class.scale-100]="showQuestionMarkPanels()"
+        [class.scale-0]="!showQuestionMarkPanels()"
+      ></div>
+    </div>
+    <img
+      ngSrc="imgs/questionmark-panel.webp"
+      [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
+      width="32"
+      height="32"
+    />
+    <input
+      id="show-question-mark-panels-map"
+      type="checkbox"
+      class="sr-only"
+      [checked]="showQuestionMarkPanels()"
+      (change)="toggleShowCollectibleType(CollectibleType.QUESTIONMARK_PANEL)"
+    />
+  </label>
+  <label
+    for="show-peach-coins-map"
+    class="flex items-center gap-2 cursor-pointer group filter-toggle"
+  >
+    <div
+      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+      [class.bg-yellow-400]="showPeachCoins()"
+      [class.border-yellow-400]="showPeachCoins()"
+    >
+      <div
+        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
+        [class.scale-100]="showPeachCoins()"
+        [class.scale-0]="!showPeachCoins()"
+      ></div>
+    </div>
+    <img
+      ngSrc="imgs/peach-coin.webp"
+      [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
+      width="32"
+      height="32"
+    />
+    <input
+      id="show-peach-coins-map"
+      type="checkbox"
+      class="sr-only"
+      [checked]="showPeachCoins()"
+      (change)="toggleShowCollectibleType(CollectibleType.PEACH_COIN)"
+    />
+  </label>
+</div>

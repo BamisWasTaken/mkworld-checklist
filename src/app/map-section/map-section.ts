@@ -16,28 +16,21 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../constants';
 import { ChecklistModel, CollectibleType } from '../core/models';
-import {
-  ChecklistDataService,
-  MapSectionService,
-  MobileService,
-  SettingsService,
-  TooltipService,
-} from '../core/services';
+import { MapSectionService, MobileService, TooltipService } from '../core/services';
 import { MouseDownPosition } from './models';
+import { Settings } from './settings/settings';
 import { Tooltip } from './tooltip/tooltip';
 
 @Component({
   selector: 'mkworld-map-section',
   templateUrl: './map-section.html',
   styleUrls: ['./map-section.css'],
-  imports: [TranslateModule, Tooltip, NgStyle, NgOptimizedImage],
+  imports: [TranslateModule, Tooltip, NgStyle, NgOptimizedImage, Settings],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapSection implements AfterViewInit, OnDestroy {
-  private readonly checklistDataService = inject(ChecklistDataService);
   private readonly tooltipService = inject(TooltipService);
   private readonly platformId = inject(PLATFORM_ID);
-  private readonly settingsService = inject(SettingsService);
   private readonly mapSectionService = inject(MapSectionService);
   private readonly mobileService = inject(MobileService);
 
@@ -45,12 +38,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
   private readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
   private readonly mapSectionRef = viewChild<ElementRef>('mapSection');
-
-  readonly showCollectedCollectibles = this.settingsService.shouldShowCollectedCollectibles();
-  readonly shownCollectibleTypes = this.settingsService.getShownCollectibleTypes();
-  readonly showPeachCoins = this.settingsService.shouldShowPeachCoins();
-  readonly showQuestionMarkPanels = this.settingsService.shouldShowQuestionMarkPanels();
-  readonly showPSwitches = this.settingsService.shouldShowPSwitches();
 
   readonly visibleCollectibleChecklistModels =
     this.mapSectionService.getVisibleCollectibleChecklistModels();
@@ -99,33 +86,6 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }
 
     this.tooltipService.setActiveTooltipData(checklistModel);
-  }
-
-  toggleShowCollected(): void {
-    if (this.showCollectedCollectibles()) {
-      this.checklistDataService.addDisappearingChecklistModels(
-        this.visibleCollectibleChecklistModels().filter(
-          (checklistModel: ChecklistModel) => checklistModel.checked
-        ),
-        false,
-        true
-      );
-    }
-    this.settingsService.toggleShowCollectedCollectibles();
-  }
-
-  toggleShowCollectibleType(collectibleType: CollectibleType): void {
-    if (this.shownCollectibleTypes().includes(collectibleType)) {
-      this.checklistDataService.addDisappearingChecklistModels(
-        this.visibleCollectibleChecklistModels().filter(
-          (checklistModel: ChecklistModel) =>
-            checklistModel.collectibleModel?.collectibleType === collectibleType
-        ),
-        false,
-        true
-      );
-    }
-    this.settingsService.toggleShowCollectibleType(collectibleType);
   }
 
   @HostListener('document:click', ['$event'])
