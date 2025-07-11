@@ -14,10 +14,8 @@ import {
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
-import { CONSTANTS } from '../constants';
 import { ChecklistModel, CollectibleType } from '../core/models';
 import { MapSectionService, MobileService, TooltipService } from '../core/services';
-import { MouseDownPosition } from './models';
 import { Settings } from './settings/settings';
 import { Tooltip } from './tooltip/tooltip';
 
@@ -39,14 +37,14 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly mapPanzoomRef = viewChild<ElementRef<HTMLDivElement>>('mapPanzoom');
   private readonly mapSectionRef = viewChild<ElementRef>('mapSection');
 
-  readonly visibleCollectibleChecklistModels =
-    this.mapSectionService.getVisibleCollectibleChecklistModels();
-
   readonly panzoomScale = signal(1);
   readonly tooltipTransform = computed(
     () => `scale(${1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.5 : 1)})`
   );
   readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
+
+  readonly visibleCollectibleChecklistModels =
+    this.mapSectionService.getVisibleCollectibleChecklistModels();
 
   readonly activeTooltipData = this.tooltipService.getActiveTooltipData();
   readonly tooltipPosition = computed(() =>
@@ -58,12 +56,10 @@ export class MapSection implements AfterViewInit, OnDestroy {
     )
   );
 
-  readonly hovered = signal<ChecklistModel | null>(null);
-
   private pzInstance: PanZoom | null = null;
   isPanning = false;
 
-  private mouseDownPosition: MouseDownPosition | null = null;
+  readonly hovered = signal<ChecklistModel | null>(null);
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -98,54 +94,24 @@ export class MapSection implements AfterViewInit, OnDestroy {
     this.handleDocumentInteraction(event);
   }
 
-  @HostListener('document:mousedown', ['$event'])
-  onDocumentMouseDown(event: MouseEvent) {
-    this.mouseDownPosition = { x: event.clientX, y: event.clientY } as MouseDownPosition;
-  }
-
-  @HostListener('document:touchstart', ['$event'])
-  onDocumentTouchStart(event: TouchEvent) {
-    if (event.touches.length > 0) {
-      this.mouseDownPosition = {
-        x: event.touches[0].clientX,
-        y: event.touches[0].clientY,
-      } as MouseDownPosition;
-    }
-  }
-
   private handleDocumentInteraction(event: MouseEvent | TouchEvent): void {
-    if (this.activeTooltipData()) {
-      if (this.mouseDownPosition) {
-        const clientX = 'touches' in event ? event.changedTouches[0]?.clientX : event.clientX;
-        const clientY = 'touches' in event ? event.changedTouches[0]?.clientY : event.clientY;
-
-        if (clientX !== undefined && clientY !== undefined) {
-          const distance = Math.sqrt(
-            Math.pow(clientX - this.mouseDownPosition.x, 2) +
-              Math.pow(clientY - this.mouseDownPosition.y, 2)
-          );
-          if (distance > CONSTANTS.MAP_DRAG_THRESHOLD) {
-            this.mouseDownPosition = null;
-            return;
-          }
-        }
-      }
-
+    if (this.activeTooltipData() && !this.isPanning) {
       const collectibleIndex = this.activeTooltipData()!.index;
       const target = event.target as HTMLElement;
       const clickedCollectible = target.closest(`[data-collectible-index='${collectibleIndex}']`);
 
+      // If the click is on a collectible, do nothing. Collectibles handle clicks themselves.
       if (clickedCollectible) {
         return;
       }
 
       const clickedTooltip = target.closest('.map-tooltip-container');
 
+      // If the click is not inside the tooltip, close it.
       if (!clickedTooltip) {
         this.tooltipService.setActiveTooltipData(null);
       }
     }
-    this.mouseDownPosition = null;
   }
 
   private initializePanZoom(): void {
