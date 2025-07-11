@@ -44,13 +44,4 @@ export class Tooltip {
       this.hoveredPeachCoinSticker.set(isHovered);
     }
   }
-
-  onTouchStart(event: TouchEvent): void {
-    event.preventDefault();
-  }
-
-  onTouchEnd(event: TouchEvent): void {
-    event.preventDefault();
-    this.onClose();
-  }
 }

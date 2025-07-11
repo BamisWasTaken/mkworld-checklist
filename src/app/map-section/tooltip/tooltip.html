@@ -1,11 +1,5 @@
 <div class="tooltip" [class]="'tooltip-' + position()">
-  <button
-    class="close-button touch-manipulation"
-    (click)="onClose()"
-    (touchstart)="onTouchStart($event)"
-    (touchend)="onTouchEnd($event)"
-    aria-label="Close tooltip"
-  >
+  <button class="close-button" (click)="onClose()" aria-label="Close tooltip">
     <span class="close-icon -mt-[3px]">×</span>
   </button>
 
@@ -26,7 +20,11 @@
       (mouseleave)="onStickerHover(false)"
     >
       <img
-        [ngSrc]="checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN ? '/imgs/stickers/random-sticker.webp' : `/imgs/stickers/sticker-${checklistModel().index}.webp`"
+        [ngSrc]="
+          checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN
+            ? '/imgs/stickers/random-sticker.webp'
+            : `/imgs/stickers/sticker-${checklistModel().index}.webp`
+        "
         [alt]="
           checklistModel().collectibleModel!.collectibleType === CollectibleType.PEACH_COIN
             ? 'STICKERS.SHARED.RANDOM_STICKER_ALT_TEXT'
@@ -51,7 +49,7 @@
     </p>
   </div>
 
-  <div class="hint-container">
+  <div class="mb-[12px]">
     @if (checklistModel().collectibleModel!.youtubeId) {
       <iframe
         width="100%"

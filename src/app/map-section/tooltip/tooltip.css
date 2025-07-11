@@ -8,6 +8,112 @@
   z-index: 1000;
 }
 
+.tooltip.tooltip-above {
+  animation: tooltip-appear 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform: translate(-50%, -100%);
+  margin-top: -12px;
+}
+
+.tooltip.tooltip-above::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgb(35, 38, 41);
+}
+
+.tooltip.tooltip-below {
+  transform: translate(-50%, 0);
+  margin-top: 12px;
+  margin-left: 0;
+  animation: tooltip-appear-below 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.tooltip.tooltip-below::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid rgb(35, 38, 41);
+  border-top: none;
+  bottom: auto;
+}
+
+.tooltip.tooltip-left {
+  transform: translate(-100%, -50%);
+  margin-left: -12px;
+  margin-top: 0;
+  animation: tooltip-appear-left 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.tooltip.tooltip-left::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid rgb(35, 38, 41);
+  border-right: none;
+  bottom: auto;
+  left: auto;
+}
+
+.tooltip.tooltip-right {
+  transform: translate(0, -50%);
+  margin-left: 12px;
+  margin-top: 0;
+  animation: tooltip-appear-right 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.tooltip.tooltip-right::after {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid rgb(35, 38, 41);
+  border-left: none;
+  bottom: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover,
+.close-button:active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.close-icon {
+  font-size: 18px;
+  color: #999;
+  font-weight: bold;
+  line-height: 1;
+}
+
 .peach-coin-sticker-tooltip {
   width: 325px;
   transform: translate(-150px, -120%) translateY(0);
@@ -38,122 +144,6 @@
   }
 }
 
-.tooltip.tooltip-above {
-  animation: tooltip-appear 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transform: translate(-50%, -100%);
-  margin-top: -12px;
-}
-
-/* Default arrow for above position */
-.tooltip.tooltip-above::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid rgb(35, 38, 41);
-}
-
-/* Below position - must override the default tooltip styles */
-.tooltip.tooltip-below {
-  transform: translate(-50%, 0);
-  margin-top: 12px;
-  margin-left: 0;
-  animation: tooltip-appear-below 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-/* Override the default arrow for below position */
-.tooltip.tooltip-below::after {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid rgb(35, 38, 41);
-  border-top: none;
-  bottom: auto;
-}
-
-/* Left position - must override the default tooltip styles */
-.tooltip.tooltip-left {
-  transform: translate(-100%, -50%);
-  margin-left: -12px;
-  margin-top: 0;
-  animation: tooltip-appear-left 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-/* Override the default arrow for left position */
-.tooltip.tooltip-left::after {
-  content: '';
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 8px solid rgb(35, 38, 41);
-  border-right: none;
-  bottom: auto;
-  left: auto;
-}
-
-/* Right position - must override the default tooltip styles */
-.tooltip.tooltip-right {
-  transform: translate(0, -50%);
-  margin-left: 12px;
-  margin-top: 0;
-  animation: tooltip-appear-right 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-/* Override the default arrow for right position */
-.tooltip.tooltip-right::after {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid rgb(35, 38, 41);
-  border-left: none;
-  bottom: auto;
-}
-
-.close-button {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 24px;
-  height: 24px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s;
-}
-
-.close-button:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.touch-manipulation {
-  touch-action: manipulation;
-}
-
-.close-icon {
-  font-size: 18px;
-  color: #999;
-  font-weight: bold;
-  line-height: 1;
-}
-
 .description-container {
   display: flex;
   align-items: center;
@@ -181,10 +171,6 @@
   color: rgb(232, 236, 241);
   margin-bottom: 16px;
   line-height: 1.2;
-}
-
-.hint-container {
-  margin-bottom: 12px;
 }
 
 .collect-button {
