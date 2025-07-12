@@ -154,7 +154,7 @@
 .sticker-thumbnail {
   object-fit: contain;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 2px black);
+  filter: drop-shadow(0 0 2px white);
 }
 
 .description {
