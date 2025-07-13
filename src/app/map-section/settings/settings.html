@@ -218,34 +218,33 @@
       </div>
 
       <!-- Peach Medallions -->
-      <label
-        for="show-peach-coins-map"
-        class="flex items-center sm:gap-3 gap-2 cursor-pointer group mb-0"
-      >
-        <div
-          class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
-          [class.bg-yellow-400]="showPeachCoins()"
-          [class.border-yellow-400]="showPeachCoins()"
-        >
+      <div class="flex items-center sm:gap-3 gap-2 mb-0">
+        <label for="show-peach-coins-map" class="flex items-center gap-2 cursor-pointer group">
           <div
-            class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
-            [class.scale-100]="showPeachCoins()"
-            [class.scale-0]="!showPeachCoins()"
-          ></div>
-        </div>
-        <img
-          ngSrc="imgs/peach-coin.webp"
-          [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
-          width="24"
-          height="24"
-          class="flex-shrink-0"
-        />
-        <span
-          class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline"
-        >
-          {{ 'MAP_SECTION.PEACH_MEDALLIONS' | translate }}
-        </span>
-      </label>
+            class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+            [class.bg-yellow-400]="showPeachCoins()"
+            [class.border-yellow-400]="showPeachCoins()"
+          >
+            <div
+              class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+              [class.scale-100]="showPeachCoins()"
+              [class.scale-0]="!showPeachCoins()"
+            ></div>
+          </div>
+          <img
+            ngSrc="imgs/peach-coin.webp"
+            [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
+            width="24"
+            height="24"
+            class="flex-shrink-0"
+          />
+          <span
+            class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline"
+          >
+            {{ 'MAP_SECTION.PEACH_MEDALLIONS' | translate }}
+          </span>
+        </label>
+      </div>
       <input
         id="show-peach-coins-map"
         type="checkbox"
