@@ -1,123 +1,258 @@
-<div
-  class="absolute top-2 right-2 z-10 flex items-center gap-2 p-2 rounded-md bg-white/70 backdrop-blur-sm"
+<!-- Settings Toggle Button -->
+<button
+  class="settings-toggle absolute top-2 right-2 z-20 flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ease-out shadow-lg cursor-pointer"
+  [class.bg-yellow-500]="isSettingsOpen()"
+  [class.bg-white]="!isSettingsOpen()"
+  [class.backdrop-blur-sm]="!isSettingsOpen()"
+  [class.hover:bg-yellow-600]="isSettingsOpen()"
+  [class.hover:bg-gray-200]="!isSettingsOpen()"
+  [class.right-0]="isSettingsOpen()"
+  [class.right-2]="!isSettingsOpen()"
+  [class.rounded-r-none]="isSettingsOpen()"
+  [class.border-l]="isSettingsOpen()"
+  [class.border-gray-200]="isSettingsOpen()"
+  (click)="toggleSettings()"
+  [attr.aria-label]="'MAP_SECTION.SETTINGS_TOGGLE' | translate"
+  [attr.aria-expanded]="isSettingsOpen()"
 >
-  <label
-    for="show-collected-map"
-    class="flex items-center gap-2 cursor-pointer group filter-toggle"
+  <span
+    class="material-symbols-outlined text-2xl transition-all duration-300 ease-out"
+    [class.text-white]="isSettingsOpen()"
+    [class.text-gray-700]="!isSettingsOpen()"
+    [class.rotate-180]="isSettingsOpen()"
   >
-    <div
-      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
-      [class.bg-yellow-400]="showCollectedCollectibles()"
-      [class.border-yellow-400]="showCollectedCollectibles()"
-    >
-      <div
-        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
-        [class.scale-100]="showCollectedCollectibles()"
-        [class.scale-0]="!showCollectedCollectibles()"
-      ></div>
-    </div>
-    <span
-      class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200 select-none"
-    >
-      {{ 'MAP_SECTION.SHOW_COLLECTED' | translate }}
-    </span>
-    <input
-      id="show-collected-map"
-      type="checkbox"
-      class="sr-only"
-      [checked]="showCollectedCollectibles()"
-      (change)="toggleShowCollected()"
-    />
-  </label>
-</div>
+    settings
+  </span>
+</button>
+
+<!-- Settings Panel -->
 <div
-  class="absolute top-14 right-2 z-10 flex flex-col gap-3 p-2 rounded-md bg-white/70 backdrop-blur-sm"
+  class="settings-panel absolute top-2 right-0 z-10 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-300 ease-out"
+  [class.settings-panel-open]="isSettingsOpen()"
+  [class.settings-panel-closed]="!isSettingsOpen()"
+  [class.rounded-r-none]="isSettingsOpen()"
 >
-  <label
-    for="show-p-switches-map"
-    class="flex items-center gap-2 cursor-pointer group filter-toggle"
-  >
-    <div
-      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
-      [class.bg-yellow-400]="showPSwitches()"
-      [class.border-yellow-400]="showPSwitches()"
-    >
-      <div
-        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
-        [class.scale-100]="showPSwitches()"
-        [class.scale-0]="!showPSwitches()"
-      ></div>
+  <div class="p-4 space-y-4">
+    <!-- Show Collected Toggle -->
+    <div class="flex items-center justify-between">
+      <label for="show-collected-map" class="flex items-center gap-3 cursor-pointer group">
+        <div
+          class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+          [class.bg-yellow-400]="showCollectedCollectibles()"
+          [class.border-yellow-400]="showCollectedCollectibles()"
+        >
+          <div
+            class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+            [class.scale-100]="showCollectedCollectibles()"
+            [class.scale-0]="!showCollectedCollectibles()"
+          ></div>
+        </div>
+        <span
+          class="text-sm font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline"
+        >
+          {{ 'MAP_SECTION.SHOW_COLLECTED' | translate }}
+        </span>
+        <span
+          class="text-xs w-[80px] font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 sm:hidden"
+        >
+          {{ 'MAP_SECTION.SHOW_COLLECTED' | translate }}
+        </span>
+      </label>
+      <input
+        id="show-collected-map"
+        type="checkbox"
+        class="sr-only"
+        [checked]="showCollectedCollectibles()"
+        (change)="toggleShowCollected()"
+      />
     </div>
-    <img
-      ngSrc="imgs/p-switch.webp"
-      [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
-      width="32"
-      height="20"
-    />
-    <input
-      id="show-p-switches-map"
-      type="checkbox"
-      class="sr-only"
-      [checked]="showPSwitches()"
-      (change)="toggleShowCollectibleType(CollectibleType.P_SWITCH)"
-    />
-  </label>
-  <label
-    for="show-question-mark-panels-map"
-    class="flex items-center gap-2 cursor-pointer group filter-toggle"
-  >
-    <div
-      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
-      [class.bg-yellow-400]="showQuestionMarkPanels()"
-      [class.border-yellow-400]="showQuestionMarkPanels()"
-    >
-      <div
-        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
-        [class.scale-100]="showQuestionMarkPanels()"
-        [class.scale-0]="!showQuestionMarkPanels()"
-      ></div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-200"></div>
+
+    <!-- Collectible Type Filters -->
+    <div class="space-y-3">
+      <h3 class="text-xs font-semibold text-gray-600 uppercase tracking-wide">
+        {{ 'MAP_SECTION.FILTER_BY_TYPE' | translate }}
+      </h3>
+
+      <!-- Desktop Layout: Separate rows -->
+      <div class="hidden sm:inline sm:space-y-3">
+        <!-- P-Switches -->
+        <label for="show-p-switches-map" class="flex items-center gap-3 cursor-pointer group">
+          <div
+            class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+            [class.bg-yellow-400]="showPSwitches()"
+            [class.border-yellow-400]="showPSwitches()"
+          >
+            <div
+              class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+              [class.scale-100]="showPSwitches()"
+              [class.scale-0]="!showPSwitches()"
+            ></div>
+          </div>
+          <img
+            ngSrc="imgs/p-switch.webp"
+            [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
+            width="24"
+            height="15"
+            class="flex-shrink-0"
+          />
+          <span
+            class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200"
+          >
+            {{ 'MAP_SECTION.P_SWITCHES' | translate }}
+          </span>
+        </label>
+        <input
+          id="show-p-switches-map"
+          type="checkbox"
+          class="sr-only"
+          [checked]="showPSwitches()"
+          (change)="toggleShowCollectibleType(CollectibleType.P_SWITCH)"
+        />
+
+        <!-- Question Mark Panels -->
+        <label
+          for="show-question-mark-panels-map"
+          class="flex items-center gap-3 cursor-pointer group"
+        >
+          <div
+            class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+            [class.bg-yellow-400]="showQuestionMarkPanels()"
+            [class.border-yellow-400]="showQuestionMarkPanels()"
+          >
+            <div
+              class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+              [class.scale-100]="showQuestionMarkPanels()"
+              [class.scale-0]="!showQuestionMarkPanels()"
+            ></div>
+          </div>
+          <img
+            ngSrc="imgs/questionmark-panel.webp"
+            [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
+            width="24"
+            height="24"
+            class="flex-shrink-0"
+          />
+          <span
+            class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200"
+          >
+            {{ 'MAP_SECTION.QUESTIONMARK_PANELS' | translate }}
+          </span>
+        </label>
+        <input
+          id="show-question-mark-panels-map"
+          type="checkbox"
+          class="sr-only"
+          [checked]="showQuestionMarkPanels()"
+          (change)="toggleShowCollectibleType(CollectibleType.QUESTIONMARK_PANEL)"
+        />
+      </div>
+
+      <!-- Mobile Layout: Same row for P-Switch and ? Panel -->
+      <div class="sm:hidden flex gap-4">
+        <!-- P-Switches -->
+        <label
+          for="show-p-switches-map-mobile"
+          class="flex items-center gap-2 cursor-pointer group"
+        >
+          <div
+            class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+            [class.bg-yellow-400]="showPSwitches()"
+            [class.border-yellow-400]="showPSwitches()"
+          >
+            <div
+              class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+              [class.scale-100]="showPSwitches()"
+              [class.scale-0]="!showPSwitches()"
+            ></div>
+          </div>
+          <img
+            ngSrc="imgs/p-switch.webp"
+            [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
+            width="20"
+            height="12"
+            class="flex-shrink-0"
+          />
+        </label>
+        <input
+          id="show-p-switches-map-mobile"
+          type="checkbox"
+          class="sr-only"
+          [checked]="showPSwitches()"
+          (change)="toggleShowCollectibleType(CollectibleType.P_SWITCH)"
+        />
+
+        <!-- Question Mark Panels -->
+        <label
+          for="show-question-mark-panels-map-mobile"
+          class="flex items-center gap-2 cursor-pointer group"
+        >
+          <div
+            class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+            [class.bg-yellow-400]="showQuestionMarkPanels()"
+            [class.border-yellow-400]="showQuestionMarkPanels()"
+          >
+            <div
+              class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+              [class.scale-100]="showQuestionMarkPanels()"
+              [class.scale-0]="!showQuestionMarkPanels()"
+            ></div>
+          </div>
+          <img
+            ngSrc="imgs/questionmark-panel.webp"
+            [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
+            width="20"
+            height="20"
+            class="flex-shrink-0"
+          />
+        </label>
+        <input
+          id="show-question-mark-panels-map-mobile"
+          type="checkbox"
+          class="sr-only"
+          [checked]="showQuestionMarkPanels()"
+          (change)="toggleShowCollectibleType(CollectibleType.QUESTIONMARK_PANEL)"
+        />
+      </div>
+
+      <!-- Peach Medallions -->
+      <label
+        for="show-peach-coins-map"
+        class="flex items-center sm:gap-3 gap-2 cursor-pointer group mb-0"
+      >
+        <div
+          class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+          [class.bg-yellow-400]="showPeachCoins()"
+          [class.border-yellow-400]="showPeachCoins()"
+        >
+          <div
+            class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+            [class.scale-100]="showPeachCoins()"
+            [class.scale-0]="!showPeachCoins()"
+          ></div>
+        </div>
+        <img
+          ngSrc="imgs/peach-coin.webp"
+          [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
+          width="24"
+          height="24"
+          class="flex-shrink-0"
+        />
+        <span
+          class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline"
+        >
+          {{ 'MAP_SECTION.PEACH_MEDALLIONS' | translate }}
+        </span>
+      </label>
+      <input
+        id="show-peach-coins-map"
+        type="checkbox"
+        class="sr-only"
+        [checked]="showPeachCoins()"
+        (change)="toggleShowCollectibleType(CollectibleType.PEACH_COIN)"
+      />
     </div>
-    <img
-      ngSrc="imgs/questionmark-panel.webp"
-      [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
-      width="32"
-      height="32"
-    />
-    <input
-      id="show-question-mark-panels-map"
-      type="checkbox"
-      class="sr-only"
-      [checked]="showQuestionMarkPanels()"
-      (change)="toggleShowCollectibleType(CollectibleType.QUESTIONMARK_PANEL)"
-    />
-  </label>
-  <label
-    for="show-peach-coins-map"
-    class="flex items-center gap-2 cursor-pointer group filter-toggle"
-  >
-    <div
-      class="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
-      [class.bg-yellow-400]="showPeachCoins()"
-      [class.border-yellow-400]="showPeachCoins()"
-    >
-      <div
-        class="w-2 h-2 bg-white rounded-sm transition-transform duration-200"
-        [class.scale-100]="showPeachCoins()"
-        [class.scale-0]="!showPeachCoins()"
-      ></div>
-    </div>
-    <img
-      ngSrc="imgs/peach-coin.webp"
-      [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
-      width="32"
-      height="32"
-    />
-    <input
-      id="show-peach-coins-map"
-      type="checkbox"
-      class="sr-only"
-      [checked]="showPeachCoins()"
-      (change)="toggleShowCollectibleType(CollectibleType.PEACH_COIN)"
-    />
-  </label>
+  </div>
 </div>

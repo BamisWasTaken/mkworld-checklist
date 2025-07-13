@@ -1,0 +1,43 @@
+.settings-panel {
+  width: 210px;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.settings-panel-closed {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.settings-panel-open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.settings-toggle:active {
+  transform: scale(0.95);
+}
+
+.settings-panel * {
+  transition: all 0.2s ease-out;
+}
+
+@media (max-width: 640px) {
+  .settings-panel {
+    width: 150px;
+  }
+
+  .settings-panel .p-4 {
+    padding: 0.75rem;
+  }
+
+  .settings-panel .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+
+  .settings-panel .space-y-3 > * + * {
+    margin-top: 0.5rem;
+  }
+}
