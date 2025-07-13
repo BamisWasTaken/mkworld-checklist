@@ -75,6 +75,7 @@
   "MAP_SECTION": {
     "SHOW_COLLECTED": "Show collected",
     "SETTINGS_TOGGLE": "Toggle settings",
+    "FULLSCREEN_TOGGLE": "Toggle fullscreen",
     "FILTER_BY_TYPE": "Filter by type",
     "P_SWITCHES": "P-Switches",
     "QUESTIONMARK_PANELS": "? Panels",

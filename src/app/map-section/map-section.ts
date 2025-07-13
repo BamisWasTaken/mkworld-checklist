@@ -58,6 +58,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
 
   private pzInstance: PanZoom | null = null;
   isPanning = false;
+  isFullscreen = false;
 
   readonly hovered = signal<ChecklistModel | null>(null);
 
@@ -82,6 +83,24 @@ export class MapSection implements AfterViewInit, OnDestroy {
     }
 
     this.tooltipService.setActiveTooltipData(checklistModel);
+  }
+
+  toggleFullscreen(): void {
+    if (this.mapSectionRef()) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+        setTimeout(() => {
+          this.pzInstance?.zoomAbs(0, 0, 1);
+        }, 100);
+      } else {
+        this.mapSectionRef()!.nativeElement.requestFullscreen();
+      }
+    }
+  }
+
+  @HostListener('document:fullscreenchange', [])
+  onFullscreenChange() {
+    this.isFullscreen = !!document.fullscreenElement;
   }
 
   @HostListener('document:click', ['$event'])

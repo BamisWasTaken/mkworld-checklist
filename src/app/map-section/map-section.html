@@ -1,9 +1,26 @@
-<section #mapSection class="relative w-full h-auto rounded-lg shadow overflow-hidden z-50">
+<section
+  #mapSection
+  class="relative w-full h-auto shadow overflow-hidden z-50"
+  [class.rounded-lg]="!isFullscreen"
+>
   <mkworld-settings [visibleCollectibleChecklistModels]="visibleCollectibleChecklistModels()" />
+
+  <!-- Fullscreen Button (Mobile Only) -->
+  <button
+    class="fullscreen-toggle absolute bottom-2 right-2 z-20 flex items-center justify-center w-12 h-12 rounded-full bg-white backdrop-blur-sm shadow-lg hover:bg-gray-200 transition-all duration-200 cursor-pointer sm:hidden"
+    (click)="toggleFullscreen()"
+    [attr.aria-label]="'MAP_SECTION.FULLSCREEN_TOGGLE' | translate"
+  >
+    <span class="material-symbols-outlined text-2xl text-gray-700 transition-all duration-200">
+      fullscreen
+    </span>
+  </button>
+
   <div
     id="map-panzoom"
     #mapPanzoom
     class="w-full h-full relative"
+    [class.fullscreen-map-panzoom]="isFullscreen"
     (contextmenu)="$event.preventDefault()"
   >
     <img

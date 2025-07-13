@@ -3,6 +3,10 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.fullscreen-map-panzoom {
+  width: 111.2vh;
+}
+
 .collectible {
   transition:
     transform 0.2s ease-in-out,
