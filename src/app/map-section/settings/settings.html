@@ -2,10 +2,9 @@
 <button
   class="settings-toggle absolute top-2 right-2 z-20 flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ease-out shadow-lg cursor-pointer"
   [class.bg-yellow-500]="isSettingsOpen()"
-  [class.bg-white]="!isSettingsOpen()"
+  [class.settings-untoggled]="!isSettingsOpen()"
   [class.backdrop-blur-sm]="!isSettingsOpen()"
   [class.hover:bg-yellow-600]="isSettingsOpen()"
-  [class.hover:bg-gray-200]="!isSettingsOpen()"
   [class.right-0]="isSettingsOpen()"
   [class.right-2]="!isSettingsOpen()"
   [class.rounded-r-none]="isSettingsOpen()"

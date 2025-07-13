@@ -16,6 +16,14 @@
   pointer-events: auto;
 }
 
+.settings-untoggled {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.settings-untoggled:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
 .settings-toggle:active {
   transform: scale(0.95);
 }

@@ -91,9 +91,19 @@ export class MapSection implements AfterViewInit, OnDestroy {
         document.exitFullscreen();
         setTimeout(() => {
           this.pzInstance?.zoomAbs(0, 0, 1);
+          this.mapSectionService.updateVisibleCollectibleIndexes(
+            this.mapPanzoomRef()!,
+            this.mapSectionRef()!,
+            this.pzInstance!
+          );
         }, 100);
       } else {
         this.mapSectionRef()!.nativeElement.requestFullscreen();
+        this.mapSectionService.updateVisibleCollectibleIndexes(
+          this.mapPanzoomRef()!,
+          this.mapSectionRef()!,
+          this.pzInstance!
+        );
       }
     }
   }
