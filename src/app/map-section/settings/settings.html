@@ -217,8 +217,11 @@
       </div>
 
       <!-- Peach Medallions -->
-      <div class="flex items-center sm:gap-3 gap-2 mb-0">
-        <label for="show-peach-coins-map" class="flex items-center gap-2 cursor-pointer group">
+      <div class="flex items-center gap-2 sm:gap-3 mb-0">
+        <label
+          for="show-peach-coins-map"
+          class="flex items-center gap-2 sm:gap-3 cursor-pointer group"
+        >
           <div
             class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
             [class.bg-yellow-400]="showPeachCoins()"
@@ -238,7 +241,7 @@
             class="flex-shrink-0"
           />
           <span
-            class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline"
+            class="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline max-w-[100px]"
           >
             {{ 'MAP_SECTION.PEACH_MEDALLIONS' | translate }}
           </span>
