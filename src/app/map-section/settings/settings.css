@@ -28,6 +28,43 @@
   transform: scale(0.95);
 }
 
+/* Firefox-compatible settings toggle animations */
+.settings-toggle {
+  /* Ensure all animatable properties are explicitly set for Firefox */
+  transition: all 0.3s ease-out;
+  /* Force hardware acceleration for smoother animations */
+  transform: translateZ(0);
+  will-change: transform, background-color, border-radius, right, border;
+}
+
+/* Ensure smooth border-radius transitions in Firefox */
+.settings-toggle.rounded-full {
+  border-radius: 9999px;
+}
+
+.settings-toggle.rounded-l-none {
+  border-radius: 9999px 0 0 9999px;
+}
+
+/* Ensure smooth right position transitions */
+.settings-toggle.right-2 {
+  right: 0.5rem;
+}
+
+.settings-toggle.right-0 {
+  right: 0;
+}
+
+/* Ensure smooth border transitions */
+.settings-toggle.border-l {
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.settings-toggle.border-gray-200 {
+  border-left-color: #e5e7eb;
+}
+
 .settings-panel * {
   transition: all 0.2s ease-out;
 }
