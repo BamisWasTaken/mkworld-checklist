@@ -276,296 +276,286 @@
       },
       {
         "milestoneNumber": 8,
-        "amount": 110,
-        "disappearing": false
-      },
-      {
-        "milestoneNumber": 9,
         "amount": 120,
         "disappearing": false
       },
       {
-        "milestoneNumber": 10,
+        "milestoneNumber": 9,
         "amount": 140,
         "disappearing": false
       },
       {
-        "milestoneNumber": 11,
+        "milestoneNumber": 10,
         "amount": 160,
         "disappearing": false
       },
       {
-        "milestoneNumber": 12,
+        "milestoneNumber": 11,
         "amount": 180,
         "disappearing": false
       },
       {
-        "milestoneNumber": 13,
+        "milestoneNumber": 12,
         "amount": 200,
         "disappearing": false
       },
       {
-        "milestoneNumber": 14,
-        "amount": 210,
-        "disappearing": false
-      },
-      {
-        "milestoneNumber": 15,
+        "milestoneNumber": 13,
         "amount": 220,
         "disappearing": false
       },
       {
-        "milestoneNumber": 16,
+        "milestoneNumber": 14,
         "amount": 240,
         "disappearing": false
       },
       {
-        "milestoneNumber": 17,
+        "milestoneNumber": 15,
         "amount": 260,
         "disappearing": false
       },
       {
-        "milestoneNumber": 18,
+        "milestoneNumber": 16,
         "amount": 280,
         "disappearing": false
       },
       {
-        "milestoneNumber": 19,
+        "milestoneNumber": 17,
         "amount": 300,
         "disappearing": false
       },
       {
-        "milestoneNumber": 20,
+        "milestoneNumber": 18,
         "amount": 320,
         "disappearing": false
       },
       {
-        "milestoneNumber": 21,
+        "milestoneNumber": 19,
         "amount": 340,
         "disappearing": false
       },
       {
-        "milestoneNumber": 22,
+        "milestoneNumber": 20,
         "amount": 360,
         "disappearing": false
       },
       {
-        "milestoneNumber": 23,
+        "milestoneNumber": 21,
         "amount": 380,
         "disappearing": false
       },
       {
-        "milestoneNumber": 24,
+        "milestoneNumber": 22,
         "amount": 400,
         "disappearing": false
       },
       {
-        "milestoneNumber": 25,
+        "milestoneNumber": 23,
         "amount": 420,
         "disappearing": false
       },
       {
-        "milestoneNumber": 26,
+        "milestoneNumber": 24,
         "amount": 440,
         "disappearing": false
       },
       {
-        "milestoneNumber": 27,
+        "milestoneNumber": 25,
         "amount": 460,
         "disappearing": false
       },
       {
-        "milestoneNumber": 28,
+        "milestoneNumber": 26,
         "amount": 480,
         "disappearing": false
       },
       {
-        "milestoneNumber": 29,
+        "milestoneNumber": 27,
         "amount": 500,
         "disappearing": false
       },
       {
-        "milestoneNumber": 30,
+        "milestoneNumber": 28,
         "amount": 550,
         "disappearing": false
       },
       {
-        "milestoneNumber": 31,
+        "milestoneNumber": 29,
         "amount": 600,
         "disappearing": false
       },
       {
-        "milestoneNumber": 32,
+        "milestoneNumber": 30,
         "amount": 650,
         "disappearing": false
       },
       {
-        "milestoneNumber": 33,
+        "milestoneNumber": 31,
         "amount": 700,
         "disappearing": false
       },
       {
-        "milestoneNumber": 34,
+        "milestoneNumber": 32,
         "amount": 750,
         "disappearing": false
       },
       {
-        "milestoneNumber": 35,
+        "milestoneNumber": 33,
         "amount": 800,
         "disappearing": false
       },
       {
-        "milestoneNumber": 36,
+        "milestoneNumber": 34,
         "amount": 850,
         "disappearing": false
       },
       {
-        "milestoneNumber": 37,
+        "milestoneNumber": 35,
         "amount": 900,
         "disappearing": false
       },
       {
-        "milestoneNumber": 38,
+        "milestoneNumber": 36,
         "amount": 950,
         "disappearing": false
       },
       {
-        "milestoneNumber": 39,
+        "milestoneNumber": 37,
         "amount": 1000,
         "disappearing": false
       },
       {
-        "milestoneNumber": 40,
+        "milestoneNumber": 38,
         "amount": 1100,
         "disappearing": false
       },
       {
-        "milestoneNumber": 41,
+        "milestoneNumber": 39,
         "amount": 1200,
         "disappearing": false
       },
       {
-        "milestoneNumber": 42,
+        "milestoneNumber": 40,
         "amount": 1300,
         "disappearing": false
       },
       {
-        "milestoneNumber": 43,
+        "milestoneNumber": 41,
         "amount": 1400,
         "disappearing": false
       },
       {
-        "milestoneNumber": 44,
+        "milestoneNumber": 42,
         "amount": 1500,
         "disappearing": false
       },
       {
-        "milestoneNumber": 45,
+        "milestoneNumber": 43,
         "amount": 1600,
         "disappearing": false
       },
       {
-        "milestoneNumber": 46,
+        "milestoneNumber": 44,
         "amount": 1700,
         "disappearing": false
       },
       {
-        "milestoneNumber": 47,
+        "milestoneNumber": 45,
         "amount": 1800,
         "disappearing": false
       },
       {
-        "milestoneNumber": 48,
+        "milestoneNumber": 46,
         "amount": 1900,
         "disappearing": false
       },
       {
-        "milestoneNumber": 49,
+        "milestoneNumber": 47,
         "amount": 2000,
         "disappearing": false
       },
       {
-        "milestoneNumber": 50,
+        "milestoneNumber": 48,
         "amount": 2100,
         "disappearing": false
       },
       {
-        "milestoneNumber": 51,
+        "milestoneNumber": 49,
         "amount": 2200,
         "disappearing": false
       },
       {
-        "milestoneNumber": 52,
+        "milestoneNumber": 50,
         "amount": 2300,
         "disappearing": false
       },
       {
-        "milestoneNumber": 53,
+        "milestoneNumber": 51,
         "amount": 2400,
         "disappearing": false
       },
       {
-        "milestoneNumber": 54,
+        "milestoneNumber": 52,
         "amount": 2500,
         "disappearing": false
       },
       {
-        "milestoneNumber": 55,
+        "milestoneNumber": 53,
         "amount": 2600,
         "disappearing": false
       },
       {
-        "milestoneNumber": 56,
+        "milestoneNumber": 54,
         "amount": 2700,
         "disappearing": false
       },
       {
-        "milestoneNumber": 57,
+        "milestoneNumber": 55,
         "amount": 2800,
         "disappearing": false
       },
       {
-        "milestoneNumber": 58,
+        "milestoneNumber": 56,
         "amount": 2900,
         "disappearing": false
       },
       {
-        "milestoneNumber": 59,
+        "milestoneNumber": 57,
         "amount": 3000,
         "disappearing": false
       },
       {
-        "milestoneNumber": 60,
+        "milestoneNumber": 58,
         "amount": 3200,
         "disappearing": false
       },
       {
-        "milestoneNumber": 61,
+        "milestoneNumber": 59,
         "amount": 3400,
         "disappearing": false
       },
       {
-        "milestoneNumber": 62,
+        "milestoneNumber": 60,
         "amount": 3600,
         "disappearing": false
       },
       {
-        "milestoneNumber": 63,
+        "milestoneNumber": 61,
         "amount": 3800,
         "disappearing": false
       },
       {
-        "milestoneNumber": 64,
+        "milestoneNumber": 62,
         "amount": 4000,
         "disappearing": false
       },
       {
-        "milestoneNumber": 65,
+        "milestoneNumber": 63,
         "amount": 4500,
         "disappearing": false
       },
       {
-        "milestoneNumber": 66,
+        "milestoneNumber": 64,
         "amount": 5000,
         "disappearing": false
       }
