@@ -74,7 +74,12 @@ export class AchievementDataService {
         );
         return {
           ...achievement,
-          milestoneReached: achievementState?.milestoneReached ?? 0,
+          milestoneReached:
+            achievementState &&
+            achievementState.milestoneReached >
+              achievement.milestones[achievement.milestones.length - 1].milestoneNumber
+              ? achievement.milestones[achievement.milestones.length - 1].milestoneNumber
+              : (achievementState?.milestoneReached ?? 0),
           expanded: achievementState?.expanded ?? false,
         };
       })
