@@ -41,7 +41,12 @@ export class MapSection implements AfterViewInit, OnDestroy {
   readonly tooltipTransform = computed(
     () => `scale(${1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.5 : 1)})`
   );
-  readonly collectibleScale = computed(() => 1 - this.panzoomScale() / 15);
+  readonly collectibleScale = computed(() => {
+    const scale = this.panzoomScale();
+    const normalizedScale = (scale - 1) / 12; // Normalize 1-13 to 0-1
+    const result = Math.max(0.1, 1 - 0.9 * Math.pow(normalizedScale, 0.3));
+    return result;
+  });
 
   readonly visibleCollectibleChecklistModels =
     this.mapSectionService.getVisibleCollectibleChecklistModels();
