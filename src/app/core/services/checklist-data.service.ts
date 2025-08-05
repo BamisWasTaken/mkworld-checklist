@@ -14,7 +14,7 @@ export class ChecklistDataService {
   private readonly settingsService = inject(SettingsService);
   private readonly achievementDataService = inject(AchievementDataService);
 
-  private readonly checklistModels = signal<ChecklistModel[]>(checklistData);
+  private readonly checklistModels = signal<ChecklistModel[]>([]);
 
   private readonly collectibleChecklistModelsOnMap = computed(() => {
     let checklistModels = this.checklistModels();
@@ -170,18 +170,18 @@ export class ChecklistDataService {
   }
 
   importChecklistModels(checklistModelStates: ChecklistModelState[]): void {
-    this.checklistModels.update((checklistModels: ChecklistModel[]) =>
-      checklistModels.map((checklistModel: ChecklistModel) => {
-        const checklistModelState = checklistModelStates.find(
-          (checklistModelState: ChecklistModelState) =>
-            checklistModelState.index === checklistModel.index
-        );
-        return {
-          ...checklistModel,
-          checked: checklistModelState?.checked ?? checklistModel.checked,
-        };
-      })
-    );
+    const importedChecklistModelData = checklistData.map((checklistModel: ChecklistModel) => {
+      const checklistModelState = checklistModelStates.find(
+        (checklistModelState: ChecklistModelState) =>
+          checklistModelState.index === checklistModel.index
+      );
+      return {
+        ...checklistModel,
+        checked: checklistModelState?.checked ?? checklistModel.checked,
+      };
+    });
+
+    this.checklistModels.set(importedChecklistModelData);
   }
 
   performQuickAction(quickAction: QuickAction): void {
@@ -239,6 +239,8 @@ export class ChecklistDataService {
     if (storedChecklistModels) {
       const checklistModelStates: ChecklistModelState[] = JSON.parse(storedChecklistModels);
       this.importChecklistModels(checklistModelStates);
+    } else {
+      this.checklistModels.set(checklistData);
     }
   }
 }

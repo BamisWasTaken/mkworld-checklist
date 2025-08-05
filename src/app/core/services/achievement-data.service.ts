@@ -10,7 +10,7 @@ import { CONSTANTS } from '../../constants';
 export class AchievementDataService {
   private readonly platformId = inject(PLATFORM_ID);
 
-  private readonly achievements = signal<Achievement[]>(achievementsData as Achievement[]);
+  private readonly achievements = signal<Achievement[]>([]);
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
@@ -67,8 +67,8 @@ export class AchievementDataService {
   }
 
   importAchievements(achievementStates: AchievementState[]): void {
-    this.achievements.update((achievements: Achievement[]) =>
-      achievements.map((achievement: Achievement) => {
+    const importedAchievementData = (achievementsData as Achievement[]).map(
+      (achievement: Achievement) => {
         const achievementState = achievementStates.find(
           (achievementState: AchievementState) => achievementState.index === achievement.index
         );
@@ -82,8 +82,10 @@ export class AchievementDataService {
               : (achievementState?.milestoneReached ?? 0),
           expanded: achievementState?.expanded ?? false,
         };
-      })
+      }
     );
+
+    this.achievements.set(importedAchievementData);
   }
 
   resetAchievements(): void {
@@ -122,6 +124,8 @@ export class AchievementDataService {
     if (storedAchievements) {
       const achievementStates: AchievementState[] = JSON.parse(storedAchievements);
       this.importAchievements(achievementStates);
+    } else {
+      this.achievements.set(achievementsData as Achievement[]);
     }
   }
 }
