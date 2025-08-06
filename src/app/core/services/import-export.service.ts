@@ -4,6 +4,7 @@ import {
   AchievementState,
   ChecklistModel,
   ChecklistModelState,
+  Map,
   SaveFile,
   Settings,
 } from '../models';
@@ -37,6 +38,7 @@ export class ImportExportService {
       showCollectedStickers: this.settingsService.shouldShowCollectedStickers()(),
       showCollectedCollectibles: this.settingsService.shouldShowCollectedCollectibles()(),
       shownCollectibleTypes: this.settingsService.getShownCollectibleTypes()(),
+      map: this.settingsService.getMap()() ?? Map.UPSCALED_MAP,
     };
 
     const saveFile: SaveFile = {

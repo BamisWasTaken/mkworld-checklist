@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { computed, effect, inject, Injectable, PLATFORM_ID, Signal, signal } from '@angular/core';
 import { CONSTANTS } from '../../constants';
-import { CollectibleType, Settings } from '../models';
+import { CollectibleType, Map, Settings } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +27,8 @@ export class SettingsService {
     this.shownCollectibleTypes().includes(CollectibleType.P_SWITCH)
   );
 
+  private readonly map = signal<Map | null>(null);
+
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
       this.loadSettingsFromStorage();
@@ -36,6 +38,7 @@ export class SettingsService {
           showCollectedStickers: this.showCollectedStickers(),
           showCollectedCollectibles: this.showCollectedCollectibles(),
           shownCollectibleTypes: this.shownCollectibleTypes(),
+          map: this.map() ?? Map.UPSCALED_MAP,
         };
         localStorage.setItem(CONSTANTS.STORAGE_KEY_SETTINGS, JSON.stringify(settings));
       });
@@ -83,6 +86,14 @@ export class SettingsService {
     return this.showPSwitches;
   }
 
+  getMap(): Signal<Map | null> {
+    return this.map.asReadonly();
+  }
+
+  setMap(map: Map) {
+    this.map.set(map);
+  }
+
   importSettings(settings: Settings): void {
     if (settings.showCollectedStickers !== undefined) {
       this.showCollectedStickers.set(settings.showCollectedStickers);
@@ -93,6 +104,9 @@ export class SettingsService {
     if (settings.shownCollectibleTypes !== undefined) {
       this.shownCollectibleTypes.set(settings.shownCollectibleTypes);
     }
+    if (settings.map !== undefined) {
+      this.map.set(settings.map);
+    }
   }
 
   private loadSettingsFromStorage(): void {
@@ -100,6 +114,8 @@ export class SettingsService {
     if (storedSettings) {
       const settings: Settings = JSON.parse(storedSettings);
       this.importSettings(settings);
+    } else {
+      this.map.set(Map.UPSCALED_MAP);
     }
   }
 }

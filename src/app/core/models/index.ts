@@ -9,3 +9,4 @@ export * from './achievement-state';
 export * from './checklist-model-state';
 export * from './save-file';
 export * from './quick-action';
+export * from './map';

@@ -256,5 +256,42 @@
         (change)="toggleShowCollectibleType(CollectibleType.PEACH_COIN)"
       />
     </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-200"></div>
+
+    <!-- Use Upscaled Map Toggle -->
+    <div class="flex items-center justify-between">
+      <label for="use-upscaled-map" class="flex items-center gap-3 cursor-pointer group">
+        <div
+          class="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center transition-all duration-200 group-hover:border-gray-500"
+          [class.bg-yellow-400]="useUpscaledMap()"
+          [class.border-yellow-400]="useUpscaledMap()"
+        >
+          <div
+            class="w-2.5 h-2.5 bg-white rounded-sm transition-transform duration-200"
+            [class.scale-100]="useUpscaledMap()"
+            [class.scale-0]="!useUpscaledMap()"
+          ></div>
+        </div>
+        <span
+          class="text-sm font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline"
+        >
+          {{ 'MAP_SECTION.USE_UPSCALED_MAP' | translate }}
+        </span>
+        <span
+          class="text-xs w-[80px] font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 sm:hidden"
+        >
+          {{ 'MAP_SECTION.USE_UPSCALED_MAP' | translate }}
+        </span>
+      </label>
+      <input
+        id="use-upscaled-map"
+        type="checkbox"
+        class="sr-only"
+        [checked]="useUpscaledMap()"
+        (change)="toggleUpscaledMap()"
+      />
+    </div>
   </div>
 </div>

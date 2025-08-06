@@ -1,186 +1,194 @@
-<section class="w-full bg-gray-200 rounded-lg shadow p-4 flex flex-col items-center todo-section">
-  <h2
-    class="text-xl text-center lg:text-left font-bold mb-4 w-full todo-title"
-    [style.color]="titleColor()"
-    [class.completed]="progress() === total()"
-  >
-    {{ 'TODO_SECTION.TITLE' | translate: { progress: progress(), total: total() } }}
-  </h2>
+@if (total() > 0) {
+  <section class="w-full bg-gray-200 rounded-lg shadow p-4 flex flex-col items-center todo-section">
+    <h2
+      class="text-xl text-center lg:text-left font-bold mb-4 w-full todo-title"
+      [style.color]="titleColor()"
+      [class.completed]="progress() === total()"
+    >
+      {{ 'TODO_SECTION.TITLE' | translate: { progress: progress(), total: total() } }}
+    </h2>
 
-  <!-- Collectibles Section -->
-  @if (
-    uncollectedPeachCoins() > 0 ||
-    uncollectedQuestionMarkPanels() > 0 ||
-    uncollectedPSwitches() > 0 ||
-    lastPeachCoinBeingRemoved() ||
-    lastQuestionMarkPanelBeingRemoved() ||
-    lastPSwitchBeingRemoved()
-  ) {
+    <!-- Collectibles Section -->
+    @if (
+      uncollectedPeachCoins() > 0 ||
+      uncollectedQuestionMarkPanels() > 0 ||
+      uncollectedPSwitches() > 0 ||
+      lastPeachCoinBeingRemoved() ||
+      lastQuestionMarkPanelBeingRemoved() ||
+      lastPSwitchBeingRemoved()
+    ) {
+      <div class="w-full mb-6">
+        <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
+          {{ 'TODO_SECTION.COLLECTIBLES_TITLE' | translate }}
+        </h3>
+        <ul class="w-full flex flex-col text-gray-700 todo-list">
+          @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
+            <li
+              class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
+              [class.removing]="lastPeachCoinBeingRemoved()"
+            >
+              <img
+                ngSrc="imgs/peach-coin.webp"
+                [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
+                width="32"
+                height="32"
+              />
+              <span class="flex-1">{{
+                'TODO_SECTION.PEACH_MEDALLION_TODO'
+                  | translate: { uncollected: uncollectedPeachCoins() }
+              }}</span>
+            </li>
+          }
+          @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
+            <li
+              class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
+              [class.removing]="lastQuestionMarkPanelBeingRemoved()"
+            >
+              <img
+                ngSrc="imgs/questionmark-panel.webp"
+                [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
+                width="32"
+                height="32"
+              />
+              <span class="flex-1">{{
+                'TODO_SECTION.QUESTIONMARK_PANEL_TODO'
+                  | translate: { uncollected: uncollectedQuestionMarkPanels() }
+              }}</span>
+            </li>
+          }
+          @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
+            <li
+              class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
+              [class.removing]="lastPSwitchBeingRemoved()"
+            >
+              <img
+                ngSrc="imgs/p-switch.webp"
+                [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
+                width="32"
+                height="20"
+              />
+              <span class="flex-1">{{
+                'TODO_SECTION.PSWITCH_TODO' | translate: { uncollected: uncollectedPSwitches() }
+              }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+
+    <!-- Achievements Section -->
     <div class="w-full mb-6">
       <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
-        {{ 'TODO_SECTION.COLLECTIBLES_TITLE' | translate }}
+        {{ 'TODO_SECTION.ACHIEVEMENTS_TITLE' | translate }}
       </h3>
       <ul class="w-full flex flex-col text-gray-700 todo-list">
-        @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
-          <li
-            class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
-            [class.removing]="lastPeachCoinBeingRemoved()"
-          >
-            <img
-              ngSrc="imgs/peach-coin.webp"
-              [alt]="'SHARED.PEACH_MEDALLION_ALT_TEXT' | translate"
-              width="32"
-              height="32"
-            />
-            <span class="flex-1">{{
-              'TODO_SECTION.PEACH_MEDALLION_TODO'
-                | translate: { uncollected: uncollectedPeachCoins() }
-            }}</span>
-          </li>
-        }
-        @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
-          <li
-            class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
-            [class.removing]="lastQuestionMarkPanelBeingRemoved()"
-          >
-            <img
-              ngSrc="imgs/questionmark-panel.webp"
-              [alt]="'SHARED.QUESTIONMARK_PANEL_ALT_TEXT' | translate"
-              width="32"
-              height="32"
-            />
-            <span class="flex-1">{{
-              'TODO_SECTION.QUESTIONMARK_PANEL_TODO'
-                | translate: { uncollected: uncollectedQuestionMarkPanels() }
-            }}</span>
-          </li>
-        }
-        @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
-          <li
-            class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
-            [class.removing]="lastPSwitchBeingRemoved()"
-          >
-            <img
-              ngSrc="imgs/p-switch.webp"
-              [alt]="'SHARED.P_SWITCH_ALT_TEXT' | translate"
-              width="32"
-              height="20"
-            />
-            <span class="flex-1">{{
-              'TODO_SECTION.PSWITCH_TODO' | translate: { uncollected: uncollectedPSwitches() }
-            }}</span>
-          </li>
-        }
-      </ul>
-    </div>
-  }
-
-  <!-- Achievements Section -->
-  <div class="w-full mb-6">
-    <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
-      {{ 'TODO_SECTION.ACHIEVEMENTS_TITLE' | translate }}
-    </h3>
-    <ul class="w-full flex flex-col text-gray-700 todo-list">
-      @for (achievement of achievements(); track achievement.index) {
-        <li class="rounded shadow-sm">
-          <div
-            class="flex items-center gap-2 bg-gray-50 p-2 todo-item appearing cursor-pointer hover:bg-gray-100 transition-colors duration-200"
-            [class.achievement-completed]="
-              achievement.milestoneReached === achievement.milestones.length
-            "
-            (click)="toggleAchievementExpanded(achievement)"
-          >
+        @for (achievement of achievements(); track achievement.index) {
+          <li class="rounded shadow-sm">
             <div
-              class="w-8 h-8 rounded-full flex items-center justify-center"
-              [class.bg-gray-300]="achievement.milestoneReached !== achievement.milestones.length"
-              [class.bg-yellow-400]="achievement.milestoneReached === achievement.milestones.length"
+              class="flex items-center gap-2 bg-gray-50 p-2 todo-item appearing cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+              [class.achievement-completed]="
+                achievement.milestoneReached === achievement.milestones.length
+              "
+              (click)="toggleAchievementExpanded(achievement)"
             >
-              <span class="text-lg font-bold">{{ achievement.icon }}</span>
-            </div>
-            <span class="flex-1 font-medium">
-              {{
-                'TODO_SECTION.ACHIEVEMENTS.' + achievement.title
-                  | translate
-                    : {
-                        current:
-                          (achievement.milestoneReached > 0
-                            ? achievement.milestones[achievement.milestoneReached - 1].amount
-                            : 0
-                          ) | number,
-                        total:
-                          achievement.milestones[achievement.milestones.length - 1].amount | number,
-                      }
-              }}
-            </span>
-            <div class="w-6 h-6 flex items-center justify-center">
-              <span
-                class="text-sm transition-transform duration-200"
-                [class.rotate-90]="achievement.expanded"
+              <div
+                class="w-8 h-8 rounded-full flex items-center justify-center"
+                [class.bg-gray-300]="achievement.milestoneReached !== achievement.milestones.length"
+                [class.bg-yellow-400]="
+                  achievement.milestoneReached === achievement.milestones.length
+                "
               >
-                ▶
+                <span class="text-lg font-bold">{{ achievement.icon }}</span>
+              </div>
+              <span class="flex-1 font-medium">
+                {{
+                  'TODO_SECTION.ACHIEVEMENTS.' + achievement.title
+                    | translate
+                      : {
+                          current:
+                            (achievement.milestoneReached > 0
+                              ? achievement.milestones[achievement.milestoneReached - 1].amount
+                              : 0
+                            ) | number,
+                          total:
+                            achievement.milestones[achievement.milestones.length - 1].amount
+                            | number,
+                        }
+                }}
               </span>
-            </div>
-          </div>
-
-          <!-- Milestones Content -->
-          <div class="milestones-container" [class.expanded]="achievement.expanded">
-            @for (milestone of achievement.milestones; track $index) {
-              @if (
-                milestone.milestoneNumber >= achievement.milestoneReached || milestone.disappearing
-              ) {
-                <div
-                  class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing ml-4 mt-1"
-                  [class.opacity-60]="achievement.milestoneReached === milestone.milestoneNumber"
-                  [class.line-through]="achievement.milestoneReached === milestone.milestoneNumber"
-                  [class.removing]="milestone.disappearing"
-                  [class.mb-1]="$last"
+              <div class="w-6 h-6 flex items-center justify-center">
+                <span
+                  class="text-sm transition-transform duration-200"
+                  [class.rotate-90]="achievement.expanded"
                 >
-                  <input
-                    type="checkbox"
-                    class="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
-                    [checked]="milestone.milestoneNumber <= achievement.milestoneReached"
-                    (change)="onMilestoneCheck(achievement, milestone)"
-                    (click)="$event.stopPropagation()"
-                  />
-                  <span class="flex-1">
-                    {{ milestone.amount | number }}
-                  </span>
-                </div>
-              }
-            }
-          </div>
-        </li>
-      }
-    </ul>
-  </div>
-
-  <!-- Other Items Section -->
-  @if (todoItems().length > 0) {
-    <div class="w-full">
-      <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
-        {{ 'TODO_SECTION.OTHER_TITLE' | translate }}
-      </h3>
-      <ul class="w-full flex flex-col text-gray-700 todo-list">
-        @for (item of todoItems(); track item.checklistModel.index) {
-          <li
-            class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
-            [class.appearing]="item.appearing"
-            [class.removing]="
-              item.checklistModel.disappearingFromStickerAlbum && item.amountUnchecked === 1
-            "
-          >
-            <div class="w-8 min-h-8 flex items-center justify-center relative">
-              <img
-                ngSrc="imgs/stickers/sticker-{{ item.checklistModel.index }}.webp"
-                [alt]="'STICKERS.' + item.checklistModel.stickerAltText | translate"
-                fill
-                class="w-8 h-auto object-contain"
-              />
+                  ▶
+                </span>
+              </div>
             </div>
-            <span class="flex-1 instructions">{{ item.checklistModel.instructions }}</span>
+
+            <!-- Milestones Content -->
+            <div class="milestones-container" [class.expanded]="achievement.expanded">
+              @for (milestone of achievement.milestones; track $index) {
+                @if (
+                  milestone.milestoneNumber >= achievement.milestoneReached ||
+                  milestone.disappearing
+                ) {
+                  <div
+                    class="milestone-item flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing ml-4 mt-1"
+                    [class.opacity-60]="achievement.milestoneReached === milestone.milestoneNumber"
+                    [class.line-through]="
+                      achievement.milestoneReached === milestone.milestoneNumber
+                    "
+                    [class.removing]="milestone.disappearing"
+                    [class.mb-1]="$last"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
+                      [checked]="milestone.milestoneNumber <= achievement.milestoneReached"
+                      (change)="onMilestoneCheck(achievement, milestone)"
+                      (click)="$event.stopPropagation()"
+                    />
+                    <span class="flex-1">
+                      {{ milestone.amount | number }}
+                    </span>
+                  </div>
+                }
+              }
+            </div>
           </li>
         }
       </ul>
     </div>
-  }
-</section>
+
+    <!-- Other Items Section -->
+    @if (todoItems().length > 0) {
+      <div class="w-full">
+        <h3 class="text-lg font-semibold mb-3 text-gray-800 border-b border-gray-200">
+          {{ 'TODO_SECTION.OTHER_TITLE' | translate }}
+        </h3>
+        <ul class="w-full flex flex-col text-gray-700 todo-list">
+          @for (item of todoItems(); track item.checklistModel.index) {
+            <li
+              class="flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item"
+              [class.appearing]="item.appearing"
+              [class.removing]="
+                item.checklistModel.disappearingFromStickerAlbum && item.amountUnchecked === 1
+              "
+            >
+              <div class="w-8 min-h-8 flex items-center justify-center relative">
+                <img
+                  ngSrc="imgs/stickers/sticker-{{ item.checklistModel.index }}.webp"
+                  [alt]="'STICKERS.' + item.checklistModel.stickerAltText | translate"
+                  fill
+                  class="w-8 h-auto object-contain"
+                />
+              </div>
+              <span class="flex-1 instructions">{{ item.checklistModel.instructions }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  </section>
+}
