@@ -53,6 +53,15 @@
               ],
               "outputHashing": "all"
             },
+            "angular": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "ssr": {
+                "entry": "src/server.angular.ts",
+                "experimentalPlatform": "node"
+              }
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -69,6 +78,9 @@
             },
             "development": {
               "buildTarget": "mkworld-checklist:build:development"
+            },
+            "angular": {
+              "buildTarget": "mkworld-checklist:build:angular"
             }
           },
           "defaultConfiguration": "development"

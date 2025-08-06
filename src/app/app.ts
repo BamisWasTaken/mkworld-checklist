@@ -30,7 +30,6 @@ export class App {
 
   constructor() {
     this.translateService.addLangs(['en']);
-    this.translateService.setDefaultLang('en');
     this.translateService.use('en');
   }
 }
