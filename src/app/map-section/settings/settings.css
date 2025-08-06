@@ -69,6 +69,18 @@
   transition: all 0.2s ease-out;
 }
 
+.toggle-switch {
+  will-change: background-color;
+}
+
+.toggle-switch-thumb {
+  will-change: transform;
+}
+
+.toggle-switch:active .toggle-switch-thumb {
+  transform: scale(0.95);
+}
+
 @media (max-width: 640px) {
   .settings-panel {
     width: 150px;

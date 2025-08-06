@@ -80,7 +80,7 @@
     "P_SWITCHES": "P-Switches",
     "QUESTIONMARK_PANELS": "? Panels",
     "PEACH_MEDALLIONS": "Peach Medallions",
-    "USE_UPSCALED_MAP": "Use Upscaled Map",
+    "USE_UPSCALED_MAP": "Upscale",
     "COLLECTIBLE_MARKER_ARIA_LABEL": "Collectible marker {{index}}",
     "TOOLTIP": {
       "PEACH_COIN_STICKER_TOOLTIP": "This collectible unlocks a random sticker",
