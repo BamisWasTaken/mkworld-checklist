@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run build && wrangler dev",
+    "start:angular": "ng serve --configuration angular --hmr false",
+    "start:wrangler": "npm run build && wrangler dev",
     "build": "ng build",
+    "build:angular": "ng build --configuration angular",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:mkworld-checklist": "node dist/server/server.mjs",
