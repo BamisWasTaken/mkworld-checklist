@@ -103,6 +103,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
           );
         }, 100);
       } else {
+        this.pzInstance?.zoomAbs(0, 0, 1.7);
+        this.pzInstance?.setMinZoom(1.7);
         this.mapSectionRef()!.nativeElement.requestFullscreen();
         this.mapSectionService.updateVisibleCollectibleIndexes(
           this.mapPanzoomRef()!,
