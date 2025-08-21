@@ -6,7 +6,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mkworld-checklist",
   "main": "./dist/server/server.mjs",
-  "compatibility_date": "2025-07-10",
+  "compatibility_date": "2025-08-21",
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist/browser",
