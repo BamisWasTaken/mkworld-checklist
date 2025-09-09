@@ -18,12 +18,13 @@ import { ChecklistModel, CollectibleType } from '../core/models';
 import { MapSectionService, MobileService, TooltipService } from '../core/services';
 import { Settings } from './settings/settings';
 import { Tooltip } from './tooltip/tooltip';
+import { HoverTooltip } from './hover-tooltip/hover-tooltip';
 
 @Component({
   selector: 'mkworld-map-section',
   templateUrl: './map-section.html',
   styleUrls: ['./map-section.css'],
-  imports: [TranslateModule, Tooltip, NgStyle, NgOptimizedImage, Settings],
+  imports: [TranslateModule, Tooltip, NgStyle, NgOptimizedImage, Settings, HoverTooltip],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapSection implements AfterViewInit, OnDestroy {
@@ -38,8 +39,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly mapSectionRef = viewChild<ElementRef>('mapSection');
 
   readonly panzoomScale = signal(1);
-  readonly tooltipTransform = computed(
-    () => `scale(${1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.5 : 1)})`
+  readonly tooltipScale = computed(
+    () => 1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.5 : 1)
   );
   readonly collectibleScale = computed(() => {
     const scale = this.panzoomScale();
@@ -57,7 +58,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
       this.mapPanzoomRef()!,
       this.mapSectionRef()!,
       this.pzInstance!,
-      this.activeTooltipData()?.collectibleModel
+      !this.activeTooltipData()?.collectibleModel,
+      this.activeTooltipData()?.collectibleModel ?? this.hovered()?.collectibleModel
     )
   );
 
@@ -94,8 +96,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
     if (this.mapSectionRef()) {
       if (document.fullscreenElement) {
         document.exitFullscreen();
+        this.pzInstance?.setMinZoom(1);
         setTimeout(() => {
-          this.pzInstance?.zoomAbs(0, 0, 1);
           this.mapSectionService.updateVisibleCollectibleIndexes(
             this.mapPanzoomRef()!,
             this.mapSectionRef()!,
@@ -103,9 +105,9 @@ export class MapSection implements AfterViewInit, OnDestroy {
           );
         }, 100);
       } else {
+        this.mapSectionRef()!.nativeElement.requestFullscreen();
         this.pzInstance?.zoomAbs(0, 0, 1.7);
         this.pzInstance?.setMinZoom(1.7);
-        this.mapSectionRef()!.nativeElement.requestFullscreen();
         this.mapSectionService.updateVisibleCollectibleIndexes(
           this.mapPanzoomRef()!,
           this.mapSectionRef()!,

@@ -89,6 +89,7 @@ export class MapSectionService {
     mapPanzoomRef: ElementRef,
     mapSectionRef: ElementRef,
     pzInstance: PanZoom,
+    isHoverTooltip: boolean,
     collectibleModel?: CollectibleModel
   ): TooltipPosition {
     if (!collectibleModel) {
@@ -97,13 +98,15 @@ export class MapSectionService {
 
     const visibleBounds = this.calculateVisibleBounds(mapPanzoomRef, mapSectionRef, pzInstance);
 
-    // Calculate available space in each direction
     const spaceAbove = collectibleModel.yPercentage - visibleBounds.top;
     const spaceBelow = visibleBounds.bottom - collectibleModel.yPercentage;
     const spaceLeft = collectibleModel.xPercentage - visibleBounds.left;
     const spaceRight = visibleBounds.right - collectibleModel.xPercentage;
 
-    // Final fallback: choose the position with the most available space
+    if (isHoverTooltip && spaceAbove > 10 && spaceLeft > 15 && spaceRight > 15) {
+      return TooltipPosition.ABOVE;
+    }
+
     const spaceScores = [
       { position: TooltipPosition.ABOVE, score: Math.min(spaceAbove, spaceLeft, spaceRight) },
       { position: TooltipPosition.BELOW, score: Math.min(spaceBelow, spaceLeft, spaceRight) },

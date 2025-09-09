@@ -1,0 +1,17 @@
+<div class="hover-tooltip absolute pointer-events-none" [class]="'hover-tooltip-' + position()">
+  <div class="hover-tooltip-content">
+    <div class="w-[32px] h-[32px] relative">
+      <img
+        class="hover-tooltip-sticker"
+        [ngSrc]="`/imgs/stickers/sticker-${checklistModel().index}.webp`"
+        [alt]="'STICKERS.' + checklistModel().stickerAltText | translate"
+        fill
+      />
+    </div>
+    @if (checklistModel().collectibleModel!.collectibleType === CollectibleType.P_SWITCH) {
+      <div class="hover-tooltip-mission-name">
+        {{ 'STICKERS.' + checklistModel().collectibleModel!.missionName | translate }}
+      </div>
+    }
+  </div>
+</div>

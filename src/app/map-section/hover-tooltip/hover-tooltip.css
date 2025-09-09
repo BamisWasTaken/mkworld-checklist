@@ -1,0 +1,93 @@
+.hover-tooltip-above {
+  transform: translate(-50%, -100%) translateY(-16px);
+  animation: hover-tooltip-appear-above 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.hover-tooltip-below {
+  transform: translate(-50%, 0) translateY(16px);
+  animation: hover-tooltip-appear-below 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.hover-tooltip-left {
+  transform: translate(-100%, -50%) translateX(-16px);
+  animation: hover-tooltip-appear-left 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.hover-tooltip-right {
+  transform: translate(0, -50%) translateX(16px);
+  animation: hover-tooltip-appear-right 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.hover-tooltip-content {
+  background: rgb(55, 65, 81);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  gap: 8px;
+}
+
+.hover-tooltip-sticker {
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 2px white);
+}
+
+.hover-tooltip-mission-name {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.2;
+  margin: 0;
+  min-width: 200px;
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+  flex: 1;
+}
+
+@keyframes hover-tooltip-appear-above {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hover-tooltip-appear-below {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hover-tooltip-appear-left {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hover-tooltip-appear-right {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

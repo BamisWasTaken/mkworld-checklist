@@ -36,6 +36,26 @@
       collectibleChecklistModel of visibleCollectibleChecklistModels();
       track collectibleChecklistModel.index
     ) {
+      @if (
+        !activeTooltipData() &&
+        hovered() === collectibleChecklistModel &&
+        (collectibleChecklistModel.collectibleModel?.collectibleType ===
+          CollectibleType.QUESTIONMARK_PANEL ||
+          collectibleChecklistModel.collectibleModel?.collectibleType === CollectibleType.P_SWITCH)
+      ) {
+        <div
+          class="map-tooltip-container absolute z-20"
+          [style.left.%]="collectibleChecklistModel.collectibleModel!.xPercentage"
+          [style.top.%]="collectibleChecklistModel.collectibleModel!.yPercentage"
+        >
+          <div [style.transform]="`scale(${tooltipScale()})`">
+            <mkworld-hover-tooltip
+              [checklistModel]="collectibleChecklistModel"
+              [position]="tooltipPosition()"
+            />
+          </div>
+        </div>
+      }
       <div
         id="collectible-div-{{ collectibleChecklistModel.index }}"
         class="collectible absolute"
@@ -87,7 +107,7 @@
         [style.left.%]="activeTooltipData()!.collectibleModel!.xPercentage"
         [style.top.%]="activeTooltipData()!.collectibleModel!.yPercentage"
       >
-        <div [style.transform]="tooltipTransform()">
+        <div [style.transform]="`scale(${tooltipScale()})`">
           <mkworld-tooltip [checklistModel]="tooltipData" [position]="tooltipPosition()" />
         </div>
       </div>
