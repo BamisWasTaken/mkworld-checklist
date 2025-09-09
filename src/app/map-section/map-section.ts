@@ -96,8 +96,11 @@ export class MapSection implements AfterViewInit, OnDestroy {
     if (this.mapSectionRef()) {
       if (document.fullscreenElement) {
         document.exitFullscreen();
-        this.pzInstance?.setMinZoom(1);
+        if (!this.mobileService.getIsMobileView()()) {
+          this.pzInstance?.setMinZoom(1);
+        }
         setTimeout(() => {
+          this.pzInstance?.zoomAbs(0, 0, 1);
           this.mapSectionService.updateVisibleCollectibleIndexes(
             this.mapPanzoomRef()!,
             this.mapSectionRef()!,
@@ -106,8 +109,10 @@ export class MapSection implements AfterViewInit, OnDestroy {
         }, 100);
       } else {
         this.mapSectionRef()!.nativeElement.requestFullscreen();
-        this.pzInstance?.zoomAbs(0, 0, 1.7);
-        this.pzInstance?.setMinZoom(1.7);
+        if (!this.mobileService.getIsMobileView()()) {
+          this.pzInstance?.zoomAbs(0, 0, 1.7);
+          this.pzInstance?.setMinZoom(1.7);
+        }
         this.mapSectionService.updateVisibleCollectibleIndexes(
           this.mapPanzoomRef()!,
           this.mapSectionRef()!,
