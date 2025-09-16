@@ -2,6 +2,7 @@
   class="confirmation-popup fixed inset-0 bg-black/50 flex items-center justify-center z-51 transition-opacity duration-300"
   [class.opacity-0]="!isOpen()"
   [class.pointer-events-none]="!isOpen()"
+  [style.display]="isOpen() ? 'flex' : 'none'"
   (click)="confirmed.emit(false)"
 >
   <div

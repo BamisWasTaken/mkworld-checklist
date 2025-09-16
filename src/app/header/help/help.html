@@ -2,6 +2,7 @@
   class="help-modal fixed inset-0 bg-black/50 z-51 flex items-center justify-center transition-opacity duration-300"
   [class.opacity-0]="!isOpen()"
   [class.pointer-events-none]="!isOpen()"
+  [style.display]="isOpen() ? 'flex' : 'none'"
   (click)="closeHelp.emit()"
 >
   <div
