@@ -23,15 +23,17 @@
     [class.fullscreen-map-panzoom]="isFullscreen"
     (contextmenu)="$event.preventDefault()"
   >
-    <img
-      ngSrc="/imgs/map.webp"
-      alt="Mario Kart World Map"
-      class="cursor-grab"
-      width="2580"
-      height="2580"
-      [class.cursor-grabbing]="isPanning"
-      priority
-    />
+    @if (map()) {
+      <img
+        [ngSrc]="`/imgs/${map()}.webp`"
+        alt="Mario Kart World Map"
+        class="cursor-grab"
+        width="2580"
+        height="2580"
+        [class.cursor-grabbing]="isPanning"
+        priority
+      />
+    }
     @for (
       collectibleChecklistModel of visibleCollectibleChecklistModels();
       track collectibleChecklistModel.index

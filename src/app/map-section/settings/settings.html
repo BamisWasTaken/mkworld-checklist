@@ -32,7 +32,43 @@
   [class.settings-panel-closed]="!isSettingsOpen()"
   [class.rounded-r-none]="isSettingsOpen()"
 >
-  <div class="p-4 space-y-4">
+  <div class="p-2 sm:p-4 space-y-2 sm:space-y-4">
+    <!-- Use Upscaled Map Toggle -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Toggle Switch -->
+      <button
+        type="button"
+        class="toggle-switch relative inline-flex h-5 w-9 sm:h-6 sm:w-11 items-center rounded-full transition-all duration-500 ease-in-out focus:outline-none cursor-pointer"
+        [class.bg-yellow-400]="useUpscaledMap()"
+        [class.bg-gray-300]="!useUpscaledMap()"
+        (click)="toggleUpscaledMap()"
+        [attr.aria-checked]="useUpscaledMap()"
+        role="switch"
+        [attr.aria-label]="'MAP_SECTION.USE_UPSCALED_MAP' | translate"
+      >
+        <span
+          class="toggle-switch-thumb inline-block h-3 w-3 sm:h-4 sm:w-4 transform rounded-full bg-white shadow-lg transition-all duration-500 ease-in-out"
+          [class.translate-x-5]="useUpscaledMap()"
+          [class.sm:translate-x-6]="useUpscaledMap()"
+          [class.translate-x-1]="!useUpscaledMap()"
+        ></span>
+      </button>
+
+      <span
+        class="text-sm font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 hidden sm:inline"
+      >
+        {{ 'MAP_SECTION.USE_UPSCALED_MAP' | translate }}
+      </span>
+      <span
+        class="text-xs font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 sm:hidden"
+      >
+        {{ 'MAP_SECTION.USE_UPSCALED_MAP' | translate }}
+      </span>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-200"></div>
+
     <!-- Show Collected Toggle -->
     <div class="flex items-center justify-between">
       <label for="show-collected-map" class="flex items-center gap-3 cursor-pointer group">
@@ -53,7 +89,7 @@
           {{ 'MAP_SECTION.SHOW_COLLECTED' | translate }}
         </span>
         <span
-          class="text-xs w-[80px] font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 sm:hidden"
+          class="text-xs font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-200 sm:hidden"
         >
           {{ 'MAP_SECTION.SHOW_COLLECTED' | translate }}
         </span>

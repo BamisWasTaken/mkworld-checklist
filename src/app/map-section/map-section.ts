@@ -15,7 +15,12 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { ChecklistModel, CollectibleType } from '../core/models';
-import { MapSectionService, MobileService, TooltipService } from '../core/services';
+import {
+  MapSectionService,
+  MobileService,
+  SettingsService,
+  TooltipService,
+} from '../core/services';
 import { Settings } from './settings/settings';
 import { Tooltip } from './tooltip/tooltip';
 import { HoverTooltip } from './hover-tooltip/hover-tooltip';
@@ -32,6 +37,7 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly mapSectionService = inject(MapSectionService);
   private readonly mobileService = inject(MobileService);
+  private readonly settingsService = inject(SettingsService);
 
   readonly CollectibleType = CollectibleType;
 
@@ -62,6 +68,8 @@ export class MapSection implements AfterViewInit, OnDestroy {
       this.activeTooltipData()?.collectibleModel ?? this.hovered()?.collectibleModel
     )
   );
+
+  readonly map = this.settingsService.getMap();
 
   private pzInstance: PanZoom | null = null;
   isPanning = false;
