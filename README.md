@@ -8,4 +8,4 @@ This project uses Angular 20, TailwindCSS and Wrangler.
 
 ## Issues
 
-I don't have much knowledge of hosting opensource code, so the setup may be barebone. For issues, ideas, etc. - please open an issue (yes, also concerning the setup of the repo itself)! Thanks in advance for your help.
+I don't have much knowledge of hosting opensource code, so the setup may be barebone. For issues, ideas, etc. - please open an issue! Thanks in advance for your help.
