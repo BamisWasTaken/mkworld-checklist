@@ -1,4 +1,4 @@
-import { Component, inject, input, signal, computed } from '@angular/core';
+import { Component, inject, input, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ChecklistDataService, SettingsService } from '../../core/services';
 import { ChecklistModel, CollectibleType, Map } from '../../core/models';
@@ -8,6 +8,7 @@ import { NgOptimizedImage } from '@angular/common';
   selector: 'mkworld-settings',
   imports: [TranslatePipe, NgOptimizedImage],
   templateUrl: './settings.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './settings.css',
 })
 export class Settings {

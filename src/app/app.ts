@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { BackgroundProgress } from './background-progress/background-progress';
 import { MobileService } from './core/services/mobile.service';
@@ -20,6 +20,7 @@ import { TodoSection } from './todo-section/todo-section';
     BackgroundProgress,
   ],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
 })
 export class App {
