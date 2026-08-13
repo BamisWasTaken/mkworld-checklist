@@ -7,8 +7,8 @@ import {
   provideClientHydration,
   withEventReplay,
   withI18nSupport,
+  withNoIncrementalHydration,
 } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -16,8 +16,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideClientHydration(withEventReplay(), withI18nSupport()),
-    provideHttpClient(withFetch()),
+    provideClientHydration(withEventReplay(), withI18nSupport(), withNoIncrementalHydration()),
     provideTranslateService({
       loader: provideTranslateHttpLoader({ prefix: './i18n/', suffix: '.json' }),
       fallbackLang: 'en',

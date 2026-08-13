@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { QuickAction } from '../../core/models/quick-action';
 
@@ -6,6 +6,7 @@ import { QuickAction } from '../../core/models/quick-action';
   selector: 'mkworld-confirmation-popup',
   templateUrl: './confirmation-popup.html',
   styleUrls: ['./confirmation-popup.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [TranslatePipe],
 })
 export class ConfirmationPopup {

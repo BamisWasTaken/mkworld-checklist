@@ -8,6 +8,7 @@ import {
   signal,
   viewChild,
   viewChildren,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslateModule } from '@ngx-translate/core';
@@ -27,6 +28,7 @@ import { PageAnimationDirection, StickerPosition } from './models';
   selector: 'mkworld-sticker-album',
   imports: [TranslateModule, NgOptimizedImage],
   templateUrl: './sticker-album.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./sticker-album.css'],
 })
 export class StickerAlbum {
