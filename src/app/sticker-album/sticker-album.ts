@@ -1,5 +1,6 @@
 import { NgOptimizedImage } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   ElementRef,
@@ -8,10 +9,9 @@ import {
   signal,
   viewChild,
   viewChildren,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../constants';
 import { ChecklistModel } from '../core/models';
@@ -26,7 +26,7 @@ import { PageAnimationDirection, StickerPosition } from './models';
 
 @Component({
   selector: 'mkworld-sticker-album',
-  imports: [TranslateModule, NgOptimizedImage],
+  imports: [TranslatePipe, NgOptimizedImage],
   templateUrl: './sticker-album.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./sticker-album.css'],

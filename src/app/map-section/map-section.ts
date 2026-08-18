@@ -12,7 +12,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
 import { ChecklistModel, CollectibleType } from '../core/models';
 import {
@@ -21,15 +21,15 @@ import {
   SettingsService,
   TooltipService,
 } from '../core/services';
+import { HoverTooltip } from './hover-tooltip/hover-tooltip';
 import { Settings } from './settings/settings';
 import { Tooltip } from './tooltip/tooltip';
-import { HoverTooltip } from './hover-tooltip/hover-tooltip';
 
 @Component({
   selector: 'mkworld-map-section',
   templateUrl: './map-section.html',
   styleUrls: ['./map-section.css'],
-  imports: [TranslateModule, Tooltip, NgStyle, NgOptimizedImage, Settings, HoverTooltip],
+  imports: [TranslatePipe, Tooltip, NgStyle, NgOptimizedImage, Settings, HoverTooltip],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapSection implements AfterViewInit, OnDestroy {

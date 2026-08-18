@@ -1,16 +1,16 @@
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../core/models';
 import { ChecklistDataService, TooltipService } from '../../core/services';
-import { NgOptimizedImage } from '@angular/common';
 import { TooltipPosition } from '../models';
 
 @Component({
   selector: 'mkworld-tooltip',
   templateUrl: './tooltip.html',
   styleUrl: './tooltip.css',
-  imports: [TranslateModule, NgOptimizedImage],
+  imports: [TranslatePipe, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Tooltip {
