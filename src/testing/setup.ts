@@ -6,10 +6,7 @@ class IntersectionObserverStub {
   readonly scrollMargin = '';
   readonly thresholds: readonly number[] = [];
 
-  constructor(
-    _callback?: IntersectionObserverCallback,
-    _options?: IntersectionObserverInit,
-  ) {}
+  constructor() {}
 
   disconnect(): void {}
   observe(): void {}
