@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AchievementDataService } from '../core/services';
 import { TodoSection } from './todo-section';
 
 describe('TodoSection', () => {
-  let component: TodoSection;
   let fixture: ComponentFixture<TodoSection>;
+  let achievementDataService: AchievementDataService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -12,11 +12,34 @@ describe('TodoSection', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(TodoSection);
-    component = fixture.componentInstance;
+    achievementDataService = TestBed.inject(AchievementDataService);
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
+  });
+
+  it('should expand an achievement when its row is clicked', () => {
+    const row = fixture.nativeElement.querySelector('.todo-item.cursor-pointer') as HTMLElement;
+    row.click();
+    fixture.detectChanges();
+
+    expect(achievementDataService.getAchievements()()[0].expanded).toBe(true);
+  });
+
+  it('should check a milestone without collapsing the achievement', () => {
+    const row = fixture.nativeElement.querySelector('.todo-item.cursor-pointer') as HTMLElement;
+    row.click();
+    fixture.detectChanges();
+
+    const checkbox = fixture.nativeElement.querySelector(
+      '.milestone-item input[type="checkbox"]'
+    ) as HTMLInputElement;
+    checkbox.click();
+    fixture.detectChanges();
+
+    expect(achievementDataService.getAchievements()()[0].expanded).toBe(true);
+    expect(achievementDataService.getAchievements()()[0].milestoneReached).toBeGreaterThan(0);
   });
 });
