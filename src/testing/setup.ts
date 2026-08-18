@@ -22,8 +22,23 @@ Object.defineProperty(globalThis, 'IntersectionObserver', {
   value: IntersectionObserverStub,
 });
 
-clearAppStorage();
+const DEFAULT_INNER_WIDTH = 1024;
+
+function resetSharedTestState(): void {
+  clearAppStorage();
+  Object.defineProperty(window, 'innerWidth', {
+    configurable: true,
+    writable: true,
+    value: DEFAULT_INNER_WIDTH,
+  });
+}
+
+resetSharedTestState();
 
 beforeEach(() => {
-  clearAppStorage();
+  resetSharedTestState();
+});
+
+afterEach(() => {
+  resetSharedTestState();
 });

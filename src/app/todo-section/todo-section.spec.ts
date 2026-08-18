@@ -29,12 +29,17 @@ describe('TodoSection', () => {
   });
 
   it('should check a milestone without collapsing the achievement', () => {
-    const row = fixture.nativeElement.querySelector('.todo-item.cursor-pointer') as HTMLElement;
-    row.click();
-    fixture.detectChanges();
+    const achievement = achievementDataService.getAchievements()()[0];
+    if (!achievement.expanded) {
+      const row = fixture.nativeElement.querySelector('.todo-item.cursor-pointer') as HTMLElement;
+      row.click();
+      fixture.detectChanges();
+    }
+
+    expect(achievementDataService.getAchievements()()[0].expanded).toBe(true);
 
     const checkbox = fixture.nativeElement.querySelector(
-      '.milestone-item input[type="checkbox"]'
+      '.milestones-container.expanded input[type="checkbox"]'
     ) as HTMLInputElement;
     checkbox.click();
     fixture.detectChanges();
