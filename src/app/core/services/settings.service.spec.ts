@@ -83,13 +83,16 @@ describe('SettingsService', () => {
     });
 
     it('should apply only defined fields', () => {
+      const collectiblesBefore = service.shouldShowCollectedCollectibles()();
+      const mapBefore = service.getMap()();
+
       service.importSettings({
         showCollectedStickers: false,
       } as never);
 
       expect(service.shouldShowCollectedStickers()()).toBe(false);
-      expect(service.shouldShowCollectedCollectibles()()).toBe(false);
-      expect(service.getMap()()).toBe(Map.UPSCALED_MAP);
+      expect(service.shouldShowCollectedCollectibles()()).toBe(collectiblesBefore);
+      expect(service.getMap()()).toBe(mapBefore);
     });
   });
 });
