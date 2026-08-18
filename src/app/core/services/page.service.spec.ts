@@ -36,15 +36,18 @@ describe('PageService', () => {
     });
 
     it('should hide collected stickers after they finish disappearing', async () => {
-      settingsService.toggleShowCollectedStickers();
-      const sticker = checklistDataService.getChecklistModels()().find(item => item.hasSticker)!;
+      if (settingsService.shouldShowCollectedStickers()()) {
+        settingsService.toggleShowCollectedStickers();
+      }
+      expect(settingsService.shouldShowCollectedStickers()()).toBe(false);
 
+      const sticker = checklistDataService.getChecklistModels()().find(item => item.hasSticker)!;
       expect(service.getPage()().some(item => item.index === sticker.index)).toBe(true);
 
       checklistDataService.updateChecklistModelChecked(sticker);
       expect(service.getPage()().some(item => item.index === sticker.index)).toBe(true);
 
-      await waitMs(200);
+      await waitMs(250);
 
       expect(service.getPage()().some(item => item.index === sticker.index)).toBe(false);
     });

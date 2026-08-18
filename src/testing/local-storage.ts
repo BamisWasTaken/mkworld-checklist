@@ -46,9 +46,7 @@ function installLocalStorage(): Storage {
 installLocalStorage();
 
 export function clearAppStorage(): void {
-  localStorage.removeItem(CONSTANTS.STORAGE_KEY_CHECKLIST_MODELS);
-  localStorage.removeItem(CONSTANTS.STORAGE_KEY_ACHIEVEMENTS);
-  localStorage.removeItem(CONSTANTS.STORAGE_KEY_SETTINGS);
+  localStorage.clear();
 }
 
 export function setChecklistStorage(states: unknown[]): void {
