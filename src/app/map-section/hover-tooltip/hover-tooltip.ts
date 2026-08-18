@@ -1,14 +1,14 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { TooltipPosition } from '../models';
+import { TranslatePipe } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../core/models';
+import { TooltipPosition } from '../models';
 
 @Component({
   selector: 'mkworld-hover-tooltip',
   templateUrl: './hover-tooltip.html',
   styleUrl: './hover-tooltip.css',
-  imports: [TranslateModule, NgOptimizedImage],
+  imports: [TranslatePipe, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HoverTooltip {

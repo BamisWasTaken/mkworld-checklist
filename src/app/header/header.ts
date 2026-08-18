@@ -8,17 +8,17 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Help } from './help/help';
-import { ConfirmationPopup } from './confirmation-popup/confirmation-popup';
-import { ChecklistDataService, ImportExportService, MobileService } from '../core/services';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { QuickAction } from '../core/models';
+import { ChecklistDataService, ImportExportService, MobileService } from '../core/services';
+import { ConfirmationPopup } from './confirmation-popup/confirmation-popup';
+import { Help } from './help/help';
 
 @Component({
   selector: 'mkworld-header',
   templateUrl: './header.html',
   styleUrls: ['./header.css'],
-  imports: [TranslateModule, NgOptimizedImage, Help, ConfirmationPopup],
+  imports: [TranslatePipe, NgOptimizedImage, Help, ConfirmationPopup],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {

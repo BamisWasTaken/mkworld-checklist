@@ -1,5 +1,5 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { BackgroundProgress } from './background-progress/background-progress';
 import { MobileService } from './core/services/mobile.service';
 import { Footer } from './footer/footer';
@@ -10,15 +10,7 @@ import { TodoSection } from './todo-section/todo-section';
 
 @Component({
   selector: 'mkworld-root',
-  imports: [
-    TranslateModule,
-    StickerAlbum,
-    Header,
-    Footer,
-    MapSection,
-    TodoSection,
-    BackgroundProgress,
-  ],
+  imports: [StickerAlbum, Header, Footer, MapSection, TodoSection, BackgroundProgress],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
