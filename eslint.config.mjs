@@ -5,7 +5,7 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ['src/**/*.ts', 'e2e/**/*.ts', 'playwright.config.ts'],
+    files: ['src/**/*.ts', 'e2e/**/*.ts', 'playwright.config.ts', 'vitest-base.config.ts'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'error',
     },

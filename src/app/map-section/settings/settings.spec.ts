@@ -41,6 +41,11 @@ describe('Settings', () => {
 
   it('should toggle collectible type filters from the checkbox change', () => {
     const addDisappearing = vi.spyOn(checklistDataService, 'addDisappearingChecklistModels');
+    if (!settingsService.getShownCollectibleTypes()().includes(CollectibleType.PEACH_COIN)) {
+      settingsService.toggleShowCollectibleType(CollectibleType.PEACH_COIN);
+    }
+    expect(settingsService.getShownCollectibleTypes()()).toContain(CollectibleType.PEACH_COIN);
+
     const peachCheckbox = fixture.nativeElement.querySelector(
       '#show-peach-coins-map'
     ) as HTMLInputElement;

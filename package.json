@@ -13,8 +13,8 @@
     "e2e": "playwright test",
     "serve:ssr:mkworld-checklist": "node dist/server/server.mjs",
     "format": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\"",
-    "lint": "eslint \"src/**/*.ts\" \"e2e/**/*.ts\" \"playwright.config.ts\" --fix",
-    "lint:ci": "eslint \"src/**/*.ts\" \"e2e/**/*.ts\" \"playwright.config.ts\"",
+    "lint": "eslint \"src/**/*.ts\" \"e2e/**/*.ts\" \"playwright.config.ts\" \"vitest-base.config.ts\" --fix",
+    "lint:ci": "eslint \"src/**/*.ts\" \"e2e/**/*.ts\" \"playwright.config.ts\" \"vitest-base.config.ts\"",
     "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
