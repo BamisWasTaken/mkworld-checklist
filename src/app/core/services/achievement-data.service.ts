@@ -89,7 +89,7 @@ export class AchievementDataService {
   }
 
   resetAchievements(): void {
-    this.achievements.set(achievementsData as Achievement[]);
+    this.achievements.set(cloneAchievementSeed());
   }
 
   private setDisappearingMilestones(
@@ -125,7 +125,11 @@ export class AchievementDataService {
       const achievementStates: AchievementState[] = JSON.parse(storedAchievements);
       this.importAchievements(achievementStates);
     } else {
-      this.achievements.set(achievementsData as Achievement[]);
+      this.achievements.set(cloneAchievementSeed());
     }
   }
+}
+
+function cloneAchievementSeed(): Achievement[] {
+  return structuredClone(achievementsData) as Achievement[];
 }

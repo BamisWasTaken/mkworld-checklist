@@ -205,7 +205,7 @@ export class ChecklistDataService {
         this.setAllChecklistModelsCheckedByType(CollectibleType.P_SWITCH, false);
         break;
       case QuickAction.RESET:
-        this.checklistModels.set(checklistData);
+        this.checklistModels.set(cloneChecklistSeed());
         this.achievementDataService.resetAchievements();
         break;
     }
@@ -240,7 +240,11 @@ export class ChecklistDataService {
       const checklistModelStates: ChecklistModelState[] = JSON.parse(storedChecklistModels);
       this.importChecklistModels(checklistModelStates);
     } else {
-      this.checklistModels.set(checklistData);
+      this.checklistModels.set(cloneChecklistSeed());
     }
   }
+}
+
+function cloneChecklistSeed(): ChecklistModel[] {
+  return structuredClone(checklistData) as ChecklistModel[];
 }

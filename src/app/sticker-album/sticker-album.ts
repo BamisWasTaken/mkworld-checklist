@@ -282,9 +282,14 @@ export class StickerAlbum {
   }
 
   private animateLayoutChanges(): void {
+    const pageContainer = this.pageContainer()?.nativeElement;
+    if (!pageContainer) {
+      return;
+    }
+
     let firstNewStickerAtPageEnd = true;
     let amountOfNewStickersAtEndOfPage = 0;
-    const pageWidth = this.pageContainer()!.nativeElement.getBoundingClientRect().width - 48;
+    const pageWidth = pageContainer.getBoundingClientRect().width - 48;
     this.stickerItems().forEach((itemRef: ElementRef, positionOnPage: number) => {
       const element = itemRef.nativeElement;
       const index = parseInt(element.id.split('-')[1]);
