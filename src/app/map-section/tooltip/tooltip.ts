@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, signal } f
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ChecklistModel, CollectibleType } from '../../core/models';
-import { ChecklistDataService, TooltipService } from '../../core/services';
+import { ChecklistDataService, SettingsService, TooltipService } from '../../core/services';
 import { TooltipPosition } from '../models';
 
 @Component({
@@ -16,6 +16,7 @@ import { TooltipPosition } from '../models';
 export class Tooltip {
   private readonly checklistDataService = inject(ChecklistDataService);
   private readonly tooltipService = inject(TooltipService);
+  private readonly settingsService = inject(SettingsService);
   private readonly domSanitizer = inject(DomSanitizer);
 
   readonly checklistModel = input.required<ChecklistModel>();
@@ -32,7 +33,11 @@ export class Tooltip {
   );
 
   onChecked() {
-    this.checklistDataService.updateChecklistModelChecked(this.checklistModel());
+    const checklistModel = this.checklistModel();
+    this.checklistDataService.updateChecklistModelChecked(checklistModel);
+    if (!this.settingsService.shouldShowCollectedCollectibles()() && checklistModel.checked) {
+      this.onClose();
+    }
   }
 
   onClose() {
