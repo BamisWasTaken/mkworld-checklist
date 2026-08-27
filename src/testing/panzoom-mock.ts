@@ -1,7 +1,8 @@
 export interface PanzoomMock {
   on: (event: string, callback: (...args: unknown[]) => void) => PanzoomMock;
-  zoomAbs: ReturnType<typeof vi.fn>;
-  moveTo: ReturnType<typeof vi.fn>;
+  // Intersected with their call signatures so specs can drive the mock, not just assert on it.
+  zoomAbs: ReturnType<typeof vi.fn> & ((x: number, y: number, scale: number) => void);
+  moveTo: ReturnType<typeof vi.fn> & ((x: number, y: number) => void);
   getTransform: ReturnType<typeof vi.fn>;
   setMinZoom: ReturnType<typeof vi.fn>;
   dispose: ReturnType<typeof vi.fn>;

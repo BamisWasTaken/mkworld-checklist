@@ -1,6 +1,7 @@
 import { computed, ElementRef, inject, Injectable, Signal, signal } from '@angular/core';
 import panzoom, { PanZoom } from 'panzoom';
 import { CONSTANTS } from '../../constants';
+import { calculateVisibleBounds } from '../../map-section/map-section-geometry';
 import { Bounds, QuadTreeNode, TooltipPosition } from '../../map-section/models';
 import { QuadTreeCollectible } from '../../map-section/models/quad-tree-collectible';
 import { ChecklistModel, CollectibleModel } from '../models';
@@ -26,9 +27,6 @@ export class MapSectionService {
     }
     return this.collectibleChecklistModels();
   });
-
-  private mapPanzoomWidth: number | null = null;
-  private mapPanzoomHeight: number | null = null;
 
   private updateVisibleCollectiblesTimeout: number | null = null;
 
@@ -135,27 +133,11 @@ export class MapSectionService {
     mapSectionRef: ElementRef,
     pzInstance: PanZoom
   ): Bounds {
-    const mapSectionRect = mapSectionRef.nativeElement.getBoundingClientRect();
-    const mapRect = mapPanzoomRef.nativeElement.getBoundingClientRect();
-    const panTransform = pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 };
-
-    this.mapPanzoomWidth = mapRect.width / panTransform.scale;
-    this.mapPanzoomHeight = mapRect.height / panTransform.scale;
-    const mapSectionWidth = mapSectionRect.width;
-    const mapSectionHeight = mapSectionRect.height;
-
-    const visibleLeft = -panTransform.x / panTransform.scale;
-    const visibleTop = -panTransform.y / panTransform.scale;
-    const visibleRight = visibleLeft + mapSectionWidth / panTransform.scale;
-    const visibleBottom = visibleTop + mapSectionHeight / panTransform.scale;
-
-    const left = (visibleLeft / this.mapPanzoomWidth!) * 100 - CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
-    const top = (visibleTop / this.mapPanzoomHeight!) * 100 - CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
-    const right = (visibleRight / this.mapPanzoomWidth!) * 100 + CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
-    const bottom =
-      (visibleBottom / this.mapPanzoomHeight!) * 100 + CONSTANTS.QUAD_TREE_VISIBLE_BUFFER;
-
-    return { left, top, right, bottom } as Bounds;
+    return calculateVisibleBounds(
+      mapPanzoomRef.nativeElement.getBoundingClientRect(),
+      mapSectionRef.nativeElement.getBoundingClientRect(),
+      pzInstance?.getTransform() ?? { scale: 1, x: 0, y: 0 }
+    );
   }
 
   private initializeQuadTree(): QuadTreeNode {

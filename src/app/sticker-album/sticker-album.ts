@@ -13,7 +13,6 @@ import {
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { TranslatePipe } from '@ngx-translate/core';
 import { PanZoom } from 'panzoom';
-import { CONSTANTS } from '../constants';
 import { ChecklistModel } from '../core/models';
 import {
   ChecklistDataService,
@@ -23,7 +22,27 @@ import {
   StickerSearchService,
   TooltipService,
 } from '../core/services';
-import { PageAnimationDirection, StickerPosition } from './models';
+import { StickerPosition } from './models';
+import {
+  calculateEntryOffset,
+  calculateFlipDelta,
+  calculateMapFocus,
+  calculateTooltipAnchor,
+  resolveDragIntent,
+  resolveNextPage,
+  resolvePageTransition,
+  resolvePreviousPage,
+  shouldPositionTooltipAbove,
+} from './sticker-album-layout';
+
+/**
+ * The entry offset is spaced against the desktop row width on every viewport; see
+ * {@link calculateEntryOffset}.
+ */
+const ENTRY_OFFSET_COLUMNS = 8;
+
+/** Zoom the map jumps to when a sticker's tooltip is clicked a second time. */
+const MAP_JUMP_ZOOM = 2;
 
 @Component({
   selector: 'mkworld-sticker-album',
@@ -108,24 +127,16 @@ export class StickerAlbum {
   }
 
   prevPage() {
-    if (this.pageCount() <= 1) {
-      return;
-    }
-    if (this.pageNumber() > 0) {
-      this.goToPage(this.pageNumber() - 1);
-    } else {
-      this.goToPage(this.pageCount() - 1, false);
+    const target = resolvePreviousPage(this.pageNumber(), this.pageCount());
+    if (target) {
+      this.goToPage(target.page, target.animate);
     }
   }
 
   nextPage() {
-    if (this.pageCount() <= 1) {
-      return;
-    }
-    if (this.pageNumber() < this.pageCount() - 1) {
-      this.goToPage(this.pageNumber() + 1);
-    } else {
-      this.goToPage(0, false);
+    const target = resolveNextPage(this.pageNumber(), this.pageCount());
+    if (target) {
+      this.goToPage(target.page, target.animate);
     }
   }
 
@@ -135,16 +146,11 @@ export class StickerAlbum {
       newPage !== this.pageNumber() &&
       this.pageContainer()?.nativeElement
     ) {
-      const currentPage = this.pageNumber();
-      const direction =
-        newPage > currentPage ? PageAnimationDirection.LEFT : PageAnimationDirection.RIGHT;
+      const { translateXOut } = resolvePageTransition(this.pageNumber(), newPage, animate);
 
       this.isSwitchingPage.set(true);
 
       const pageElement = this.pageContainer()!.nativeElement as HTMLElement;
-      const slideDistance = animate ? 20 : 0;
-      const translateXOut =
-        direction === PageAnimationDirection.RIGHT ? slideDistance : -slideDistance;
 
       pageElement.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
       pageElement.style.transform = `translateX(${translateXOut}px)`;
@@ -289,20 +295,16 @@ export class StickerAlbum {
     event: MouseEvent,
     checklistModel: ChecklistModel
   ): void {
-    const index = this.page.indexOf(checklistModel);
-    if (Math.floor(index / this.stickersPerRow()) === 0) {
-      this.tooltipPositionAbove.set(false);
-    } else {
-      this.tooltipPositionAbove.set(true);
-    }
+    const above = shouldPositionTooltipAbove(
+      this.page.indexOf(checklistModel),
+      this.stickersPerRow()
+    );
+    this.tooltipPositionAbove.set(above);
 
     const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
     this.tooltipText.set(instructions);
     this.tooltipSticker.set(checklistModel);
-    this.tooltipPosition.set({
-      x: rect.left + rect.width / 2,
-      y: this.tooltipPositionAbove() ? rect.top : rect.bottom,
-    });
+    this.tooltipPosition.set(calculateTooltipAnchor(rect, above));
   }
 
   private recordCurrentPositionsForFilter(): void {
@@ -336,8 +338,7 @@ export class StickerAlbum {
       let dy = 0;
 
       if (previousRect) {
-        dx = previousRect.left - currentRect.left;
-        dy = previousRect.top - currentRect.top;
+        ({ x: dx, y: dy } = calculateFlipDelta(previousRect, currentRect));
       } else if (
         this.previousStickerPositions.at(-1) &&
         index > this.previousStickerPositions.at(-1)!.index &&
@@ -348,17 +349,14 @@ export class StickerAlbum {
           amountOfNewStickersAtEndOfPage = this.stickersPerPage() - positionOnPage;
         }
 
-        // Calculate the row the current sticker is in
-        const currentStickerRow = Math.ceil((positionOnPage + 1) / this.stickersPerRow());
-        // Calculate the amount of new stickers in the row
-        const newStickersInRow =
-          amountOfNewStickersAtEndOfPage -
-          this.stickersPerRow() * (this.stickersPerColumn() - currentStickerRow);
-        dx = pageWidth;
-        if (newStickersInRow < 8) {
-          // If there are less than 8 new stickers in the row, the stickers in the row should be offset just enough to start off screen
-          dx = (pageWidth / 8) * newStickersInRow;
-        }
+        dx = calculateEntryOffset({
+          positionOnPage,
+          stickersPerRow: this.stickersPerRow(),
+          stickersPerColumn: this.stickersPerColumn(),
+          newStickersAtPageEnd: amountOfNewStickersAtEndOfPage,
+          pageWidth,
+          offsetColumns: ENTRY_OFFSET_COLUMNS,
+        });
       } else if (!this.isSwitchingPage()) {
         this.isAnimating.set(true);
         this.animateNewSticker(element);
@@ -419,19 +417,15 @@ export class StickerAlbum {
   }
 
   private endDrag(): void {
-    const deltaX = this.dragCurrentX - this.dragStartX;
-    const deltaY = this.dragCurrentY - this.dragStartY;
-    const dragDistance = Math.abs(deltaX);
+    const intent = resolveDragIntent(
+      this.dragCurrentX - this.dragStartX,
+      this.dragCurrentY - this.dragStartY
+    );
 
-    if (
-      dragDistance >= CONSTANTS.STICKER_ALBUM_DRAG_THRESHOLD &&
-      Math.abs(deltaX) > Math.abs(deltaY)
-    ) {
-      if (deltaX > 0) {
-        this.prevPage();
-      } else {
-        this.nextPage();
-      }
+    if (intent === 'prev') {
+      this.prevPage();
+    } else if (intent === 'next') {
+      this.nextPage();
     }
 
     this.isDragging = false;
@@ -445,10 +439,12 @@ export class StickerAlbum {
       }
       mapElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      const x = (1024 / 100) * ((checklistModel.collectibleModel!.xPercentage - 25) * 2);
-      const y = (1281 / 100) * ((checklistModel.collectibleModel!.yPercentage - 25) * 2);
-      this.pzInstance.zoomAbs(0, 0, 2);
-      this.pzInstance.moveTo(-x, -y);
+      const focus = calculateMapFocus(
+        checklistModel.collectibleModel!.xPercentage,
+        checklistModel.collectibleModel!.yPercentage
+      );
+      this.pzInstance.zoomAbs(0, 0, MAP_JUMP_ZOOM);
+      this.pzInstance.moveTo(-focus.x, -focus.y);
 
       this.tooltipService.setActiveTooltipDataWithScrollProtection(checklistModel);
     }

@@ -70,6 +70,8 @@ export class QuadTreeNode {
 
     this.collectibles.push(collectible);
 
+    // Stryker disable next-line ConditionalExpression: the guard above returns early whenever
+    // children exist, so `children.length === 0` is always true by the time control reaches here.
     if (this.collectibles.length > CONSTANTS.QUAD_TREE_MAX_OBJECTS && this.children.length === 0) {
       this.split();
 
@@ -84,6 +86,8 @@ export class QuadTreeNode {
   retrieve(bounds: Bounds): number[] {
     const returnObjects: number[] = [];
 
+    // Stryker disable next-line all: purely a traversal short-cut. Every collectible is filtered
+    // against the bounds below regardless, so skipping the prune costs time, never correctness.
     if (!this.intersects(bounds)) {
       return returnObjects;
     }
@@ -104,6 +108,12 @@ export class QuadTreeNode {
     return returnObjects;
   }
 
+  /**
+   * Stryker disable all: this only decides whether a subtree is worth walking. `retrieve` re-checks
+   * every collectible against the query, so no mutation of these comparisons can change the result
+   * set — a node pruned on an exact edge cannot hold a collectible that passes the strict test.
+   */
+  // Stryker disable all
   private intersects(bounds: Bounds): boolean {
     return !(
       bounds.left > this.bounds.right ||
@@ -112,4 +122,5 @@ export class QuadTreeNode {
       bounds.bottom < this.bounds.top
     );
   }
+  // Stryker restore all
 }

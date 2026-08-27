@@ -1,6 +1,10 @@
+import { signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CONSTANTS } from '../constants';
-import { PageService } from '../core/services';
+import { ChecklistDataService, MapSectionService, PageService } from '../core/services';
+import { createCollectibleChecklist } from '../../testing/fixtures';
+import { createPanzoomMock } from '../../testing/panzoom-mock';
+import { calculateMapFocus } from './sticker-album-layout';
 import { StickerAlbum } from './sticker-album';
 import { dispatchMouse, dispatchTouch } from '../../testing/dispatch-events';
 import { waitMs } from '../../testing/async';
@@ -136,6 +140,175 @@ describe('StickerAlbum', () => {
 
     expect(checkbox.checked).toBe(true);
     expect(host().querySelector('.sticker-tooltip')).toBeNull();
+  });
+
+  describe('sticker clicks', () => {
+    function clickEvent(): MouseEvent {
+      const event = new MouseEvent('click', { bubbles: true });
+      Object.defineProperty(event, 'currentTarget', {
+        value: host().querySelector('.sticker') as HTMLElement,
+      });
+      return event;
+    }
+
+    it('should show the instructions for a sticker with no collectible', () => {
+      const model = component.page.find(item => !item.collectibleModel)!;
+      expect(model).toBeTruthy();
+
+      component.onStickerClick(clickEvent(), model);
+      fixture.detectChanges();
+
+      expect(component.tooltipText()).toBe(model.instructions);
+      expect(component.tooltipSticker()).toBe(model);
+    });
+
+    it('should offer to jump to the map for a collectible still on it', () => {
+      const model = createCollectibleChecklist({ index: 4242 });
+      vi.spyOn(
+        TestBed.inject(ChecklistDataService),
+        'getCollectibleChecklistModelsOnMap'
+      ).mockReturnValue(signal([model]));
+
+      component.onStickerClick(clickEvent(), model);
+      fixture.detectChanges();
+
+      expect(component.tooltipText()).toBe('SHARED.DOUBLE_CLICK_TO_JUMP');
+    });
+
+    it('should say so when a collectible is no longer on the map', () => {
+      const model = createCollectibleChecklist({ index: 4243 });
+      vi.spyOn(
+        TestBed.inject(ChecklistDataService),
+        'getCollectibleChecklistModelsOnMap'
+      ).mockReturnValue(signal([]));
+
+      component.onStickerClick(clickEvent(), model);
+      fixture.detectChanges();
+
+      expect(component.tooltipText()).toBe('SHARED.STICKER_NOT_ON_MAP');
+    });
+
+    it('should jump the map to the collectible on a second click', () => {
+      const model = createCollectibleChecklist(
+        { index: 4244 },
+        { xPercentage: 60, yPercentage: 30 }
+      );
+      vi.spyOn(
+        TestBed.inject(ChecklistDataService),
+        'getCollectibleChecklistModelsOnMap'
+      ).mockReturnValue(signal([model]));
+
+      const panzoomMock = createPanzoomMock();
+      vi.spyOn(TestBed.inject(MapSectionService), 'getPanzoomInstance').mockReturnValue(
+        panzoomMock as never
+      );
+      const mapSection = document.createElement('div');
+      mapSection.id = 'map-section';
+      mapSection.scrollIntoView = vi.fn();
+      document.body.appendChild(mapSection);
+
+      // First click arms the tooltip, second click is the one that jumps.
+      component.onStickerClick(clickEvent(), model);
+      component.onStickerClick(clickEvent(), model);
+
+      const focus = calculateMapFocus(60, 30);
+      expect(panzoomMock.zoomAbs).toHaveBeenCalledWith(0, 0, 2);
+      expect(panzoomMock.moveTo).toHaveBeenCalledWith(-focus.x, -focus.y);
+
+      mapSection.remove();
+    });
+
+    it('should clear every tooltip signal when closed', () => {
+      component.onStickerClick(clickEvent(), component.page[0]);
+      fixture.detectChanges();
+      expect(component.tooltipText()).not.toBeNull();
+
+      component.closeTooltip();
+
+      expect(component.tooltipText()).toBeNull();
+      expect(component.tooltipSticker()).toBeNull();
+      expect(component.tooltipPosition()).toBeNull();
+    });
+  });
+
+  describe('hovering', () => {
+    it('should track the hovered sticker immediately', () => {
+      component.onStickerHover(true, component.page[0]);
+
+      expect(component.hoveredChecklistModel()).toBe(component.page[0]);
+    });
+
+    it('should clear the hovered sticker only after the grace period', async () => {
+      component.onStickerHover(true, component.page[0]);
+      component.onStickerHover(false, component.page[0]);
+
+      expect(component.hoveredChecklistModel()).toBe(component.page[0]);
+
+      await waitMs(200);
+
+      expect(component.hoveredChecklistModel()).toBeNull();
+    });
+
+    it('should cancel a pending clear when the pointer comes back', async () => {
+      // Moving between two stickers must not blank the description in between.
+      component.onStickerHover(true, component.page[0]);
+      component.onStickerHover(false, component.page[0]);
+      component.onStickerHover(true, component.page[1]);
+
+      await waitMs(200);
+
+      expect(component.hoveredChecklistModel()).toBe(component.page[1]);
+    });
+  });
+
+  describe('paging and controls', () => {
+    it('should lock the controls while a page transition runs', async () => {
+      expect(component.areControlsDisabled()).toBe(false);
+
+      component.nextPage();
+
+      expect(component.areControlsDisabled()).toBe(true);
+
+      await waitMs(500);
+      fixture.detectChanges();
+
+      expect(component.areControlsDisabled()).toBe(false);
+    });
+
+    it('should ignore a page change while the controls are locked', async () => {
+      component.nextPage();
+      expect(pageService.getPageNumber()()).toBe(0);
+
+      component.goToPage(5);
+      await waitMs(500);
+      fixture.detectChanges();
+
+      expect(pageService.getPageNumber()()).toBe(1);
+    });
+
+    it('should ignore a jump to the page already shown', () => {
+      component.goToPage(0);
+
+      expect(component.areControlsDisabled()).toBe(false);
+    });
+
+    it('should refuse to toggle collected stickers while the controls are locked', () => {
+      const before = component.showCollectedStickers();
+
+      component.nextPage();
+      component.toggleShowCollectedStickers();
+
+      expect(component.showCollectedStickers()).toBe(before);
+    });
+
+    it('should toggle collected stickers when the controls are free', () => {
+      const before = component.showCollectedStickers();
+
+      component.toggleShowCollectedStickers();
+      fixture.detectChanges();
+
+      expect(component.showCollectedStickers()).toBe(!before);
+    });
   });
 
   describe('search', () => {

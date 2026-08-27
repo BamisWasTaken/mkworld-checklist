@@ -1,15 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { openApp } from './helpers';
 
 test.describe('mobile journeys', () => {
   test.beforeEach(async ({ page }) => {
-    await page.addInitScript(() => {
-      if (!sessionStorage.getItem('e2e-started')) {
-        localStorage.clear();
-        sessionStorage.setItem('e2e-started', '1');
-      }
-    });
-    await page.goto('/');
-    await page.locator('mkworld-sticker-album .sticker').first().waitFor();
+    await openApp(page);
   });
 
   test('should change album page on a horizontal swipe', async ({ page }) => {

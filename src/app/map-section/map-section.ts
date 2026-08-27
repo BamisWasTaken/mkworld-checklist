@@ -22,6 +22,7 @@ import {
   TooltipService,
 } from '../core/services';
 import { HoverTooltip } from './hover-tooltip/hover-tooltip';
+import { calculateCollectibleScale, calculateTooltipScale } from './map-section-geometry';
 import { Settings } from './settings/settings';
 import { Tooltip } from './tooltip/tooltip';
 
@@ -45,15 +46,10 @@ export class MapSection implements AfterViewInit, OnDestroy {
   private readonly mapSectionRef = viewChild<ElementRef>('mapSection');
 
   readonly panzoomScale = signal(1);
-  readonly tooltipScale = computed(
-    () => 1 / this.panzoomScale() / (this.mobileService.getIsMobileView()() ? 1.5 : 1)
+  readonly tooltipScale = computed(() =>
+    calculateTooltipScale(this.panzoomScale(), !!this.mobileService.getIsMobileView()())
   );
-  readonly collectibleScale = computed(() => {
-    const scale = this.panzoomScale();
-    const normalizedScale = (scale - 1) / 12; // Normalize 1-13 to 0-1
-    const result = Math.max(0.1, 1 - 0.9 * Math.pow(normalizedScale, 0.3));
-    return result;
-  });
+  readonly collectibleScale = computed(() => calculateCollectibleScale(this.panzoomScale()));
 
   readonly visibleCollectibleChecklistModels =
     this.mapSectionService.getVisibleCollectibleChecklistModels();
