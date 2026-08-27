@@ -38,14 +38,14 @@ export class ChecklistDataService {
     );
   });
 
-  private uncollectedPeachCoins = computed(() =>
-    this.getUncollectedCollectibles(CollectibleType.PEACH_COIN)
+  private collectedPeachCoins = computed(() =>
+    this.getCollectedCollectibles(CollectibleType.PEACH_COIN)
   );
-  private uncollectedQuestionMarkPanels = computed(() =>
-    this.getUncollectedCollectibles(CollectibleType.QUESTIONMARK_PANEL)
+  private collectedQuestionMarkPanels = computed(() =>
+    this.getCollectedCollectibles(CollectibleType.QUESTIONMARK_PANEL)
   );
-  private uncollectedPSwitches = computed(() =>
-    this.getUncollectedCollectibles(CollectibleType.P_SWITCH)
+  private collectedPSwitches = computed(() =>
+    this.getCollectedCollectibles(CollectibleType.P_SWITCH)
   );
 
   private readonly checklistModelsWithSticker = computed(() =>
@@ -149,16 +149,16 @@ export class ChecklistDataService {
     }, 200);
   }
 
-  getUncollectedPeachCoins(): Signal<number> {
-    return this.uncollectedPeachCoins;
+  getCollectedPeachCoins(): Signal<number> {
+    return this.collectedPeachCoins;
   }
 
-  getUncollectedQuestionMarkPanels(): Signal<number> {
-    return this.uncollectedQuestionMarkPanels;
+  getCollectedQuestionMarkPanels(): Signal<number> {
+    return this.collectedQuestionMarkPanels;
   }
 
-  getUncollectedPSwitches(): Signal<number> {
-    return this.uncollectedPSwitches;
+  getCollectedPSwitches(): Signal<number> {
+    return this.collectedPSwitches;
   }
 
   getProgress(): Signal<number> {
@@ -226,10 +226,10 @@ export class ChecklistDataService {
     );
   }
 
-  private getUncollectedCollectibles(collectibleType: CollectibleType): number {
+  private getCollectedCollectibles(collectibleType: CollectibleType): number {
     return this.checklistModels().filter(
       (checklistModel: ChecklistModel) =>
-        !checklistModel.checked &&
+        checklistModel.checked &&
         checklistModel.collectibleModel?.collectibleType === collectibleType
     ).length;
   }

@@ -10,9 +10,9 @@
 
     <!-- Collectibles Section -->
     @if (
-      uncollectedPeachCoins() > 0 ||
-      uncollectedQuestionMarkPanels() > 0 ||
-      uncollectedPSwitches() > 0 ||
+      collectedPeachCoins() < CONSTANTS.TOTAL_PEACH_COINS ||
+      collectedQuestionMarkPanels() < CONSTANTS.TOTAL_QUESTION_MARK_PANELS ||
+      collectedPSwitches() < CONSTANTS.TOTAL_P_SWITCHES ||
       lastPeachCoinBeingRemoved() ||
       lastQuestionMarkPanelBeingRemoved() ||
       lastPSwitchBeingRemoved()
@@ -22,7 +22,7 @@
           {{ 'TODO_SECTION.COLLECTIBLES_TITLE' | translate }}
         </h3>
         <ul class="w-full flex flex-col text-gray-700 todo-list">
-          @if (uncollectedPeachCoins() > 0 || lastPeachCoinBeingRemoved()) {
+          @if (collectedPeachCoins() < CONSTANTS.TOTAL_PEACH_COINS || lastPeachCoinBeingRemoved()) {
             <li
               class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
               [class.removing]="lastPeachCoinBeingRemoved()"
@@ -33,13 +33,10 @@
                 width="32"
                 height="32"
               />
-              <span class="flex-1">{{
-                'TODO_SECTION.PEACH_MEDALLION_TODO'
-                  | translate: { uncollected: uncollectedPeachCoins() }
-              }}</span>
+              <span class="flex-1">{{ collectedPeachCoins() }} / 200</span>
             </li>
           }
-          @if (uncollectedQuestionMarkPanels() > 0 || lastQuestionMarkPanelBeingRemoved()) {
+          @if (collectedQuestionMarkPanels() < CONSTANTS.TOTAL_QUESTION_MARK_PANELS || lastQuestionMarkPanelBeingRemoved()) {
             <li
               class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
               [class.removing]="lastQuestionMarkPanelBeingRemoved()"
@@ -50,13 +47,10 @@
                 width="32"
                 height="32"
               />
-              <span class="flex-1">{{
-                'TODO_SECTION.QUESTIONMARK_PANEL_TODO'
-                  | translate: { uncollected: uncollectedQuestionMarkPanels() }
-              }}</span>
+              <span class="flex-1">{{ collectedQuestionMarkPanels() }} / 150</span>
             </li>
           }
-          @if (uncollectedPSwitches() > 0 || lastPSwitchBeingRemoved()) {
+          @if (collectedPSwitches() < CONSTANTS.TOTAL_P_SWITCHES || lastPSwitchBeingRemoved()) {
             <li
               class="h-12 flex items-center gap-2 bg-gray-50 rounded p-2 shadow-sm todo-item appearing"
               [class.removing]="lastPSwitchBeingRemoved()"
@@ -67,9 +61,7 @@
                 width="32"
                 height="20"
               />
-              <span class="flex-1">{{
-                'TODO_SECTION.PSWITCH_TODO' | translate: { uncollected: uncollectedPSwitches() }
-              }}</span>
+              <span class="flex-1">{{ collectedPSwitches() }} / 394</span>
             </li>
           }
         </ul>

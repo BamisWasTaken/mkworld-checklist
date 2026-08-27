@@ -5,6 +5,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Achievement, ChecklistModel, Milestone } from '../core/models';
 import { AchievementDataService, ChecklistDataService } from '../core/services';
 import { TodoItem } from './models/todo-item';
+import { CONSTANTS } from '../constants';
 
 @Component({
   selector: 'mkworld-todo-section',
@@ -18,6 +19,8 @@ export class TodoSection {
   private readonly achievementDataService = inject(AchievementDataService);
   private readonly translateService = inject(TranslateService);
 
+  readonly CONSTANTS = CONSTANTS;
+
   // Title
   readonly progress = this.checklistDataService.getProgress();
   readonly total = this.checklistDataService.getTotal();
@@ -28,10 +31,10 @@ export class TodoSection {
   });
 
   // Collectibles section
-  readonly uncollectedPeachCoins = this.checklistDataService.getUncollectedPeachCoins();
-  readonly uncollectedQuestionMarkPanels =
-    this.checklistDataService.getUncollectedQuestionMarkPanels();
-  readonly uncollectedPSwitches = this.checklistDataService.getUncollectedPSwitches();
+  readonly collectedPeachCoins = this.checklistDataService.getCollectedPeachCoins();
+  readonly collectedQuestionMarkPanels =
+    this.checklistDataService.getCollectedQuestionMarkPanels();
+  readonly collectedPSwitches = this.checklistDataService.getCollectedPSwitches();
 
   readonly lastPeachCoinBeingRemoved = signal<boolean>(false);
   readonly lastQuestionMarkPanelBeingRemoved = signal<boolean>(false);
@@ -55,10 +58,10 @@ export class TodoSection {
   });
 
   constructor() {
-    toObservable(this.uncollectedPeachCoins)
+    toObservable(this.collectedPeachCoins)
       .pipe(takeUntilDestroyed())
-      .subscribe((uncollectedPeachCoins: number) => {
-        if (uncollectedPeachCoins === 0) {
+      .subscribe((collectedPeachCoins: number) => {
+        if (collectedPeachCoins === CONSTANTS.TOTAL_PEACH_COINS) {
           this.lastPeachCoinBeingRemoved.set(true);
 
           setTimeout(() => {
@@ -67,10 +70,10 @@ export class TodoSection {
         }
       });
 
-    toObservable(this.uncollectedQuestionMarkPanels)
+    toObservable(this.collectedQuestionMarkPanels)
       .pipe(takeUntilDestroyed())
-      .subscribe((uncollectedQuestionMarkPanels: number) => {
-        if (uncollectedQuestionMarkPanels === 0) {
+      .subscribe((collectedQuestionMarkPanels: number) => {
+        if (collectedQuestionMarkPanels === CONSTANTS.TOTAL_QUESTION_MARK_PANELS) {
           this.lastQuestionMarkPanelBeingRemoved.set(true);
 
           setTimeout(() => {
@@ -79,10 +82,10 @@ export class TodoSection {
         }
       });
 
-    toObservable(this.uncollectedPSwitches)
+    toObservable(this.collectedPSwitches)
       .pipe(takeUntilDestroyed())
-      .subscribe((uncollectedPSwitches: number) => {
-        if (uncollectedPSwitches === 0) {
+      .subscribe((collectedPSwitches: number) => {
+        if (collectedPSwitches === CONSTANTS.TOTAL_P_SWITCHES) {
           this.lastPSwitchBeingRemoved.set(true);
 
           setTimeout(() => {
