@@ -25,7 +25,11 @@ describe('MobileService', () => {
 
   it('should update when the window is resized', () => {
     const service = createService(800);
-    Object.defineProperty(window, 'innerWidth', { configurable: true, writable: true, value: 1280 });
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      writable: true,
+      value: 1280,
+    });
     window.dispatchEvent(new Event('resize'));
     expect(service.getIsMobileView()()).toBe(false);
   });

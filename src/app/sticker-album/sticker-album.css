@@ -22,6 +22,17 @@
   will-change: transform, opacity;
 }
 
+/* Keeps the album roughly a page tall when a search yields no results. */
+.sticker-album-no-results {
+  min-height: 22rem;
+}
+
+@media (min-width: 1024px) {
+  .sticker-album-no-results {
+    min-height: 28rem;
+  }
+}
+
 .sticker-grid {
   position: relative;
   will-change: transform;

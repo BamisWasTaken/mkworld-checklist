@@ -1,4 +1,4 @@
-@if (page.length > 0) {
+@if (hasStickers()) {
   <section
     class="w-full rounded-lg shadow relative flex flex-col items-center overflow-hidden sticker-album-container"
   >
@@ -37,76 +37,111 @@
         </label>
       </div>
 
-      <img
-        ngSrc="/imgs/page-arrow-left.webp"
-        [alt]="'STICKER_ALBUM.PREVIOUS_PAGE_ALT_TEXT' | translate"
-        width="30"
-        height="33"
-        class="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-300 hover:scale-110 z-10 arrow-button"
-        [class.opacity-50]="areControlsDisabled()"
-        [class.cursor-not-allowed]="areControlsDisabled()"
-        [class.cursor-pointer]="!areControlsDisabled()"
-        [class.hover:scale-110]="!areControlsDisabled()"
-        (click)="prevPage()"
-        draggable="false"
-      />
-      <img
-        ngSrc="/imgs/page-arrow-right.webp"
-        [alt]="'STICKER_ALBUM.NEXT_PAGE_ALT_TEXT' | translate"
-        width="30"
-        height="33"
-        class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-300 hover:scale-110 z-10 arrow-button"
-        [class.opacity-50]="areControlsDisabled()"
-        [class.cursor-not-allowed]="areControlsDisabled()"
-        [class.cursor-pointer]="!areControlsDisabled()"
-        [class.hover:scale-110]="!areControlsDisabled()"
-        (click)="nextPage()"
-        draggable="false"
-      />
+      <!-- Sticker search -->
+      <div class="sticker-search relative w-full max-w-3xs sm:max-w-2xs mt-8 sm:mt-0">
+        <input
+          #searchInput
+          type="text"
+          class="sticker-search-input w-full rounded-full border-2 border-gray-300 bg-white/90 py-1 pl-4 pr-8 text-sm text-gray-700 transition-colors duration-200 focus:border-yellow-400 focus:outline-none"
+          [placeholder]="'STICKER_ALBUM.SEARCH_PLACEHOLDER' | translate"
+          [attr.aria-label]="'STICKER_ALBUM.SEARCH_ALT_TEXT' | translate"
+          (input)="onSearchInput($event)"
+          autocomplete="off"
+        />
+        @if (rawSearchTerm().length > 0) {
+          <button
+            type="button"
+            class="sticker-search-clear absolute right-2 top-1/2 -translate-y-1/2 flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-gray-500 transition-colors duration-200 hover:bg-gray-200 hover:text-gray-700"
+            [attr.aria-label]="'STICKER_ALBUM.CLEAR_SEARCH_ALT_TEXT' | translate"
+            (click)="clearSearch(searchInput)"
+          >
+            &times;
+          </button>
+        }
+      </div>
+
+      @if (pageCount() > 1) {
+        <img
+          ngSrc="/imgs/page-arrow-left.webp"
+          [alt]="'STICKER_ALBUM.PREVIOUS_PAGE_ALT_TEXT' | translate"
+          width="30"
+          height="33"
+          class="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-300 hover:scale-110 z-10 arrow-button"
+          [class.opacity-50]="areControlsDisabled()"
+          [class.cursor-not-allowed]="areControlsDisabled()"
+          [class.cursor-pointer]="!areControlsDisabled()"
+          [class.hover:scale-110]="!areControlsDisabled()"
+          (click)="prevPage()"
+          draggable="false"
+        />
+        <img
+          ngSrc="/imgs/page-arrow-right.webp"
+          [alt]="'STICKER_ALBUM.NEXT_PAGE_ALT_TEXT' | translate"
+          width="30"
+          height="33"
+          class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-300 hover:scale-110 z-10 arrow-button"
+          [class.opacity-50]="areControlsDisabled()"
+          [class.cursor-not-allowed]="areControlsDisabled()"
+          [class.cursor-pointer]="!areControlsDisabled()"
+          [class.hover:scale-110]="!areControlsDisabled()"
+          (click)="nextPage()"
+          draggable="false"
+        />
+      }
     </div>
 
     <!-- Sticker grid container - no padding, full width -->
     <div class="relative w-full overflow-hidden">
       <div #pageContainer class="w-full page-container">
-        <div
-          class="grid lg:grid-cols-8 lg:grid-rows-4 grid-cols-5 grid-rows-5 gap-x-4 lg:gap-y-6 gap-y-2 mt-2 mb-2 w-full select-none lg:px-14 px-12 sticker-grid"
-        >
-          @for (checklistModel of page; track checklistModel.index) {
-            <div
-              #stickerItem
-              [id]="'sticker-' + checklistModel.index"
-              class="flex flex-col items-center cursor-pointer transition-scale duration-200 sticker"
-              [class.scale-110]="hoveredChecklistModel()?.index === checklistModel.index"
-              [class.disappearing]="
-                checklistModel.disappearingFromStickerAlbum && !showCollectedStickers()
-              "
-              (mouseenter)="onStickerHover(true, checklistModel)"
-              (mouseleave)="onStickerHover(false, checklistModel)"
-              (click)="onStickerClick($event, checklistModel)"
-            >
+        @if (hasSearchResults()) {
+          <div
+            class="grid lg:grid-cols-8 lg:grid-rows-4 grid-cols-5 grid-rows-5 gap-x-4 lg:gap-y-6 gap-y-2 mt-2 mb-2 w-full select-none lg:px-14 px-12 sticker-grid"
+          >
+            @for (checklistModel of page; track checklistModel.index) {
               <div
-                class="lg:w-24 lg:h-24 w-16 h-16 flex items-center justify-center transition-opacity duration-200"
-                [class.opacity-50]="checklistModel.checked"
+                #stickerItem
+                [id]="'sticker-' + checklistModel.index"
+                class="flex flex-col items-center cursor-pointer transition-scale duration-200 sticker"
+                [class.scale-110]="hoveredChecklistModel()?.index === checklistModel.index"
+                [class.disappearing]="
+                  checklistModel.disappearingFromStickerAlbum && !showCollectedStickers()
+                "
+                (mouseenter)="onStickerHover(true, checklistModel)"
+                (mouseleave)="onStickerHover(false, checklistModel)"
+                (click)="onStickerClick($event, checklistModel)"
               >
-                <img
-                  [ngSrc]="'/imgs/stickers/sticker-' + checklistModel.index + '.webp'"
-                  [alt]="'STICKERS.' + checklistModel.stickerAltText | translate"
-                  class="object-contain"
-                  draggable="false"
-                  fill
+                <div
+                  class="lg:w-24 lg:h-24 w-16 h-16 flex items-center justify-center transition-opacity duration-200"
+                  [class.opacity-50]="checklistModel.checked"
+                >
+                  <img
+                    [ngSrc]="'/imgs/stickers/sticker-' + checklistModel.index + '.webp'"
+                    [alt]="'STICKERS.' + checklistModel.stickerAltText | translate"
+                    class="object-contain"
+                    draggable="false"
+                    fill
+                  />
+                </div>
+                <input
+                  type="checkbox"
+                  class="absolute top-0 right-0 sticker-checkbox"
+                  [checked]="checklistModel.checked"
+                  (change)="onStickerChecked(checklistModel)"
+                  (click)="$event.stopPropagation()"
+                  [attr.aria-label]="
+                    'STICKER_ALBUM.STICKER.TOGGLE_STICKER_COLLECTED_ALT_TEXT' | translate
+                  "
                 />
               </div>
-              <input
-                type="checkbox"
-                class="absolute top-0 right-0 sticker-checkbox"
-                [checked]="checklistModel.checked"
-                (change)="onStickerChecked(checklistModel)"
-                (click)="$event.stopPropagation()"
-                aria-label="STICKER_ALBUM.STICKER.TOGGLE_STICKER_COLLECTED_ALT_TEXT"
-              />
-            </div>
-          }
-        </div>
+            }
+          </div>
+        } @else {
+          <div class="sticker-album-no-results flex items-center justify-center px-6 text-center">
+            <p class="text-gray-600 font-medium lg:text-lg text-sm">
+              {{ 'STICKER_ALBUM.NO_SEARCH_RESULTS' | translate: { searchTerm: rawSearchTerm() } }}
+            </p>
+          </div>
+        }
       </div>
     </div>
 
@@ -182,7 +217,7 @@
           <button
             class="flex-shrink-0 flex justify-center items-center w-5 h-5 rounded-full text-white hover:bg-gray-700 transition-colors"
             (click)="closeTooltip()"
-            aria-label="STICKER_ALBUM.CLOSE_TOOLTIP_ALT_TEXT"
+            [attr.aria-label]="'STICKER_ALBUM.CLOSE_TOOLTIP_ALT_TEXT' | translate"
           >
             <span class="text-xl leading-none -mt-[3px]">&times;</span>
           </button>

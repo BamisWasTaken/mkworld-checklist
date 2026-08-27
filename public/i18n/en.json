@@ -33,10 +33,10 @@
     "WELCOME_TO_MKWORLD_CHECKLIST": "Welcome to Mario Kart Tools!",
     "MAIN_DESCRIPTION": "This app helps you track your progress through Mario Kart World. Here are some tips to get you started:",
     "STICKER_ALBUM_SUBTITLE": "Sticker Album",
-    "STICKER_ALBUM_TIP_1": "Sort your stickers with X in-game, they'll be in the exact order as here",
+    "STICKER_ALBUM_TIP_1": "Sort your stickers with X in-game, they'll be in the same order as here",
     "STICKER_ALBUM_TIP_2": "Hover / click on stickers to see their descriptions and how to find them",
     "STICKER_ALBUM_TIP_3": "Double-click stickers unlocked through collectibles to jump to them on the map",
-    "STICKER_ALBUM_TIP_4": "Swipe or use the arrows to switch pages",
+    "STICKER_ALBUM_TIP_4": "Search stickers by mission, name, instructions - try \"cow\"",
     "MAP_SECTION_SUBTITLE": "Map",
     "MAP_SECTION_TIP_1": "Peach Medallions unlock random stickers, track them separately from the stickers they unlock",
     "MAP_SECTION_TIP_2": "Use the filter options if you want to reduce lag",
@@ -51,6 +51,10 @@
     "NEXT_PAGE_ALT_TEXT": "Next Page",
     "CLOSE_TOOLTIP_ALT_TEXT": "Close tooltip",
     "SHOW_COLLECTED_STICKERS": "Show collected stickers",
+    "SEARCH_PLACEHOLDER": "Search stickers",
+    "SEARCH_ALT_TEXT": "Search stickers",
+    "CLEAR_SEARCH_ALT_TEXT": "Clear search",
+    "NO_SEARCH_RESULTS": "No stickers match \"{{searchTerm}}\"",
     "DESCRIPTION_BACKGROUND_ALT_TEXT": "Description background",
     "STICKER": {
       "TOGGLE_STICKER_COLLECTED_ALT_TEXT": "Toggle sticker collected"
