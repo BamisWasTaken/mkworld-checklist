@@ -3,8 +3,17 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/*
+ * Scale 1 must already cover the viewport: panzoom keeps `bounds` satisfied before applying a
+ * wheel zoom, so a scene narrower than the screen (wide/ultrawide displays) would freeze the zoom.
+ * 111.2vh fits the map to the viewport height, 100vw takes over once the screen is wider than that.
+ *
+ * `height` overrides the `h-full` utility: panzoom derives its pan bounds from this element's rect,
+ * so pinning it to the viewport height would clip away whatever the taller map image overflows.
+ */
 .fullscreen-map-panzoom {
-  width: 111.2vh;
+  width: max(100vw, 111.2vh);
+  height: auto;
 }
 
 .collectible {

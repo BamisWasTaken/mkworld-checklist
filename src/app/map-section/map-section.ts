@@ -104,30 +104,36 @@ export class MapSection implements AfterViewInit, OnDestroy {
     if (this.mapSectionRef()) {
       if (document.fullscreenElement) {
         document.exitFullscreen();
+        setTimeout(() => this.resetZoom(), 100);
+      } else {
+        this.mapSectionRef()!.nativeElement.requestFullscreen();
         if (!this.mobileService.getIsMobileView()()) {
-          this.pzInstance?.setMinZoom(1);
-        }
-        setTimeout(() => {
-          this.pzInstance?.zoomAbs(0, 0, 1);
+          // `fullscreen-map-panzoom` only sizes the scene once `fullscreenchange` has flipped the
+          // class, so wait for it - resetting against the old width lets `bounds` clamp the scale.
+          setTimeout(() => this.resetZoom(), 100);
+        } else {
           this.mapSectionService.updateVisibleCollectibleIndexes(
             this.mapPanzoomRef()!,
             this.mapSectionRef()!,
             this.pzInstance!
           );
-        }, 100);
-      } else {
-        this.mapSectionRef()!.nativeElement.requestFullscreen();
-        if (!this.mobileService.getIsMobileView()()) {
-          this.pzInstance?.zoomAbs(0, 0, 1.7);
-          this.pzInstance?.setMinZoom(1.7);
         }
-        this.mapSectionService.updateVisibleCollectibleIndexes(
-          this.mapPanzoomRef()!,
-          this.mapSectionRef()!,
-          this.pzInstance!
-        );
       }
     }
+  }
+
+  /**
+   * Panzoom only applies a wheel zoom unclamped while `minZoom` is 1 (see the `boundsPadding === 1
+   * && minZoom === 1` branch in panzoom's `zoomByRatio`). Anything else makes an out-of-bounds
+   * scene swallow the scale change, so the fullscreen fit comes from CSS width, never `setMinZoom`.
+   */
+  private resetZoom(): void {
+    this.pzInstance?.zoomAbs(0, 0, 1);
+    this.mapSectionService.updateVisibleCollectibleIndexes(
+      this.mapPanzoomRef()!,
+      this.mapSectionRef()!,
+      this.pzInstance!
+    );
   }
 
   @HostListener('document:fullscreenchange', [])
