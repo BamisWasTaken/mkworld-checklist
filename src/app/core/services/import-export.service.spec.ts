@@ -27,7 +27,9 @@ describe('ImportExportService', () => {
     });
     vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => undefined);
 
-    checklistDataService.updateChecklistModelChecked(checklistDataService.getChecklistModels()()[0]);
+    checklistDataService.updateChecklistModelChecked(
+      checklistDataService.getChecklistModels()()[0]
+    );
     settingsService.setMap(Map.INGAME_MAP);
 
     service.exportSaveFile();

@@ -4,6 +4,7 @@ import { SettingsService } from './settings.service';
 import { CONSTANTS } from '../../constants';
 import { ChecklistModel } from '../models/checklist-model';
 import { MobileService } from './mobile.service';
+import { StickerSearchService } from './sticker-search.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +13,26 @@ export class PageService {
   private readonly checklistDataService = inject(ChecklistDataService);
   private readonly settingsService = inject(SettingsService);
   private readonly mobileService = inject(MobileService);
+  private readonly stickerSearchService = inject(StickerSearchService);
 
-  private readonly stickersInStickerAlbum = computed(() => {
+  private readonly visibleStickers = computed(() => {
     const allStickers = this.checklistDataService
       .getChecklistModels()()
       .filter(model => model.hasSticker);
     return this.settingsService.shouldShowCollectedStickers()()
       ? allStickers
       : allStickers.filter(model => !model.checked || model.disappearingFromStickerAlbum);
+  });
+
+  private readonly stickersExist = computed(() => this.visibleStickers().length > 0);
+
+  private readonly stickersInStickerAlbum = computed(() => {
+    const visibleStickers = this.visibleStickers();
+    // Read the match set last so the search haystack is only built while a search is active.
+    const matchingIndexes = this.stickerSearchService.getMatchingIndexes()();
+    return matchingIndexes
+      ? visibleStickers.filter((model: ChecklistModel) => matchingIndexes.has(model.index))
+      : visibleStickers;
   });
 
   private readonly isMobile = this.mobileService.getIsMobileView();
@@ -43,11 +56,20 @@ export class PageService {
   private readonly pageCount = computed(() =>
     Math.ceil(this.stickersInStickerAlbum().length / this.stickersPerPage())
   );
-  private readonly userPageNumber = signal(0);
+  /**
+   * Tying the selected page to the term it was made under resets paging on every new search
+   * without a second emission of {@link page}, which would retrigger the sticker album animation.
+   */
+  private readonly userPageSelection = signal({ searchTerm: '', pageNumber: 0 });
+  private readonly userPageNumber = computed(() => {
+    const userPageSelection = this.userPageSelection();
+    return userPageSelection.searchTerm === this.stickerSearchService.getSearchTerm()()
+      ? userPageSelection.pageNumber
+      : 0;
+  });
   private readonly finalPageNumber = computed(() => {
-    const userPageNumber = this.userPageNumber();
-    const pageCount = this.pageCount();
-    return userPageNumber >= pageCount ? pageCount - 1 : userPageNumber;
+    const lastPageNumber = Math.max(0, this.pageCount() - 1);
+    return Math.min(Math.max(0, this.userPageNumber()), lastPageNumber);
   });
 
   getPage(): Signal<ChecklistModel[]> {
@@ -59,7 +81,14 @@ export class PageService {
   }
 
   setPageNumber(pageNumber: number): void {
-    this.userPageNumber.set(pageNumber);
+    this.userPageSelection.set({
+      searchTerm: this.stickerSearchService.getSearchTerm()(),
+      pageNumber,
+    });
+  }
+
+  hasStickers(): Signal<boolean> {
+    return this.stickersExist;
   }
 
   getPageCount(): Signal<number> {

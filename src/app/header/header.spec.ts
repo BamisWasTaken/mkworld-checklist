@@ -31,9 +31,9 @@ describe('Header', () => {
   });
 
   it('should close the settings dropdown on a document click outside the container', () => {
-    header().querySelector('.settings-dropdown-container button')!.dispatchEvent(
-      new MouseEvent('click', { bubbles: true })
-    );
+    header()
+      .querySelector('.settings-dropdown-container button')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
     fixture.detectChanges();
     expect(component.isSettingsDropdownOpen()).toBe(true);
 
@@ -44,12 +44,14 @@ describe('Header', () => {
   });
 
   it('should keep the settings dropdown open when clicking inside it', () => {
-    header().querySelector('.settings-dropdown-container button')!.dispatchEvent(
-      new MouseEvent('click', { bubbles: true })
-    );
+    header()
+      .querySelector('.settings-dropdown-container button')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
     fixture.detectChanges();
 
-    header().querySelector('.settings-dropdown')!.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    header()
+      .querySelector('.settings-dropdown')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
     fixture.detectChanges();
 
     expect(component.isSettingsDropdownOpen()).toBe(true);
@@ -58,13 +60,13 @@ describe('Header', () => {
   it('should run a quick action only after confirmation', () => {
     const perform = vi.spyOn(checklistDataService, 'performQuickAction');
 
-    header().querySelector('.settings-dropdown-container button')!.dispatchEvent(
-      new MouseEvent('click', { bubbles: true })
-    );
+    header()
+      .querySelector('.settings-dropdown-container button')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
     fixture.detectChanges();
-    header().querySelector('.settings-dropdown div.px-4')!.dispatchEvent(
-      new MouseEvent('click', { bubbles: true })
-    );
+    header()
+      .querySelector('.settings-dropdown div.px-4')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
     fixture.detectChanges();
 
     expect(component.isConfirmationOpen()).toBe(true);
@@ -75,15 +77,17 @@ describe('Header', () => {
     fixture.detectChanges();
     expect(perform).not.toHaveBeenCalled();
 
-    header().querySelector('.settings-dropdown-container button')!.dispatchEvent(
-      new MouseEvent('click', { bubbles: true })
-    );
+    header()
+      .querySelector('.settings-dropdown-container button')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
     fixture.detectChanges();
-    header().querySelector('.settings-dropdown div.px-4')!.dispatchEvent(
-      new MouseEvent('click', { bubbles: true })
-    );
+    header()
+      .querySelector('.settings-dropdown div.px-4')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
     fixture.detectChanges();
-    const confirmButtons = fixture.nativeElement.querySelectorAll('mkworld-confirmation-popup button');
+    const confirmButtons = fixture.nativeElement.querySelectorAll(
+      'mkworld-confirmation-popup button'
+    );
     dispatchMouse(confirmButtons[1], 'click');
     fixture.detectChanges();
 

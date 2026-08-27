@@ -38,7 +38,9 @@ describe('ChecklistDataService', () => {
   }
 
   function findByIndex(index: number): ChecklistModel {
-    const model = service.getChecklistModels()().find((item: ChecklistModel) => item.index === index);
+    const model = service
+      .getChecklistModels()()
+      .find((item: ChecklistModel) => item.index === index);
     expect(model).toBeTruthy();
     return model!;
   }
@@ -50,9 +52,11 @@ describe('ChecklistDataService', () => {
 
     it('should load the seed checklist', () => {
       expect(service.getChecklistModels()().length).toBe(checklistData.length);
-      expect(service.getChecklistModels()().every((item: ChecklistModel) => !item.checked)).toBe(
-        true
-      );
+      expect(
+        service
+          .getChecklistModels()()
+          .every((item: ChecklistModel) => !item.checked)
+      ).toBe(true);
     });
 
     it('should persist checked flags after a toggle', () => {
@@ -81,9 +85,11 @@ describe('ChecklistDataService', () => {
     });
 
     it('should ignore saved indexes that are not in the seed', () => {
-      expect(service.getChecklistModels()().some((item: ChecklistModel) => item.index === 99999)).toBe(
-        false
-      );
+      expect(
+        service
+          .getChecklistModels()()
+          .some((item: ChecklistModel) => item.index === 99999)
+      ).toBe(false);
       expect(service.getChecklistModels()().length).toBe(checklistData.length);
     });
   });
@@ -154,9 +160,9 @@ describe('ChecklistDataService', () => {
 
     it('should hide collectible types that are toggled off', () => {
       const before = service.getCollectibleChecklistModelsOnMap()();
-      expect(before.some(item => item.collectibleModel?.collectibleType === CollectibleType.PEACH_COIN)).toBe(
-        true
-      );
+      expect(
+        before.some(item => item.collectibleModel?.collectibleType === CollectibleType.PEACH_COIN)
+      ).toBe(true);
 
       settingsService.toggleShowCollectibleType(CollectibleType.PEACH_COIN);
 
@@ -194,7 +200,9 @@ describe('ChecklistDataService', () => {
     });
 
     it('should count only sticker items toward progress and total', () => {
-      const stickerCount = service.getChecklistModels()().filter(item => item.hasSticker).length;
+      const stickerCount = service
+        .getChecklistModels()()
+        .filter(item => item.hasSticker).length;
       expect(service.getTotal()()).toBe(stickerCount);
       expect(service.getProgress()()).toBe(0);
 
@@ -252,11 +260,18 @@ describe('ChecklistDataService', () => {
     it('should reset checklist progress and achievements', () => {
       service.updateChecklistModelChecked(findByIndex(0));
       const achievement = achievementDataService.getAchievements()()[0];
-      achievementDataService.updateAchievementMilestoneReached(achievement, achievement.milestones[0]);
+      achievementDataService.updateAchievementMilestoneReached(
+        achievement,
+        achievement.milestones[0]
+      );
 
       service.performQuickAction(QuickAction.RESET);
 
-      expect(service.getChecklistModels()().every((item: ChecklistModel) => !item.checked)).toBe(true);
+      expect(
+        service
+          .getChecklistModels()()
+          .every((item: ChecklistModel) => !item.checked)
+      ).toBe(true);
       expect(achievementDataService.getAchievements()()[0].milestoneReached).toBe(0);
     });
   });

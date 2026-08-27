@@ -5,6 +5,8 @@ import { StickerAlbum } from './sticker-album';
 import { dispatchMouse, dispatchTouch } from '../../testing/dispatch-events';
 import { waitMs } from '../../testing/async';
 
+const UNIQUE_TOKEN = 'zzuniquetoken';
+
 describe('StickerAlbum', () => {
   let fixture: ComponentFixture<StickerAlbum>;
   let component: StickerAlbum;
@@ -134,5 +136,59 @@ describe('StickerAlbum', () => {
 
     expect(checkbox.checked).toBe(true);
     expect(host().querySelector('.sticker-tooltip')).toBeNull();
+  });
+
+  describe('search', () => {
+    function searchInput(): HTMLInputElement {
+      return host().querySelector('.sticker-search-input') as HTMLInputElement;
+    }
+
+    async function typeSearch(searchTerm: string): Promise<void> {
+      const input = searchInput();
+      input.value = searchTerm;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      await waitMs(CONSTANTS.STICKER_SEARCH_DEBOUNCE_TIME + 100);
+      fixture.detectChanges();
+    }
+
+    it('should render the search input', () => {
+      expect(searchInput()).toBeTruthy();
+    });
+
+    it('should keep the album usable when the search matches nothing', async () => {
+      await typeSearch(UNIQUE_TOKEN);
+
+      expect(searchInput()).toBeTruthy();
+      expect(host().querySelectorAll('.sticker').length).toBe(0);
+      expect(host().querySelector('.sticker-album-no-results')).toBeTruthy();
+    });
+
+    it('should restore the album when the search is cleared', async () => {
+      await typeSearch(UNIQUE_TOKEN);
+      expect(host().querySelectorAll('.sticker').length).toBe(0);
+
+      (host().querySelector('.sticker-search-clear') as HTMLElement).click();
+      fixture.detectChanges();
+
+      expect(host().querySelectorAll('.sticker').length).toBeGreaterThan(0);
+      expect(searchInput().value).toBe('');
+    });
+
+    it('should not switch pages when dragging inside the search input', async () => {
+      const input = searchInput();
+
+      dispatchMouse(input, 'mousedown', 200, 40);
+      dispatchMouse(input, 'mousemove', 200 - CONSTANTS.STICKER_ALBUM_DRAG_THRESHOLD, 40);
+      dispatchMouse(input, 'mouseup', 200 - CONSTANTS.STICKER_ALBUM_DRAG_THRESHOLD, 40);
+      await waitForPageChange();
+
+      expect(pageService.getPageNumber()()).toBe(0);
+    });
+
+    it('should not lock the controls while filtering', async () => {
+      await typeSearch(UNIQUE_TOKEN);
+
+      expect(component.areControlsDisabled()).toBe(false);
+    });
   });
 });

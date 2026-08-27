@@ -20,6 +20,7 @@ import {
   MapSectionService,
   PageService,
   SettingsService,
+  StickerSearchService,
   TooltipService,
 } from '../core/services';
 import { PageAnimationDirection, StickerPosition } from './models';
@@ -37,6 +38,7 @@ export class StickerAlbum {
   private readonly pageService = inject(PageService);
   private readonly tooltipService = inject(TooltipService);
   private readonly mapSectionService = inject(MapSectionService);
+  private readonly stickerSearchService = inject(StickerSearchService);
 
   readonly stickerItems = viewChildren<ElementRef>('stickerItem');
   readonly pageContainer = viewChild<ElementRef>('pageContainer');
@@ -50,6 +52,11 @@ export class StickerAlbum {
   page: ChecklistModel[] = [];
   readonly pageNumber = this.pageService.getPageNumber();
   readonly pageCount = this.pageService.getPageCount();
+  readonly hasStickers = this.pageService.hasStickers();
+  readonly hasSearchResults = computed(() => this.pageCount() > 0);
+
+  readonly rawSearchTerm = this.stickerSearchService.getRawSearchTerm();
+  private lastAnimatedSearchTerm = '';
 
   hoveredChecklistModel = signal<ChecklistModel | null>(null);
   private hoverTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -77,7 +84,12 @@ export class StickerAlbum {
     toObservable(this.pageService.getPage())
       .pipe(takeUntilDestroyed())
       .subscribe((page: ChecklistModel[]) => {
-        if (this.stickerItems()) {
+        // A search swaps the whole page at once, so the filter animation has nothing to move.
+        const searchTerm = this.stickerSearchService.getSearchTerm()();
+        const isSearchChange = searchTerm !== this.lastAnimatedSearchTerm;
+        this.lastAnimatedSearchTerm = searchTerm;
+
+        if (this.stickerItems() && !isSearchChange) {
           this.recordCurrentPositionsForFilter();
           queueMicrotask(() => this.animateLayoutChanges());
         }
@@ -85,7 +97,20 @@ export class StickerAlbum {
       });
   }
 
+  onSearchInput(event: Event): void {
+    this.stickerSearchService.setSearchTerm((event.target as HTMLInputElement).value);
+  }
+
+  clearSearch(searchInput: HTMLInputElement): void {
+    searchInput.value = '';
+    searchInput.focus();
+    this.stickerSearchService.clearSearchTerm();
+  }
+
   prevPage() {
+    if (this.pageCount() <= 1) {
+      return;
+    }
     if (this.pageNumber() > 0) {
       this.goToPage(this.pageNumber() - 1);
     } else {
@@ -94,6 +119,9 @@ export class StickerAlbum {
   }
 
   nextPage() {
+    if (this.pageCount() <= 1) {
+      return;
+    }
     if (this.pageNumber() < this.pageCount() - 1) {
       this.goToPage(this.pageNumber() + 1);
     } else {
@@ -212,6 +240,9 @@ export class StickerAlbum {
 
   @HostListener('mousedown', ['$event'])
   onMouseDown(event: MouseEvent): void {
+    if (isSearchControl(event.target)) {
+      return;
+    }
     this.startDrag(event.clientX, event.clientY);
   }
 
@@ -231,6 +262,9 @@ export class StickerAlbum {
 
   @HostListener('touchstart', ['$event'])
   onTouchStart(event: TouchEvent): void {
+    if (isSearchControl(event.target)) {
+      return;
+    }
     const touch = event.touches[0];
     this.startDrag(touch.clientX, touch.clientY);
   }
@@ -419,4 +453,11 @@ export class StickerAlbum {
       this.tooltipService.setActiveTooltipDataWithScrollProtection(checklistModel);
     }
   }
+}
+
+/**
+ * The drag handlers sit on the host, so text selection inside the search box would flip pages.
+ */
+function isSearchControl(target: EventTarget | null): boolean {
+  return !!(target as HTMLElement | null)?.closest?.('.sticker-search');
 }
